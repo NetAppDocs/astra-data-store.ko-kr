@@ -1,0 +1,224 @@
+---
+sidebar: sidebar 
+permalink: support/autosupport.html 
+keywords: how to use autosupport, autosupport, asup, logs, asup bundle, support ticket, support bundle 
+summary: 'NetApp은 Astra Data Store 미리보기 기능을 다양한 방법으로 지원합니다. 기술 자료(KB) 기사 및 Slack 채널과 같은 광범위한 무료 셀프 지원 옵션을 24x7 이용할 수 있습니다. Astra Data Store 미리보기 계정에는 웹 발권 서비스를 통한 원격 기술 지원이 포함되어 있습니다.' 
+---
+= 자동 지원 모니터링
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/support/
+
+
+AutoSupport는 Astra Data Store 미리보기 시스템의 런타임 및 정보를 모니터링하여 메시지를 NetApp 지원으로 보냅니다. 이러한 시스템 구성 요소는 구성에 따라 모니터링할 수 있습니다.
+
+* 컨트롤 플레인
+* 스토리지
+
+
+AutoSupport는 기본적으로 이 기간 동안 사용하도록 설정됩니다 link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra Data Store 클러스터 설치 미리 보기"] 또는 AutoSupport CR이 클러스터에 적용된 후입니다. 활성화되면 AutoSupport(ASUP) 번들이 에 자동으로 업로드됩니다 https://mysupport.netapp.com/site/["NetApp Support 사이트(NSS)"^] 또는 수동 다운로드에 사용할 수 있습니다.
+
+.옵션
+* <<AutoSupport triggers and scenarios>>
+* <<Configure custom control plane AutoSupport collection>>
+* <<Configure custom storage AutoSupport collection>>
+* <<List ASUPs in the system>>
+* <<Download an ASUP Bundle>>
+* <<Upload a core file>>
+
+
+
+
+== AutoSupport 트리거 및 시나리오
+
+AutoSupport 번들은 다음과 같은 방법으로 트리거됩니다.
+
+* 주기적으로: CR에 정의된 간격으로 ASUP 번들을 생성합니다.
+* 사용자 트리거: 로그를 볼 수 있도록 사용자 고유의 ASP를 수동으로 생성할 수 있습니다.
+* Coredumps: 노드에 코어 덤프가 있는 경우 ASUP가 생성되고 코어가 NetApp으로 전송되어 추가 조사가 수행됩니다.
+* CallHome 이벤트 기반: 운영 체제에서 특정 callhome 이벤트를 통해 ASUP가 생성됩니다.
+* Kubernetes 이벤트 기반: ASUP는 제어 플레인의 특정 Kubernetes 이벤트에서 생성됩니다.
+
+
+이러한 트리거 시나리오는 다음 AutoSupport 유형 중 하나를 생성합니다.
+
+* ControlPlane AutoSupport: Astra 데이터 저장소 미리 보기 컨트롤 플레인 로그 및 CRS의 모음입니다.
+* Storage AutoSupport: 스토리지 보고서 및 성능 데이터의 모음입니다.
+* 코어 덤프 AutoSupport: 시스템 코어 덤프의 모음입니다.
+
+
+
+
+== 사용자 지정 컨트롤 플레인 AutoSupport 컬렉션을 구성합니다
+
+컨트롤 플레인 이벤트를 보고하는 사용자 지정 AutoSupport 컬렉션 구성을 만들 수 있습니다. 대부분의 설치는 기본적으로 에 대해 정기적인 이벤트 보고를 사용하도록 설정되어 있습니다 link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra Data Store 클러스터 설치 미리 보기"]. 이 절차에서는 선택한 매개 변수를 기반으로 보고하는 AutoSupport CR을 구성하는 방법에 대해 설명합니다.
+
+.단계
+. 컨트롤 플레인 컬렉션 CR을 만들려면 다음 명령을 사용자 지정합니다.
++
+[listing]
+----
+kubectl astasds asup collect -c controlplane --namespace=astrads-system
+----
++
+.. 사용자 정의 매개변수 정의:
++
+*** "<myASUPname>": 생성할 AutoSupport CR의 이름입니다.
+*** "-e<event name>": 이벤트 이름을 수집하는 이벤트 이름은 구성 요소에 미리 정의되어 있어야 합니다. YAML(지원 컨트롤러에 탑재됨).
++
+예:
+
++
+[listing]
+----
+kubectl astrasds asup collect -c controlplane custom-asup-name -e debug --namespace=astrads-system
+----
+
+
+.. 시스템에 필요한 추가 매개 변수를 추가합니다.
++
+*** '--클러스터': 이 플래그는 다중 클러스터 환경에서 필요합니다.
+*** `-- localCollection ': 로컬 수집을 활성화합니다. 기본값은 false 입니다
+*** '--forceUpload': 강제 업로드가 가능합니다. 기본값은 false 입니다
+*** '--RETRY': 재시도를 활성화합니다. 기본값은 false 입니다
+
+
+
+
+
+
+
+
+== 사용자 지정 저장소 AutoSupport 컬렉션을 구성합니다
+
+스토리지 구성 요소 이벤트를 보고하는 사용자 지정 AutoSupport 컬렉션 구성을 생성할 수 있습니다. 대부분의 설치는 기본적으로 에 대해 정기적인 이벤트 보고를 사용하도록 설정되어 있습니다 link:../get-started/install-ads.html#install-the-astra-data-store-cluster["Astra Data Store 클러스터 설치 미리 보기"]. 이 절차에서는 선택한 매개 변수를 기반으로 보고하는 AutoSupport CR을 구성하는 방법에 대해 설명합니다.
+
+.단계
+. 다음 명령을 사용자 지정하여 스토리지 컬렉션 CR을 생성합니다.
++
+[listing]
+----
+kubectl astrasds asup collect -c storage --namespace=astrads-system
+----
++
+.. 사용자 정의 매개변수 정의:
++
+*** "<myASUPname>": 생성할 AutoSupport CR의 이름입니다.
+*** "-e<event name>": 이벤트 이름을 수집하는 이벤트 이름은 구성 요소에 미리 정의되어 있어야 합니다. YAML(지원 컨트롤러에 탑재됨).
++
+성능 이벤트의 예:
+
++
+[listing]
+----
+kubectl-astrads asup collect -c storage -e performance example-perf-storage-asup
+----
+*** "-t<iso_format>-d<hours>": 지정된 기간 동안 모든 노드에 대해 스토리지 ASUP를 수집합니다. 표준 ISO 날짜 시간 형식("-t")을 시간(dA) 단위로 사용합니다. 예를 들면 다음과 같습니다.
++
+[listing]
+----
+kubectl astrads asup collect -c storage -t 2021-01-01T15:00:00Z -d 24
+----
+*** '--nodename>': 지정된 노드에 대한 스토리지 ASUP를 수집합니다. 예를 들면 다음과 같습니다.
++
+[listing]
+----
+kubectl astrads asup collect -c storage --nodes example1
+----
+*** '- 노드 nodename1,nodename2,nodename3': 지정된 노드에 대한 스토리지 ASUP 수집:
++
+[listing]
+----
+kubectl astrads asup collect -c storage --nodes example1,example2,example3
+----
+
+
+.. 시스템에 필요한 추가 매개 변수를 추가합니다.
++
+*** '--클러스터': 이 플래그는 다중 클러스터 환경에서 필요합니다.
+*** `-- localCollection ': 로컬 수집을 활성화합니다. 기본값은 false 입니다
+*** '--forceUpload': 강제 업로드가 가능합니다. 기본값은 false 입니다
+*** '--RETRY': 재시도를 활성화합니다. 기본값은 false 입니다
+
+
+
+
+
+
+
+
+== 시스템에 ASP를 나열합니다
+
+다음 명령을 사용하여 시스템의 ASP를 이름으로 나열할 수 있습니다.
+
+[listing]
+----
+kubectl astrasds asup list --namespace=astrads-system
+----
+샘플 반응:
+
+[listing]
+----
+NAMESPACE      NAME                                  SEQUENCE NUMBER EVENT                      SIZE  STATE       LOCAL COLLECTION
+astrads-system  storage-callhome.reboot.unknown-...  1               callhome.reboot.unknown    0     uploaded    astrads-ds-support-tdl2h:
+astrads-system  storage-callhome.reboot.unknown-...  2               callhome.reboot.unknown    0     uploaded    astrads-ds-support-xx6n8:
+astrads-system  storage-callhome.reboot.unknown-...  3               callhome.reboot.unknown    0     uploaded    astrads-ds-support-qghnx:
+----
+
+
+== ASUP 번들을 다운로드하십시오
+
+이 명령을 사용하여 로컬에서 수집한 ASUP 번들을 다운로드할 수 있습니다. 현재 작업 디렉토리 이외의 위치를 지정하려면 '-o<location>'을 사용합니다.
+
+[listing]
+----
+./kubectl-astrasds asup download <ASUP_bundle_name> -o <location>
+----
+
+
+== 코어 파일을 업로드합니다
+
+서비스가 충돌하면 충돌 시 관련 메모리 콘텐츠가 포함된 파일(코어 파일이라고 함)과 함께 AutoSupport(ASUP) 메시지가 생성됩니다. Astra Data Store 미리 보기에서 ASUP 메시지를 NetApp Support에 자동으로 업로드하지만, ASUP 메시지와 연관된 코어 파일을 수동으로 업로드해야 합니다.
+
+.단계
+. 다음 "kubbtl" 명령을 사용하여 ASUP 메시지를 확인하십시오.
++
+[listing]
+----
+kubectl astrasds asup list --namespace=astrads-system
+----
++
+다음과 유사한 출력이 표시됩니다.
+
++
+[listing]
+----
+NAMESPACE       NAME                      SEQUENCE NUMBER  EVENT     SIZE       STATE       LOCAL COLLECTION
+
+astrads-system  storage-coredump-2021...  1                coredump  197848373  compressed  astrads-ds-support-sxxn7:/var/...
+----
+. 다음 "kubbtl" 명령을 사용하여 ASUP 메시지에서 핵심 파일을 다운로드합니다. 다운로드한 파일의 대상 디렉토리를 지정하려면 '-o' 옵션을 사용합니다.
++
+[listing]
+----
+kubectl astrads asup download storage-coredump-20211216t140851311961680 -o <absolute_path_to_destination_directory>
+----
++
+
+NOTE: 다른 핵심 파일이 삭제되어 코어 파일을 다운로드하지 못하는 경우가 드물게 있습니다. 이 경우 "Cannot stat: No such file or directory" 오류가 반환됩니다. 이 오류가 표시되면 를 사용할 수 있습니다 link:get-help-ads.html["도움을 받으십시오"].
+
+. 웹 브라우저를 열고 로 이동합니다 https://upload.netapp.com/sg["NetApp 인증된 파일 업로드 툴"^], 아직 로그인하지 않은 경우 NetApp 지원 자격 증명을 입력합니다.
+. 케이스 번호가 없습니다 * 확인란을 선택합니다.
+. 가장 가까운 지역 * 메뉴에서 가장 가까운 지역을 선택합니다.
+. 업로드 * 버튼을 선택합니다.
+. 이전에 다운로드한 코어 파일을 찾아 선택합니다.
++
+업로드가 시작됩니다. 업로드가 완료되면 성공 메시지가 나타납니다.
+
+
+
+[discrete]
+== 자세한 내용을 확인하십시오
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/How_to_upload_a_file_to_NetApp["NetApp에 파일을 업로드하는 방법(로그인 필요)"^]
+

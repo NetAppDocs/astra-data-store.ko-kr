@@ -1,0 +1,50 @@
+---
+sidebar: sidebar 
+permalink: release-notes/known-limitations.html 
+keywords: astra, control center, limitations, known limitations, interoperability 
+summary: 알려진 제한 사항은 이 제품 릴리스에서 지원하지 않거나 올바르게 상호 운용되지 않는 플랫폼, 장치 또는 기능을 식별합니다. 이러한 제한 사항을 주의 깊게 검토하십시오. 
+---
+= 알려진 제한 사항
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/release-notes/
+
+
+알려진 제한 사항은 이 제품의 미리 보기 릴리스에 의해 지원되지 않거나 올바르게 상호 운용되지 않는 플랫폼, 장치 또는 기능을 식별합니다. 이러한 제한 사항을 주의 깊게 검토하십시오.
+
+
+
+== 하나 이상의 노드를 제거하는 기능은 지원되지 않습니다
+
+Astra Data Store 미리 보기는 장애가 발생한 노드 교체를 지원하지만 노드 제거 기능은 지원하지 않습니다.
+
+
+
+== 드라이브를 추가하거나 제거하는 기능은 지원되지 않습니다
+
+Astra Data Store 미리 보기는 장애가 발생한 드라이브 교체를 지원하지만 기존 클러스터에 드라이브를 추가하거나 기존 클러스터에서 드라이브를 제거하는 기능은 지원하지 않습니다.
+
+
+
+== Astra Data Store 미리보기 기능은 방화벽이 활성화된 상태에서 검증되지 않았습니다
+
+Astra Data Store 미리 보기를 사용하려면 호스트 방화벽(firwalld)을 비활성화해야 합니다. Calico HostEndpoint와 같은 CNI 도구를 사용하여 방화벽을 활성화하는 것은 검증되지 않았습니다.
+
+
+
+== 업그레이드 또는 패치를 설치하려면 새로 설치해야 합니다
+
+Astra Data Store 미리 보기는 운영 워크로드를 대상으로 하지 않습니다.
+
+
+
+== Ubuntu 기반 베어 메탈 또는 VM 패스스루 배포에는 NVMe TLC SSD가 필요합니다
+
+이 제한은 RHEL, RHCOS 또는 CentOS 기반 배포에는 적용되지 않습니다.
+
+
+
+== 자세한 내용을 확인하십시오
+
+* link:../release-notes/known-issues.html["알려진 문제"]
+

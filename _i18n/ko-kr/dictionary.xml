@@ -1,0 +1,990 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<blocks>
+  <block id="09d2d3af569490e66174ce93301cd0b0" category="summary">Astra Data Store는 Kubernetes 기본 컨테이너 애플리케이션을 위한 영구적인 스토리지 및 데이터 관리 서비스를 제공합니다. Astra Data Store는 Astra 제품군의 일부입니다.</block>
+  <block id="0033a0be965b04e889c13f8699fa52ca" category="doc">Astra Data Store 미리 보기 문서</block>
+  <block id="e53566a3d4b03bb3bb38c32ee32acedb" category="summary">NetApp은 Astra Data Store 미리보기 기능을 다양한 방법으로 지원합니다. 기술 자료(KB) 기사 및 Slack 채널과 같은 광범위한 무료 셀프 지원 옵션을 24x7 이용할 수 있습니다. Astra Data Store 미리보기 계정에는 웹 발권 서비스를 통한 원격 기술 지원이 포함되어 있습니다.</block>
+  <block id="f5291aae1c11df631ccc337d79334351" category="doc">자동 지원 모니터링</block>
+  <block id="d3002c3c5bd6594f90c9f3ba7b8c6c09" category="paragraph">AutoSupport는 Astra Data Store 미리보기 시스템의 런타임 및 정보를 모니터링하여 메시지를 NetApp 지원으로 보냅니다. 이러한 시스템 구성 요소는 구성에 따라 모니터링할 수 있습니다.</block>
+  <block id="650717c72d7a99e6505592f83821e4ed" category="list-text">컨트롤 플레인</block>
+  <block id="8c4aa541ee911e8d80451ef8cc304806" category="list-text">스토리지</block>
+  <block id="9028632a1ad8f69c5f424ba9224a7bcd" category="inline-link-macro">Astra Data Store 클러스터 설치 미리 보기</block>
+  <block id="0c6bf31289bc5bf0b95228b0d2a8ec60" category="inline-link">NetApp Support 사이트(NSS)</block>
+  <block id="a2ff6cb31659d7f5864cbf551727e519" category="paragraph">AutoSupport는 기본적으로 이 기간 동안 사용하도록 설정됩니다 <block ref="b8d0fecdbb366e350e2e6df61e978231" category="inline-link-macro-rx"></block> 또는 AutoSupport CR이 클러스터에 적용된 후입니다. 활성화되면 AutoSupport(ASUP) 번들이 에 자동으로 업로드됩니다<block ref="6030415907234973f3f8d5646d406ab7" category="inline-link-rx"></block> 또는 수동 다운로드에 사용할 수 있습니다.</block>
+  <block id="dae8ace18bdcbcc6ae5aece263e14fe8" category="list-title">옵션</block>
+  <block id="d41d8cd98f00b204e9800998ecf8427e" category="inline-xref"></block>
+  <block id="023abf142a3991d559ced0ca57282d6a" category="list-text"><block ref="73e64b817c03e14fe2277fa69c7e863e" category="inline-xref-macro-rx"></block></block>
+  <block id="0e670f718cb5e0f313f7a5754b53af80" category="list-text"><block ref="fd89cb1e95c5a94c74489125cde6510b" category="inline-xref-macro-rx"></block></block>
+  <block id="12086876b40161f34ebcda9b4141c63d" category="list-text"><block ref="e2db2b0a425a63f84b57e5abb9f20b22" category="inline-xref-macro-rx"></block></block>
+  <block id="314287d647e9716574bbc7c100fb9867" category="list-text"><block ref="def4bcae3ecda655c7b733ea3980c265" category="inline-xref-macro-rx"></block></block>
+  <block id="1263660ba67e88caf8eb2431d28c44d1" category="list-text"><block ref="c812ac4d7fb1d494d99e57543c82a134" category="inline-xref-macro-rx"></block></block>
+  <block id="5a880b8c445a800acadf32c4ad7af071" category="list-text"><block ref="a71874fb50b79b81cbba98e9c1dfefdf" category="inline-xref-macro-rx"></block></block>
+  <block id="c8259bf35a2bdc9b87f057557d330e25" category="section-title">AutoSupport 트리거 및 시나리오</block>
+  <block id="b23b84a773fe2431825b44f4b9bc0ddb" category="paragraph">AutoSupport 번들은 다음과 같은 방법으로 트리거됩니다.</block>
+  <block id="a5facf88e98d4f3b6218267651739d68" category="list-text">주기적으로: CR에 정의된 간격으로 ASUP 번들을 생성합니다.</block>
+  <block id="ec673413fc3a41ebc533e1c38f2e18a1" category="list-text">사용자 트리거: 로그를 볼 수 있도록 사용자 고유의 ASP를 수동으로 생성할 수 있습니다.</block>
+  <block id="30bf10f9e77440cd5b50c15719c81944" category="list-text">Coredumps: 노드에 코어 덤프가 있는 경우 ASUP가 생성되고 코어가 NetApp으로 전송되어 추가 조사가 수행됩니다.</block>
+  <block id="c2d8f28a841240c2f4d90140f7810bf1" category="list-text">CallHome 이벤트 기반: 운영 체제에서 특정 callhome 이벤트를 통해 ASUP가 생성됩니다.</block>
+  <block id="3c71d7ce3356413ca73e41268c0f7c83" category="list-text">Kubernetes 이벤트 기반: ASUP는 제어 플레인의 특정 Kubernetes 이벤트에서 생성됩니다.</block>
+  <block id="372fb9362736f0e8d582ec96df84fb6a" category="paragraph">이러한 트리거 시나리오는 다음 AutoSupport 유형 중 하나를 생성합니다.</block>
+  <block id="4547941b00b06ef9b132d2d05b58369d" category="list-text">ControlPlane AutoSupport: Astra 데이터 저장소 미리 보기 컨트롤 플레인 로그 및 CRS의 모음입니다.</block>
+  <block id="25a6232591674a3c1dbb24564f4d87fb" category="list-text">Storage AutoSupport: 스토리지 보고서 및 성능 데이터의 모음입니다.</block>
+  <block id="1ced1baf40d2db9de38616ea88ac1a4b" category="list-text">코어 덤프 AutoSupport: 시스템 코어 덤프의 모음입니다.</block>
+  <block id="4d58342c8fbe7548f0680da50eadd915" category="section-title">사용자 지정 컨트롤 플레인 AutoSupport 컬렉션을 구성합니다</block>
+  <block id="63ef41700dec8384fe67a00749f8ca7d" category="paragraph">컨트롤 플레인 이벤트를 보고하는 사용자 지정 AutoSupport 컬렉션 구성을 만들 수 있습니다. 대부분의 설치는 기본적으로 에 대해 정기적인 이벤트 보고를 사용하도록 설정되어 있습니다 <block ref="b8d0fecdbb366e350e2e6df61e978231" category="inline-link-macro-rx"></block>. 이 절차에서는 선택한 매개 변수를 기반으로 보고하는 AutoSupport CR을 구성하는 방법에 대해 설명합니다.</block>
+  <block id="f3a29486bed19a90f2da6d007818b427" category="list-title">단계</block>
+  <block id="704170cc11bda8cddca282c117836b3a" category="list-text">컨트롤 플레인 컬렉션 CR을 만들려면 다음 명령을 사용자 지정합니다.</block>
+  <block id="0e06b0da9f80219a18d8739f0120abbd" category="list-text">사용자 정의 매개변수 정의:</block>
+  <block id="b29d2ef49a96707c2d8b5968d23c62a8" category="list-text">"&lt;myASUPname&gt;": 생성할 AutoSupport CR의 이름입니다.</block>
+  <block id="b1779b1163734addf83359e7b817be1d" category="list-text">"-e&lt;event name&gt;": 이벤트 이름을 수집하는 이벤트 이름은 구성 요소에 미리 정의되어 있어야 합니다. YAML(지원 컨트롤러에 탑재됨).</block>
+  <block id="81eeab9506186e2dca8faefa78d54067" category="paragraph">예:</block>
+  <block id="c9fcbda668b713374776401ef822c1e8" category="list-text">시스템에 필요한 추가 매개 변수를 추가합니다.</block>
+  <block id="92a4815b61cd107e54a5baa926431efe" category="list-text">'--클러스터': 이 플래그는 다중 클러스터 환경에서 필요합니다.</block>
+  <block id="7e1232afa7e6c41607b3fb287f2b8b1e" category="list-text">`-- localCollection ': 로컬 수집을 활성화합니다. 기본값은 false 입니다</block>
+  <block id="14435a527eab4059647b1d681292642e" category="list-text">'--forceUpload': 강제 업로드가 가능합니다. 기본값은 false 입니다</block>
+  <block id="7559d5f261056c6409821093bd2ec415" category="list-text">'--RETRY': 재시도를 활성화합니다. 기본값은 false 입니다</block>
+  <block id="c7e88254029f9cd1420ef53afd3e08fe" category="section-title">사용자 지정 저장소 AutoSupport 컬렉션을 구성합니다</block>
+  <block id="3fb0de2e8be52ea08e0f98a5ce31ab07" category="paragraph">스토리지 구성 요소 이벤트를 보고하는 사용자 지정 AutoSupport 컬렉션 구성을 생성할 수 있습니다. 대부분의 설치는 기본적으로 에 대해 정기적인 이벤트 보고를 사용하도록 설정되어 있습니다 <block ref="b8d0fecdbb366e350e2e6df61e978231" category="inline-link-macro-rx"></block>. 이 절차에서는 선택한 매개 변수를 기반으로 보고하는 AutoSupport CR을 구성하는 방법에 대해 설명합니다.</block>
+  <block id="aa1f065e1e83bd408811c0d6b5def6ad" category="list-text">다음 명령을 사용자 지정하여 스토리지 컬렉션 CR을 생성합니다.</block>
+  <block id="685637f8394db77947ca4501d806f8a0" category="paragraph">성능 이벤트의 예:</block>
+  <block id="72bb3d88e5af1a36a5333ae707bc5a35" category="list-text">"-t&lt;iso_format&gt;-d&lt;hours&gt;": 지정된 기간 동안 모든 노드에 대해 스토리지 ASUP를 수집합니다. 표준 ISO 날짜 시간 형식("-t")을 시간(dA) 단위로 사용합니다. 예를 들면 다음과 같습니다.</block>
+  <block id="46fb87c66087faf2d690569c0074fb91" category="list-text">'--nodename&gt;': 지정된 노드에 대한 스토리지 ASUP를 수집합니다. 예를 들면 다음과 같습니다.</block>
+  <block id="79b4eb1f989dedc89bda6deb12b79b34" category="list-text">'- 노드 nodename1,nodename2,nodename3': 지정된 노드에 대한 스토리지 ASUP 수집:</block>
+  <block id="7023c4aeddebc994995578d8b53dd967" category="section-title">시스템에 ASP를 나열합니다</block>
+  <block id="94369fb85acb6fa2be47fe3361d265c9" category="paragraph">다음 명령을 사용하여 시스템의 ASP를 이름으로 나열할 수 있습니다.</block>
+  <block id="6d55356ca8cb9b27cfa6e2bb46ebb089" category="paragraph">샘플 반응:</block>
+  <block id="e5c24e1b7c0879d053fead5eeda95740" category="section-title">ASUP 번들을 다운로드하십시오</block>
+  <block id="af20eab0ce8bde78126bef44b877ca8c" category="paragraph">이 명령을 사용하여 로컬에서 수집한 ASUP 번들을 다운로드할 수 있습니다. 현재 작업 디렉토리 이외의 위치를 지정하려면 '-o&lt;location&gt;'을 사용합니다.</block>
+  <block id="e569dc044792d2bf4595c7af9541daed" category="section-title">코어 파일을 업로드합니다</block>
+  <block id="2fa417be1459dc86d7a81f0505693461" category="paragraph">서비스가 충돌하면 충돌 시 관련 메모리 콘텐츠가 포함된 파일(코어 파일이라고 함)과 함께 AutoSupport(ASUP) 메시지가 생성됩니다. Astra Data Store 미리 보기에서 ASUP 메시지를 NetApp Support에 자동으로 업로드하지만, ASUP 메시지와 연관된 코어 파일을 수동으로 업로드해야 합니다.</block>
+  <block id="1861872a87cd1bd45477d1bd8bde8fbc" category="list-text">다음 "kubbtl" 명령을 사용하여 ASUP 메시지를 확인하십시오.</block>
+  <block id="d0848afd8553c34945705222a97a4553" category="paragraph">다음과 유사한 출력이 표시됩니다.</block>
+  <block id="e3e003fbe97f56e5da7b9836f13e40cd" category="list-text">다음 "kubbtl" 명령을 사용하여 ASUP 메시지에서 핵심 파일을 다운로드합니다. 다운로드한 파일의 대상 디렉토리를 지정하려면 '-o' 옵션을 사용합니다.</block>
+  <block id="aef336662f3dd955f1ffe1b4d962e8dd" category="inline-link-macro">도움을 받으십시오</block>
+  <block id="8bcac861b17be24df6709af819869bde" category="admonition">다른 핵심 파일이 삭제되어 코어 파일을 다운로드하지 못하는 경우가 드물게 있습니다. 이 경우 "Cannot stat: No such file or directory" 오류가 반환됩니다. 이 오류가 표시되면 를 사용할 수 있습니다 <block ref="3739596c2aaab59aab39ba4eae26a099" category="inline-link-macro-rx"></block>.</block>
+  <block id="cdc3fa95d906838557c8a847620eb81b" category="inline-link">NetApp 인증된 파일 업로드 툴</block>
+  <block id="a439a006232750ae691d05d0261a0055" category="list-text">웹 브라우저를 열고 로 이동합니다<block ref="7a5a649adac8f34c2a7fd32a7967050a" category="inline-link-rx"></block>, 아직 로그인하지 않은 경우 NetApp 지원 자격 증명을 입력합니다.</block>
+  <block id="c22afea75269fa3da9fbdc9995d18a90" category="list-text">케이스 번호가 없습니다 * 확인란을 선택합니다.</block>
+  <block id="acb4ffaf34e8909b437a59a61a13b49b" category="list-text">가장 가까운 지역 * 메뉴에서 가장 가까운 지역을 선택합니다.</block>
+  <block id="ccdb41b7a646fbb51f839a4e474a81cb" category="list-text">업로드 * 버튼을 선택합니다.</block>
+  <block id="aeb709613322d29961877072452bfe23" category="list-text">이전에 다운로드한 코어 파일을 찾아 선택합니다.</block>
+  <block id="d3b3561d6d067e8ee0dccc1a1af988d9" category="paragraph">업로드가 시작됩니다. 업로드가 완료되면 성공 메시지가 나타납니다.</block>
+  <block id="9c83e144e5481ac6766f4055e566594d" category="floating-title">자세한 내용을 확인하십시오</block>
+  <block id="4be9b50faf5ab46a9d28ac23f7713bec" category="inline-link">NetApp에 파일을 업로드하는 방법(로그인 필요)</block>
+  <block id="3b6bf15bbdfc90c8dc6d6778808539e1" category="list-text"><block ref="3b6bf15bbdfc90c8dc6d6778808539e1" category="inline-link-rx"></block></block>
+  <block id="36e2bd9e7950f46d3ea6d2bca4c50ba1" category="summary">발생할 수 있는 몇 가지 일반적인 문제를 해결하는 방법에 대해 알아봅니다.</block>
+  <block id="231cf4c70d866b616c21baddaeed0696" category="doc">문제 해결</block>
+  <block id="79c5785e2761673e59d8eea6f1277fe2" category="paragraph"><block ref="79c5785e2761673e59d8eea6f1277fe2" category="inline-link-rx"></block></block>
+  <block id="62270328bca14e3c5f465539f788f727" category="summary">NetApp은 다양한 방법으로 Astra Data Store를 지원합니다. 기술 자료(KB) 문서 및 Slack 채널과 같은 무료 셀프 지원 옵션이 24x7 제공됩니다.</block>
+  <block id="fabfc25ef8996fd90836e58a4c0b26b6" category="doc">도움을 받으십시오</block>
+  <block id="d552a345b3d00c6f71959b92aa25ca1b" category="paragraph">NetApp은 Astra Data Store 미리보기 기능을 다양한 방법으로 지원합니다. 무료 셀프 서비스 지원 옵션은 기술 자료(KB) 기사 및 Slack 채널과 같이 24x7 이용할 수 있습니다.</block>
+  <block id="30f6976fd56ced2f4cf61b05186ff1c1" category="admonition">Astra Data Store 미리보기에 대한 커뮤니티 기술 지원을 받을 수 있습니다. 를 사용하여 케이스를 생성합니다<block ref="6030415907234973f3f8d5646d406ab7" category="inline-link-rx"></block> 은(는) 미리보기 릴리스에 사용할 수 없습니다. 피드백 옵션을 통해 지원 팀에 문의하거나 Slack 채널을 사용하여 셀프 서비스를 받을 수 있습니다.</block>
+  <block id="975b87a5b34ee0b24e625810de1f893e" category="section-title">셀프 서비스 지원 옵션</block>
+  <block id="6b9b3535d917a5890db4ef00a3718361" category="paragraph">이러한 옵션은 24x7 무료로 제공됩니다.</block>
+  <block id="51ad2162ed9916cdcbfc1328306dae36" category="inline-link">기술 자료(로그인 필요)</block>
+  <block id="ad73b9e5ef9788348d09f760c02c490b" category="list-text"><block ref="ad73b9e5ef9788348d09f760c02c490b" category="inline-link-rx"></block></block>
+  <block id="8eed336b7ebd92f099ff152efa62f5f1" category="paragraph">Astra Data Store 미리 보기와 관련된 문서, FAQ 또는 고장 수리 정보를 검색합니다.</block>
+  <block id="5b6cf869265c13af8566f192b4ab3d2a" category="list-text">문서화</block>
+  <block id="9a4d3fdb6af496c18bc70f14153f8c4f" category="paragraph">현재 보고 있는 문서 사이트입니다.</block>
+  <block id="d848bab8e653fc20f34b1c1978752770" category="inline-link">NetApp "containers" Slack 채널</block>
+  <block id="2a78d6757f0c5e50314bbac0fd7b7197" category="list-text"><block ref="2a78d6757f0c5e50314bbac0fd7b7197" category="inline-link-rx"></block></block>
+  <block id="43af2a6a35a58993fd484dd742044607" category="paragraph">"containers" 채널로 이동하여 동료 및 전문가와 교류하십시오.</block>
+  <block id="9945b7c9f8a0452d5794aa8f1b4132db" category="list-text">피드백 이메일</block>
+  <block id="ddcadc1ed2a47b8718aecd096c744e15" category="paragraph">귀하의 생각, 아이디어 또는 우려 사항을 당사에 알릴 수 있도록 astra.feedback@netapp.com 으로 이메일을 보내주십시오.</block>
+  <block id="c5384541d9e6cac27f9cab2bc075e08e" category="inline-link">NetApp 기술 자료 문서</block>
+  <block id="915175f508b5f3177445a98b51f0097f" category="list-text"><block ref="4bd40507b5d2224d965f5d4747d374a9" category="inline-link-rx"></block></block>
+  <block id="b3103953d0eb8d92f14a4edc6e2fe28a" category="summary">Astra Data Store에 kubeck 명령을 사용하여 드라이브를 교체합니다.</block>
+  <block id="bbbd86c2ee5337914a858400c6fdb7a2" category="doc">드라이브를 교체합니다</block>
+  <block id="fe7c99ee714339295ef1464eff2444c5" category="paragraph">다음은 클러스터에서 장애가 발생한 드라이브를 교체하는 데 필요한 단계에 대한 개요입니다.</block>
+  <block id="6abc782590a9e4461a3103ce82904d1a" category="list-text">노드에 SSH를 연결합니다</block>
+  <block id="586c3d689add9e8ff9e8264c2552c925" category="list-text">활성 드라이브 목록을 가져옵니다.</block>
+  <block id="ed11c0c26d855c72f3b6547a036cb5a8" category="list-text">노드에 연결된 모든 드라이브 목록을 가져옵니다.</block>
+  <block id="63e6369a6b7286c516a9cab733fe6c19" category="list-text">사용 가능한 드라이브를 식별합니다.</block>
+  <block id="311e84b375634f29273ecd1e56331924" category="list-text">장애가 발생한 드라이브의 CR(사용자 지정 리소스)에 대한 알림을 받습니다.</block>
+  <block id="eb060d511b605e93f2a2a260b6dbc752" category="list-text">드라이브를 교체합니다.</block>
+  <block id="17e4f1d2261b575388ad40a2b50c86bb" category="list-text">드라이브가 성공적으로 교체되었으며 클러스터 CR에서 활성 상태인지 확인합니다.</block>
+  <block id="688a9f01064d517d6da081a5ac8353d0" category="list-text">클러스터 세부 정보 확인:</block>
+  <block id="f0f5fac9602d88bc27f0edf960dda8b8" category="paragraph">샘플:</block>
+  <block id="7b06a5238c5e244fde425c0502ff9d3a" category="list-text">노드에 SSH:</block>
+  <block id="bc7abe9efdcfac99c4454b9d769a43c5" category="list-text">해당 노드의 모든 활성 드라이브를 나열합니다.</block>
+  <block id="54472d1da4b0c6eadf8684e846b25dcc" category="paragraph">응답:</block>
+  <block id="78047a701b859d83c0a00c4143555a87" category="list-text">해당 노드의 모든 드라이브를 나열합니다.</block>
+  <block id="1cc9c9a0c87e673adf2c5e47e941fc0e" category="list-text">장애가 발생한 드라이브 CR 생성:</block>
+  <block id="feccfba3029817911cc680409d111a15" category="list-text">실패한 드라이브 세부 정보 가져오기:</block>
+  <block id="539962a87680a6acac5f72ff73171888" category="list-text">장애가 발생한 드라이브 CR을 편집하여 사용 가능한 드라이브로 교체합니다.</block>
+  <block id="bfa727649cf39a210039fea03d2b045b" category="list-text">드라이브가 클러스터 CR 및 노드에서 활성 상태인지 확인합니다.</block>
+  <block id="2c4bb7389deaecb2c2ce1a2a3017a90e" category="summary">노드를 교체하려면 kubeck 명령을 Astra Data Store와 함께 사용하십시오.</block>
+  <block id="eb5f70a21af0a4657d2e1ba9f24d1234" category="doc">노드를 교체합니다</block>
+  <block id="d78735cfb1e1011678392c0293bd3a10" category="paragraph">Astra Data Store에 kubtl 명령을 사용하여 클러스터에서 장애가 발생한 노드를 교체합니다.</block>
+  <block id="ba6892cf573144bb73e7929641b57d17" category="list-text">"astrads-system" 네임스페이스의 POD를 나열하십시오(이 예에서는 클러스터에 4개의 노드가 있는 1x5 구성을 사용합니다).</block>
+  <block id="b1e1294486624403d0533e5b77f81b1f" category="list-text">모든 노드 나열:</block>
+  <block id="4dc1585b3b71bcdfd423771772b26a73" category="list-text">클러스터 설명:</block>
+  <block id="61941ab5e153651276d8ff166c98fa79" category="list-text">노드 HA가 장애가 발생한 노드에서 "거짓"으로 표시되는지 확인합니다.</block>
+  <block id="2e0a0e5f63a3e34661e5cebf3e1bfc05" category="list-text">클러스터 CR을 수정하여 장애가 발생한 노드를 제거합니다. 노드 수는 3개로 감소합니다.</block>
+  <block id="89f09133b136e91c07cf22c261722f17" category="list-text">클러스터에서 노드가 제거되었는지 확인합니다.</block>
+  <block id="59dc031f69b69e9710c74b6b626b9484" category="list-text">클러스터 CR을 수정하여 교체할 노드를 클러스터에 추가합니다. 노드 수는 4까지 증가합니다. 추가를 위해 새 노드가 선택되었는지 확인합니다.</block>
+  <block id="d527387e5ececcd43839b7eb86a061bf" category="summary">호스트 유지보수 또는 패키지 업그레이드를 수행해야 하는 경우 노드를 유지보수 모드로 전환해야 합니다.</block>
+  <block id="0b8dd151b58b6bf3c7360c3a78b26e04" category="doc">노드를 유지보수 모드로 전환합니다</block>
+  <block id="c7e8e8a7f1a6fb5362aeff0689ff1a73" category="admonition">노드는 Astra Data Store 클러스터의 일부여야 합니다.</block>
+  <block id="6a070a29c656f8942eb8d0ed53f9f79e" category="paragraph">노드가 유지보수 모드일 때는 노드를 추가할 수 없습니다.</block>
+  <block id="8574c080b5c15d6898aac8d0b601c5d8" category="list-text">노드 세부 정보를 표시합니다.</block>
+  <block id="d290550b0009c972401d893478976353" category="list-text">볼륨 세부 정보 가져오기:</block>
+  <block id="41fc664a86b897717b81a010b7cf950e" category="list-text">유지보수 모드 활성화:</block>
+  <block id="a50914cbb8e47a537a25014f5b12edc5" category="paragraph">유지 관리 모드에서 은 "거짓"으로 시작하고 "참"으로 변경되며 유지 관리 상태는 "유지 관리 준비"에서 "유지 관리 준비"로 변경됩니다.</block>
+  <block id="d13de4a83d7b44c2e65495def8ef1c7b" category="section-title">를 참조하십시오</block>
+  <block id="809ce4b8d42d2f4a54279fffa78b7e08" category="inline-link-macro">kubeck 명령을 사용하여 Astra Data Store 자산을 관리합니다</block>
+  <block id="55f3d07228facede0763d324535936dd" category="paragraph">이 정보를 참조하십시오. * <block ref="71dd6be9bbc5ad66a4c62fe63d832feb" category="inline-link-macro-rx"></block>.</block>
+  <block id="6e9e51fbbff14f80e8168a1cfe154faf" category="summary">Astra Control에는 Curl과 같은 프로그래밍 언어나 유틸리티를 사용하여 Astra Control 기능에 직접 액세스할 수 있는 REST API가 있습니다.</block>
+  <block id="d755391e5d933eadfa1864b13155afeb" category="doc">Astra Control REST API를 사용한 자동화</block>
+  <block id="ce8c3cae4f2c01197a36e6ffb040472a" category="paragraph">Astra Control에는 Curl과 같은 프로그래밍 언어나 유틸리티를 사용하여 Astra Control 기능에 직접 액세스할 수 있는 REST API가 있습니다. Ansible 및 기타 자동화 기술을 사용하여 Astra Control 배포를 관리할 수도 있습니다.</block>
+  <block id="25a597384655d8562854aa2ef853e0d2" category="paragraph">Kubernetes 앱을 설정 및 관리하려면 Astra Control UI 또는 Astra Control API를 사용할 수 있습니다.</block>
+  <block id="4cb6c41d46d2f006d629608f64213d6f" category="inline-link">Astra Control 자동화 문서</block>
+  <block id="bd0d75f3c5e39de86dcfaa2135656772" category="paragraph">자세한 내용은 로 이동하십시오<block ref="a3a0846fef2d3938044e5c73697831f2" category="inline-link-rx"></block>.</block>
+  <block id="34515f1d88b10d0db0a78eba6c533394" category="summary">알려진 문제점은 이 제품 릴리스를 성공적으로 사용하지 못하게 만들 수 있는 문제를 식별합니다.</block>
+  <block id="95dc0391ce7b396d7dd5622284e8fc3e" category="doc">알려진 문제</block>
+  <block id="cbf07725210d7794bc72ba637e814463" category="paragraph">알려진 문제점은 제품의 이 미리보기 릴리스를 성공적으로 사용하지 못하게 할 수 있는 문제를 식별합니다.</block>
+  <block id="0e4fba3a066f36e9068d0c009d7e645b" category="section-title">기본 Calico WireGuard 인터페이스 이름은 Astra Data Store 미리 보기에서 인식되지 않습니다</block>
+  <block id="0a2658de7347bd058fe644ff8377e067" category="paragraph">이 오류로 인해 포드가 충돌합니다. 해결 방법으로 Calico의 Felix 구성에서 wirreguardInterfaceName 설정을 변경하여 점 없이 인터페이스 이름을 지정합니다. 예를 들면 다음과 같습니다.</block>
+  <block id="7b9da3c0b330f1b48579aeceb36d8fe9" category="paragraph">새 이름을 사용하여 각 노드에 인터페이스를 생성하는 것 외에도 이 변경 사항은 원래 wireguard.cali 인터페이스 뒤에 남겨질 수도 있습니다. 이 문제가 반복되지 않도록 이 인터페이스를 삭제합니다.</block>
+  <block id="611ef1043a7be23a79c733584b983303" category="section-title">VXLAN 구성 및 Calico CNI의 네트워크 인터페이스 이름은 Astra Data Store 미리보기에서 인식되지 않습니다</block>
+  <block id="dbeae861992513b6eb728dc3b93f660d" category="paragraph">이 오류로 인해 포드가 충돌합니다. 이 문제를 해결하려면 VXLAN 구성을 비활성화하십시오.</block>
+  <block id="7c88f5c8e51811bf930b3f587b58d58a" category="section-title">기본 활성 프로브 값을 가진 MongoDB 구축은 충돌 루프에서 Pod와 함께 실패합니다</block>
+  <block id="c4a3b0f34e2b8b73bccefd6f730679b0" category="paragraph">해결 방법으로 MongoDB 구축 사양에서 활성 프로브 initialDelaySeconds를 600초로 설정합니다.</block>
+  <block id="482723983a4f2af954e36ff41e567451" category="inline-link-macro">알려진 제한 사항</block>
+  <block id="58ddb149ad752e78b7ddd185699b6c95" category="list-text"><block ref="58ddb149ad752e78b7ddd185699b6c95" category="inline-link-macro-rx"></block></block>
+  <block id="3c60bfdc14ab00c255a4234e22b93fce" category="summary">NetApp은 새로운 기능, 개선 사항 및 버그 수정을 제공하기 위해 Astra Data Store를 정기적으로 업데이트합니다.</block>
+  <block id="dc226deab720368a24dc5cc25f3ad415" category="doc">Astra Data Store 이번 릴리스의 내용</block>
+  <block id="60b3c8fc57a7a1ef017f271fa49525b0" category="paragraph">Astra Data Store의 21.12 Preview 릴리스를 발표하게 되어 기쁘게 생각합니다.</block>
+  <block id="543a7bce413677fa93bd0df794199bfc" category="section-title">2021년 12월 21일(21.12)</block>
+  <block id="ede1b5b057383164bf158f52b20ac5f4" category="paragraph">Astra Data Store Preview 초기 릴리즈.</block>
+  <block id="b90b098f5e10f362e0311f845f8db412" category="inline-link-macro">그게 뭐죠</block>
+  <block id="0366914bfcaaf0f822d79c3c7babc483" category="list-text"><block ref="0366914bfcaaf0f822d79c3c7babc483" category="inline-link-macro-rx"></block></block>
+  <block id="6251e202756531d0b1e4a8c3e94d6bc4" category="inline-link-macro">구축 모델 및 구성 요소</block>
+  <block id="37732ccd7c5f71d8c53932d31af19327" category="list-text"><block ref="37732ccd7c5f71d8c53932d31af19327" category="inline-link-macro-rx"></block></block>
+  <block id="c9a21e3a3141bc9001bc0958ff7af4e0" category="inline-link-macro">시작하는 데 필요한 사항</block>
+  <block id="0523965ded2c88ae66e7e4d44ca41a94" category="list-text"><block ref="0523965ded2c88ae66e7e4d44ca41a94" category="inline-link-macro-rx"></block></block>
+  <block id="349838fb1d851d3e2014b9fe39203275" category="inline-link-macro">설치합니다</block>
+  <block id="a0f848942ce863cf53c0fa6cc684007d" category="inline-link-macro">설정</block>
+  <block id="b6112d00a521fccefa4489b14d465a3b" category="list-text"><block ref="533d2f97327ab5644c4038f91999940c" category="inline-link-macro-rx"></block> 및 <block ref="becc72e9ee6a9f1ae4fca00b065a0abf" category="inline-link-macro-rx"></block></block>
+  <block id="34e34c43ec6b943c10a3cc1a1a16fb11" category="inline-link-macro">관리</block>
+  <block id="08b5411f848a2581a41672a759c87380" category="inline-link-macro">모니터링</block>
+  <block id="11a0f50cf879fb4394290003fce457c2" category="list-text"><block ref="4719fa0d709aee96e74ffefaf1b635dd" category="inline-link-macro-rx"></block> 및 <block ref="dcbf791659dffc59853a2f268ee6d8d2" category="inline-link-macro-rx"></block> 성능</block>
+  <block id="28c965a9c3773d02a3f2f37460517913" category="inline-link-macro">Cloud Insights를 사용한 모니터링</block>
+  <block id="c76917f270d30a203529be3a9e423159" category="list-text"><block ref="c76917f270d30a203529be3a9e423159" category="inline-link-macro-rx"></block></block>
+  <block id="3d947721e690a3b1a861a1ed8113ded8" category="inline-link-macro">자동 지원 모니터링을 사용합니다</block>
+  <block id="a2349035bf4872c12c78cb2d856a9336" category="list-text"><block ref="be0f477de0f57aea94404872654dcee8" category="inline-link-macro-rx"></block> 및 <block ref="60f068e3a346c283b9ad7095bc3a22bf" category="inline-link-macro-rx"></block></block>
+  <block id="0956972ccb3f1ffed4c31a057c597e7d" category="list-text"><block ref="0956972ccb3f1ffed4c31a057c597e7d" category="inline-link-macro-rx"></block></block>
+  <block id="7d0ee6fed10d3d4e5c9ee496729ab519" category="doc">릴리스 정보</block>
+  <block id="9496fd053449dc632695aa62786ebaf1" category="inline-link-macro">Astra Data Store 이번 릴리즈에는 어떤 내용이 포함되어 있는지</block>
+  <block id="1761491776db9658a9d9f4322aef4187" category="list-text"><block ref="1761491776db9658a9d9f4322aef4187" category="inline-link-macro-rx"></block></block>
+  <block id="3f4fc4220755866f399810fee47c7884" category="inline-link-macro">GitHub 기고자입니다</block>
+  <block id="65ed3c4720fad34d453db54755338725" category="paragraph">Twitter @NetAppDoc을 팔로우하십시오. 가 되어 문서에 대한 피드백을 보냅니다 <block ref="78cabac26f0b6e0ce9a3e24d1b749910" category="inline-link-macro-rx"></block> 또는 doccomments@netapp.com 으로 이메일을 보내주십시오.</block>
+  <block id="1eba71d64e6c5e410e558530711e835b" category="summary">알려진 제한 사항은 이 제품 릴리스에서 지원하지 않거나 올바르게 상호 운용되지 않는 플랫폼, 장치 또는 기능을 식별합니다. 이러한 제한 사항을 주의 깊게 검토하십시오.</block>
+  <block id="e42bc9d321b4abe3662a7990b5c7c37f" category="paragraph">알려진 제한 사항은 이 제품의 미리 보기 릴리스에 의해 지원되지 않거나 올바르게 상호 운용되지 않는 플랫폼, 장치 또는 기능을 식별합니다. 이러한 제한 사항을 주의 깊게 검토하십시오.</block>
+  <block id="93c6ecb767e400f580fe2b79b925ed35" category="section-title">하나 이상의 노드를 제거하는 기능은 지원되지 않습니다</block>
+  <block id="02ae7b81eed73967ba19efba8b18a845" category="paragraph">Astra Data Store 미리 보기는 장애가 발생한 노드 교체를 지원하지만 노드 제거 기능은 지원하지 않습니다.</block>
+  <block id="4a92e856a033d3527db5b721839de67c" category="section-title">드라이브를 추가하거나 제거하는 기능은 지원되지 않습니다</block>
+  <block id="b283330938a2efd574971709e0eb1a96" category="paragraph">Astra Data Store 미리 보기는 장애가 발생한 드라이브 교체를 지원하지만 기존 클러스터에 드라이브를 추가하거나 기존 클러스터에서 드라이브를 제거하는 기능은 지원하지 않습니다.</block>
+  <block id="1c27587bda352fa09c49c0026f2f1347" category="section-title">Astra Data Store 미리보기 기능은 방화벽이 활성화된 상태에서 검증되지 않았습니다</block>
+  <block id="8dfd25c9737e74df2610fe1998679141" category="paragraph">Astra Data Store 미리 보기를 사용하려면 호스트 방화벽(firwalld)을 비활성화해야 합니다. Calico HostEndpoint와 같은 CNI 도구를 사용하여 방화벽을 활성화하는 것은 검증되지 않았습니다.</block>
+  <block id="a2b9bc64ef0e19631f5f577e78217a8c" category="section-title">업그레이드 또는 패치를 설치하려면 새로 설치해야 합니다</block>
+  <block id="6227dd6927c26840de69af22a82ed17f" category="paragraph">Astra Data Store 미리 보기는 운영 워크로드를 대상으로 하지 않습니다.</block>
+  <block id="91103fd1bd4fa8531dc6f4bac0120409" category="section-title">Ubuntu 기반 베어 메탈 또는 VM 패스스루 배포에는 NVMe TLC SSD가 필요합니다</block>
+  <block id="d9873749f0f8e850c1b913dbe83b4686" category="paragraph">이 제한은 RHEL, RHCOS 또는 CentOS 기반 배포에는 적용되지 않습니다.</block>
+  <block id="4d8d4f4d8e18c7039f1e4975914b919f" category="summary">Cloud Insights 메트릭을 사용하여 Astra 데이터 저장소 자산을 모니터링할 수 있습니다.</block>
+  <block id="9006a134fd1870aca1877d5e1e68dae9" category="doc">Cloud Insights를 통해 메트릭을 모니터링합니다</block>
+  <block id="611bcab913954802c9283b2b3ed655ea" category="paragraph">Cloud Insights를 사용하여 Astra 데이터 저장소 미리 보기 메트릭을 모니터링할 수 있습니다.</block>
+  <block id="7c95cb60c145e1daaa8e09345449040e" category="list-text"><block ref="eeb4d4245ab5067a874c0b6b31a63735" category="inline-xref-macro-rx"></block></block>
+  <block id="ecb31804db885e53cbb56c093d6c0d23" category="list-text"><block ref="3db1750a737cabf57020a57538c06b10" category="inline-xref-macro-rx"></block></block>
+  <block id="4efd15a2c3c529389df09953218abde1" category="list-text"><block ref="be7c6a43d5af7285cc473ab6ceb17a78" category="inline-xref-macro-rx"></block></block>
+  <block id="c5b465091c9b07cf9c61a8e84e738e0b" category="list-text"><block ref="d2580e21da8a2e295d08a3fb642259f0" category="inline-xref-macro-rx"></block></block>
+  <block id="76a54526b50db93a67991b9df579b40e" category="inline-image-macro">Astra 데이터 저장소 메트릭을 보여 주는 Cloud Insights</block>
+  <block id="74cf95137df35241bf62c4cf6aaa0a33" category="paragraph">다음은 Cloud Insights에 표시되는 몇 가지 Astra 데이터 저장소 미리 보기 메트릭입니다.<block ref="b65cc9dd5d7dd9b89d038ad2252a3b1c" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="712f099047cda3cd74ff8f01de43d978" category="paragraph">을 사용하여 Astra Data Store 미리 보기에서 생성된 메트릭 목록을 표시할 수도 있습니다 <block ref="00ffaabd9466e38e21fd83d76092ff60" category="inline-xref-macro-rx"></block>.</block>
+  <block id="4b132e0e0c60c6487aaf1e8a8b4b4daf" category="section-title">Cloud Insights 연결 필수 작업을 완료합니다</block>
+  <block id="7d14a02fd20aa817b9f312556759bc77" category="paragraph">Astra 데이터 저장소를 Cloud Insights와 연결하기 전에 다음 사항을 수행해야 합니다.</block>
+  <block id="7b67f0c7b487cbbd9d0de335853f47bc" category="inline-link-macro">Astra Data Store Monitoring Operator를 설치합니다</block>
+  <block id="6987bbde2267c8be13f8b6d922b41b0c" category="list-text"><block ref="dcf5b80fa05febc0501b6d9fcc7d3ab0" category="inline-link-macro-rx"></block> 이것은 Astra Data Store 미리 보기 설치 지침의 일부입니다.</block>
+  <block id="5885997e518dde2f5740ce73f16e6ad5" category="inline-link-macro">kubbeck-astrads 바이너리를 설치합니다</block>
+  <block id="45c6d9e32db908ddd56d04c07d49c401" category="list-text"><block ref="bfb34ca8335b0b73a54237f9edc747d4" category="inline-link-macro-rx"></block> 이것은 Astra Data Store 미리 보기 설치 지침의 일부입니다.</block>
+  <block id="e6ba49b0d11a72603e691022f17a15ab" category="inline-link">Cloud Insights 계정을 만듭니다</block>
+  <block id="de6bf4315ca097a0bda1ff06c7c49a20" category="list-text"><block ref="e1e29d7386d2d73bd3f1ef7e80229929" category="inline-link-rx"></block>.</block>
+  <block id="1dad80a4e0ed05870800cf83e046f731" category="list-text">'awk, curl, grep', 'jq' 명령을 사용할 수 있는지 확인합니다</block>
+  <block id="284dc6d1de61ec5c2a96db8bc40dd3ab" category="paragraph">다음 정보를 수집합니다.</block>
+  <block id="bb9b8565e3823e4ec709b95221f40bd1" category="list-text">획득 장치, 데이터 수집, 데이터 수집 및 로그 수집 등의 범주에 대한 읽기/쓰기 권한이 있는 * Cloud Insights API 키 이 작업은 읽기/쓰기 작업, 획득 장치 설정 및 데이터 수집 프로세스 설정에 사용됩니다.</block>
+  <block id="c4907f71169d00508df63ef9afdc68a1" category="list-text">* Kubernetes API Server IP 주소 및 포트 *. Astra Data Store 미리보기 클러스터를 모니터링하는 데 사용됩니다.</block>
+  <block id="621014ace1f1a70456f973648580f813" category="list-text">* Kubernetes API 토큰 *. Kubernetes API를 호출하는 데 사용됩니다.</block>
+  <block id="e76594ced2224ed170caf674cdb7add8" category="list-text">* 영구 볼륨 구성 *. 영구 볼륨의 프로비저닝 방법에 대한 정보입니다. 자세한 내용은 아래의 "획득 장치"를 참조하십시오.</block>
+  <block id="3d3a08f39e79301ab5c0cdfa66b5b7ff" category="section-title">설치 스크립트를 다운로드하고 실행합니다</block>
+  <block id="af33037136184f5cf3624e0858a76571" category="paragraph">Cloud Insights는 모니터링 오퍼레이터를 통해 Astra 데이터 저장소 미리 보기 모니터링을 활성화하는 Bash 스크립트를 제공합니다. 설치 스크립트는 Astra Data Store Collector, Telegraf Agent 및 Fluent Bit Agent와 함께 획득 장치를 설치합니다.</block>
+  <block id="bf6aeb656eff14833c40fdf5b3a48145" category="paragraph">Cloud Insights 테넌트 도메인 이름과 선택한 API 액세스 키는 다운로드 시 설치 프로그램 스크립트에 포함됩니다.</block>
+  <block id="9d4660ed840630e640b31ec3c061e7bc" category="paragraph">그런 다음 다음과 같이 메트릭이 전송됩니다.</block>
+  <block id="3adb3d8a32b42a2857ad4c4b8a9003a6" category="list-text">Telegraf는 Cloud Insights 데이터 레이크에 메트릭을 전송합니다.</block>
+  <block id="40c73fe92317526aa4df3d36fd3ad73d" category="list-text">Fluent bit는 로그 수집 서비스에 로그를 보냅니다.</block>
+  <block id="62e3ff407f1c5be1f52dc2ff6bf6ea49" category="list-text">Cloud Insights 계정이 없는 경우 계정을 만듭니다.</block>
+  <block id="f5f5c23c1738f3c9d968460a7922f3de" category="list-text">Cloud Insights에 로그인합니다.</block>
+  <block id="94c971acbf0b49c19d73a3f5dbe825f8" category="list-text">Cloud Insights 메뉴에서 * Admin * &gt; * Data Collector * 를 클릭합니다.</block>
+  <block id="2270d720d24e785df27898c7da44a849" category="list-text">새 수집기를 추가하려면 * + Data Collector * 를 클릭합니다.</block>
+  <block id="b3cf4c5680f339b50263248f2dc48379" category="inline-image-macro">Astra 데이터 저장소 타일을 보여 주는 Cloud Insights입니다</block>
+  <block id="866756ca1b4623d0fb04ca4b14daa435" category="paragraph"><block ref="866756ca1b4623d0fb04ca4b14daa435" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0064fffa49fa46977bec11c251364b0a" category="list-text">Astra Data Store * 타일을 클릭합니다.</block>
+  <block id="a634a0958bbdef5350d68e97eacc5ba6" category="list-text">올바른 API 액세스 토큰을 선택하거나 새 토큰을 생성합니다.</block>
+  <block id="70830da013f2c90eadbbf13f0eea52ad" category="list-text">지침에 따라 설치 프로그램 스크립트를 다운로드하고, 권한을 업데이트하고, 스크립트를 실행합니다.</block>
+  <block id="0198ace6f08bad7ae327801e20fff81f" category="paragraph">이 스크립트에는 Cloud Insights 테넌트 URL 및 선택한 API 액세스 토큰이 포함되어 있습니다.</block>
+  <block id="e9cb0fa56b60ddf0f40cb6d55732a359" category="inline-image-macro">Astra 데이터 저장소 설치 페이지가 표시된 Cloud Insights</block>
+  <block id="7b0669fbc22af2b3bf66ea2884c43b85" category="paragraph"><block ref="7b0669fbc22af2b3bf66ea2884c43b85" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="e9b4c864cce989f3d20b0b6aeb60895a" category="list-text">스크립트가 완료되면 * 설치 완료 * 를 클릭합니다.</block>
+  <block id="5b2bcd3ee1bf241ef578bd747aaa2275" category="paragraph">설치 스크립트가 완료되면 데이터 소스 목록에 Astra Data Store Collector가 나타납니다.</block>
+  <block id="6050a6b00788c5a261f4b24b7978d60a" category="admonition">오류로 인해 스크립트가 종료되면 오류가 해결된 후 다시 실행할 수 있습니다. 이 스크립트는 환경에서 기본 설정을 사용하지 않는 경우 모니터링 운영자 네임스페이스 및 Kubernetes API 서버 포트와 같은 추가 매개 변수를 지원합니다. 용도와 도움말 텍스트를 보려면 ""-h"" 옵션을 사용하십시오.</block>
+  <block id="2863b1500d8c376831f57b60f0cbed61" category="paragraph">설치 스크립트를 실행하면 다음과 같은 출력이 생성됩니다.</block>
+  <block id="99e77960ebd5aad3286059bfbd0615c5" category="section-title">획득 장치 저장</block>
+  <block id="7d53bd0f620e632b71c278ad068a19b9" category="paragraph">획득 장치는 설치 파일, 구성 데이터 및 로그를 저장하기 위해 세 개의 영구 볼륨이 필요합니다. 모니터링 운영자는 기본 스토리지 클래스를 사용하여 영구 볼륨 청구를 생성합니다. 설치 프로그램 스크립트를 실행할 때 '-s' 옵션을 사용하여 다른 스토리지 클래스 이름을 지정할 수 있습니다.</block>
+  <block id="2d71aa866fd6e440cf6290ebb9f988be" category="paragraph">Kubernetes 클러스터에 스토리지 공급자(예: NetApp Trident)가 없으면 설치 관리자 스크립트를 실행할 때 '-r' 옵션을 사용하여 로컬 파일 시스템 경로를 제공할 수 있습니다. '-r' 옵션이 설정되면 설치 프로그램 스크립트는 제공된 디렉토리 내에 세 개의 영구 볼륨을 생성합니다. 이 디렉토리에는 최소 150GB의 여유 공간이 필요합니다.</block>
+  <block id="20d6c8958970fb1a2ce1a95613e7665b" category="section-title">상담원 CR의 예</block>
+  <block id="445c2dfab85f0763a057d90aef225a43" category="paragraph">다음은 설치 프로그램 스크립트를 실행한 후 Monitoring-NetApp 에이전트 CR이 어떻게 보일지에 대한 예입니다.</block>
+  <block id="483cd8f1747e8a0029d3cad4d22f2e94" category="section-title">설치 프로그램 스크립트 도움입니다</block>
+  <block id="062a54c44bdfd9858c8054292864b1a5" category="paragraph">설치 프로그램 스크립트에 대한 전체 도움말 텍스트가 아래에 나와 있습니다.</block>
+  <block id="23dd88d71d7767914d0ba74ce09182b0" category="section-title">Cloud Insights 연결을 편집합니다</block>
+  <block id="d542a9812ed087b9931c2c36f1357b43" category="paragraph">나중에 Kubernetes API 키 또는 Cloud Insights API 키를 편집할 수 있습니다.</block>
+  <block id="03d3f4f6b02641ad0957f7ae992ab815" category="list-text">Kubernetes API 키를 업데이트하려면 Cloud Insights UI에서 Astra Data Store Collector를 편집해야 합니다.</block>
+  <block id="c022dc42fc6794590ff337762e9aa004" category="list-text">원격 측정 및 로그에 사용되는 Cloud Insights API 키를 업데이트하려면 kubctl 명령을 사용하여 모니터링 오퍼레이터 CR을 편집해야 합니다.</block>
+  <block id="38c3b25ebad55273cd701d86d7c5674d" category="section-title">Kubernetes API 토큰을 업데이트합니다</block>
+  <block id="27322a77dff94e81f835410f4584b839" category="list-text">Admin * &gt; * Data Collector * 를 선택하여 Data Collector 페이지에 액세스합니다.</block>
+  <block id="9e23ceb78a6420f20917e3be85d18084" category="list-text">Astra Data Store 클러스터의 항목을 찾습니다.</block>
+  <block id="2a3e436e3df2f6c013a096178e37bd12" category="list-text">페이지 오른쪽에 있는 메뉴를 클릭하고 * 편집 * 을 선택합니다.</block>
+  <block id="dad6a897e4f52efceaed582e77ec0445" category="section-title">Cloud Insights API 액세스 토큰을 업데이트합니다</block>
+  <block id="b511b5f3ed5ea6ca0fd6cb60a0fd377a" category="list-text">관리자 * &gt; * API 액세스 * 를 선택하고 * + API 액세스 토큰 * 을 클릭하여 새 Cloud Insights API 액세스 토큰을 만듭니다.</block>
+  <block id="83400e61f62d567ac8c59eb422c53296" category="list-text">상담원 CR 편집:</block>
+  <block id="a9555691664079ea9bedb729314bc590" category="list-text">출력 싱크 섹션을 찾아 이름이 "CI"인 항목을 찾습니다.</block>
+  <block id="662b463e12d39626a0f9269cb252a7db" category="list-text">'api-key'라는 레이블의 경우 현재 값을 새 API 키로 바꿉니다.</block>
+  <block id="48d5af6637803a576ddb9b4b5335594f" category="paragraph">섹션은 다음과 같이 표시됩니다.</block>
+  <block id="08b6b5aaedb7004643c0c9f98ad82005" category="list-text">편집기 창을 저장하고 종료합니다.</block>
+  <block id="26d9ef960bdd0f4e9874ad46ba43d683" category="paragraph">모니터링 운영자는 새로운 API 키를 사용하도록 Telegraf 및 Fluent 비트를 업데이트합니다.</block>
+  <block id="3186f8d18929c5ad50382958c1069796" category="section-title">Cloud Insights와의 연결을 해제합니다</block>
+  <block id="dd3afc6527618de50ab808c19960d8e5" category="paragraph">Cloud Insights와의 연결을 끊으려면 먼저 Cloud Insights UI에서 Astra 데이터 저장소 수집기를 삭제해야 합니다. 이 작업이 완료되면 모니터링 작동기에서 획득 장치, 텔레그라프 및 Fluent 비트 구성을 제거할 수 있습니다.</block>
+  <block id="b953bddbf540c3b2684fb1378b42b55a" category="section-title">Astra Data Store 미리 보기 수집기를 제거합니다</block>
+  <block id="3f82a83a5c61062d40184dc63f47bb9a" category="list-text">화면 오른쪽에서 케밥 메뉴를 선택하고 * Delete * 를 선택합니다.</block>
+  <block id="4a4676a685d60e6b1f5813c3907f9ab6" category="list-text">확인 페이지에서 * 삭제 * 를 클릭합니다.</block>
+  <block id="c65fb1125fbf2f9e2e44e32e61b62a02" category="section-title">획득 장치, 텔레그라프 및 Fluent 비트를 제거합니다</block>
+  <block id="ec2389605ec052321571ac13ec063738" category="list-text">au 섹션을 찾아 IsEnabled:false를 설정합니다</block>
+  <block id="90db19427057dc11bc0e2f5c8cf30876" category="list-text">유창한 비트 섹션을 찾아 "ads-tail-ci" 플러그인을 제거합니다. 플러그인이 더 이상 없으면 "fluent-bit" 섹션을 제거할 수 있습니다.</block>
+  <block id="ba6f7b853b4d707dd3cf6b7f2c0f497e" category="list-text">Telegraf 섹션을 찾아 "ads-open-metric" 플러그인을 제거합니다. 플러그인이 더 이상 없으면 Telegraf 섹션을 제거할 수 있습니다.</block>
+  <block id="1339f6affca26c5e554081de2348724c" category="list-text">출력 싱크 섹션을 찾아 이름이 "CI"인 싱크를 제거합니다.</block>
+  <block id="0b8e607bb970ba8b1809c142f6ee9d2c" category="paragraph">모니터링 오퍼레이터는 Telegraf 및 Fluent 비트 구성을 업데이트하고 획득 장치 포드를 삭제합니다.</block>
+  <block id="79e2afd2ba4ca7ab8246defff43d1c68" category="list-text">Storage Provisioner 대신 Acquisition Unit PVS에 로컬 디렉토리를 사용한 경우 PVS를 삭제합니다.</block>
+  <block id="950c71908905ca13bfc6137988331cc3" category="paragraph">그런 다음 AU가 실행 중인 노드에서 실제 디렉토리를 삭제합니다.</block>
+  <block id="c1943291194b3d4796fcf7f9eff18d27" category="list-text">획득 장치 포드가 삭제된 후 Cloud Insights에서 획득 장치를 삭제할 수 있습니다.</block>
+  <block id="e7b273b59c7a2201eeccd5ba9337bd87" category="list-text">Cloud Insights 메뉴에서 * Admin * &gt; * Data Collector * 를 선택합니다.</block>
+  <block id="6e4c4ac7964722923536e1f01d80dab2" category="list-text">Acquisition Units(획득 단위) * 탭을 클릭합니다.</block>
+  <block id="2fa6aa4ecba5f4acf3de663c21cc69ea" category="list-text">획득 장치 포드 옆에 있는 메뉴를 클릭합니다.</block>
+  <block id="874db297b2254479eeb702a2d7fa8dab" category="list-text">삭제 * 를 클릭합니다.</block>
+  <block id="0dd656c262cdf7d8dc379079337de685" category="paragraph">모니터링 작업자는 Telegraf 및 Fluent 비트 구성을 업데이트하고 획득 장치를 제거합니다.</block>
+  <block id="6b40eaae8ec9ab8ff4f2fcec876f582d" category="section-title">메트릭 API 도움말을 엽니다</block>
+  <block id="6f04ea05bd96c0439a8a2cd32768b309" category="paragraph">다음은 Astra Data Store 미리 보기에서 메트릭을 수집하는 데 사용할 수 있는 API 목록입니다.</block>
+  <block id="d6e7985c9eb9d0b51b91b2cb937d7335" category="list-text">"도움말" 줄에 메트릭이 설명되어 있습니다.</block>
+  <block id="626ded8565b78fc3552661d6afa5cae0" category="list-text">"유형" 선은 메트릭이 게이지 또는 카운터인지 여부를 나타냅니다.</block>
+  <block id="3af93db73b99aaf3e341694343e7f989" category="summary">Astra Data Store에서 kubtl 명령을 사용하여 클러스터를 유지 관리할 수 있습니다.</block>
+  <block id="12ca355b0c012fc5e428b77818d39316" category="doc">클러스터를 관리합니다</block>
+  <block id="dccfc7385a8459db3905293ca31d8c1d" category="paragraph">Astra Data Store 미리 보기와 함께 kubtl 명령을 사용하여 클러스터를 관리할 수 있습니다.</block>
+  <block id="27ec3c702a92a11dcf758cfea1abd08f" category="list-text"><block ref="63b70cc1a1cc1ef2d48b82d0f99fbd99" category="inline-xref-macro-rx"></block></block>
+  <block id="3ab6bb8b4346e7149828a717be5f5138" category="list-text"><block ref="1e29c863bc7525a154916f08787ad250" category="inline-xref-macro-rx"></block></block>
+  <block id="26eacaaf63559bf861e3022ecb6de84a" category="list-text"><block ref="df0e18c8da4815d4cb1f63aa721a5430" category="inline-xref-macro-rx"></block></block>
+  <block id="df1c8140731b102d7eda9ae07adf0d06" category="list-text"><block ref="e337a3bd799ea0d3465602eaa898ac0b" category="inline-xref-macro-rx"></block></block>
+  <block id="a711863513c11f3a6d86294acc7be0ba" category="list-title">무엇을 &amp;#8217;필요로 할거야</block>
+  <block id="f425bc9b9a4cd4b2207bc5a3ff7a2f1e" category="inline-link-macro">Astra Data Store 미리 보기를 설치합니다</block>
+  <block id="320f561fe46d717efd6bede4ccf31772" category="list-text">kubctl 및 kubbctl-astrads 플러그인이 설치된 시스템. 을 참조하십시오 <block ref="250292b4d71cfe0f32f1811f78ce979c" category="inline-link-macro-rx"></block>.</block>
+  <block id="179c07bdb3db1669e2d4e1a337247468" category="section-title">노드를 추가합니다</block>
+  <block id="9a39cfe3410df3b493ee309248b9a863" category="paragraph">추가하려는 노드는 Kubernetes 클러스터의 일부여야 하며 클러스터의 다른 노드와 비슷한 구성을 가져야 합니다.</block>
+  <block id="d284e8ebe75ed39c496430b2e6213263" category="list-text">새 노드의 데이터 IP가 ADSCluster CR에 아직 포함되지 않은 경우 다음을 수행합니다.</block>
+  <block id="dcc8b731e63482e766610e7c44274b50" category="list-text">astradscluster CR을 편집하고 ADS 데이터 네트워크 주소 필드에 추가 데이터 IP를 추가합니다.</block>
+  <block id="2d258c624d61d2388efacfc246d2439e" category="list-text">CR 파일을 저장합니다.</block>
+  <block id="bf024c9e7bfc344f7b2e8beaba8eb53f" category="list-text">Astra Data Store 미리 보기 클러스터에 노드를 추가합니다.</block>
+  <block id="653c040f4e29a0c02bb862820aea4503" category="list-text">그렇지 않으면 노드를 추가하기만 하면 됩니다.</block>
+  <block id="16e457b8846355beaf7788602b579a97" category="list-text">노드가 추가되었는지 확인합니다.</block>
+  <block id="3791a6ae58ebb531548b4b5a1906c3fa" category="admonition">노드는 이미 Astra Data Store 미리 보기 클러스터에 포함되어 있어야 합니다.</block>
+  <block id="9ba2170cb6011ac2e6866d48eeee7d09" category="paragraph">노드가 유지보수 모드일 때는 클러스터에 노드를 추가할 수 없습니다. 이 예제에서는 노드 "nhcitj1525"를 유지 관리 모드로 설정합니다.</block>
+  <block id="96ae38b31ba3daa2e5358239c685687b" category="list-text">노드 세부 정보를 표시합니다.</block>
+  <block id="892cf5da18b48d5c81fecbbacebc26d1" category="list-text">노드가 유지보수 모드가 아닌지 확인합니다.</block>
+  <block id="8faad7b19aae28c8f1562134a463288e" category="paragraph">응답(유지보수 모드에 있는 노드가 이미 없음):</block>
+  <block id="407875538f0a5a391fa066b78db80f35" category="list-text">유지보수 모드를 활성화합니다.</block>
+  <block id="20ffff966b6d15e3131eac8732b5d367" category="list-text">노드를 나열합니다.</block>
+  <block id="115e5b2861ab6ca4176365b8e50c0e9f" category="list-text">유지보수 모드의 상태를 점검합니다.</block>
+  <block id="a04cd32c3c3950df1d0f802d45f11f13" category="paragraph">유지보수 모드는 거짓으로 시작해 참으로 바뀝니다. 유지 보수 상태가 PreparingForMaintenance에서 ReadyforMaintenance로 바뀝니다.</block>
+  <block id="b058dc0e7d56297138ea75a1af7eb2e8" category="list-text">노드 유지보수가 완료된 후 유지보수 모드를 비활성화합니다.</block>
+  <block id="7970cfd813155c614358a18b3df1afd0" category="list-text">노드가 더 이상 유지보수 모드가 아닌지 확인합니다.</block>
+  <block id="dd7423a16788f2363740161a60d6ab15" category="paragraph">Astra Data Store 미리 보기와 함께 kubtl 명령을 사용하여 클러스터에서 장애가 발생한 노드를 교체합니다.</block>
+  <block id="10c511218ded550813462a399c378e7f" category="list-text">노드 HA가 장애가 발생한 노드에서 FALSE로 표시되는지 확인합니다.</block>
+  <block id="232d8ee1cd935c222b96ad089509e138" category="list-text">"AdsNode Count"의 값을 3으로 감소함으로써 실패한 노드를 제거하도록 Asta클러스터 CR을 수정합니다.</block>
+  <block id="f7f731ad8fc3e94f259d6032d191fe26" category="paragraph">클러스터에서 드라이브가 고장난 경우 데이터 무결성을 보장하기 위해 가능한 한 빨리 드라이브를 교체해야 합니다. 드라이브에 장애가 발생하면 클러스터 CR 노드 상태, 클러스터 상태 정보 및 메트릭 끝점에서 장애가 발생한 드라이브 정보를 볼 수 있습니다.</block>
+  <block id="9e3dc57f54f2d644be8ac48fe53921a9" category="listing-title">노드Statuses.driveStatuses에서 장애가 발생한 드라이브를 표시하는 클러스터의 예</block>
+  <block id="3b7be6cf23b8894b5b7543d0892eae78" category="paragraph">장애가 발생한 드라이브 CR은 장애가 발생한 드라이브의 UUID에 해당하는 이름으로 클러스터에 자동으로 생성됩니다.</block>
+  <block id="8a3067d20951ac8d217fa22953c683f9" category="list-text">교체 제한 사항에 맞는 드라이브를 필터링하는 "kubbeck astrads show-replacement" 명령을 사용하여 가능한 교체 드라이브를 나열합니다(클러스터에서 사용되지 않음, 마운트되지 않음, 파티션 없음, 오류가 발생한 드라이브보다 크거나 같음).</block>
+  <block id="ca6aaabf5c74238b64f1f77fc1078fb1" category="paragraph">가능한 대체 드라이브를 필터링하지 않고 모든 드라이브를 나열하려면 'show-replacement' 명령에 '--all'을 추가합니다.</block>
+  <block id="d2a07928ef8038414bb8906cf0d69aeb" category="list-text">"replace" 명령을 사용하여 드라이브를 전달된 일련 번호로 교체합니다. 명령이 대체를 완료하거나, '--wait' 시간이 경과되면 실패합니다.</block>
+  <block id="125f85ae4d1ff2dd68b6b65a8b46611f" category="admonition">부적절한 일련 번호를 사용하여 kubbtl astrads faileddrive replace를 실행하면 다음과 같은 오류가 나타납니다.</block>
+  <block id="7be56609286fef3cd86d55bb4e0e047f" category="list-text">드라이브 교체를 다시 실행하려면 이전 명령으로 '--force'를 사용하십시오.</block>
+  <block id="4d03b54a999c73a25dbaddde7e9c292f" category="inline-link-macro">kubctl 명령을 사용하여 Astra Data Store 미리 보기 자산을 관리합니다</block>
+  <block id="54e8c6340515075dc435dcf858c58b51" category="list-text"><block ref="54e8c6340515075dc435dcf858c58b51" category="inline-link-macro-rx"></block></block>
+  <block id="cf12ebbc6fe7b3e21046a7d8c5b3dd5f" category="summary">Astra Data Store를 제거하려면 워크로드, 바인딩, 볼륨, 엑스포트 정책, 클러스터, 라이센스, 배포 환경 및 네임스페이스.</block>
+  <block id="2c5e778cc6a11e1829770d5339f5c0fa" category="doc">Astra Data Store 미리 보기를 제거합니다</block>
+  <block id="66c366a59302f9026a436cdc64aca9e6" category="paragraph">Astra Data Store 미리 보기를 제거하려면 워크로드, 바인딩, 볼륨, 엑스포트 정책, 클러스터, 라이센스, 배포 환경 및 Astra Data Store 미리 보기 네임스페이스.</block>
+  <block id="1af4d14d7adc73a0cf26c741f9acf9df" category="list-text">루트 관리 권한</block>
+  <block id="e88f686261fc285399abfcc5575efcee" category="paragraph">Astra Data Store 미리 보기 제거 프로세스는 다음과 같은 고급 단계를 안내합니다.</block>
+  <block id="05424633f0bd5eefeaa3629e5c4d1ae1" category="list-text"><block ref="cab67cc4c69f00a37ed4ae97c08b5a2c" category="inline-xref-macro-rx"></block></block>
+  <block id="46c883ff8d48945b15db394f9ac2050d" category="list-text"><block ref="c650fcae59c3ef6d3a0e731f55d376df" category="inline-xref-macro-rx"></block></block>
+  <block id="0bc81830f1dfb9de112bee2d6bd91b91" category="list-text"><block ref="26d229d5e2e3968e71c3402c5a09214b" category="inline-xref-macro-rx"></block></block>
+  <block id="cacd3064543c7be5a9b55ffd25a40141" category="list-text"><block ref="d494c9949a6c752fae5f375dcac6bb64" category="inline-xref-macro-rx"></block></block>
+  <block id="4b41569e5e1165e5cfb321225dc3ea12" category="list-text"><block ref="35d6f1edf9ca8898423c009341c23fb1" category="inline-xref-macro-rx"></block></block>
+  <block id="334982a7418a341303b6f2204ca1e0fe" category="list-text"><block ref="621e8ae438ccf9d5bd1e2f424bbe8b78" category="inline-xref-macro-rx"></block></block>
+  <block id="85e4b847a7452c3cb60874d0fbf806b3" category="list-text"><block ref="9ae241411ebdbe5b7431af3f015cef5e" category="inline-xref-macro-rx"></block></block>
+  <block id="24bea87dd5f03c9343f832d514436b14" category="list-text"><block ref="116c093341ed114bc7b46f219680ab08" category="inline-xref-macro-rx"></block></block>
+  <block id="701ee8f26f3e562b59500c03be25b586" category="section-title">기존 워크로드 및 바인딩을 제거합니다</block>
+  <block id="7b657a06e01fc8d3bacd2994dde0affd" category="paragraph">Astra Data Store 미리 보기를 제거하기 전에 먼저 다음을 제거해야 합니다</block>
+  <block id="7a5d6c83503f246649c3952c68522edf" category="list-text">Astra Data Store 미리 보기를 스토리지 백엔드로 사용하는 모든 애플리케이션 워크로드</block>
+  <block id="6d1bd33ff6421dfef67de0310c86b001" category="list-text">Astra Data Store 미리 보기를 백엔드로 사용하는 Trident 바인딩</block>
+  <block id="713b0c98704e3691534fea10f986b89a" category="paragraph">이렇게 하면 Kubernetes 환경이 클린 상태로 유지됩니다. 이는 다시 설치할 때 중요합니다.</block>
+  <block id="563b0034df7b9c29d189cfa04d6244d4" category="section-title">Astra Data Store 미리 보기 클러스터와 컨트롤 플레인을 제거합니다</block>
+  <block id="9f5b1d3ae9147b57f79e1ece23b92700" category="paragraph">Astra Data Store 미리 보기를 수동으로 제거하려면 아래 단계를 따르십시오.</block>
+  <block id="18f297cd2cf5f61e0d2e236b72408d65" category="section-title">볼륨 및 엑스포트 정책을 삭제합니다</block>
+  <block id="be76d934b781f3ee17c195e53deaa2ed" category="paragraph">클러스터를 삭제하기 전에 Astra Data Store 미리 보기 볼륨 및 엑스포트 정책을 삭제해야 합니다.</block>
+  <block id="aab34a85b3bc4cdb35a9e59425861289" category="admonition">먼저 볼륨을 삭제하고 정책을 내보내지 않으면 Astra Data Store 미리 보기 볼륨 개체가 삭제될 때까지 클러스터 삭제 프로세스가 일시 중지됩니다. 클러스터 삭제를 시작하기 전에 이러한 항목을 제거하는 것이 더 효율적입니다.</block>
+  <block id="54b956b8b0644f1e413223dc1aee2b0e" category="list-text">볼륨 삭제:</block>
+  <block id="c93baa78349985fc4b5eeeffc09a33f8" category="list-text">엑스포트 정책 삭제:</block>
+  <block id="7563aa62543c07a40f533dd0e0ae2014" category="section-title">Astra Data Store 미리보기 클러스터를 삭제합니다</block>
+  <block id="d7c0a4c83a2044822dabefb932c42b79" category="paragraph">클러스터를 삭제하면 클러스터 범위 리소스와 함께 Astra Data Store 미리보기 클러스터 객체 사용자 지정 리소스(CR)만 삭제됩니다.</block>
+  <block id="8dbff560b4fb498559cc825c3ba8de41" category="admonition">클러스터가 삭제된 후에도 운영자, 노드 정보 포드 및 클러스터 컨트롤러(Kubernetes 범위 리소스)는 그대로 유지됩니다.</block>
+  <block id="b3178373b149d14e46085126525f79d6" category="paragraph">클러스터를 삭제하면 기본 운영 체제가 노드에서 제거되므로 'firtap' 및 'netwd' 서비스가 중지됩니다.</block>
+  <block id="ed4aa92f77103f4b2c27a6ee04599f0e" category="paragraph">제거 프로그램을 완료하는 데 약 1분 정도 걸립니다. 그런 다음 Astra Data Store 미리 보기 클러스터 범위 리소스 제거가 시작됩니다.</block>
+  <block id="cca5f52fa80eb378d8e9e4499d5a49f7" category="list-text">클러스터를 삭제합니다.</block>
+  <block id="224bb9d3e58164d87f1e7b1480ff3195" category="section-title">라이센스를 삭제합니다</block>
+  <block id="8c26fafc2eb158f8e1dbc5b78f67860a" category="list-text">클러스터의 각 작업자 노드에 SSH를 통해 'firewTap' 또는 'netwd'가 작업자 노드에서 실행되고 있지 않음을 확인합니다.</block>
+  <block id="922f0882e69507614b86bbe67722122a" category="list-text">Astra Data Store Preview 라이센스를 삭제합니다.</block>
+  <block id="9524d1588970b8601d9a6c11fbff86d2" category="section-title">Astra Data Store 미리 보기 설치를 삭제합니다</block>
+  <block id="89471d1ad77aea625df3d06c6b912a6f" category="paragraph">클러스터에서 컨트롤러, 운영자, 네임스페이스 및 지원 포드를 삭제하십시오.</block>
+  <block id="b1449c85674b9416a7aad84e20c0bc41" category="list-text">Astra Data Store 미리 보기 설치 객체를 삭제합니다.</block>
+  <block id="172b5b6fca79ce433371dc5198dee6b3" category="list-text">데이터 저장소 DemonSets 및 모든 Astra Data Store 미리 보기 컨트롤러 리소스를 삭제합니다.</block>
+  <block id="a7285e1a3509c614618f679da04ecd63" category="list-text">나머지 아티팩트 및 작업자 YAML 파일 삭제:</block>
+  <block id="a9bcd8b892d07fc3f59e83751bb61630" category="section-title">Astads-system namespace의 제거를 검증합니다</block>
+  <block id="df660d992b6a3c556d9a2c4e04a32d00" category="paragraph">다음 명령을 실행하면 결과가 반환되지 않는지 확인합니다.</block>
+  <block id="742a4dc582c34fb3bbb34a9f3cbeebe6" category="section-title">컨테이너를 작업자 노드에서 실행하지 않도록 합니다</block>
+  <block id="1c04122c814ac034ca14e14adb8c12af" category="paragraph">소방관이나 netwd 같은 컨테이너가 작업자 노드에서 실행되고 있지 않는지 확인합니다. 각 노드에서 다음을 실행합니다.</block>
+  <block id="92e02155816dfb43131e8093bd99081a" category="section-title">OpenShift Container Platform 리소스를 삭제합니다</block>
+  <block id="e1252e9238ffdc665337569f9a3d15ac" category="paragraph">Red Hat OpenShift Container Platform(OCP)에 Astra Data Store 미리보기를 설치한 경우 OCP SCC(Security Context Constraints) 및 rolebindings 리소스를 제거할 수 있습니다.</block>
+  <block id="ee9ff707f9f8b22acbf949454f477868" category="paragraph">OpenShift는 POD가 수행할 수 있는 작업을 제어하는 SCC(Security Context Constraints)를 사용합니다.</block>
+  <block id="7e6e334737be518763a54980c076bd52" category="paragraph">표준 제거 프로세스를 완료한 후 다음 단계를 완료합니다.</block>
+  <block id="ea3636dddb52a396bae27bd0e6aed06e" category="list-text">SCC 리소스 제거:</block>
+  <block id="fd617944a08113e478bdc0aa81855d1e" category="list-text">rolebindings 리소스 제거:</block>
+  <block id="c4bc5ab0b4775b4a9c0dc56e5a147ad0" category="admonition">이 단계에서는 "리소스를 찾을 수 없는 오류"를 무시합니다. </block>
+  <block id="2d2b3d157d3e998229a25a7e0b312343" category="list-text">모든 Kubernetes 노드에서 `/var/lib/kubelet/config.yAML'을 제거합니다. </block>
+  <block id="9a92a0354fa775cc894dda9e1e38f27b" category="section-title">수동 삭제 샘플</block>
+  <block id="b6e1c19fae1f4cf0d8f94a34c5986b69" category="paragraph">다음은 실행 수동 제거 스크립트의 예입니다.</block>
+  <block id="81b61a86df10dc2cb308e96040fb3001" category="summary">예를 들어, Astra Data Store와 함께 kubtl 명령을 사용하여 Confluent와 함께 사용할 엔드포인트를 구성할 수 있습니다.</block>
+  <block id="d273de2a7e6e6a63f6353f5a40dccab4" category="doc">이벤트 로그를 구성하고 모니터링합니다</block>
+  <block id="e1e4be2e0e9d34430d4dead51a9b0d00" category="paragraph">EMS(이벤트 관리 시스템) 로그를 모니터링하려면 다음과 같은 높은 수준의 작업을 수행해야 합니다.</block>
+  <block id="0de641807620f6884634e5c2be424935" category="list-text"><block ref="81fcee92e269c16204175cb82e012cfb" category="inline-xref-macro-rx"></block></block>
+  <block id="58c63f3edc4f001668005eb15ebea250" category="list-text"><block ref="d225a94a27cd5322a26847f79953016b" category="inline-xref-macro-rx"></block></block>
+  <block id="d54ee8ea5a6436047b24aa6453cd273d" category="list-text"><block ref="0f415edabe024849c5f59aa6603d2415" category="inline-xref-macro-rx"></block>.</block>
+  <block id="adb1a7214aa7125992d5a44a62de94d5" category="section-title">Astra 데이터 저장소 미리 보기 클러스터 사용자 지정 리소스(CR)에서 모니터링 구성</block>
+  <block id="9d72b006a6d605a65b501b1b03349829" category="paragraph">Astra Data Store preview cluster CR에 모니터링 옵션이 구성되어 있지 않은 경우 "Astrads" 확장을 사용하여 설정할 수 있습니다.</block>
+  <block id="90bd1d70191335d705a79fedb6c343b1" category="paragraph">입력:</block>
+  <block id="5976be1a3647c1d1d6df4ce77cd4c6de" category="paragraph">여기서,</block>
+  <block id="c5f610ac611fbf25aebdcb7de1887bca" category="list-text">설치된 에이전트의 네임스페이스: 이 에이전트는 모니터링 운영자용 CR입니다.</block>
+  <block id="3cf816c5eb575aae005fa877a4221022" category="list-text">'-r'은 선택 사항입니다.</block>
+  <block id="55d4dcfd496ed26612f1ed4e159ccc06" category="section-title">Cloud Insights를 설정합니다</block>
+  <block id="0a4b147ab38de7df220f6ee52041f91b" category="inline-link-macro">NetApp Cloud Insights 설정 방법</block>
+  <block id="79d4adf2aeb2c6fc85b983dc5d4d6f9a" category="paragraph">을 참조하십시오 <block ref="d6cf67ce476502ac807e2e588f6f029e" category="inline-link-macro-rx"></block> Astra 데이터 저장소 미리 보기와 함께 사용할 수 있습니다.</block>
+  <block id="a0c8187b710dd8d0521c6fc63ed20869" category="section-title">이벤트 로그를 Elastic로 스트리밍합니다</block>
+  <block id="9121f315839d8a93e2079fd601d5e184" category="paragraph">EMS 이벤트 및 기타 POD 로그를 Elastic 등의 타사 엔드포인트로 스트리밍하려면 "Astrads" 확장을 사용합니다.</block>
+  <block id="4af77be2edf71f87d3321c846afd5117" category="admonition">탄성 호스트 이름은 IP 주소일 수 있습니다.</block>
+  <block id="9cce7a0f3945aa56f21e3dc73f7b5c53" category="summary">Astra Control Center UI(사용자 인터페이스)를 사용하여 Astra Data Store 작업을 수행할 수 있습니다.</block>
+  <block id="9d008b99518fac45f7d187af6cdf7b49" category="doc">Astra Data Store 미리 보기와 함께 Astra Control Center를 사용합니다</block>
+  <block id="5c44ae2c3fecaf90b28c9365e2a18f93" category="paragraph">Astra Control Center UI(사용자 인터페이스)를 사용하여 Astra Data Store 미리 보기 작업을 수행할 수 있습니다.</block>
+  <block id="c74d76591828afc252e7610bdae71ca9" category="section-title">Astra Data Store 미리 보기를 위한 Astra Control Center를 설정합니다</block>
+  <block id="04141f6e6895167b5976a22e32f00290" category="paragraph">Astra Data Store 미리 보기를 위한 Astra Control Center UI를 사용하려면 다음 작업을 완료해야 합니다.</block>
+  <block id="1c0d9f7d761fc733b600942ce233b4ea" category="inline-link">Astra Data Store 미리 보기 클러스터를 Astra Control Center 설치로 가져옵니다</block>
+  <block id="d15c24960fb67cfd894bc720e9d2ff2d" category="list-text">클러스터를 추가합니다. Astra Data Store 미리 보기가 설치된 기본 Kubernetes 클러스터입니다. 을 참조하십시오<block ref="6761f7730b26a17df3c3b59e4408b7b0" category="inline-link-rx"></block>.</block>
+  <block id="e1f95da35f557b3cdc93de4656df9aaa" category="list-text">해당 클러스터에 대한 Astra Data Store 미리 보기 스토리지 백엔드를 추가합니다.</block>
+  <block id="4e649e66878b3f3b5aec5f752e57b985" category="admonition">스토리지 백엔드를 추가하고 Astra Data Store 미리 보기가 있는 Kubernetes 클러스터가 없는 경우, 먼저 클러스터를 추가해야 합니다.</block>
+  <block id="2e94174c851b8d4d2427c96e0af4821c" category="section-title">Astra Control Center에서 수행할 수 있는 작업</block>
+  <block id="eb243fd6f95dd4bfb1d1ccb0cca34d9f" category="paragraph">Astra Data Store 미리 보기를 위한 Astra Control Center를 설정한 후 Astra Control Center UI를 사용하여 다음 작업을 수행할 수 있습니다.</block>
+  <block id="882a9f885522357b173d285f48508e0a" category="inline-link">Astra Control Center를 사용하여 Astra Data Store Preview 자산의 상태를 모니터링합니다</block>
+  <block id="20a4a00ee22fc4ed42dc6dde7ca930a2" category="list-text"><block ref="8cc2b5fb4f2b8a99de3d80d9680561a7" category="inline-link-rx"></block>.</block>
+  <block id="b3566e6d807a064421758708ff05ddc5" category="inline-link">Astra Data Store 미리 보기 백엔드 스토리지를 관리합니다</block>
+  <block id="c0d07d3b128a5a7d6f60b9e86bf4f804" category="list-text"><block ref="7c89f9f798010106cb6d616702f15231" category="inline-link-rx"></block>.</block>
+  <block id="4d4207ccf851f0f5668d15b17831080c" category="inline-link">노드, 디스크 및 지속적인 PVC(Volume Claim)와 그 상태를 봅니다</block>
+  <block id="5e4382914eda12bec56e077c0d932f92" category="list-text"><block ref="5df70763c7346a3df0879f904f4e4dc6" category="inline-link-rx"></block>.</block>
+  <block id="4b7a1134c870f779c0b8eecedfde4cbf" category="inline-link">Astra 제품군 소개</block>
+  <block id="c2cc3948cdbda6ce71e4b9eb57f2cb63" category="list-text"><block ref="c2cc3948cdbda6ce71e4b9eb57f2cb63" category="inline-link-rx"></block></block>
+  <block id="3a4b2c66d4bdac6ce0e3340c71a39eda" category="inline-link">Astra Control Center 문서</block>
+  <block id="281db70ca8dfcac9ebe6166029058548" category="list-text"><block ref="281db70ca8dfcac9ebe6166029058548" category="inline-link-rx"></block></block>
+  <block id="d418042930eb178009f4c27360b349f6" category="inline-link">Astra Control API를 사용합니다</block>
+  <block id="35e127abdc4e59a01dd3fd4f63603bf1" category="list-text"><block ref="35e127abdc4e59a01dd3fd4f63603bf1" category="inline-link-rx"></block></block>
+  <block id="eef59217310b72030be060a13a0bc33a" category="summary">다음은 Astra Data Store에서 사용할 수 있는 테스트 애플리케이션을 구축하는 단계입니다.</block>
+  <block id="6f8b987c31a2eded2819babafcfa74aa" category="doc">테스트 응용 프로그램을 배포합니다</block>
+  <block id="6287ae11a59823f19dbadd6558fc6297" category="paragraph">Astra Data Store 미리 보기와 함께 사용할 수 있는 테스트 응용 프로그램을 배포하는 단계는 다음과 같습니다.</block>
+  <block id="c3a80e48f1fb8205acab156248cbc507" category="paragraph">이 예에서는 Hrom 리포지토리를 사용하여 Bitnami의 MongoDB 차트를 배포합니다.</block>
+  <block id="d2b286733c622d3734be88246d4edcd2" category="list-text">Astra Data Store 미리보기 클러스터가 구축 및 구성되었습니다</block>
+  <block id="d9e5235644553d4cc003fe80e853e3d9" category="list-text">Trident 설치가 완료되었습니다</block>
+  <block id="bf3f82feed370a6a3c6201a53bb8bbbc" category="list-text">Bitnami에서 Helm repo 추가:</block>
+  <block id="8df29821dfcdcec588d7bdf64a0c7f33" category="list-text">MongoDB 구축:</block>
+  <block id="7ea5c1d0e18468e3cd2a62ff24d97d28" category="list-text">MongoDB Pod의 상태를 확인합니다.</block>
+  <block id="93e7f0a6f24d71ade0739043509173b9" category="list-text">MongoDB에서 사용되는 영구 볼륨 클레임(PVC)을 확인합니다.</block>
+  <block id="43be430aa45a396e22bd22a2b6621ff9" category="list-text">kubeck 명령 'Get astradsvolume'을 사용하여 볼륨을 나열합니다.</block>
+  <block id="8967ae8bc51f2fd95d1b63331e33ac4b" category="list-text">kubbeck 명령 describe astradsvolume을 사용하여 볼륨을 설명합니다.</block>
+  <block id="3241ac56c7ab3234f3b6520c215096f2" category="summary">Astra Data Store에서 kudeck 명령을 직접 사용할 수 있습니다.</block>
+  <block id="a330f305f7c30e2f8e3640e572a7e00f" category="paragraph">kubtl 명령을 사용하거나 Kubernetes API 확장을 사용하여 Astra Data Store 미리보기 자산을 관리할 수 있습니다.</block>
+  <block id="01697c467d432c8756175875af6f7862" category="paragraph">샘플 앱을 배포하는 방법에 대한 자세한 내용은 을 참조하십시오 <block ref="643aaff8c958edf6a7fa070276276697" category="inline-link-macro-rx"></block>.</block>
+  <block id="b48b2370de15bd20dd54023e2a0a1442" category="paragraph">다음 클러스터 유지 보수 정보는 를 참조하십시오 <block ref="dd990211a19c702186be77590654645f" category="inline-link-macro-rx"></block>:</block>
+  <block id="e7ae093d60604d8075bb28b03b76a133" category="list-text">에 설치한 Astra Data Store preview kebtl 플러그인 <block ref="250292b4d71cfe0f32f1811f78ce979c" category="inline-link-macro-rx"></block></block>
+  <block id="c793b48779942190a7f434d7b11faf53" category="section-title">Astra Data Store 미리보기에 대한 Kubernetes 사용자 지정 API 리소스를 나열합니다</block>
+  <block id="ca0efae80c84ccf77b3a141422f85bbb" category="paragraph">Kubernetes 내의 kubtl 명령을 사용하여 Astra Data Store 미리보기 클러스터와 상호 작용하고 상태를 관찰할 수 있습니다.</block>
+  <block id="41dda97ca4546c6156bdecc752fdf8fa" category="paragraph">'api-resources' 명령에 나열된 각 항목은 Astra Data Store 미리 보기에서 클러스터 관리를 위해 내부적으로 사용하는 Kubernetes 사용자 정의 리소스 정의(CRD)를 나타냅니다.</block>
+  <block id="ac50ab0e5a87902e1394b248458e29ae" category="paragraph">이 목록은 나중에 표시된 것처럼 입력을 줄이기 위해 각 Astra Data Store 미리 보기 개체의 단축 이름을 가져오는 데 특히 유용합니다.</block>
+  <block id="1dec7ecfdf428406458e7f0ea393e97b" category="list-text">Astra Data Store 미리 보기를 위한 Kubernetes 사용자 정의 API 리소스 목록을 표시합니다.</block>
+  <block id="1c112875da75de7896516e2619bd9694" category="list-text">Kubernetes 클러스터의 모든 현재 Astra Data Store 미리보기 객체를 가져오려면 "kubbeck get ads-a" 명령을 사용하십시오.</block>
+  <block id="4291d7cb1313fc7e7a2bdee4b3e37b8f" category="list-text">간단한 이름 중 하나를 사용하여 클러스터에 있는 볼륨의 현재 상태를 표시합니다.</block>
+  <block id="b10460ccd4dab92425e3899834cff4ba" category="section-title">kubeck 확장명에 대한 도움말 옵션을 사용합니다</block>
+  <block id="4db582654bba3ae1263983cc7355e3dc" category="paragraph">kubbeck astrads 명령어에는 편의에 따라 사용 및 플래그 문서를 제공하는 '-h' 스위치가 포함되어 있습니다.</block>
+  <block id="60044b26f73be94c6598603c14ab55d4" category="list-text">Astra Data Store preview kubctl extension의 모든 명령에 대한 도움말을 표시합니다.</block>
+  <block id="3962691e8a7c8b7a00673c9035950515" category="list-text">명령에 대한 자세한 내용은 'astrads[command]--help'를 사용하십시오.</block>
+  <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="summary">법적 고지 사항은 저작권 선언, 상표, 특허 등에 대한 액세스를 제공합니다.</block>
+  <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">법적 고지</block>
+  <block id="c59ae8d7beeb519a23478ab048af482c" category="paragraph"><block ref="c59ae8d7beeb519a23478ab048af482c" category="inline-link-macro-rx"></block></block>
+  <block id="6f2ac1cf1da8ec34232c651d4bba0149" category="paragraph"><block ref="6f2ac1cf1da8ec34232c651d4bba0149" category="inline-link-macro-rx"></block></block>
+  <block id="bd9a92025f272fdbcf82dbe7c6751b8e" category="inline-link-macro">Astra Data Store 21.12 릴리스에 대한 고지 사항</block>
+  <block id="1f6cc7061c99b2f46c25473fe9b7ea3a" category="paragraph"><block ref="1f6cc7061c99b2f46c25473fe9b7ea3a" category="inline-link-macro-rx"></block></block>
+  <block id="6929f0cedcea1d6e056ea216f0388b3a" category="summary">Astra Data Store 클러스터를 확장할 수 있습니다.</block>
+  <block id="85c9296df6a3c9630ed684b4af8847a8" category="doc">클러스터 확장</block>
+  <block id="0525f08bcf3badaa43b64e062226d0f6" category="inline-link-macro">Astra Data Store 미리 보기 요구 사항</block>
+  <block id="a8272dc0dc5732e847bfe578c20695d8" category="paragraph">Astra Data Store 미리보기는 클러스터에서 다양한 유형과 기능을 가진 노드를 지원합니다. 클러스터를 확장하는 경우, Astra Data Store 미리 보기에서는 성능 기능이 있는 노드를 추가할 수 있습니다. 이 경우 클러스터의 성능 중 가장 낮은 노드보다 낮은 노드를 사용할 수 있습니다. 새 노드의 스토리지 용량은 기존 노드와 같아야 합니다. 확장 중에 새 노드를 비롯한 모든 노드는 에서 최소 요구사항을 충족해야 합니다 <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block>.</block>
+  <block id="ef22ff17624b3faeed227ce5c717eb5f" category="inline-link">Astra Control Service 문서</block>
+  <block id="6762180adf48075df77efbf264e982ec" category="list-text"><block ref="6762180adf48075df77efbf264e982ec" category="inline-link-rx"></block></block>
+  <block id="14d9b10c6196045941347a9e85704b50" category="inline-link">Astra Trident 문서</block>
+  <block id="4a2ab62188738135163aaaaeab1d6cfe" category="list-text"><block ref="4a2ab62188738135163aaaaeab1d6cfe" category="inline-link-rx"></block></block>
+  <block id="30f4d9ba43475ff8056fa1d73ffc972c" category="inline-link">Astra API를 사용합니다</block>
+  <block id="3d8f201e2aea311db7d1d35c86d726da" category="list-text"><block ref="3d8f201e2aea311db7d1d35c86d726da" category="inline-link-rx"></block></block>
+  <block id="5858ee4031acd7b896faa2d3d2c1a299" category="inline-link">Cloud Insights 설명서</block>
+  <block id="2b93b48daf034e4100d00b85950e109d" category="list-text"><block ref="2b93b48daf034e4100d00b85950e109d" category="inline-link-rx"></block></block>
+  <block id="eb75aeb3b4b2b9734ba3e52f5483f0b2" category="inline-link">ONTAP 설명서</block>
+  <block id="8217522f2b9eea86f1099a2aba54aebd" category="list-text"><block ref="8217522f2b9eea86f1099a2aba54aebd" category="inline-link-rx"></block></block>
+  <block id="65b6668e2c69e75ca45fd504ca3bf939" category="summary">Astra Data Store는 독립 실행형 Kubernetes 클러스터에 구축할 수 있습니다. 별도의 클러스터에서 실행 중인 Kubernetes 애플리케이션에 영구 볼륨을 제공할 수도 있고, Kubernetes 클러스터에서 동일한 노드 풀에 다른 앱을 호스팅하거나, Kubernetes 클러스터에서 다른 노드 풀에 앱을 호스팅할 수도 있습니다.</block>
+  <block id="06ae80c1558e7ebb2d814d7146df1dd4" category="doc">Astra Data Store 구축 모델을 미리 봅니다</block>
+  <block id="41719d45eedf548911f2b5c2a6084cc7" category="paragraph">Astra Data Store Preview는 Kubernetes로 구축 및 오케스트레이션된 애플리케이션을 사용하여 호스트에서 스토리지 드라이브를 직접 관리합니다.</block>
+  <block id="8ef212afa8777e08dfaa18bd2c5e39ae" category="paragraph">다음 옵션 중 하나를 사용하여 베어 메탈 또는 가상 서버에 Astra Data Store 미리 보기를 설치할 수 있습니다.</block>
+  <block id="d807a55a4eafc3079b6b45a80be55981" category="list-text">독립 실행형 전용 Kubernetes 클러스터에 구축하여 별도의 클러스터(독립 실행형 클러스터)에서 실행 중인 Kubernetes 애플리케이션에 영구 볼륨을 제공합니다.</block>
+  <block id="a5389bea5b0ed77642e3dc5f2d2e70f0" category="list-text">Kubernetes 클러스터에 구축할 경우 동일한 노드 풀(통합 클러스터)에서 다른 워크로드 애플리케이션을 호스팅할 수 있습니다.</block>
+  <block id="277369c2a44bdbde70d4978491333cf6" category="list-text">Kubernetes 클러스터에 구축할 경우 다른 노드 풀(disaggregated 클러스터)에서 다른 워크로드 애플리케이션을 호스팅할 수도 있습니다.</block>
+  <block id="c6f1a352df2f86c5762377fac42728cd" category="inline-link-macro">Astra Data Store 하드웨어 요구 사항에 대해 자세히 알아보십시오</block>
+  <block id="fe0f8f78d78d43e48f544072457864fd" category="paragraph"><block ref="063de6d98610c6cc606db5d3a91db761" category="inline-link-macro-rx"></block>.</block>
+  <block id="b718411e8c696b20e6e0a5763131ff50" category="paragraph">Astra Data Store Preview는 Astra 제품군의 일부입니다. Astra 제품군 전체를 보려면 을 참조하십시오<block ref="b55c504067205ad1413673d6a733ac94" category="inline-link-rx"></block>.</block>
+  <block id="70944dd74ab42c58bf0bbebb73b3d92e" category="section-title">Astra Data Store 미리 보기 에코시스템</block>
+  <block id="c77d4df020e2f228b335bf2fb55c7074" category="paragraph">Astra Data Store 미리 보기는 다음과 같이 작동합니다.</block>
+  <block id="50db2d5d2d0d6701257927c365a04231" category="list-text">* Astra Control Center *: 사내 환경에서 Kubernetes 클러스터의 애플리케이션 인식 데이터 관리를 위해 Astra Control Center 소프트웨어를 사용합니다. Kubernetes 앱을 손쉽게 백업하고, 데이터를 다른 클러스터로 마이그레이션하고, 작동하는 애플리케이션 클론을 즉시 생성할 수 있습니다.</block>
+  <block id="72537d8b8241103e05529786a992c93b" category="paragraph">Astra Control Center는 ONTAP 또는 Astra Data Store 미리 보기 스토리지 백엔드가 포함된 Astra Trident 스토리지 백엔드를 포함하는 OpenShift Kubernetes 클러스터를 지원합니다.</block>
+  <block id="8bce794738fc750d8f56c5653ce122c8" category="list-text">* Astra Trident *: NetApp에서 관리하는 완전 지원되는 오픈 소스 스토리지 공급자 및 오케스트레이터로서, Astra Trident를 사용하면 Docker 및 Kubernetes에서 관리하는 컨테이너 형태의 애플리케이션용 스토리지 볼륨을 생성할 수 있습니다.</block>
+  <block id="3fb127141fe64886ad5479043baf8792" category="paragraph">Astra Trident를 사용하여 Astra Data Store 미리 보기에서 볼륨을 생성합니다.</block>
+  <block id="9d106b821e7a6c048ee7d651cb427fe8" category="list-text">* Cloud Insights *: NetApp 클라우드 인프라 모니터링 툴인 Cloud Insights를 사용하면 Astra Control에서 관리하는 Kubernetes 클러스터의 성능과 활용률을 모니터링할 수 있습니다. Cloud Insights는 스토리지 사용량과 워크로드를 상호 연관시킵니다.</block>
+  <block id="7614f60c48f7bfbd460529648c031f07" category="paragraph">Astra Control에서 Cloud Insights 연결을 활성화하면 Astra Control UI 페이지에 원격 측정 정보가 표시됩니다. Cloud Insights는 Astra 데이터 저장소 미리 보기에서 관리되는 리소스에 대한 정보를 표시합니다.</block>
+  <block id="34a795c2035a86d18808381c47d8586b" category="section-title">Astra Data Store 미리 보기 인터페이스</block>
+  <block id="d015aca78df45458ee1d6533c5246919" category="paragraph">다른 인터페이스를 사용하여 작업을 완료할 수 있습니다.</block>
+  <block id="3ce33c83106a597de03ab2e053ba936d" category="list-text">* 웹 UI(사용자 인터페이스) *: Astra Control Service와 Astra Control Center는 앱을 관리, 마이그레이션 및 보호할 수 있는 동일한 웹 기반 UI를 사용합니다. 이 UI에는 Astra Data Store 미리 보기 볼륨에 대한 정보도 표시됩니다.</block>
+  <block id="5dd2a4cc9e98a3b9886bcc604cfd6996" category="list-text">* API *: Astra Control Service와 Astra Control Center는 동일한 Astra Control API를 사용합니다. API를 사용하면 UI를 사용할 때와 동일한 작업을 수행할 수 있습니다. Astra Control API를 사용하여 Astra Data Store 미리 보기에 대한 정보를 검색할 수도 있습니다.</block>
+  <block id="4265f71c8e49f4a6e5349ee2484a5ddb" category="list-text">* kubbtl 명령 *: Astra Data Store 미리 보기와 함께 사용하려면 kudeck 명령을 직접 사용할 수 있습니다.</block>
+  <block id="0277c6cbc171c0c7131585e332028573" category="list-text">* Kubernetes 확장 *: 또한 Astra Data Store 미리보기 Kubernetes API 확장을 사용할 수 있습니다.</block>
+  <block id="61a6bfa30a3c2204517c3ff952d4c118" category="paragraph">사용자 정의 리소스 정의(CRD)는 Astra Data Store 미리보기 운영자가 구축할 때 생성되는 Kubernetes REST API의 확장입니다. 외부 엔터티는 Kubernetes API 서버를 호출하여 CRD와 상호 작용합니다. Astra Data Store 미리 보기는 특정 CRD에 대한 업데이트를 확인한 다음 내부 REST API를 호출합니다.</block>
+  <block id="ca4530da8cd63a3852e628753021934a" category="summary">Astra Data Store는 씬 프로비저닝, 제로 블록 제거, 압축, 중복제거와 같은 스토리지 효율성 기술을 사용합니다.</block>
+  <block id="59b52b662628e0a0664716e98856b5d3" category="doc">Astra Data Store 미리보기 내의 스토리지 효율성</block>
+  <block id="c593500c8f6f300bb8cbf4acdb85b4ae" category="paragraph">Astra Data Store 미리보기: NetApp ONTAP 및 SolidFire 기술을 기반으로 하는 스토리지 효율성 기술을 사용합니다.</block>
+  <block id="49fd2375999e454962f2a76dea2d99b5" category="list-text">* 씬 프로비저닝 *: 씬 프로비저닝된 볼륨은 스토리지가 미리 예약되지 않은 볼륨입니다. 대신 필요에 따라 스토리지가 동적으로 할당됩니다. 볼륨 또는 LUN의 데이터가 삭제되면 사용 가능한 공간이 스토리지 시스템으로 다시 해제됩니다.</block>
+  <block id="ac0967915cfa21217ac0958fa4f2a6da" category="list-text">* 제로 블록 감지 및 제거 *: 씬 프로비저닝을 지원하는 ONTAP 스토리지 시스템은 0으로 제로화된 볼륨의 영역을 감지하여 해당 공간을 재확보하고 다른 곳에서 사용할 수 있도록 합니다.</block>
+  <block id="bd4fa668e07ff5169fc38a1df5dd7fe2" category="list-text">* 압축 *: 압축은 압축 그룹에 데이터 블록을 결합하여 볼륨에 필요한 물리적 스토리지의 양을 줄이며, 각 블록이 단일 블록으로 저장됩니다. ONTAP는 전체 파일이 아닌 요청된 데이터가 들어 있는 압축 그룹만 압축 해제하므로 압축된 데이터를 기존 압축 방법보다 빠르게 읽을 수 있습니다.</block>
+  <block id="a0f1d24dc3084ea8b257373ed48416c3" category="list-text">* 데이터 중복 제거 *: 중복 제거는 중복 블록을 버리고 단일 공유 블록에 대한 참조로 대체하여 볼륨(또는 AFF 애그리게이트의 모든 볼륨)에 필요한 스토리지 양을 줄입니다. 중복 제거된 데이터를 읽으면 일반적으로 성능 저하가 발생하지 않습니다. 쓰기 작업은 오버로드된 노드를 제외하고 무시할 만한 비용이 발생합니다.</block>
+  <block id="23d07990648d5e599c2f21bd6408d3c7" category="paragraph">이러한 모든 기능은 기본적으로 활성화되어 있습니다.</block>
+  <block id="8bb7278f8687d62c283b01b22bd11883" category="inline-link">스토리지 효율성 세부 정보</block>
+  <block id="17e8381dc8f4cb6d73926f1e7a8de1e1" category="paragraph">을 참조하십시오<block ref="64bad5f12122d75c9f4258c5070a56b3" category="inline-link-rx"></block>.</block>
+  <block id="d4b92f4945c7eafc00261f4339999749" category="summary">Astra Data Store는 여러 가지 방법을 사용하여 클라이언트 및 관리자의 스토리지 액세스 권한을 보호하고, 통신 및 데이터를 보호하며, 바이러스로부터 보호합니다.</block>
+  <block id="aaad6395404f293dfe1fcbb100ed7fdf" category="doc">Astra Data Store 미리 보기의 보안</block>
+  <block id="6c50ae0fd489e39bb803cec46c926c40" category="paragraph">Astra Data Store Preview는 여러 가지 방법을 사용하여 클라이언트 및 관리자의 스토리지 액세스 권한을 보호하고, 통신 및 데이터를 보호하고, 바이러스로부터 보호합니다.</block>
+  <block id="09339b9f65d7451119bd973b67b2cf37" category="paragraph">Astra Data Store Preview에서는 다음과 같은 보안 방법을 사용합니다.</block>
+  <block id="aadd8dd46108d4c406fbdaf57d8cd0e4" category="list-text">MTL(상호 전송 계층 보안)을 사용한 통신 암호화</block>
+  <block id="85f04e298b2fa787e636338a4499f93f" category="list-text">기능에 대한 액세스를 제어하는 역할 기반 액세스 제어</block>
+  <block id="493310ef851cbd6318af4494b52c12e6" category="list-text">배포 보안</block>
+  <block id="d7472107bd93164aab58e7bdee6b4ee2" category="list-text">인증서 관리</block>
+  <block id="4c8339b442784e09f376234ea3dc70e1" category="list-text">내부 키 관리를 비롯한 유휴 소프트웨어 암호화</block>
+  <block id="822b9a387b65a35c2ef192f62db1ed0f" category="summary">Astra Data Store는 컨테이너 및 VM 워크로드 모두를 위한 Kubernetes 네이티브 공유 파일 서비스로서 엔터프라이즈 데이터 관리를 제공합니다.</block>
+  <block id="7a99a9db224c8af4d42ebcb83f72eb95" category="doc">Astra 데이터 저장소 미리 보기 소개</block>
+  <block id="4f41b6ecbc684298440aa61fd902e22e" category="paragraph">Astra Data Store Preview는 온프레미스 데이터 센터를 위한 Kubernetes 네이티브 공유 파일 소프트웨어 정의 스토리지(SDS) 솔루션으로, 고객이 클라우드 네이티브 애플리케이션을 관리할 수 있도록 지원합니다. Astra Data Store는 NetApp 엔터프라이즈 데이터 관리와 함께 컨테이너 및 VM 워크로드 모두를 위한 네이티브 공유 파일 서비스를 제공합니다.</block>
+  <block id="1ab55fa5b9c4c19372d7d6871e2ad91a" category="paragraph">Astra Data Store 미리 보기를 사용하여 다음을 수행할 수 있습니다.</block>
+  <block id="13423660d468d089ecff44a943262590" category="list-text">* Kubernetes 컨테이너 워크로드 * 지원: 엔터프라이즈 데이터 관리 서비스 및 툴을 사용하는 데 적합합니다.</block>
+  <block id="658b90d4dc3b6a2eac6d3fe324c8cfcc" category="list-text">* DevOps * 용 Kubernetes "서비스형 애플리케이션" 플랫폼 사용: 자동화되고 반복 가능한 서비스를 제공하고 개발자로부터 복잡성을 제거하는 탄력적인 소프트웨어 정의 셀프 서비스 플랫폼을 생성합니다.</block>
+  <block id="bb453665f57f6823950856f7a9bad0c3" category="section-title">Astra 제품군</block>
+  <block id="dd490b59f0194051f9d41deec8b0aefa" category="paragraph">Astra 제품군은 Kubernetes 애플리케이션 데이터 라이프사이클 관리를 제공하여 상태 저장 애플리케이션의 운영을 단순화합니다. Kubernetes 워크로드를 손쉽게 보호, 백업, 마이그레이션하고 정상 작동하는 애플리케이션 클론을 즉시 생성할 수 있습니다.</block>
+  <block id="b71fa69e65a9178741af35068df8a392" category="paragraph">Astra 오퍼링은 다음과 같습니다.</block>
+  <block id="9cdf0ccc35fe6d9fdc72efbcca1bacad" category="list-text">* Astra Control *: 퍼블릭 클라우드와 온프레미스 모두에서 Kubernetes 워크로드를 관리, 보호 및 이동하는 애플리케이션 인식 데이터 관리 툴을 사용합니다</block>
+  <block id="227ef150dba3452cf99d8eb20c88f292" category="list-text">* Astra Control Service *: NetApp에서 관리하는 서비스를 퍼블릭 클라우드의 Kubernetes 워크로드 데이터 관리에 사용합니다.</block>
+  <block id="5fcaa4cc6e27b1f2dcee1db0dcee999a" category="list-text">* Astra Control Center *: 사내 Kubernetes 워크로드의 데이터 관리에 자가 관리 소프트웨어를 사용합니다.</block>
+  <block id="f6f25afb547b52fa6ec991a8716cbb38" category="list-text">* Astra Data Store 미리보기 *: 기업 데이터 관리를 위한 컨테이너 및 VM 워크로드를 위한 Kubernetes 네이티브 공유 파일 서비스를 사용합니다.</block>
+  <block id="383cdefecd7eda4a982198ecdbbce7da" category="list-text">* Astra Trident *: NetApp 스토리지 공급자와 함께 CSI(Container Storage Interface)를 준수하는 스토리지 프로비저닝 및 관리 기능을 Kubernetes 워크로드에 사용합니다.</block>
+  <block id="9c4409443c2952d1634823228bc8d335" category="paragraph">을 참조하십시오<block ref="b55c504067205ad1413673d6a733ac94" category="inline-link-rx"></block>.</block>
+  <block id="17d3506812ac5cd550afaae120fc3072" category="paragraph"><block ref="17d3506812ac5cd550afaae120fc3072" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="de08a04337cd312be055df354ff4a143" category="section-title">Astra Data Store 미리보기 기능</block>
+  <block id="7f9c8c1ebd63ac3eee6304557c3beb28" category="paragraph">Astra Data Store 미리 보기에서는 다음과 같은 기능을 사용하여 Kubernetes 네이티브 엔드 스토리지 및 데이터 관리를 클라우드 네이티브 응용 프로그램에 제공합니다.</block>
+  <block id="f9ab1651208c253699bc488c26a8427e" category="list-text">* Kubernetes 네이티브 공유 파일 서비스 *: 표준 NFS 클라이언트를 컨테이너 및 VM에 대한 통합 데이터 저장소로 사용하여 Kubernetes 네이티브 공유 파일 서비스를 제공합니다</block>
+  <block id="f9ee9cb48be574a530a87bdbd8a3fb4b" category="list-text">* 클라우드 확장 *: 동일한 리소스 풀에서 Kubernetes 네이티브 다중 병렬 파일 시스템을 제공하여 클라우드와 같은 확장 및 사용률을 달성하므로 스토리지와 클러스터를 따로 관리할 필요가 없습니다.</block>
+  <block id="7012ec096e5b7ac0c86f0d874bca22cd" category="list-text">* API 우선 접근 방식 *: 자동화된 클러스터 및 워크로드 관리에 필요한 코드로 인프라를 제공합니다.</block>
+  <block id="9aabb09d3a7120141b0d753a80fe4217" category="list-text">* 엔터프라이즈급 데이터 관리 *: 자동화된 애플리케이션 인식 데이터 보호 및 재해 복구 기능 제공:</block>
+  <block id="782e83202e5dc2f388e8355633eda320" category="list-text">* NetApp 기술 *: 스냅샷, 백업, 복제 및 클론 복제를 위해 NetApp 데이터 관리 기술을 활용하므로 사용자가 Kubernetes에서 엔터프라이즈 앱을 구축 및 구축할 수 있습니다. ​</block>
+  <block id="8931fb12998c2c6ad5f4c5bc8829f8ef" category="list-text">* 복원력 *: Kubernetes 네이티브 워크로드에 복제 및 삭제 코딩 기술을 사용하여 뛰어난 복원력을 제공합니다.</block>
+  <block id="1504325f5e4b13a89b554f4d86ce7224" category="list-text">* 데이터 효율성 *: 인라인 중복제거 및 압축 기능을 통해 확장 시 비용을 제어합니다.</block>
+  <block id="02636655504a22c3e2973e5b212990c4" category="list-text">* 기존 환경에 적합 *: 마이크로서비스 기반 및 기존 워크로드 지원, 주요 Kubernetes 배포 서비스, 파일 스토리지 제공, 하드웨어 방식의 하드웨어인 Windows 담은 선택하여 실행할 수 있습니다.</block>
+  <block id="15266d664d91aafb32a297b47d315e6e" category="list-text">* NetApp Cloud Insights * 와의 통합: 지속적인 낙관적인 견해를 관찰 가능성, 분석 및 모니터링합니다. ​</block>
+  <block id="8868678235b1972f674ec06ef7e3b57f" category="section-title">Astra 데이터 저장소 미리 보기를 시작합니다</block>
+  <block id="fdc214a356831f18e50d44483816cd46" category="inline-link-macro">Astra Data Store 요구 사항에 대해 알아보십시오</block>
+  <block id="ff5aa600c6539c7e081d620eb47efc0b" category="paragraph">첫째, <block ref="ffd8cafe4a2e3797a817f620ac67ea91" category="inline-link-macro-rx"></block>.</block>
+  <block id="5b1afbcfd691161f9517b45cd0d4faee" category="inline-link-macro">시작하십시오</block>
+  <block id="fb75bcadcf4356e44d514f54d356ab25" category="paragraph">그런 다음 <block ref="f7da4cdd4ceddcef675db38062e9c2f7" category="inline-link-macro-rx"></block>.</block>
+  <block id="e81551a1c637af1bdd2cf807058cc5e3" category="summary">먼저 환경에 대한 지원을 확인하십시오.</block>
+  <block id="c066e77c0fe2c99e8fbbb9a70c883a5f" category="doc">Astra Data Store 미리보기 제한</block>
+  <block id="dfc6ae638b43c600bcdbe8a67cf9709c" category="paragraph">Astra Data Store는 고객이 클라우드 네이티브 애플리케이션을 관리할 수 있도록 사내 데이터 센터를 위한 Kubernetes 네이티브 공유 파일 소프트웨어 정의 스토리지(SDS) 솔루션입니다.</block>
+  <block id="9242577a835539354b36df9d5785b04f" category="paragraph">Astra Data Store 미리보기 릴리즈에는 다음과 같은 리소스 제한이 있습니다.</block>
+  <block id="be8545ae7ab0276e15898aae7acfbd7a" category="cell">리소스</block>
+  <block id="a1d0ec6d56f8833a078b5a7ac4caf2d4" category="cell">최소</block>
+  <block id="8321e79c278ec510f63675c040594892" category="cell">최대</block>
+  <block id="5e9a72bd35b8b657825b42e178cc667d" category="cell">Astra Data Store 미리보기 클러스터의 노드 수입니다</block>
+  <block id="a87ff679a2f3e71d9181a67b7542122c" category="cell">4</block>
+  <block id="e4da3b7fbbce2345d7772b0674a318d5" category="cell">5</block>
+  <block id="196f991af758339a4e307e49fdc25445" category="cell">노드당 영구 볼륨 수입니다</block>
+  <block id="382b0f5185773fa0f67a8ed8056c7759" category="cell">해당 없음</block>
+  <block id="d3d9446802a44259755d38e6d163e820" category="cell">10</block>
+  <block id="a01ecc0a6ff9ccb59344e8646621b1ab" category="cell">노드당 영구 볼륨의 프로비저닝된 총 용량입니다</block>
+  <block id="8913df8372330703defae14976d6f14e" category="cell">1TiB</block>
+  <block id="6bb41960470a19d97556b9240ac0b3ff" category="cell">볼륨 크기</block>
+  <block id="726d383bc3256804ce4d5e4c45cf853b" category="cell">20MiB</block>
+  <block id="7f9d2c4d982547805f59957ea8962556" category="cell">볼륨당 스냅샷</block>
+  <block id="cfcd208495d565ef66e7dff9f98764da" category="cell">0</block>
+  <block id="f718499c1c8cef6730f9fd03c8125cab" category="cell">256</block>
+  <block id="9053ddee628502aa59ecc06ca8054392" category="cell">볼륨당 클론</block>
+  <block id="45c48cce2e2d7fbdea1afc51c7c6ad26" category="cell">9</block>
+  <block id="71ace59df32db700cac820349c67dd2a" category="admonition">Astra Data Store 미리 보기는 VM 워크로드를 지원하지 않습니다. VMware VVOL 워크로드 지원은 향후 릴리즈에서 제공될 예정입니다.</block>
+  <block id="fb3d937ada0889a18943f9e221637388" category="admonition">Astra Data Store 미리 보기는 성능 임계치를 조절하며 성능 특성화에 사용해서는 안 됩니다.</block>
+  <block id="0a20c90d5270bed19fcaf851778c663b" category="section-title">다음 단계</block>
+  <block id="b4851e92b19af0c5c82447fc0937709d" category="inline-link-macro">요구 사항</block>
+  <block id="a695e2ec087393b67c5decc922a11745" category="paragraph">구성이 에 맞는지 확인합니다 <block ref="3675fd04b78685cacd6e23511ab11d10" category="inline-link-macro-rx"></block>.</block>
+  <block id="f384e304ce8ad1baf968d76cbb4f75e3" category="summary">다음 Astra Data Store 설치 절차 중 하나를 선택합니다</block>
+  <block id="aae3f331fbdab3d560f2829b3edb6b42" category="doc">Astra Data Store 설치 개요</block>
+  <block id="c3a5e0d3ee4046f7f704d4058047eb20" category="paragraph">다음 Astra Data Store 설치 절차 중 하나를 선택하여 완료합니다.</block>
+  <block id="d99bdf0294b88b88ebeb7c5a3dd478d0" category="inline-link-macro">표준 프로세스를 사용하여 Astra Data Store를 설치합니다</block>
+  <block id="473248c5259367a46bb162931f7c51ef" category="list-text"><block ref="e2426583e3d976b64c068eb029ece1a2" category="inline-link-macro-rx"></block>.</block>
+  <block id="f70c6700d280b2af512dec2815cebb4a" category="inline-link-macro">Red Hat OpenShift를 사용하는 경우 OpenShift를 사용하여 Astra Data Store를 설치합니다</block>
+  <block id="702096ecdc14aab30475ed7a1a2893c1" category="list-text"><block ref="9c6e2269ed85995d4b7b0fb33aa8fd3b" category="inline-link-macro-rx"></block>.</block>
+  <block id="b1151aae9531d2f5e85d085e8878cea6" category="summary">이 FAQ는 질문에 대한 간단한 답변을 찾는 경우에 도움이 될 수 있습니다.</block>
+  <block id="0fc384ade3fa0a49e6200f91385d65a9" category="doc">Astra Data Store 미리 보기를 위한 질문과 대답</block>
+  <block id="6014dc7d785a91f39eda065d13d62e52" category="paragraph">Astra Data Store 미리 보기의 설치, 구성, 업그레이드 및 문제 해결에 대해 자주 묻는 질문에 대한 답변을 찾아보십시오.</block>
+  <block id="96ab491ef73d5db0cd15f55e1552cc22" category="section-title">일반적인 질문</block>
+  <block id="63f037cc937fa1e56c508887d619f746" category="paragraph">* 생산에 Astra Data Store 미리보기를 사용할 수 있습니까? * 아니요 Astra Data Store는 엔터프라이즈급 복구 성능을 제공하도록 설계 및 개발되었지만, 미리 보기 릴리즈인 Astra Data Store Preview는 운영 워크로드를 대상으로 하지 않습니다.</block>
+  <block id="adb8e906da60ee75c25264b57f7ea87b" category="inline-link-macro">Astra 데이터 저장소 요구 사항</block>
+  <block id="869d7dcd29e389a568aae5c68a333164" category="paragraph">* 가상 머신 워크로드에 Astra Data Store 미리보기를 사용할 수 있습니까? * Astra Data Store 미리보기 릴리즈는 베어 메탈 또는 가상 머신에서 실행 중인 애플리케이션에만 한정됩니다. 향후 릴리즈에서는 Kubernetes 및 ESXi 가상 머신 모두에서 애플리케이션을 직접 지원합니다. 을 참조하십시오 <block ref="f6e7a5de97c28034a15c0e13f6029354" category="inline-link-macro-rx"></block>.</block>
+  <block id="6ff698755e67cc429908f62f936f7553" category="paragraph">* Astra Data Store 미리 보기에는 다른 NetApp 제품의 기능에 대한 의존성이 있습니까? *</block>
+  <block id="8642164a1b18da0845855cbe9e2ab13d" category="paragraph">예. Astra Data Store 미리 보기를 사용하려면 NetApp CSI 드라이버 Astra Trident 버전 21.10.1 이상이 워크로드 Kubernetes 클러스터에 배포되어야 합니다. 에 대해 자세히 알아보십시오 <block ref="f6e7a5de97c28034a15c0e13f6029354" category="inline-link-macro-rx"></block>.</block>
+  <block id="9c634046a90a62883b122e76b9afcef2" category="inline-link">Astra 제어 센터</block>
+  <block id="10c5e9eb3bf9722cbd8c0c4706a35f40" category="paragraph">Astra Data Store Preview 클러스터를 스토리지 백엔드로 사용하는 애플리케이션은 를 사용할 수 있습니다<block ref="73c15736d78e1e14f234b40f7cdc3048" category="inline-link-rx"></block> 버전 21.12를 사용하여 Kubernetes 워크로드의 데이터 보호, 재해 복구, 마이그레이션을 비롯한 애플리케이션 인식 데이터 관리 기능을 활용할 수 있습니다.</block>
+  <block id="456f2b6f01dea1c766407717c9f25ae0" category="paragraph">* Astra Data Store 미리보기 클러스터를 관리하려면 어떻게 해야 합니까? * kubtl 명령을 사용하거나 Kubernetes API 확장을 사용하여 Astra Data Store 미리보기 자산을 관리할 수 있습니다.</block>
+  <block id="8769fb0b311c9d4eb4ae12703797ec2d" category="paragraph">* Astra 데이터 저장소 미리 보기 클러스터 메트릭을 어떻게 모니터링할 수 있습니까? * Cloud Insights를 사용하여 Astra 데이터 저장소 미리 보기 메트릭을 모니터링할 수 있습니다. 을 참조하십시오 <block ref="5f4e23cb821c4c14144c1c2b8f6c948e" category="inline-link-macro-rx"></block>.</block>
+  <block id="a3732b03ca4422ce6b70efcd6e224c8f" category="paragraph">로그를 모니터링할 수도 있습니다. 을 참조하십시오 <block ref="3d73dda56e07b3410aee41dd59d50b4f" category="inline-link-macro-rx"></block>.</block>
+  <block id="46bc7872a1eb6d52309892745fb5728f" category="paragraph">* Kubernetes 클러스터의 ONTAP 또는 다른 스토리지 공급자와 함께 Astra Data Store 미리보기를 사용할 수 있습니까? * 예. Astra Data Store 미리 보기는 애플리케이션 클러스터의 다른 스토리지 공급자와 함께 사용할 수 있습니다.</block>
+  <block id="cff1b9b86e8ec14449228e18e322acb1" category="paragraph">* Astra 데이터 저장소 미리 보기에서 Kubernetes 클러스터를 제거하면 Astra Trident가 제거됩니까? * Astra 데이터 저장소 미리 보기를 제거하면 Astra Trident가 클러스터에서 제거되지 않습니다. Astra Trident를 제거해야 하는 경우 별도로 제거해야 합니다.</block>
+  <block id="0b9c6eef4e3d3a222eb04e910d252339" category="section-title">라이센싱</block>
+  <block id="189fe01d6ea340c87bd7dfc08e5dc6fd" category="paragraph">* Astra Data Store 미리 보기에는 라이센스가 필요합니까? * 예, Astra Data Store 미리 보기를 사용하려면 NetApp 라이센스 파일(NLF)이 필요합니다.</block>
+  <block id="9c985db49df4957b3e91e45779dc1676" category="paragraph">을 참조하십시오 <block ref="f6e7a5de97c28034a15c0e13f6029354" category="inline-link-macro-rx"></block>.</block>
+  <block id="a4fc10faeeae8519fdd802da4359cae7" category="paragraph">* Astra 데이터 저장소 미리 보기 라이센스는 얼마나 유효합니까? * Astra 데이터 저장소 미리 보기 라이센스의 기본 기간은 다운로드 날짜로부터 90일입니다.</block>
+  <block id="8b6311633b65017461fb3e38c2c6de22" category="section-title">Kubernetes 클러스터에서 Astra Data Store 미리 보기의 설치 및 사용</block>
+  <block id="e026877debbc2f84d1f1afe45633ccff" category="paragraph">* 베어 메탈 또는 가상 머신에서 실행 중인 Kubernetes 클러스터에 Astra Data Store 미리보기를 설치할 수 있습니까? * 예. Astra Data Store 미리 보기는 베어 메탈 또는 ESXi VM에서 실행되는 Kubernetes 클러스터에 설치할 수 있습니다. 을 참조하십시오 <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block>.</block>
+  <block id="973dcf444baeb55a13c72f75f3c82abc" category="paragraph">* Astra Data Store Preview용 Kubernetes의 지원되는 버전은 무엇입니까? *</block>
+  <block id="5131c05a8ea4585b7b25cf09ef94bea6" category="paragraph">Astra Data Store 미리 보기는 v1.20 이상과 호환되는 Kubernetes 배포판과 연동됩니다. 그러나 현재 일부 Kubernetes 배포에서 검증되지 않았습니다. 에 대해 자세히 알아보십시오 <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block>.</block>
+  <block id="372ed5ea638253490746dee9139ea358" category="paragraph">* My Kubernetes 클러스터가 5개 이상의 작업자 노드입니다. Astra 데이터 저장소 미리 보기를 설치할 수 있습니까? * 예. Kubernetes 클러스터의 4개 작업자 노드에 Astra Data Store 미리보기 클러스터를 구축할 수 있습니다. 구축한 후에는 클러스터를 5개의 작업자 노드로 확장할 수 있습니다.</block>
+  <block id="2f4d5933ff58ee63b72cffb00159b0f4" category="paragraph">* Astra 데이터 저장소 미리 보기는 개인 레지스트리의 오프라인 설치를 지원합니까? * 예. Astra Data Store 미리 보기는 로컬 레지스트리에서 오프라인으로 설치할 수 있습니다. 을 참조하십시오 <block ref="250292b4d71cfe0f32f1811f78ce979c" category="inline-link-macro-rx"></block>. 그러나 Astra Data Store 미리 보기를 사용하려면 NetApp AutoSupport 백엔드(support.netapp.com 직접 또는 프록시를 통해 연결해야 합니다.</block>
+  <block id="db9fb1d9d672621d4c3ce0a9c34579b7" category="paragraph">* Astra 데이터 저장소 미리 보기를 사용하려면 인터넷 연결이 필요합니까? * Astra 데이터 저장소 미리 보기를 사용하려면 NetApp AutoSupport 백엔드에 연결해야 필수 원격 측정 AutoSupport 번들을 정기적으로 보낼 수 있습니다. 이러한 연결은 직접 또는 프록시를 통해 가능합니다. 이 연결이 없거나 AutoSupport가 비활성화된 경우 클러스터가 잠기며 주기적인 번들 업로드가 재개될 때까지 새 볼륨 생성이 비활성화됩니다.</block>
+  <block id="bba57f874c98e85c47cc41e62b11c2f9" category="paragraph">* Astra Data Store Preview에서 사용하는 역할과 권한은 무엇입니까? * Astra Data Store Preview 운영자를 배포하려면 kudo 관리자여야 합니다.</block>
+  <block id="7e262eb0471b79362fb1d998ef7816ad" category="paragraph">Astra Data Store Preview에는 노드 선택에 사용되는 노드 리소스를 검색하는 데 사용되는 "astrads-ds-nodeinfo-astradsversion"이라는 특별한 데모가 포함되어 있습니다.</block>
+  <block id="24e04714db6e86f8b770da300196abe4" category="paragraph">또한 운영자는 권한이 있는 Kubernetes 작업을 사용하여 선택한 작업자 노드에 스토리지 클러스터의 컨테이너를 설치하여 Astra Data Store 미리 보기 스토리지 클러스터를 구축합니다.</block>
+  <block id="9d2169c1c2855b78a7aeaa4f42d27dc7" category="inline-link">NetApp Support 사이트</block>
+  <block id="4c0ef7c9699c23c05811fdaa8dd6d7fc" category="paragraph">* Astra Data Store 미리 보기 설치를 위해 업데이트해야 하는 매니페스트 파일은 무엇입니까? * 에서 다운로드한 Astra Data Store 미리 보기 번들에서 다운로드할 수 있습니다<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block>, 다음과 같은 매니페스트가 제공됩니다.</block>
+  <block id="d870af338cdfa7ad024a4babd5d5c020" category="list-text">Astasscluster.YAML</block>
+  <block id="de40745cae6783730dd65bb03555d562" category="list-text">Astassoperator.YAML</block>
+  <block id="d2730d5e8f46678286a382b660c902d6" category="list-text">Astradsversion.YAML을 참조하십시오</block>
+  <block id="3a9c59c477bac1075df22f66ac28ffc3" category="list-text">monitoring_operator.YAML</block>
+  <block id="155295fb4d0e2d0e7c5967bbc8bd3ed3" category="paragraph">배포별 구성으로 "astradscluster.yaML" 매니페스트를 업데이트해야 합니다. 을 참조하십시오 <block ref="250292b4d71cfe0f32f1811f78ce979c" category="inline-link-macro-rx"></block>.</block>
+  <block id="92d1656d06303733c5e1398fb273a17e" category="section-title">문제 해결 및 지원</block>
+  <block id="f6ef14054d61951d57b5e044756b16ef" category="paragraph">Astra Data Store 미리 보기를 사용하면 NetApp Containers Slack 채널을 사용하여 커뮤니티 지원에 액세스할 수 있습니다. 이 채널은 NetApp Support 및 기술 마케팅 엔지니어가 모니터링합니다.</block>
+  <block id="61615f0fb929e3dc8c5ed73825a9a333" category="inline-link">NetApp 컨테이너 여유 채널</block>
+  <block id="1e16f2b8556745da1de7a0b75522a635" category="paragraph"><block ref="1e16f2b8556745da1de7a0b75522a635" category="inline-link-rx"></block></block>
+  <block id="98d4a15143a74da57ac042934633419c" category="paragraph">Preview 릴리즈를 사용하려면 시스템이 클라우드에 연결되고 NetApp Active IQ 및 AutoSupport 도구에 통합되어 있어야 합니다.</block>
+  <block id="0596e50aba44f7e1a22cfd6eba221eb1" category="inline-link-macro">Astra Data Store 지원 작업</block>
+  <block id="b84bc82d6b1290562ebf05231992936a" category="paragraph">을 참조하십시오 <block ref="8d8c8ec655e8397711a9f4c0b3d58c93" category="inline-link-macro-rx"></block>.</block>
+  <block id="76cb5d2fd9023680b23ef2e16304eb1d" category="paragraph">* 지원 케이스를 제출하거나 빠른 질문에 대한 명확한 설명을 요청하는 방법은 무엇입니까? * 지원 케이스를 제출하거나 빠른 질문에 대한 설명을 받으려면 에 대해 문제나 질문을 신고하십시오<block ref="58c7b0218bcdd8930a7bd42e42b82022" category="inline-link-rx"></block>. NetApp Support는 최선의 노력을 통해 최선의 지원을 제공합니다.</block>
+  <block id="e55eed1f8e319d189f948d8925157ae5" category="paragraph">* 새 기능에 대한 요청을 어떻게 제기합니까? * 지원되는 구성 또는 기능에 대한 질문이 있는 경우 astra.feedback@netapp.com 으로 문의하십시오.</block>
+  <block id="d8d50c12bd11a2109a7a384f43b0930a" category="inline-link-macro">지원 번들을 생성합니다</block>
+  <block id="1165a0185db86745710cb672405b42d6" category="paragraph">* 지원 로그 번들을 생성하려면 어떻게 합니까? * 를 참조하십시오 <block ref="fabd9c024e7cacda497223e92e4a9bcb" category="inline-link-macro-rx"></block> Astra Data Store 미리 보기를 위한 지원 로그 번들을 설정 및 다운로드하는 방법에 대한 지침은 을 참조하십시오.</block>
+  <block id="36a38d337710d18d8d4579ea32c02c53" category="paragraph">* Astra Data Store 미리 보기에서 내 Kubernetes 노드를 찾을 수 없습니다. 이 문제를 해결하려면 어떻게 합니까? * 를 참조하십시오 <block ref="250292b4d71cfe0f32f1811f78ce979c" category="inline-link-macro-rx"></block>.</block>
+  <block id="b4f1a748c4275cde876e19417947f3df" category="paragraph">* IPv6 주소를 관리, 데이터 및 클러스터 네트워크에 사용할 수 있습니까? * 아니요. Astra Data Store 미리 보기는 IPv4 주소만 지원합니다. IPv6 지원은 Astra Data Store Preview의 향후 릴리스에 추가될 예정입니다.</block>
+  <block id="91f1ab6c785beb94a57d22cb6b25c708" category="paragraph">* Astra Data Store 미리 보기에서 볼륨을 프로비저닝하는 동안 어떤 NFS 버전이 사용됩니까? * 기본적으로 Astra Data Store 미리 보기는 Kubernetes 애플리케이션에 프로비저닝된 모든 볼륨에 대해 NFS v4.1을 지원합니다.</block>
+  <block id="6c6c281439786bd3afca1ee0f6d336f2" category="paragraph">* 대용량 드라이브를 사용하여 Astra Data Store 미리보기를 구성한 경우에도 더 큰 영구 볼륨을 얻을 수 없는 이유는 무엇입니까? * Astra Data Store 미리 보기는 노드의 모든 볼륨에 대해 프로비저닝된 최대 용량을 1TiB로 제한하고 Astra Data의 모든 노드에서 최대 5TiB로 제한합니다 Store preview cluster(미리보기 클러스터 저장)</block>
+  <block id="9afd9c344216e29885949ef527d064ad" category="paragraph">을 참조하십시오 <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block>.</block>
+  <block id="14cd0e4b418e0b771908183fb5ecc24e" category="section-title">Astra Data Store 미리 보기를 업그레이드하는 중입니다</block>
+  <block id="9b5fa79969e9a6e522104cdbe7e5b5d3" category="paragraph">* Astra Data Store Preview 릴리스에서 업그레이드할 수 있습니까? * 아니요 Astra Data Store 미리 보기는 운영 작업 부하가 아니며, Astra Data Store 미리 보기 소프트웨어의 새 릴리즈에는 새로 설치해야 합니다.</block>
+  <block id="f8e5d5352b626bd2d029c4bd8ea9d47a" category="summary">Astra Data Store를 설치하고 몇 가지 환경 요구 사항을 해결한 후에는 Astra Trident를 설치 또는 업데이트하고 K8s 스냅샷 기능을 구성하고 스토리지 백엔드를 설정한 다음 기본 스토리지 클래스를 생성합니다.</block>
+  <block id="19631c9457203d96b87631ebe7414561" category="doc">Astra Data Store 미리보기 구성 요소를 설정합니다</block>
+  <block id="d123277e1fd8558573c3d0919aa684f3" category="paragraph">Astra Data Store 미리 보기를 설치하고 몇 가지 환경 요구 사항을 해결한 후에는 Astra Trident를 설치하고, Kubernetes 스냅샷 기능을 구성하고, 스토리지 백엔드를 설정하고, 기본 스토리지 클래스를 생성합니다.</block>
+  <block id="b242850ad01d99f75ddfd4f74dfebad7" category="list-text"><block ref="e182f16fc549d59ca5882ebcc8d36a3d" category="inline-xref-macro-rx"></block></block>
+  <block id="38dbb49a55339dc2dbba9028c6176375" category="list-text"><block ref="a0e69e669f52a5cafaeb2bea82f6649c" category="inline-xref-macro-rx"></block></block>
+  <block id="01b9d33e8be610298a88d84e6d7abbfe" category="list-text"><block ref="dcd2e63384cc1964e08e6b39f6f60b05" category="inline-xref-macro-rx"></block></block>
+  <block id="f2ae91b089e1704747091d82092a79f5" category="list-text"><block ref="c8c521299e392e79ac34059fc36dd14d" category="inline-xref-macro-rx"></block></block>
+  <block id="f1fe71442cd08e74d342114df7ee1551" category="section-title">Astra Trident를 설치합니다</block>
+  <block id="5dd74befe3d85da2f57fd86a34d8fac2" category="paragraph">Astra Data Store 미리 보기의 경우 Astra Trident 21.10.1을 설치해야 합니다. 다음 옵션 중 하나를 사용하여 Astra Trident를 설치할 수 있습니다.</block>
+  <block id="e7447899210826e544345ba93e133255" category="inline-link">tridentctl을 사용하여 Astra Trident를 설치합니다</block>
+  <block id="979a6aa592c9858f17cfdaa4e128d948" category="list-text"><block ref="dc8ebe7b95cc3b1176276c1b38485f4d" category="inline-link-rx"></block>.</block>
+  <block id="c9dee809ea22b77ba4c31523844ca736" category="inline-link">Trident 연산자를 사용하여 Astra Trident를 설치합니다</block>
+  <block id="9cbe472556d86bca1de7978af69e74d5" category="list-text"><block ref="802e7b84d831ea6d56a6d132aa8a7db4" category="inline-link-rx"></block>.</block>
+  <block id="c2c5c71258d8e55bd320745371789d00" category="admonition">Trident 연산자는 수동으로 또는 Hrom을 사용하여 배포할 수 있습니다.</block>
+  <block id="d79ccdfe6809f469235ccec6dcc85362" category="section-title">Kubernetes 스냅샷 CRD 및 컨트롤러를 설치합니다</block>
+  <block id="5ab1da70b106ac4cac7486f910a193f7" category="paragraph">영구 볼륨 청구(PVC) 스냅샷을 생성하려면 Kubernetes 스냅샷 CRD 및 컨트롤러가 필요합니다. 사용자 환경에 CRD 및 컨트롤러가 아직 설치되어 있지 않은 경우 다음 명령을 실행하여 설치하십시오.</block>
+  <block id="f6a6928c71289ccfc6e517aa2e23c8dd" category="admonition">다음 명령 예제에서는 디렉터리를 '/trident'로 가정합니다. 그러나 사용하는 디렉터리는 YAML 파일을 다운로드하는 데 사용한 디렉터리일 수 있습니다.</block>
+  <block id="b3f07915b49e4ea1df947a086346e6cc" category="inline-link-macro">설치를 시작하기 전에 Astra Data Store 미리 보기 구축을 위한 환경을 준비합니다</block>
+  <block id="38e54550c131045d7072709ab7bdb0c9" category="list-text"><block ref="e8ea8205c2ef5ca696bb2e550839cf2e" category="inline-link-macro-rx"></block>.</block>
+  <block id="d4d4a15663d8f6b4a3ab637d777ff538" category="inline-link-macro">Kubernetes 스냅샷 컨트롤러 YAML 파일</block>
+  <block id="bb77e148c413e9e6fe81c660d1b64bcb" category="list-text">를 다운로드합니다 <block ref="07b1214d7f04b151683fccdcb3396163" category="inline-link-macro-rx"></block>:</block>
+  <block id="aef7cd1b81043d55ad8648455fb6ed1b" category="list-text">설정 - 스냅샷 - 컨트롤러.YAML</block>
+  <block id="29e5e3a354a8524010423699de73f776" category="list-text">RBAC-스냅샷-컨트롤러.YAML</block>
+  <block id="e04160d92f8ef05d4ce3314e8cc91137" category="inline-link-macro">YAML CRD</block>
+  <block id="6087aa1a980e9fb03c3d42ed429d3090" category="list-text">를 다운로드합니다 <block ref="424f4872df67a1a5528184cc2ca8dc8c" category="inline-link-macro-rx"></block>:</block>
+  <block id="88e291668f9a86bd88b88b9b98a6aee8" category="list-text">snapshot.storage.k8s.io_volumesnapshotClasses.YAML</block>
+  <block id="5bcf00e7f0cf36a49beb0a818ec6cbef" category="list-text">snapshot.storage.k8s.io_volumesnapshot내용물.YAML</block>
+  <block id="cc5824f53c7ffbd99cb349e87efde1f4" category="list-text">snapshot.storage.k8s.io_volumesnapshots.YAML</block>
+  <block id="5dd799b58f0a48e81b9090706c21ffc1" category="list-text">snapshot.storage.k8s.io_volumesnapshotclasses.YAML:</block>
+  <block id="1b2b0d3c628e11a19e1e37d392fc808b" category="list-text">snapshot.storage.k8s.io_volumesnapshot내용물 적용.YAML:</block>
+  <block id="b30fb0bbee1d9ca780b2e525df30f42d" category="list-text">snapshot.storage.k8s.io_volumesnapshots를 적용합니다.YAML:</block>
+  <block id="4ad805069afc4d9f62366cebed53439e" category="list-text">설정 적용 - 스냅샷 - 컨트롤러.YAML:</block>
+  <block id="1871cbca326d3f3a5fb66f60c754c26f" category="list-text">RBAC-스냅샷-컨트롤러 적용.YAML:</block>
+  <block id="9352a98e83e5674124c81320233e2033" category="list-text">CRD YAML 파일이 적용되었는지 확인합니다.</block>
+  <block id="c5827f9636201f8d30ce9cb0189c833d" category="list-text">스냅샷 컨트롤러 파일이 적용되었는지 확인합니다.</block>
+  <block id="84ff6443c010c054303c3cacf8168ec8" category="section-title">Astra Data Store를 스토리지 백엔드로 설정합니다</block>
+  <block id="48b4e22b3043a4f7b84801549651a221" category="paragraph">ads_backend.json 파일에 스토리지 백엔드 매개 변수를 구성하고 Astra Data Store 스토리지 백엔드를 생성합니다.</block>
+  <block id="7135d7688e86eac3c57f2de72b8018d5" category="list-text">보안 터미널을 사용하여 ads_backend.json을 생성한다.</block>
+  <block id="7be934ce8b58f4891a1f5bec99cfea5f" category="list-text">JSON 파일 구성:</block>
+  <block id="260e28a432c0ab70e8635e32a0869a37" category="list-text">""클러스터"" 값을 Astra Data Store 클러스터의 클러스터 이름으로 변경합니다.</block>
+  <block id="02122a736bce8e681ad437ec22ed0e39" category="list-text">'"namespace" 값을 볼륨 생성에 사용할 네임스페이스로 변경합니다.</block>
+  <block id="f47e741eac4d14c2bfe218ed3e360ab7" category="list-text">이 백엔드에 대한 내보내기 정책 CR을 대신 설정하지 않는 한 ""autoExportPolicy"" 값을 "true"로 변경합니다.</block>
+  <block id="5be18ccddef777624ac5fdc8a276d6e9" category="list-text">액세스를 허용할 IP 주소로 ""autoExportCIDR"" 목록을 채웁니다. 모두 허용하려면 0.0.0.0/0을 사용하십시오.</block>
+  <block id="a124b50c086047caaf79854f3e502e65" category="list-text">"kubecononfig" 값을 보려면 다음을 수행합니다.</block>
+  <block id="55fa2080356ace346f9938ef27eeeda2" category="list-text">공백 없이 .kubbe/config YAML 파일을 JSON 형식으로 변환 및 최소화:</block>
+  <block id="52ba8594eda2bfe84ddd95e4ab3876f6" category="paragraph">변환 예:</block>
+  <block id="8760732111b0a693f9646bbe82410c8d" category="list-text">base64로 인코딩하고 base64 출력을 " kubecononfig " 값에 사용합니다.</block>
+  <block id="bfa0adf4d3cdd7138899e834388c02a3" category="paragraph">인코딩 예:</block>
+  <block id="3fd265fc18b2cccf42e00f564f3cc354" category="list-text">Trident 설치 프로그램을 다운로드한 디렉토리로 이동합니다.</block>
+  <block id="966ad0e717b4a7b04e344eca212f3893" category="list-text">스토리지 백엔드를 생성합니다.</block>
+  <block id="d6b32a57b28d1a90833a60d9d8a653fc" category="section-title">기본 Astra Data Store 스토리지 클래스를 생성합니다</block>
+  <block id="aa80c9eb37faf3509ae07c01f5fcb711" category="paragraph">Astra Trident 기본 스토리지 클래스를 생성하고 스토리지 백엔드에 적용합니다.</block>
+  <block id="a6c0b25130e366f4926811fccc2d9175" category="list-text">트리덴트 CSI 스토리지 클래스를 생성합니다.</block>
+  <block id="293acccfcaa84144747d7d17dbd3128e" category="list-text">ADS_SC_Example.YAML 생성:</block>
+  <block id="cd0b441465398fa0d75eba9947c66599" category="list-text">트리덴트 CSI 생성:</block>
+  <block id="8213c33dc9ac92d509af698f9a2e597f" category="list-text">스토리지 클래스가 추가되었는지 확인합니다.</block>
+  <block id="22d9b315b29e2e8600a67e65475c18de" category="list-text">Astra Trident 백엔드가 기본 스토리지 클래스 매개 변수로 업데이트되었는지 확인합니다.</block>
+  <block id="f6b5c68237555d09d9a7f7e2de93b432" category="summary">몇 가지 환경 요구 사항을 설명한 후 Astra Data Store를 설치하려면 번들을 다운로드하여 설명된 단계에 따라 설치합니다.</block>
+  <block id="2f67cd55143c2541e6edf7020c06c3d5" category="paragraph">Astra Data Store 미리 보기를 설치하려면 에서 설치 번들을 다운로드하십시오<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> 및 이 절차에 설명된 설치 단계를 완료합니다.</block>
+  <block id="d3d764264531a47774f6224c0245037c" category="inline-link-macro">Red Hat OpenShift Container Platform(OCP)에 Astra Data Store Preview 설치</block>
+  <block id="012afa59aa5540c24544e89ee39ecf33" category="paragraph">또는 을(를) 사용할 수 있습니다 <block ref="ec1d518175157305e3ede5bea61d33e3" category="inline-link-macro-rx"></block>.</block>
+  <block id="0ba7583639a274c434bbe6ef797115a4" category="inline-link">등록</block>
+  <block id="74bc6e591c8afde1756c60343fc6adb7" category="list-text">에 액세스합니다<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block>.<block ref="a14d2f1983300ed8731dcf11dfa18e8a" category="inline-link-rx"></block> 전체 액세스 권한이 없는 NetApp Support 사이트 계정이 없는 경우 미리 보기를 위해</block>
+  <block id="dfcac5e258bdfa0f1d552f9e95472f56" category="inline-link-macro">NetApp 라이센스 파일(NLF)</block>
+  <block id="ad3b46ea44ef643f0aa6cf10b5cddef7" category="inline-link">가입하세요</block>
+  <block id="3f18a8915118a57279458e475c19506d" category="list-text">A <block ref="01e924afc9d6eb5b6b87b95944c8b962" category="inline-link-macro-rx"></block> Astra Data Store 미리 보기입니다. 라이센스 다운로드 지침이 사용자에게 전송됩니다<block ref="ef54037861aa5e9e926253483ef1a002" category="inline-link-rx"></block>.</block>
+  <block id="7f7646bb0a5fb6cf0454a38c4d1f06d6" category="list-text">활성 컨텍스트에 대한 클러스터 관리자 권한이 있는 활성 kubecononfig.</block>
+  <block id="bef0c0a82c5520f237b380213d0b07d6" category="inline-link-macro">역할 및 권한</block>
+  <block id="806b5637c063705c8d625e758efc64b6" category="list-text">에 대한 이해 <block ref="dee7c80cda852bd179a0b8a64dc2d187" category="inline-link-macro-rx"></block> Astra Data Store 미리 보기에서 사용합니다.</block>
+  <block id="1e822a9286ce82521a4c839250498223" category="list-text">인터넷 연결. Astra Data Store 미리 보기는 대기 환경을 지원하지 않습니다. 직접 또는 프록시를 통해 support.netapp.com 에 접속하려면 인터넷 연결이 필요합니다.</block>
+  <block id="59d5f0097f4998113fed5d843c64f82e" category="paragraph">Astra Data Store 미리 보기 설치 프로세스는 다음과 같은 고급 단계를 안내합니다.</block>
+  <block id="a556f5398142ae7011d0de50dc8b6c5b" category="list-text"><block ref="8d9993295d6b271ce4d01f645185155b" category="inline-xref-macro-rx"></block></block>
+  <block id="6d0f824f6a186eea3583d29e3aed365a" category="list-text"><block ref="28f9f989c873aca847e12e3f56387e81" category="inline-xref-macro-rx"></block></block>
+  <block id="b70c468b8ef55be96953554233f196f8" category="list-text"><block ref="038e87b146a54831da5266e118724b0a" category="inline-xref-macro-rx"></block></block>
+  <block id="fafef40eb86a5fcb390728637ec82ad8" category="list-text"><block ref="08b9a934358b06f23bec23e40881a274" category="inline-xref-macro-rx"></block></block>
+  <block id="3f93c6b91779c776c73fe8ddbdde26b2" category="list-text"><block ref="c74831dec7277b920b9074aa393a140d" category="inline-xref-macro-rx"></block></block>
+  <block id="f52b1c1daf5c796d010750e360734182" category="list-text"><block ref="eef74539c11538f892571f8a012ef5ae" category="inline-xref-macro-rx"></block></block>
+  <block id="c8834ddc1c87f17c8d417b37fcbd87f0" category="list-text"><block ref="59d3a9e0f85930d559866ff811a1da02" category="inline-xref-macro-rx"></block></block>
+  <block id="d81ec671d645986632c1dff9a52a8d03" category="list-text"><block ref="9fcc40a9325fa4fdd116019afa5bfea2" category="inline-xref-macro-rx"></block></block>
+  <block id="38a46257d48221851cd4c911eb65d23a" category="section-title">Astra Data Store 미리보기 번들을 다운로드하고 이미지를 추출합니다</block>
+  <block id="06e707c9bfaad1d590b948f0c4975ea0" category="list-text">에 로그인합니다<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> 그리고 Astra Data Store 미리보기 번들('2021.12_astradatastore.tar')을 다운로드하십시오.</block>
+  <block id="7ccab09493cf97c9665c6c2126741ee5" category="list-text">(선택 사항) 다음 명령을 사용하여 번들의 서명을 확인합니다.</block>
+  <block id="ae32a002cf3df8354380980ceb442a90" category="list-text">이미지 추출:</block>
+  <block id="a179389f208c9573ee510e5e4bcceeba" category="section-title">이진 파일을 복사하고 이미지를 로컬 레지스트리에 푸시합니다</block>
+  <block id="1acaca46449fb5c00dc1a685d015c6e5" category="list-text">k8kubbeck 바이너리가 설치된 표준 경로(예: "/usr/bin/")로 이미지를 추출하기 위해 사용한 디렉토리에서 kubbctl-astrs 바이너리를 복사합니다. kubbctl-astrs는 Astra Data Store Preview 클러스터를 설치 및 관리하는 사용자 지정 kubtl 확장입니다.</block>
+  <block id="4f4091e1c75967c191a148ba3b601115" category="list-text">Astra Data Store 미리보기 이미지 디렉토리의 파일을 로컬 레지스트리에 추가합니다.</block>
+  <block id="9f852ed13251aa5ddae669983b4139d7" category="admonition">아래 이미지의 자동 로드에 대한 샘플 스크립트를 참조하십시오.</block>
+  <block id="e8c44728c041065d90e7029dec2e142c" category="list-text">레지스트리에 로그인합니다.</block>
+  <block id="13188191a9ba4fa03655f2853f19ca94" category="list-text">환경 변수를 레지스트리 경로로 설정하여 Astra Data Store 미리 보기 이미지를 푸시합니다(예: repo.company.com`).</block>
+  <block id="1251312a6e29c077a92406c8347c9cbc" category="list-text">스크립트를 실행하여 이미지를 Docker에 로드하고, 이미지에 태그를 지정하고, [[substep_image_local_registry_push]]를 눌러 이미지를 로컬 레지스트리에 로드합니다.</block>
+  <block id="f5051f42d63dce7a9189a8b8754221f4" category="section-title">Astra Data Store preview operator를 설치한다</block>
+  <block id="d650aa517255d50ce12c3c1dc0fa6cd1" category="list-text">Astra Data Store 미리 보기 목록을 나열합니다.</block>
+  <block id="2bf2749ac3d1bb0b33e707bf3fab3f63" category="list-text">kubeck 적용 시 운용자 배치:</block>
+  <block id="da89009070a281ea41fbaf69a4a75bd5" category="list-text">Astra Data Store 운영자 POD가 시작되고 실행 중인지 확인합니다.</block>
+  <block id="a474d63bfa2ddaeb697e978c796209e1" category="section-title">Astra Data Store Preview 버전 YAML을 배포하십시오</block>
+  <block id="df42b724421bbda5256280183fe89e21" category="list-text">kubeck을 사용하여 구축 적용:</block>
+  <block id="aed417ffe5dc63aa67936840a0654828" category="list-text">Pod가 실행 중인지 확인합니다.</block>
+  <block id="768473ff6c238ddbd570531f58f36857" category="section-title">Astra Data Store Preview 라이센스를 적용합니다</block>
+  <block id="2168e2850f39640b087ab9ec40e09ea4" category="inline-xref">배포로 이동합니다</block>
+  <block id="f3c66c687ab66bae9a385e5166892e7f" category="list-text">미리 보기에 등록할 때 얻은 NetApp 라이센스 파일(NLF)을 적용합니다. 명령을 실행하기 전에 현재 클러스터 이름('&lt;Astra-Data-Store-cluster-name&gt;')을 입력합니다 <block ref="544b5866c36aeaaf1e92905a0eca962d" category="inline-xref-macro-rx"></block> 또는 이미 배포되어 있고 사용권 파일('&lt;file_path/file.txt&gt;')에 대한 경로가 있습니다.</block>
+  <block id="a43a46b3d0bdea57bd228232adb9bf0c" category="list-text">라이센스가 추가되었는지 확인합니다.</block>
+  <block id="4d85b327d56be8f708cd85949f327a4b" category="section-title">Astra Data Store Preview 클러스터를 설치합니다</block>
+  <block id="0fd0a9ef6ce0637f3746e6066a53fe13" category="list-text">YAML 파일을 엽니다.</block>
+  <block id="6bfe0a99899b6870d084eedf67275849" category="list-text">YAML 파일에서 다음 값을 편집합니다.</block>
+  <block id="1e00053e55e180092ef69fbe8b9ab83c" category="admonition">YAML 파일의 간단한 예는 다음과 같습니다.</block>
+  <block id="46befd76c4ec19a9001f1b49517fe11e" category="inline-xref">라이센스를 적용합니다</block>
+  <block id="6a89528574fff5e08faba86e8e3d65e8" category="list-text">(필수) * 메타데이터 *: metadata에서 이름 문자열을 클러스터 이름으로 변경합니다. 이 이름은 사용 시 사용한 클러스터 이름과 같아야 합니다 <block ref="a806c3cf0e02664ef4049bd63a8af194" category="inline-xref-macro-rx"></block>.</block>
+  <block id="51c12a83abe23c7ff9e9037e230ae6ff" category="list-text">(필수) * Spec *: 'sepec'에서 다음 필수 값을 변경합니다.</block>
+  <block id="868e18bdd7bc8799f8c1e1f00b94d58c" category="list-text">클러스터의 작업자 노드에서 라우팅할 수 있는 부동 관리 IP의 IP 주소로 mVIP 문자열을 변경합니다.</block>
+  <block id="cc80da2ca49204147d1a136f50492c90" category="list-text">adsDataNetworks에서 NetApp 볼륨을 마운트할 호스트에서 라우팅할 수 있는 쉼표로 구분된 부동 IP 주소 목록("주소")을 추가합니다. 노드당 하나의 부동 IP 주소를 사용합니다. Astra Data Store 미리 보기 노드만큼 데이터 네트워크 IP 주소가 적어도 몇 개 있어야 합니다. Astra Data Store 미리 보기의 경우 4개 이상의 주소가 있어야 하며, 나중에 5개 노드로 클러스터를 확장할 계획이면 5개 이상의 주소가 필요합니다.</block>
+  <block id="29b31f9baad8004ca9125758588d82c3" category="list-text">adsDataNetworks에서 데이터 네트워크에서 사용하는 넷마스크를 지정한다.</block>
+  <block id="dc9f3800ee8e188d0fb3e1fb1687d270" category="list-text">adsNetworkInterfaces에서 mGMT와 data 값을 관리, 클러스터 및 스토리지에 사용할 네트워크 인터페이스 이름으로 바꿉니다. 이름을 지정하지 않으면 노드의 기본 인터페이스가 관리, 클러스터 및 스토리지 네트워킹에 사용됩니다.</block>
+  <block id="575504814fb95c79b3ed9e5f1035436b" category="admonition">클러스터 및 스토리지 네트워크는 동일한 인터페이스에 있어야 합니다. Astra Data Store 미리 보기 관리 인터페이스는 Kubernetes 노드의 관리 인터페이스와 동일해야 합니다.</block>
+  <block id="8da4a001932be2ff606e6df10493966a" category="inline-xref">운전자 모니터링</block>
+  <block id="644ad178aa7628cc443a92bf64c7cfca" category="list-text">(선택 사항) * monitoringConfig *: 를 구성하려는 경우 <block ref="0f1aa9f35704db6c7d3dfbe726efcbc1" category="inline-xref-macro-rx"></block> (모니터링을 위해 Astra Control Center를 사용하지 않는 경우 선택 사항) 섹션에서 메모를 제거하고 에이전트 CR(모니터링 운영자 리소스)이 적용되는 네임스페이스(기본값은 NetApp 모니터링)를 추가한 다음 이전 단계에서 사용한 레지스트리('your_registry_path')의 경로를 추가합니다.</block>
+  <block id="6645e0ebb53d4b6e68be7936af3a8039" category="inline-link-macro">AutoSupport</block>
+  <block id="b20888d3010009c6ea174a1a0c0f5ef3" category="list-text">(선택 사항) * autoSupportConfig *: 를 유지합니다 <block ref="7cdd2204a3bafe4583e65edf34a51ee8" category="inline-link-macro-rx"></block> 프록시를 구성할 필요가 없는 경우 기본값:</block>
+  <block id="912dac57b66d9e216d74c0e9eb1d077a" category="list-text">proxyURL의 경우 AutoSupport 번들 전송에 사용할 포트를 사용하여 프록시 URL을 설정합니다.</block>
+  <block id="f3fba3fb3102862b1aad8b63c0aaf749" category="admonition">아래의 YAML 샘플에서 대부분의 의견이 제거되었습니다.</block>
+  <block id="4a212b2ee1c3b204f74bc2dcc71b7cda" category="list-text">"kubbtl apply"를 사용하여 클러스터를 구축합니다.</block>
+  <block id="14e134a7ed0f49d1ca8cf22782ce2d36" category="list-text">클러스터 생성 작업이 완료될 때까지 몇 분 정도 기다린 후 Pod가 실행 중인지 확인합니다.</block>
+  <block id="e820d2459278040b58fab1dcc9b93d13" category="list-text">클러스터 배포 진행 상태 확인:</block>
+  <block id="37fc959dfa0d9cc2e3d0d38b2be66c5d" category="section-title">배포 관련 이벤트를 이해합니다</block>
+  <block id="7822a7d6e729e9615380ec0aadb6990b" category="paragraph">클러스터 배치 중에는 작동 상태가 공란에서 진행 중 상태로 변경되어야 합니다. 클러스터 구축은 약 8~10분간 지속됩니다. 구축하는 동안 클러스터 이벤트를 모니터링하려면 다음 명령 중 하나를 실행합니다.</block>
+  <block id="bd7c3f1dac7f5cf319de422fa4a32691" category="paragraph">다음은 배포 중에 발생하는 주요 이벤트입니다.</block>
+  <block id="77e9b0cdc3fdcabe72374f66c02d8e31" category="cell">이벤트 메시지입니다</block>
+  <block id="7277de5f2ed6f17c61f1f25594591a82" category="cell">의미</block>
+  <block id="c3ee1dbc78e2d761efcaca2d0c21d2dc" category="cell">ADS 클러스터를 연결할 4개의 컨트롤 플레인 노드를 성공적으로 선택했습니다</block>
+  <block id="e94fd6602ce1ed04ac1725ae3531fad4" category="cell">Astra Data Store 미리보기 운영자는 CPU, 메모리, 스토리지 및 네트워킹으로 Astra Data Store 미리보기 클러스터를 생성할 수 있는 충분한 노드를 식별했습니다.</block>
+  <block id="3bf8d74892939c244e4f2ee0af58a0f0" category="cell">ADS 클러스터 생성 진행 중</block>
+  <block id="b0fa14a74437c78bbc1e99fd182aeb71" category="cell">Astra Data Store 미리보기 클러스터 컨트롤러가 클러스터 생성 작업을 시작했습니다.</block>
+  <block id="c33b4384dd5fcfe18b76baf9e293eeba" category="cell">ADS 클러스터가 생성되었습니다</block>
+  <block id="84a006d56f84917bd14e7225a2a02c31" category="cell">클러스터가 생성되었습니다.</block>
+  <block id="52e440135a5420f088a23a09ab819506" category="paragraph">클러스터의 상태가 "In progress(진행 중)"로 변경되지 않는 경우 운영자 로그에서 노드 선택에 대한 자세한 내용을 확인하십시오.</block>
+  <block id="19281350da56d254a23943fe3af63ba6" category="paragraph">클러스터의 상태가 "in progress(진행 중)"로 고착된 경우 클러스터 컨트롤러의 로그를 확인하십시오.</block>
+  <block id="ae415e54f22dc20b15664df617236001" category="section-title">Astra Data Store 미리보기 모니터링을 구성합니다</block>
+  <block id="25d3b233b0ff51f660dcb6bc0ba14159" category="paragraph">Astra Control Center 모니터링 또는 다른 원격 측정 서비스의 모니터링을 위해 Astra Data Store 미리보기를 구성할 수 있습니다.</block>
+  <block id="479726e541dcc4c2f078e4d5569bdfaf" category="section-title">Astra Control Center 미리 보기에 대한 모니터링을 구성합니다</block>
+  <block id="6203a701a3e7de109a3a27e477c119db" category="paragraph">Astra Control Center에서 Astra Data Store 미리 보기를 백엔드로 관리하는 경우에만 다음 단계를 수행하십시오.</block>
+  <block id="268d42130d32b678b5315bca020d068f" category="list-text">Astra Control Center에서 모니터링하는 Astra Data Store 미리 보기를 구성합니다.</block>
+  <block id="9de66ad79d82936e94f0c6094e0171fb" category="section-title">모니터링 운전자를 설치합니다</block>
+  <block id="194fbd5a522bc86a2d3b35d737225178" category="paragraph">(선택 사항) Astra Data Store Preview를 Astra Control Center로 가져오지 않는 경우에만 모니터링 운용자를 권장합니다. Astra 데이터 저장소 미리 보기 인스턴스가 독립 실행형 배포이거나, Cloud Insights를 사용하여 원격 측정을 모니터링하거나, Elastic과 같은 타사 엔드포인트로 로그를 스트리밍하는 경우 모니터링 연산자를 설치할 수 있습니다.</block>
+  <block id="75d6f2032046c897df7535bbcf1f2a76" category="list-text">다음 설치 명령을 실행합니다.</block>
+  <block id="322b884d1c713ebd73ac803c20762937" category="list-text">모니터링을 위해 Astra Data Store 미리 보기를 구성합니다.</block>
+  <block id="510a796972d54f6936dbae0081373fc0" category="inline-link-macro">설정 작업</block>
+  <block id="ba75da3e22141799ae4615278996fda2" category="paragraph">를 수행하여 배포를 완료합니다 <block ref="7324e433dd54231f6ab1c33e7f1852c1" category="inline-link-macro-rx"></block>.</block>
+  <block id="5a71d91e06ad8ead9ee7b71fb1d1cf81" category="paragraph">먼저 귀사의 환경이 Astra Data Store 미리 보기 요구 사항을 충족하는지 확인하십시오.</block>
+  <block id="9ef739b1112178ce6a4527f4417e5049" category="paragraph">Astra Data Store 프리뷰에서는 베어 메탈과 VM 기반 구축을 모두 지원합니다. Astra Data Store 미리보기 클러스터는 4개 이상의 작업자 노드가 있는 Kubernetes 클러스터에서 실행될 수 있습니다. Astra Data Store 미리보기 소프트웨어는 동일한 Kubernetes 클러스터에서 실행 중인 다른 애플리케이션과 함께 사용할 수 있습니다.</block>
+  <block id="27b2095d4c4a51ea18abc6e7e9be1b55" category="paragraph">Astra Data Store preview는 Astra Trident CSI 드라이버를 사용하여 Kubernetes 워크로드에 대한 영구 볼륨의 프로비저닝만 지원합니다. VM 워크로드는 Astra Data Store의 향후 릴리스에서 지원됩니다.</block>
+  <block id="d6de7af55cd34df4b1343663f9fa47a7" category="inline-link">Astra Control Center에서 관리할 클러스터에 대한 요구 사항입니다</block>
+  <block id="9cca478435cbf9a301f081bd39778626" category="admonition">Astra Control Center에서 Astra Data Store 미리 보기 클러스터를 관리하려는 경우 Astra Data Store 미리 보기 클러스터가 에 맞는지 확인하십시오<block ref="83b31cb7736faa6a9df5c1f9a84caa88" category="inline-link-rx"></block> 여기에 설명된 요구 사항 외에</block>
+  <block id="9bd63000c2af4d83a8dd902ab86c7a9d" category="section-title">Kubernetes 작업자 노드 리소스 요구사항</block>
+  <block id="0d71a730864cd53147806ecb677e4679" category="paragraph">Kubernetes 클러스터의 각 작업자 노드에 있는 Astra Data Store 미리보기 소프트웨어에 할당하기 위해 필요한 리소스 요구사항은 다음과 같습니다.</block>
+  <block id="543ea7e6e8e3c3a36c4ab738b89a60dd" category="cell">데이터 드라이브 수입니다</block>
+  <block id="cadcb5c15abfc9c0b86d5a704e2447b0" category="list-text">3(별도의 캐시 디바이스가 있는 경우)</block>
+  <block id="8598b116a85f931030ddcb21423c1f99" category="list-text">4(캐시 디바이스가 없는 경우)</block>
+  <block id="aab3238922bcc25a6f606eb525ffdc56" category="cell">14</block>
+  <block id="5dcae1a0f82e51f56f8a80fa3ba302b3" category="cell">데이터 드라이브 크기입니다</block>
+  <block id="0ded0ce1dd3c7f144d40f6562739e768" category="cell">100GiB</block>
+  <block id="c0fb54db4c34b6ee67c36a485d24a499" category="cell">4TiB</block>
+  <block id="35ae311217c943858bd083552df9cdf0" category="cell">선택적 캐시 디바이스의 수입니다</block>
+  <block id="2f40c66dc5287c36ac7043a57079206d" category="cell">1(8GiB 이상 크기)</block>
+  <block id="81665fcb678cc0680902f66f3be020c4" category="cell">vCPU 수입니다</block>
+  <block id="e53619c1fe611a51eeeb8d148ba6e532" category="cell">RAM</block>
+  <block id="4471592d544ec3b277df3be14efdb667" category="cell">35GiB</block>
+  <block id="06bdc266ef961962430b8fc45fbe6b6c" category="admonition">최상의 쓰기 성능을 얻으려면 지연 시간이 짧은 전용 고성능 캐시 디바이스를 구성해야 합니다.</block>
+  <block id="e87c8f6d1c135adc9868a1a25397c000" category="paragraph">각 작업자 노드에는 다음과 같은 추가 요구 사항이 있습니다.</block>
+  <block id="402a4bd631dc016fa807e263fbf090e1" category="list-text">Astra Data Store 미리 보기 로그 파일을 저장할 호스트 디스크(부팅)의 여유 공간 100GiB 이상</block>
+  <block id="a4ca32328536a651e07fc9b06697e84b" category="list-text">클러스터, 데이터 및 관리 트래픽을 위한 최소 1개의 10GbE 또는 더 빠른 네트워크 인터페이스 필요에 따라 추가 1GbE 또는 더 빠른 인터페이스를 사용하여 관리 트래픽을 분리할 수 있습니다.</block>
+  <block id="630e5660de352108f57840f67c4ce73b" category="section-title">하드웨어 및 소프트웨어 요구 사항</block>
+  <block id="a305f5d0a6acf6a2da171a4f1b666e48" category="inline-link-macro">NetApp 커뮤니티 지원</block>
+  <block id="de91f7f5684c6f3e8a57330d26f57452" category="paragraph">Astra Data Store 미리보기 소프트웨어는 다음과 같은 하드웨어 플랫폼, 소프트웨어 및 스토리지 구성에서 검증되었습니다. 를 방문하십시오 <block ref="4245b61ee966e939cf6bf2ddb806f6be" category="inline-link-macro-rx"></block> Kubernetes 클러스터 구성이 다른 경우</block>
+  <block id="ee6328bc3c21dc27320191d56135aa72" category="list-title">하드웨어 플랫폼</block>
+  <block id="d9254f66df3568a13577635eecc90e21" category="list-text">HPE DL360</block>
+  <block id="46cc405d71094428b9035eada2442cd4" category="list-text">HPE DL380</block>
+  <block id="f19b045d12ab371aab144f89dcc13406" category="list-text">Dell R640</block>
+  <block id="5036b658f8a53c4fae6b137bbbda7cdb" category="list-text">Dell R740</block>
+  <block id="e17640313f77daf8929e4ba5e5d691a6" category="paragraph">Astra Data Store 미리 보기는 다음 드라이브 유형으로 검증되었습니다.</block>
+  <block id="e1e135fb56845d917b3148da7cfeb1ee" category="list-text">* 베어 메탈 배포 *: 하이퍼바이저 없이 Kubernetes 클러스터에 직접 설치된 Astra Data Store 미리보기</block>
+  <block id="844d33654c81fc2a271afbc6e6e2be29" category="list-text">NVMe TLC SSD</block>
+  <block id="9b457c92683a310dc6efb6123d814fa6" category="list-text">* VM 기반 구축 *: ESXi 클러스터에서 호스팅되는 Linux VM의 Kubernetes 클러스터에 설치된 Astra Data Store 미리보기</block>
+  <block id="9f79eec1648f781d94bc7ca1e42c3417" category="list-text">SAS 또는 NVMe TLC SSD 기반 데이터 저장소</block>
+  <block id="09195210bb32cb68478488870fe3d637" category="list-text">드라이브가 가상 디스크 또는 패스스루 드라이브로 표시됩니다</block>
+  <block id="003c6ca2750566a4e0ac19207c3b49c1" category="admonition">호스트에서 하드웨어 RAID 컨트롤러 뒤에 SSD를 사용하는 경우 "통과" 모드를 사용하도록 하드웨어 RAID 컨트롤러를 구성합니다.</block>
+  <block id="0b3dea0c3d33c00792e5cd4182c9c9ad" category="admonition">각 드라이브에는 고유한 일련 번호가 있어야 합니다. VM 생성 시 가상 머신 고급 설정에 disk.enableuid=true 속성을 추가합니다.</block>
+  <block id="719d067b229178f03bcfa1da4ac4dede" category="list-title">소프트웨어</block>
+  <block id="fa9b3e0c25801e6c5b183b7fb6d76601" category="list-text">하이퍼바이저: Astra Data Store 미리 보기는 ESXi 7.0을 사용하는 VMware 기반 VM 배포를 통해 검증되었습니다. KVM 기반 배포는 Astra Data Store 미리 보기에서 지원되지 않습니다.</block>
+  <block id="c0a90441fa1d53cd1d4d17a37f82e16e" category="list-text">Astra Data Store 미리 보기는 다음 호스트 운영 체제에서 검증되었습니다.</block>
+  <block id="e394890e871b97833bb8a8e0b5404dc4" category="list-text">Red Hat Enterprise Linux 8.4</block>
+  <block id="bdc427e5a3608a3f6e387f1e0ff10e8d" category="list-text">Red Hat Enterprise Linux 8.2</block>
+  <block id="efdefb5589146725b584d2c0c715c9b3" category="list-text">Red Hat Enterprise Linux 7.9</block>
+  <block id="30acbaba7ce639c1b276cbc35a0fe207" category="list-text">Red Hat Enterprise Linux CoreOS(RHCOS)</block>
+  <block id="0460305b9f6d43c9d7668d990a229d26" category="list-text">CentOS 8</block>
+  <block id="73611f9a837b7a25dad3a9c5d1a98658" category="list-text">Ubuntu 20.04</block>
+  <block id="3067d2347cdf6ba6d767baaa01d8ce06" category="list-text">Astra Data Store Preview는 다음 Kubernetes 배포를 통해 검증되었습니다.</block>
+  <block id="08b0b3c250d07dbba69b8d2ccb1f6dcc" category="list-text">Red Hat OpenShift 4.7</block>
+  <block id="cbf3ba8909d0a2dbc7f272ae7df1dbe5" category="list-text">Google Anthos 1.7</block>
+  <block id="02325bcf14c74708f4a955f606b3d820" category="list-text">Kubernetes 1.21</block>
+  <block id="98ed355c6ed8cd291489f349a175fbff" category="list-text">Kubernetes 1.20</block>
+  <block id="b85d9f68ffe4a47f7986776cdde8c3f1" category="inline-link-macro">Astra Trident 설치 지침</block>
+  <block id="34d22151cd691db2bcf1548b6583bf00" category="admonition">Astra Data Store 미리 보기를 사용하려면 스토리지 프로비저닝 및 오케스트레이션을 위해 Astra Trident 버전 21.10.1이 필요합니다. 를 참조하십시오 <block ref="2c4b7676e17cc4ce9ceda58b02f08122" category="inline-link-macro-rx"></block>.</block>
+  <block id="9251700e586dc1a410f2e755a8643751" category="section-title">네트워킹 요구 사항</block>
+  <block id="9a0cede22f131832111b1025d9613134" category="paragraph">Astra Data Store 미리 보기를 사용하려면 클러스터당 IP 주소가 하나씩 필요합니다. MIP와 동일한 서브넷에서 사용되지 않거나 구성되지 않은 IP 주소여야 합니다. Astra Data Store 미리 보기 관리 인터페이스는 Kubernetes 노드의 관리 인터페이스와 동일해야 합니다.</block>
+  <block id="843b957e2c243e60410a67851fb2a3bc" category="paragraph">또한 다음 표에 설명된 대로 각 노드를 구성할 수 있습니다.</block>
+  <block id="f63342c9d79c680b33aaf87240993cbf" category="admonition">이 표에는 MIP: 관리 IP 주소 CIP: 클러스터 IP 주소 MVIP: 관리 가상 IP 주소가 사용됩니다</block>
+  <block id="254f642527b45bc260048e30704edb39" category="cell">구성</block>
+  <block id="340e3eeeee2cb6f029e877359cf7fabb" category="cell">IP 주소가 필요합니다</block>
+  <block id="c3c52e9f2e11ae59e56c2e2cefbb37b8" category="cell">노드당 1개의 네트워크 인터페이스</block>
+  <block id="a7d621303329faa794a2debe597c9a34" category="list-text">노드당 2개:</block>
+  <block id="768f68274823d5a7efa1bf105abe5495" category="list-text">MIP/CIP: 노드당 관리 인터페이스에서 사전 구성된 IP 주소 1개</block>
+  <block id="d4238ff24fc1cf5a2b88b0a7b8287577" category="list-text">데이터 IP: MIP와 동일한 서브넷의 노드당 사용되지 않거나 구성되지 않은 IP 주소 1개</block>
+  <block id="e5a31bf236fa351c0c8d4d6deee7a459" category="cell">노드당 2개의 네트워크 인터페이스</block>
+  <block id="6b0ae81b52260da2b11f6557738bfbf4" category="list-text">노드당 3개:</block>
+  <block id="2a7a869fc706abd781fd566e1ada8f71" category="list-text">MIP: 노드당 관리 인터페이스에 사전 구성된 IP 주소 1개</block>
+  <block id="f42ce73bfdc2096b23cfed33403cdc62" category="list-text">CIP: MIP와 다른 서브넷의 노드별 데이터 인터페이스에 사전 구성된 IP 주소 1개</block>
+  <block id="a33be05f8cf7234feb5f33257c901f01" category="list-text">데이터 IP: CIP와 동일한 서브넷에 있는 노드당 사용되지 않거나 구성되지 않은 IP 주소 1개</block>
+  <block id="6960e0648bb96ae26e178a20a5b245eb" category="admonition">클러스터 사용자 지정 리소스(CR) 파일, "astradscluster.yaML"에서 이 두 가지 구성에 대해 데이터 네트워크 게이트웨이 필드를 생략해야 합니다. 각 노드의 기존 라우팅 구성은 모든 주소를 수용한다.</block>
+  <block id="c6614b840aed1f56769d06419ac7f1fa" category="admonition">이러한 구성에는 VLAN 태그가 사용되지 않습니다.</block>
+  <block id="086e6c16e3fe8e13c336612ef636aa02" category="section-title">아스트라 트리덴트</block>
+  <block id="5b39c767e05e7aa4e621836f3b785b9f" category="inline-link-macro">스토리지 백엔드</block>
+  <block id="e606f5db902f554cc95c70ea6a7bc203" category="paragraph">Astra Data Store 미리보기를 사용하려면 애플리케이션 Kubernetes 클러스터가 Astra Trident 21.10.1을 실행해야 합니다. Astra Data Store 미리 보기는 로 구성할 수 있습니다 <block ref="318182cdb74d3be9931dae83174d547a" category="inline-link-macro-rx"></block> Astra Trident를 사용하여 영구 볼륨 프로비저닝</block>
+  <block id="a5d3b123919ae2c9260d2939457fc07b" category="section-title">CNI 구성</block>
+  <block id="a425a235822edd430a58eacccd757806" category="paragraph">Astra Data Store 미리 보기는 다음 CNIs를 사용하여 검증되었습니다.</block>
+  <block id="66f992fd154333db12979224b40bb01d" category="list-text">바닐라 Kubernetes 클러스터용 Calico 및 Weave Net CNIs</block>
+  <block id="1c6ba40a804a7b27053cbc1e9b881a53" category="list-text">Red Hat OpenShift Container Platform(OCP)용 OpenShift SDN</block>
+  <block id="5d12f25a06af3175aac5ead4076ccaa5" category="list-text">Google Anthos의 Cilium</block>
+  <block id="8830b15b981296d5edf3d00560d26ed2" category="paragraph">이러한 CNIs를 사용하려면 호스트 방화벽(firwalld)을 비활성화해야 합니다.</block>
+  <block id="950dab43d2896e395e031a5adfdb2982" category="section-title">지속적인 볼륨 공유 요구 사항</block>
+  <block id="68c57e9c9ed620f9a7a94775279db0f6" category="paragraph">각 Astra Data Store Preview 클러스터는 영구 볼륨을 사용하여 해당 클러스터에 설치된 애플리케이션의 스토리지 요구 사항을 해결할 수 있도록 지원합니다. Astra Data Store 미리 보기의 영구 볼륨에 대한 다음 요구 사항을 고려하십시오.</block>
+  <block id="5a2ebfb8baa378cfcfcba58bbb1380c2" category="list-title">요구 사항</block>
+  <block id="9f24f02fc8600bb479ba376e4e8d115d" category="list-text">NFSv4.1 클라이언트/서버는 Kubernetes 클러스터에 설치해야 합니다.</block>
+  <block id="b9e835c1024473d6793b9eb0f6dbf66c" category="list-text">nfs-utils 패키지를 작업자 노드에 설치해야 합니다.</block>
+  <block id="abb957fb7548aff796259f85d536571f" category="list-text">Kubernetes 앱은 NFSv4.1을 통해 공유되는 영구 볼륨을 사용하여 파일에 액세스합니다. 이를 위해서는 AUTH_SYS 인증 방법이 필요합니다.</block>
+  <block id="e48fa26d86f93c0095683fa3998fe381" category="inline-link">여기에서 등록하십시오</block>
+  <block id="99fe05ab680c40d38239fb7349931f94" category="paragraph">Astra Data Store 미리 보기를 사용하려면 Astra Data Store 미리 보기 라이센스가 있어야 모든 기능을 사용할 수 있습니다.<block ref="757d0023964aa1a63172c6b6c4a3c459" category="inline-link-rx"></block> Astra Data Store Preview 라이센스를 얻으려면 라이센스 다운로드 지침은 가입 후 발송됩니다.</block>
+  <block id="0dab9f614d7de2d86a6e3ab5423bb50e" category="section-title">AutoSupport 구성</block>
+  <block id="8e15885329078651f14e154e8002de30" category="paragraph">Astra 데이터 저장소 미리 보기를 사용하려면 AutoSupport를 활성화하고 AutoSupport 백엔드에 연결해야 합니다. 이는 직접 인터넷 액세스 또는 프록시 구성을 통해 가능합니다.</block>
+  <block id="89dbe396da9bd6ab3205e241874bebca" category="inline-link-macro">필수 원격 측정 AutoSupport 번들을 보내는 데 사용되는 주기적 설정입니다</block>
+  <block id="6fe9b5b6d729ff69562cf18c46d7a020" category="paragraph">를 클릭합니다 <block ref="3ff252deb2705468c8bcd50f62610a2a" category="inline-link-macro-rx"></block> 변경해서는 안 됩니다. 주기적인 AutoSupport 번들 전송을 해제하면 클러스터가 잠기며, 주기적인 설정을 다시 활성화할 때까지 새 볼륨을 생성할 수 없습니다.</block>
+  <block id="159b2efa467f3d1f53e7c16668353bf5" category="inline-link-macro">빠른 시작</block>
+  <block id="77a7c94739d3e3b6a3c106162739bbcd" category="paragraph">를 봅니다 <block ref="4a78f9b7a1530228ea4c970be46c5b94" category="inline-link-macro-rx"></block> 개요.</block>
+  <block id="477f44d2fd5557c2e0c1483136673d2f" category="summary">OpenShift를 사용하여 Astra Data Store를 설치하는 방법</block>
+  <block id="b42c39c7d62ef43f96e18ab1143c5fdd" category="doc">Red Hat OpenShift Container Platform에 Astra Data Store 미리보기를 설치합니다</block>
+  <block id="d7bf95d6f9f4a327892f5cc8792f238b" category="paragraph">Red Hat OpenShift Container Platform(OCP)에 Astra Data Store 미리보기를 설치하려면 에서 설치 번들을 다운로드하십시오<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> 및 이 절차에 설명된 설치 단계를 완료합니다.</block>
+  <block id="18e412f69270053d6fbd006203726f31" category="inline-link-macro">Astra Data Store 구축을 위한 환경을 준비합니다</block>
+  <block id="9afe9329533b4d46b804c6dce265f011" category="list-text">설치를 시작하기 전에 <block ref="1339fb1bdf2e0eaea9baf01fd47337cd" category="inline-link-macro-rx"></block>.</block>
+  <block id="6896d0b08ffa51cd7dc1e431bca01038" category="inline-link-macro">NetApp 라이센스 파일</block>
+  <block id="5e33d62267635f1264e9a158679068f0" category="list-text">A <block ref="137bea87b1ed38b6b747ca593fab05eb" category="inline-link-macro-rx"></block> (NLF) - Astra Data Store 미리 보기. 라이센스 다운로드 지침은 가입 후 발송됩니다.</block>
+  <block id="fb124d22233366c281eae5c20e8f50a5" category="inline-link-macro">역할 및 권한</block>
+  <block id="3fbcff5931f9df10a12c3e41b3b6e99c" category="list-text">에 대한 이해 <block ref="05c77a29e62e6b5374baaf8c208c49d9" category="inline-link-macro-rx"></block> Astra Data Store 미리 보기에서 사용합니다.</block>
+  <block id="0b5bf43f901bdaa6ab67ba6ba2b415f0" category="list-text">인터넷 연결. Astra Data Store Preview는 대기 환경을 지원하지 않습니다. 직접 또는 프록시를 통해 support.netapp.com 에 접속하려면 인터넷 연결이 필요합니다.</block>
+  <block id="bbe48fb854ea022537208eeeff822f91" category="section-title">이 작업에 대해</block>
+  <block id="66a4210255768fa7ce150f406e4d2de3" category="list-text"><block ref="8aad3752e2094aac1115c216d64491e4" category="inline-xref-macro-rx"></block></block>
+  <block id="33479e9fa2f705061f6d568f2a579e42" category="list-text"><block ref="2726811d07a06cce3b8a8fe537309a8e" category="inline-xref-macro-rx"></block></block>
+  <block id="3b0adcdb7a1d7bd146376dcfc6accd6c" category="list-text"><block ref="0af761fa812dc9e1ab2a2b67718089d0" category="inline-xref-macro-rx"></block></block>
+  <block id="80fd50d2c29afdea09a446ffc7bb6b15" category="list-text"><block ref="96f517c99ba407f5b231283daa5c1544" category="inline-xref-macro-rx"></block></block>
+  <block id="1023cca3cbe0355c454587fe233fb54e" category="list-text"><block ref="7e400ca6d12cb414decd3ba7def8d69f" category="inline-xref-macro-rx"></block></block>
+  <block id="17ed07ff15b5d43d3eca288ae4a093bd" category="list-text">(선택 사항) 번들의 서명을 확인합니다.</block>
+  <block id="3590e28b9b85fc9dc8f47946a6a81c5b" category="section-title">Astra Data Store 미리 보기를 배포할 네임스페이스를 생성합니다</block>
+  <block id="1d05061aec39922b91b02b045d31d674" category="paragraph">모든 Astra Data Store 미리 보기 구성 요소를 설치할 네임스페이스 'astrads-system'을 만듭니다.</block>
+  <block id="7baf7b8d385cfa43e2ebd4decbe383e8" category="list-text">네임스페이스 만들기:</block>
+  <block id="9484da3843b6d29183c961f5805374c0" category="paragraph">샘플: ads_namespace.YAML</block>
+  <block id="7a981942788d33c4001730188b89e6db" category="section-title">사용자 지정 SCC를 생성합니다</block>
+  <block id="9279e1a9a6dc21e00ad8bfe646d12d80" category="paragraph">OpenShift는 POD가 수행할 수 있는 작업을 제어하는 SCC(Security Context Constraints)를 사용합니다. 기본적으로 모든 컨테이너의 실행에는 제한된 SCC와 해당 SCC에 의해 정의된 기능만 부여됩니다.</block>
+  <block id="d84d14dd008a483ff803734de04a9be6" category="paragraph">제한된 SCC는 Astra Data Store 미리보기 클러스터 포드에 필요한 권한을 제공하지 않습니다. 이 절차를 사용하여 Astra Data Store 미리 보기에 필요한 권한(샘플에 나열되어 있음)을 제공합니다.</block>
+  <block id="2593c56a647b16e5b609f03e09ff7e38" category="paragraph">사용자 지정 SCC를 Astra Data Store 미리 보기 네임스페이스의 기본 서비스 계정에 할당합니다.</block>
+  <block id="a404b42248dc15fc7c9f96beb39ce0bf" category="list-text">사용자 지정 SCC 생성:</block>
+  <block id="675d6759427bcd3ef0478a3576c113b4" category="paragraph">샘플: ads_privileged_csC.yAML</block>
+  <block id="44988a3cdc9c8d194b4f0791b2fd559e" category="list-text">OC Get SCC 명령을 사용하여 새로 추가한 SCC를 출력한다.</block>
+  <block id="1ff7f0ad4e23e88d48bae4f9be6bf1d6" category="section-title">역할 및 역할 바인딩을 만듭니다</block>
+  <block id="fc67753b692b97bd691fc9ce7e3373f7" category="paragraph">Astra Data Store 미리 보기의 기본 서비스 계정에서 사용할 필수 역할 및 역할 바인딩을 만듭니다.</block>
+  <block id="217623d6cc04d74a7e1c0c99da77531c" category="paragraph">다음 YAML 정의는 Astra Data Store 미리보기 리소스에 필요한 다양한 역할(rolebindings)을 'astrads.netapp.io` API 그룹'에서 할당합니다.</block>
+  <block id="c8679407d1ef279caad76d123b67c3cf" category="list-text">정의된 역할 및 역할 바인딩을 생성합니다.</block>
+  <block id="241dbe54decdb2543808cb04b50976c5" category="paragraph">샘플: OC_ROLE_BINDINGS.YAML</block>
+  <block id="d7dde07915bbe8056e6854c2b5e50480" category="section-title">작업자 노드를 준비합니다</block>
+  <block id="4d75e8aa0d18f88ccca8348318fd0374" category="paragraph">Astra Data Store 클러스터 미리 보기 구축을 위해 작업자 노드를 준비합니다. Astra Data Store preview 클러스터에 사용되는 모든 작업자 노드에서 이 절차를 수행합니다.</block>
+  <block id="90ae8d3116b0e0639d8b6bab1fb94a83" category="paragraph">OpenShift는 kubelet 구성 파일('/var/lib/kubelet/config.json')에 json 형식을 사용합니다. Astra Data Store Preview 클러스터는 kubelet config 파일의 YAML 형식을 찾습니다.</block>
+  <block id="619b377b67311492e2301f498fa6a192" category="list-text">클러스터 설치를 시작하기 전에 각 작업자 노드에 '/var/lib/kubelet/config.YAML' 파일을 생성합니다.</block>
+  <block id="8116c401bbe8d3e819e7fbeab37dfd9c" category="list-text">클러스터 YAML이 적용되기 전에 모든 Kubernetes 노드에서 이 절차를 완료하십시오.</block>
+  <block id="e75a81ccddd342b222755829558870b4" category="admonition">이렇게 하지 않으면 Astra Data Store Preview 클러스터 설치가 실패합니다.</block>
+  <block id="ab99eb629243e2831288d50f19591112" category="list-text">kubbeck apply 명령을 사용하여 운용자를 배치한다.</block>
+  <block id="a0043c0af3acf54941321b091a08c953" category="list-text">kubbeck apply 명령을 사용하여 구축:</block>
+  <block id="9a18f1a51db98667d766563e48ba7225" category="list-text">SELinux가 설정된 경우 Astra Data Store preview 클러스터의 노드에 있는 다음 디렉토리에 대한 'strinux' 컨텍스트의 레이블을 다시 지정합니다.</block>
+  <block id="f22b8fb6dcc9aa31e0b2d9e9e84205c7" category="admonition">이 단계는 셀린스가 이 디렉토리를 쓸 수 없도록 하여 지원 포드가 CrashLoopoff 상태로 들어가는 원인이 되기 때문에 필요합니다. 이 단계는 Astra Data Store 미리 보기 클러스터의 모든 노드에서 수행해야 합니다.</block>
+  <block id="312c22a3876f69404939d1690151fbc4" category="section-title">iptables를 설정합니다</block>
+  <block id="003e4c2f8867f9fd50148b316d4b989e" category="paragraph">OpenShift SDN(OpenShift용 기본 CNI 플러그인)은 호스트 루프백 인터페이스(127.0.0.1/localhost)에서 HostPorts로 트래픽을 마스커하지 않습니다.</block>
+  <block id="1b3b86daa5e0644271ca947c2224f310" category="paragraph">Astra Data Store 미리보기 클러스터에는 localhost에서 클러스터 서비스 포트(9920)로 트래픽을 전달하기 위한 NAT 규칙이 추가되어 있어야 합니다.</block>
+  <block id="b39a623813791d04ac10ef1fc42a7fc5" category="list-text">NAT 테이블의 출력 체인에 있는 현재 KUBE-HOSTS 규칙의 행 번호를 확인합니다.</block>
+  <block id="f510c1d362dbb0428437b2f895e8982a" category="paragraph">아래 예에서는 KUBE-HOSTS가 4위치에 있습니다.</block>
+  <block id="adcb2cd59b5d01edf7ca1f67e980ac9f" category="list-text">KUBE-HOSTS 항목 바로 위에 NAT 테이블에 새 규칙을 추가합니다.</block>
+  <block id="d912cfb09e8afcc3ecc44ba849dbd502" category="list-text">새로 추가된 규칙이 KUBE-HOSTS 규칙 바로 위에 NAT 테이블에 추가되었는지 확인합니다.</block>
+  <block id="ec3c5f90c4d136c23a12315138fd7c45" category="admonition">Astra Data Store 미리보기 클러스터의 모든 노드에 대해 단계를 수행합니다.</block>
+  <block id="c7763a055763bd20203aefad4f95491e" category="admonition">Astra Data Store preview 클러스터 노드가 다시 시작되면 이 단계를 반복합니다.</block>
+  <block id="a9066c7b36f74393f45392470bdf22d8" category="summary">몇 단계만 거치하면 Astra Data Store를 시작할 수 있습니다.</block>
+  <block id="3551ec406ac2e45ff0f50e87c946ab31" category="doc">Astra 데이터 저장소 미리 보기를 빠르게 시작합니다</block>
+  <block id="aa9dba12e956af910d79b88fd258601d" category="paragraph">이 페이지에서는 Astra Data Store 미리 보기를 시작하는 데 필요한 단계를 개괄적으로 설명합니다. 각 단계의 링크를 클릭하면 자세한 내용을 제공하는 페이지로 이동합니다.</block>
+  <block id="2778cb9b46b47b6f77215d7a65f475b1" category="paragraph">사용해 보세요! Astra Data Store 미리 보기를 사용하려면 90일 미리 보기 라이센스를 사용할 수 있습니다.</block>
+  <block id="b2d8407a2a6a35cada2688cd35c7c330" category="paragraph"><block ref="0bcb35f051e8c1238923547e4a123c09" category="inline-link-rx"></block> Astra Data Store Preview 라이센스를 얻으려면</block>
+  <block id="4854d4c0301c6f34c76f1cb78057e09e" category="list-title">span class="image"&gt;&lt;img src=<block ref="0c3becc25d95e48b9ca863002a042824" category="inline-link-rx"></block> Alt="One"&gt;&lt;/span&gt; Kubernetes 클러스터 요구 사항을 검토합니다</block>
+  <block id="847bcba6596dcd74ce49891aa01b04cb" category="list-text">클러스터가 정상 상태에서 4개 이상의 작업자 노드를 가지고 실행 중이어야 합니다.</block>
+  <block id="769e7d2e2b3a8a07afb7dfcd707bb4dd" category="list-text">Astra Data Store 미리 보기 구축에 포함된 각 Kubernetes 작업자 노드에는 동일한 인터페이스 유형(SATA, SAS 또는 NVMe)의 SSD와 Astra Data Store 미리 보기 클러스터에 할당된 동일한 수의 드라이브가 있어야 합니다.</block>
+  <block id="0cffa0eb91d9096c1bc69da95e5e4e35" category="list-text">각 SSD에는 고유한 일련 번호가 있어야 합니다.</block>
+  <block id="97b110e14cbf7a5f05af63a6d2f1ec76" category="paragraph">에 대해 자세히 알아보십시오 <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block>.</block>
+  <block id="c75fe5e2b8c64cfb74d30735f622c966" category="list-title">span class="image"&gt;&lt;img src=<block ref="c9bdd0fd7d7224adcf67691b15f15281" category="inline-link-rx"></block> Alt="Two"&gt;&lt;/span&gt;Astra Data Store 미리 보기를 다운로드하고 설치합니다</block>
+  <block id="50fd5d93fc155f6d8daa37d2a86a363d" category="list-text">에서 Astra Data Store 미리 보기를 다운로드합니다<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block>.</block>
+  <block id="a50bc7927766c9f208535b680609be39" category="list-text">로컬 환경에 Astra Data Store 미리 보기를 설치합니다.</block>
+  <block id="299e2872cc229c70439dcff6baedd974" category="list-text">Astra Data Store Preview 라이센스를 적용합니다.</block>
+  <block id="f13260ded33a92f7c0c7a01b10c9be66" category="list-text">Astra Data Store Preview 클러스터를 설치합니다.</block>
+  <block id="b9d6af3a248ddac19c1574ec0ea3368f" category="list-text">Astra Data Store 미리보기 모니터링을 구성합니다.</block>
+  <block id="68ae8bfef44263c7568e9225825a9511" category="list-text">Red Hat OpenShift를 사용하는 경우 Red Hat OpenShift Container Platform(OCP)에 Astra Data Store 미리보기를 설치합니다.</block>
+  <block id="75eb2d08fc375034ffa9f42146096a73" category="inline-link-macro">Astra Data Store 미리 보기를 설치하는 중입니다</block>
+  <block id="cdc734518e1995b54180cc5fe07f8eb5" category="paragraph">에 대해 자세히 알아보십시오 <block ref="500d9e2c6a6986fe091f6d5e600c02a9" category="inline-link-macro-rx"></block>.</block>
+  <block id="80de081c75779cda8e2db1de0f292684" category="list-title">span class="image"&gt;&lt;img src=<block ref="ddd753dc2858fe3a5582f20b300a0541" category="inline-link-rx"></block> Alt="3"&gt;&lt;/span&gt;일부 초기 설정 작업을 완료합니다</block>
+  <block id="9e2a7f44aa27cc7ead915762de91e605" category="list-text">Astra Trident를 설치합니다.</block>
+  <block id="7d39093ae7a79f74883015012f6ca82f" category="list-text">Kubernetes 스냅샷 CRD(사용자 지정 리소스 정의) 및 컨트롤러를 설치합니다.</block>
+  <block id="a157bce7fd181617f4e5fb414c8a59a7" category="list-text">스토리지 백엔드로 Astra Data Store 미리 보기를 설정합니다.</block>
+  <block id="15daf8b029674b0b28ec44dbd2615e14" category="list-text">기본 Astra Data Store 미리 보기 스토리지 클래스를 생성합니다.</block>
+  <block id="696638e6fb97f6a54feea5bca820df2e" category="inline-link-macro">초기 설정 프로세스</block>
+  <block id="dbffc0609c7e1e112b54784b54f5396d" category="paragraph">에 대해 자세히 알아보십시오 <block ref="914fa5bd06e3aa494df742959ef37adf" category="inline-link-macro-rx"></block>.</block>
+  <block id="fb7ba360472b1fbabfd9c8edf6be6bf9" category="paragraph">Astra Data Store 미리 보기 설정을 마치면 다음 작업을 수행할 수 있습니다.</block>
+  <block id="089dffadf86859c7db5c2d11bd7d5ce9" category="inline-link-macro">Astra Data Store 미리 보기와 함께 kubeck 명령을 사용하는 방법</block>
+  <block id="f4df40e87733e72d4e70e4074a33d1b8" category="list-text">유지보수 모드에 노드 배치, 드라이브 교체 또는 노드 교체 등의 작업을 포함하여 클러스터를 관리하려면 kubbtl 명령과 kebtl astrand 확장을 사용하십시오. 에 대해 자세히 알아보십시오 <block ref="a57a67e965644a2724266f2a8472546a" category="inline-link-macro-rx"></block>.</block>
+  <block id="9600e68b6bd25a2f0f71b411cd63bd34" category="inline-link-macro">모니터링 엔드포인트 구성</block>
+  <block id="e4bfa660b2212414c8cf9ec372400ea6" category="list-text">모니터링 엔드포인트를 구성합니다. 에 대해 자세히 알아보십시오 <block ref="1659657294c28fe6854339fca8e6e794" category="inline-link-macro-rx"></block>.</block>
+  <block id="a21c1805fc71477a920c14ffd054ae28" category="paragraph"><block ref="250292b4d71cfe0f32f1811f78ce979c" category="inline-link-macro-rx"></block>.</block>
+  <block id="f16f3c945705b1ec1c2fa1f5d55b34f4" category="sidebar">Astra Data Store 문서</block>
+  <block id="be11c74c1dd7f307bb80183a90dc2067" category="sidebar">시작하십시오</block>
+  <block id="950ef96ff58f56393ed7430627e7ea24" category="sidebar">Astra Data Store에 대해 자세히 알아보십시오</block>
+  <block id="c57f988e5835170a0aaff4d1dfeaf944" category="sidebar">Astra Data Store 미리 보기의 내용</block>
+  <block id="62bdbe048d174b559cb770f9ebaf0895" category="sidebar">시도해 보십시오</block>
+  <block id="899cadfe18270498e36749fd8c70b6ea" category="sidebar">Astra 데이터 저장소 미리 보기를 설정합니다</block>
+  <block id="7ea0911f99c3d96666fd9f883b4db9ca" category="sidebar">Astra Data Store 미리 보기를 사용합니다</block>
+  <block id="e961f7303467d87af5c48cca8c4d09a5" category="sidebar">kubeck 명령으로 관리하십시오</block>
+  <block id="b4c6e3a3c2028ba3c6664bbbda8d1964" category="sidebar">이벤트 로그를 모니터링합니다</block>
+  <block id="720dfdf92d4c340e9f5b8b2b368df3c9" category="sidebar">Astra Control Center 통합</block>
+  <block id="81a123ccab93cd947289b672b0e50348" category="sidebar">데모 자습서</block>
+  <block id="51d4cdad7d0fdc980b53468d54533be7" category="sidebar">Kubernetes의 미래</block>
+  <block id="e00a8c065b7da39a499cd9685782e767" category="sidebar">Astra Data Store 미리보기 데모</block>
+  <block id="813011e2103649bb71f124adedcc10ea" category="sidebar">블로그 커뮤니티</block>
+  <block id="6394eceb2639574114b02e6e817eb19a" category="sidebar">Astra 블로그</block>
+  <block id="0ea49e56b14b87fa0b49648176f9fc81" category="sidebar">Slack “containers(컨테이너)” 채널을 클릭합니다</block>
+  <block id="874d8a5301794a9ca2aba132ac2460f3" category="sidebar">쿠버네티스 허브</block>
+  <block id="213686afc3803be7caa09348765467fe" category="sidebar">도움을 받을 수 있는 곳</block>
+  <block id="0adc03eac86772ad2c75c8f140be417e" category="sidebar">지식 및 지원</block>
+  <block id="1d79052461351a56ef4f9bf9f5837f4a" category="sidebar">REST API를 사용하여 자동화</block>
+  <block id="0b79795d3efc95b9976c7c5b933afce2" category="sidebar">소개</block>
+  <block id="042ad0dc0362e73320e5850115e17224" category="sidebar">Astra Data Store를 사용하십시오</block>
+  <block id="a8ecbfa098cb2532d1bd8fdb1e9c8a10" category="sidebar">Astra Data Store 자산 관리</block>
+  <block id="0460583622f03a52d7693094d6fa2452" category="sidebar">개념</block>
+  <block id="9f828d6c562cc0df256e51d5d235c7bb" category="sidebar">Astra Data Store 소개</block>
+  <block id="6762973af9b127d271f0d2b2aea0bc96" category="sidebar">구축 모델</block>
+  <block id="fd18465573ec21a6218982055981f6b1" category="sidebar">스토리지 효율성</block>
+  <block id="2fae32629d4ef4fc6341f1751b405e45" category="sidebar">보안</block>
+  <block id="46921a75e8534ad7d1c379a9e3aec033" category="sidebar">설치 개요</block>
+  <block id="3082d4232dd32a2353e231bf8f1faba4" category="sidebar">OpenShift에 Astra Data Store 미리 보기를 설치합니다</block>
+  <block id="1fe917b01f9a3f87fa2d7d3b7643fac1" category="sidebar">FAQ 를 참조하십시오</block>
+</blocks>

@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: concepts/storage-efficiency.html 
+keywords: how astra works, how Astra works, what Astra is, astra data store, 
+summary: Astra Data Store는 씬 프로비저닝, 제로 블록 제거, 압축, 중복제거와 같은 스토리지 효율성 기술을 사용합니다. 
+---
+= Astra Data Store 미리보기 내의 스토리지 효율성
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/concepts/
+
+
+Astra Data Store 미리보기: NetApp ONTAP 및 SolidFire 기술을 기반으로 하는 스토리지 효율성 기술을 사용합니다.
+
+* * 씬 프로비저닝 *: 씬 프로비저닝된 볼륨은 스토리지가 미리 예약되지 않은 볼륨입니다. 대신 필요에 따라 스토리지가 동적으로 할당됩니다. 볼륨 또는 LUN의 데이터가 삭제되면 사용 가능한 공간이 스토리지 시스템으로 다시 해제됩니다.
+* * 제로 블록 감지 및 제거 *: 씬 프로비저닝을 지원하는 ONTAP 스토리지 시스템은 0으로 제로화된 볼륨의 영역을 감지하여 해당 공간을 재확보하고 다른 곳에서 사용할 수 있도록 합니다.
+* * 압축 *: 압축은 압축 그룹에 데이터 블록을 결합하여 볼륨에 필요한 물리적 스토리지의 양을 줄이며, 각 블록이 단일 블록으로 저장됩니다. ONTAP는 전체 파일이 아닌 요청된 데이터가 들어 있는 압축 그룹만 압축 해제하므로 압축된 데이터를 기존 압축 방법보다 빠르게 읽을 수 있습니다.
+* * 데이터 중복 제거 *: 중복 제거는 중복 블록을 버리고 단일 공유 블록에 대한 참조로 대체하여 볼륨(또는 AFF 애그리게이트의 모든 볼륨)에 필요한 스토리지 양을 줄입니다. 중복 제거된 데이터를 읽으면 일반적으로 성능 저하가 발생하지 않습니다. 쓰기 작업은 오버로드된 노드를 제외하고 무시할 만한 비용이 발생합니다.
+
+
+이러한 모든 기능은 기본적으로 활성화되어 있습니다.
+
+을 참조하십시오 https://docs.netapp.com/ontap-9/index.jsp["스토리지 효율성 세부 정보"^].
+
+
+
+== 를 참조하십시오
+
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra 제품군 소개"^]
+* https://docs.netapp.com/us-en/astra/index.html["Astra Control Service 문서"^]
+* https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center 문서"^]
+* https://docs.netapp.com/us-en/trident/index.html["Astra Trident 문서"^]
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API를 사용합니다"^]
+* https://docs.netapp.com/us-en/ontap/index.html["ONTAP 설명서"^]
+

@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: release-notes/known-issues.html 
+keywords: astra, control center, bugs, known issues, problems 
+summary: 알려진 문제점은 이 제품 릴리스를 성공적으로 사용하지 못하게 만들 수 있는 문제를 식별합니다. 
+---
+= 알려진 문제
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/release-notes/
+
+
+알려진 문제점은 제품의 이 미리보기 릴리스를 성공적으로 사용하지 못하게 할 수 있는 문제를 식별합니다.
+
+
+
+== 기본 Calico WireGuard 인터페이스 이름은 Astra Data Store 미리 보기에서 인식되지 않습니다
+
+이 오류로 인해 포드가 충돌합니다. 해결 방법으로 Calico의 Felix 구성에서 wirreguardInterfaceName 설정을 변경하여 점 없이 인터페이스 이름을 지정합니다. 예를 들면 다음과 같습니다.
+
+[listing]
+----
+calicoctl patch felixconfiguration default --type='merge' -p '{"spec":{"wireguardInterfaceName":"calico_wg"}}'
+----
+새 이름을 사용하여 각 노드에 인터페이스를 생성하는 것 외에도 이 변경 사항은 원래 wireguard.cali 인터페이스 뒤에 남겨질 수도 있습니다. 이 문제가 반복되지 않도록 이 인터페이스를 삭제합니다.
+
+
+
+== VXLAN 구성 및 Calico CNI의 네트워크 인터페이스 이름은 Astra Data Store 미리보기에서 인식되지 않습니다
+
+이 오류로 인해 포드가 충돌합니다. 이 문제를 해결하려면 VXLAN 구성을 비활성화하십시오.
+
+
+
+== 기본 활성 프로브 값을 가진 MongoDB 구축은 충돌 루프에서 Pod와 함께 실패합니다
+
+해결 방법으로 MongoDB 구축 사양에서 활성 프로브 initialDelaySeconds를 600초로 설정합니다.
+
+
+
+== 자세한 내용을 확인하십시오
+
+* link:../release-notes/known-limitations.html["알려진 제한 사항"]
+

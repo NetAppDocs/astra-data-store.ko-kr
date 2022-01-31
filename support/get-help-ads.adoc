@@ -1,0 +1,47 @@
+---
+sidebar: sidebar 
+permalink: support/get-help-ads.html 
+keywords: get help, get support, knowledgebase, slack, phone, web, ticket, contact support, support ticket, support bundle 
+summary: 'NetApp은 다양한 방법으로 Astra Data Store를 지원합니다. 기술 자료(KB) 문서 및 Slack 채널과 같은 무료 셀프 지원 옵션이 24x7 제공됩니다.' 
+---
+= 도움을 받으십시오
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/support/
+
+
+NetApp은 Astra Data Store 미리보기 기능을 다양한 방법으로 지원합니다. 무료 셀프 서비스 지원 옵션은 기술 자료(KB) 기사 및 Slack 채널과 같이 24x7 이용할 수 있습니다.
+
+
+IMPORTANT: Astra Data Store 미리보기에 대한 커뮤니티 기술 지원을 받을 수 있습니다. 를 사용하여 케이스를 생성합니다 https://mysupport.netapp.com/site/["NetApp Support 사이트(NSS)"^] 은(는) 미리보기 릴리스에 사용할 수 없습니다. 피드백 옵션을 통해 지원 팀에 문의하거나 Slack 채널을 사용하여 셀프 서비스를 받을 수 있습니다.
+
+
+
+== 셀프 서비스 지원 옵션
+
+이러한 옵션은 24x7 무료로 제공됩니다.
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra["기술 자료(로그인 필요)"^]
++
+Astra Data Store 미리 보기와 관련된 문서, FAQ 또는 고장 수리 정보를 검색합니다.
+
+* 문서화
++
+현재 보고 있는 문서 사이트입니다.
+
+* https://netapp.io/slack["NetApp "containers" Slack 채널"^]
++
+"containers" 채널로 이동하여 동료 및 전문가와 교류하십시오.
+
+* 피드백 이메일
++
+귀하의 생각, 아이디어 또는 우려 사항을 당사에 알릴 수 있도록 astra.feedback@netapp.com 으로 이메일을 보내주십시오.
+
+
+
+[discrete]
+== 자세한 내용을 확인하십시오
+
+* https://kb.netapp.com/Advice_and_Troubleshooting/Miscellaneous/How_to_upload_a_file_to_NetApp["NetApp에 파일을 업로드하는 방법(로그인 필요)"^]
+* https://kb.netapp.com/Special:Search?qid=&fpid=230&fpth=&query=netapp+data+store&type=wiki["NetApp 기술 자료 문서"^]
+

@@ -1,0 +1,14 @@
+---
+section: concepts
+title: 개념
+entries:
+- title: Astra Data Store 소개
+  url: "/concepts/intro.html"
+- title: 구축 모델
+  url: "/concepts/architecture.html"
+- title: 클러스터 확장
+  url: "/concepts/expansion.html"
+- title: 스토리지 효율성
+  url: "/concepts/storage-efficiency.html"
+- title: 보안
+  url: "/concepts/security.html"

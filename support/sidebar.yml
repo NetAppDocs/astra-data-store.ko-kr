@@ -1,0 +1,10 @@
+---
+section: support
+title: 지식 및 지원
+entries:
+- title: 문제 해결
+  url: "/support/troubleshooting-ads.html"
+- title: 도움을 받으십시오
+  url: "/support/get-help-ads.html"
+- title: 자동 지원 모니터링
+  url: "/support/autosupport.html"

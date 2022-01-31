@@ -1,0 +1,20 @@
+---
+sidebar: sidebar 
+permalink: release-notes/rn_overview.html 
+keywords: what's new, bugs, bug fixes, new features, enhancements 
+summary: NetApp은 새로운 기능, 개선 사항 및 버그 수정을 제공하기 위해 Astra Data Store를 정기적으로 업데이트합니다. 
+---
+= 릴리스 정보
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/release-notes/
+
+
+Astra Data Store의 21.12 Preview 릴리스를 발표하게 되어 기쁘게 생각합니다.
+
+* link:../release-notes/whats-new.html["Astra Data Store 이번 릴리즈에는 어떤 내용이 포함되어 있는지"]
+* link:../release-notes/known-issues.html["알려진 문제"]
+* link:../release-notes/known-limitations.html["알려진 제한 사항"]
+
+
+Twitter @NetAppDoc을 팔로우하십시오. 가 되어 문서에 대한 피드백을 보냅니다 link:https://docs.netapp.com/us-en/contribute/["GitHub 기고자입니다"^] 또는 doccomments@netapp.com 으로 이메일을 보내주십시오.

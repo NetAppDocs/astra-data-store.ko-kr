@@ -1,0 +1,281 @@
+---
+sidebar: sidebar 
+permalink: use/uninstall-ads.html 
+keywords: astra, astra data store, astra datastore, uninstall 
+summary: Astra Data Store를 제거하려면 워크로드, 바인딩, 볼륨, 엑스포트 정책, 클러스터, 라이센스, 배포 환경 및 네임스페이스. 
+---
+= Astra Data Store 미리 보기를 제거합니다
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/use/
+
+
+Astra Data Store 미리 보기를 제거하려면 워크로드, 바인딩, 볼륨, 엑스포트 정책, 클러스터, 라이센스, 배포 환경 및 Astra Data Store 미리 보기 네임스페이스.
+
+.무엇을 &#8217;필요로 할거야
+* 루트 관리 권한
+
+
+Astra Data Store 미리 보기 제거 프로세스는 다음과 같은 고급 단계를 안내합니다.
+
+* <<Remove existing workloads and bindings>>
+* <<Delete the volumes and export policies>>
+* <<Delete the Astra Data Store preview cluster>>
+* <<Delete the license>>
+* <<Delete the Astra Data Store preview installation>>
+* <<Validate the removal of the astrads-system namespace>>
+* <<Ensure containers are not running on worker nodes>>
+* <<Delete OpenShift Container Platform resources>>
+
+
+
+
+== 기존 워크로드 및 바인딩을 제거합니다
+
+Astra Data Store 미리 보기를 제거하기 전에 먼저 다음을 제거해야 합니다
+
+* Astra Data Store 미리 보기를 스토리지 백엔드로 사용하는 모든 애플리케이션 워크로드
+* Astra Data Store 미리 보기를 백엔드로 사용하는 Trident 바인딩
+
+
+이렇게 하면 Kubernetes 환경이 클린 상태로 유지됩니다. 이는 다시 설치할 때 중요합니다.
+
+
+
+== Astra Data Store 미리 보기 클러스터와 컨트롤 플레인을 제거합니다
+
+Astra Data Store 미리 보기를 수동으로 제거하려면 아래 단계를 따르십시오.
+
+
+
+=== 볼륨 및 엑스포트 정책을 삭제합니다
+
+클러스터를 삭제하기 전에 Astra Data Store 미리 보기 볼륨 및 엑스포트 정책을 삭제해야 합니다.
+
+
+TIP: 먼저 볼륨을 삭제하고 정책을 내보내지 않으면 Astra Data Store 미리 보기 볼륨 개체가 삭제될 때까지 클러스터 삭제 프로세스가 일시 중지됩니다. 클러스터 삭제를 시작하기 전에 이러한 항목을 제거하는 것이 더 효율적입니다.
+
+.단계
+. 볼륨 삭제:
++
+[listing]
+----
+~% kubectl delete astradsvolumes --all -A
+~% kubectl get astradsvolumes -A
+----
+. 엑스포트 정책 삭제:
++
+[listing]
+----
+~% kubectl delete astradsexportpolicies --all -A
+~% kubectl get astradsexportpolicies -A
+
+----
+
+
+
+
+=== Astra Data Store 미리보기 클러스터를 삭제합니다
+
+클러스터를 삭제하면 클러스터 범위 리소스와 함께 Astra Data Store 미리보기 클러스터 객체 사용자 지정 리소스(CR)만 삭제됩니다.
+
+
+NOTE: 클러스터가 삭제된 후에도 운영자, 노드 정보 포드 및 클러스터 컨트롤러(Kubernetes 범위 리소스)는 그대로 유지됩니다.
+
+클러스터를 삭제하면 기본 운영 체제가 노드에서 제거되므로 'firtap' 및 'netwd' 서비스가 중지됩니다.
+
+제거 프로그램을 완료하는 데 약 1분 정도 걸립니다. 그런 다음 Astra Data Store 미리 보기 클러스터 범위 리소스 제거가 시작됩니다.
+
+. 클러스터를 삭제합니다.
++
+[listing]
+----
+~% kubectl delete astradsclusters --all -A
+~% kubectl get astradsclusters -A
+----
+
+
+
+
+=== 라이센스를 삭제합니다
+
+. 클러스터의 각 작업자 노드에 SSH를 통해 'firewTap' 또는 'netwd'가 작업자 노드에서 실행되고 있지 않음을 확인합니다.
+. Astra Data Store Preview 라이센스를 삭제합니다.
++
+[listing]
+----
+~% kubectl delete astradslicenses --all -A
+~% kubectl get astradslicenses -A
+
+----
+
+
+
+
+=== Astra Data Store 미리 보기 설치를 삭제합니다
+
+클러스터에서 컨트롤러, 운영자, 네임스페이스 및 지원 포드를 삭제하십시오.
+
+. Astra Data Store 미리 보기 설치 객체를 삭제합니다.
++
+[listing]
+----
+~% kubectl delete astradsversion astradsversion -n astrads-system
+~% kubectl get astradsversion -n astrads-system
+
+----
+. 데이터 저장소 DemonSets 및 모든 Astra Data Store 미리 보기 컨트롤러 리소스를 삭제합니다.
++
+[listing]
+----
+~% kubectl delete ds --all -n astrads-system
+~% kubectl get ds -n astrads-system
+
+~% kubectl delete deployments --all -n astrads-system
+~% kubectl get deployments -n astrads-system
+----
+. 나머지 아티팩트 및 작업자 YAML 파일 삭제:
++
+[listing]
+----
+~% kubectl delete -f ./manifests/astradsoperator.yaml
+~% kubectl get pods -n astrads-system
+
+----
+
+
+
+
+=== Astads-system namespace의 제거를 검증합니다
+
+다음 명령을 실행하면 결과가 반환되지 않는지 확인합니다.
+
+[listing]
+----
+~% kubectl get ns | grep astrads-system
+----
+
+
+=== 컨테이너를 작업자 노드에서 실행하지 않도록 합니다
+
+소방관이나 netwd 같은 컨테이너가 작업자 노드에서 실행되고 있지 않는지 확인합니다. 각 노드에서 다음을 실행합니다.
+
+[listing]
+----
+ssh <mynode1>
+# runc list
+----
+
+
+== OpenShift Container Platform 리소스를 삭제합니다
+
+Red Hat OpenShift Container Platform(OCP)에 Astra Data Store 미리보기를 설치한 경우 OCP SCC(Security Context Constraints) 및 rolebindings 리소스를 제거할 수 있습니다.
+
+OpenShift는 POD가 수행할 수 있는 작업을 제어하는 SCC(Security Context Constraints)를 사용합니다.
+
+표준 제거 프로세스를 완료한 후 다음 단계를 완료합니다.
+
+. SCC 리소스 제거:
++
+[listing]
+----
+oc delete -f ads_privileged_scc.yaml
+----
+. rolebindings 리소스 제거:
++
+[listing]
+----
+oc delete -f oc_role_bindings.yaml
+----
++
+
+NOTE: 이 단계에서는 "리소스를 찾을 수 없는 오류"를 무시합니다. 
+
+. 모든 Kubernetes 노드에서 `/var/lib/kubelet/config.yAML'을 제거합니다. 
+
+
+
+
+== 수동 삭제 샘플
+
+다음은 실행 수동 제거 스크립트의 예입니다.
+
+[listing]
+----
+$ kubectl delete astradsvolumes --all -A
+No resources found
+$ kubectl delete astradsexportpolicies --all -A
+No resources found
+$ kubectl delete astradsclusters --all -A
+astradscluster.astrads.netapp.io "astrads-sti-c6220-09-10-11-12" deleted
+
+$ kubectl delete astradslicenses --all -A
+astradslicense.astrads.netapp.io "e900000005" deleted
+
+$ kubectl delete astradsdeployment astradsdeployment -n astrads-system
+astradsdeployment.astrads.netapp.io "astradsdeployment" deleted
+
+$ kubectl delete ds --all -n astrads-system
+daemonset.apps "astrads-ds-astrads-sti-c6220-09-10-11-12" deleted
+daemonset.apps "astrads-ds-nodeinfo-astradsdeployment" deleted
+daemonset.apps "astrads-ds-support" deleted
+
+$ kubectl delete deployments --all -n astrads-system
+deployment.apps "astrads-cluster-controller" deleted
+deployment.apps "astrads-deployment-support" deleted
+deployment.apps "astrads-license-controller" deleted
+deployment.apps "astrads-operator" deleted
+
+$ kubectl delete -f /.../firetap/sds/manifests/netappsdsoperator.yaml
+namespace "astrads-system" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsautosupports.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradscloudsnapshots.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsclusters.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsdeployments.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsexportpolicies.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsfaileddrives.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradslicenses.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsnfsoptions.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsnodeinfoes.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsqospolicies.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsvolumefiles.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsvolumes.astrads.netapp.io" deleted
+customresourcedefinition.apiextensions.k8s.io "astradsvolumesnapshots.astrads.netapp.io" deleted
+role.rbac.authorization.k8s.io "astrads-leader-election-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradscloudsnapshot-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradscloudsnapshot-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradscluster-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradscluster-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradslicense-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradslicense-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsvolume-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-astradsvolume-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-autosupport-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-autosupport-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-manager-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-metrics-reader" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappexportpolicy-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappexportpolicy-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappsdsdeployment-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappsdsdeployment-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnfsoption-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnfsoption-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnodeinfo-editor-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnodeinfo-viewer-role" deleted
+clusterrole.rbac.authorization.k8s.io "astrads-proxy-role" deleted
+rolebinding.rbac.authorization.k8s.io "astrads-leader-election-rolebinding" deleted
+clusterrolebinding.rbac.authorization.k8s.io "astrads-manager-rolebinding" deleted
+clusterrolebinding.rbac.authorization.k8s.io "astrads-proxy-rolebinding" deleted
+configmap "astrads-autosupport-cm" deleted
+configmap "astrads-firetap-cm" deleted
+configmap "astrads-fluent-bit-cm" deleted
+configmap "astrads-kevents-asup" deleted
+configmap "astrads-metrics-cm" deleted
+service "astrads-operator-metrics-service" deleted
+ Error from server (NotFound): error when deleting "/.../export/firetap/sds/manifests/netappsdsoperator.yaml": deployments.apps "astrads-operator" not found
+
+$ kubectl get ns | grep astrads-system
+
+[root@sti-rx2540-535c ~]# runc list
+ID      PID     STATUS    BUNDLE       CREATED    OWNER
+----

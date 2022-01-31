@@ -1,0 +1,10 @@
+---
+section: troubleshooting
+title: 문제 해결
+entries:
+- title: 노드를 유지보수 모드로 전환합니다
+  url: "/troubleshooting/ads-maintenance-mode.html"
+- title: 드라이브를 교체합니다
+  url: "/troubleshooting/ads-replace-drive.html"
+- title: 노드를 교체합니다
+  url: "/troubleshooting/ads-replace-node.html"

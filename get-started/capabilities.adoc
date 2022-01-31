@@ -1,0 +1,48 @@
+---
+sidebar: sidebar 
+permalink: get-started/capabilities.html 
+keywords: kubernetes cluster, cluster requirements, version requirements, supported versions, apps, supported apps, mariadb, mysql, postgres, kubernetes version, ubuntu, image type, networking 
+summary: 먼저 환경에 대한 지원을 확인하십시오. 
+---
+= Astra Data Store 미리보기 제한
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+Astra Data Store는 고객이 클라우드 네이티브 애플리케이션을 관리할 수 있도록 사내 데이터 센터를 위한 Kubernetes 네이티브 공유 파일 소프트웨어 정의 스토리지(SDS) 솔루션입니다.
+
+Astra Data Store 미리보기 릴리즈에는 다음과 같은 리소스 제한이 있습니다.
+
+|===
+| 리소스 | 최소 | 최대 
+
+
+| Astra Data Store 미리보기 클러스터의 노드 수입니다 | 4 | 5 
+
+
+| 노드당 영구 볼륨 수입니다 | 해당 없음 | 10 
+
+
+| 노드당 영구 볼륨의 프로비저닝된 총 용량입니다 | 해당 없음 | 1TiB 
+
+
+| 볼륨 크기 | 20MiB | 1TiB 
+
+
+| 볼륨당 스냅샷 | 0 | 256 
+
+
+| 볼륨당 클론 | 0 | 9 
+|===
+
+NOTE: Astra Data Store 미리 보기는 VM 워크로드를 지원하지 않습니다. VMware VVOL 워크로드 지원은 향후 릴리즈에서 제공될 예정입니다.
+
+
+NOTE: Astra Data Store 미리 보기는 성능 임계치를 조절하며 성능 특성화에 사용해서는 안 됩니다.
+
+
+
+== 다음 단계
+
+구성이 에 맞는지 확인합니다 link:requirements.html["요구 사항"].

@@ -1,0 +1,11 @@
+---
+section: release-notes
+title: 릴리스 정보
+url: "/release-notes/rn_overview.html"
+entries:
+- title: Astra Data Store 이번 릴리즈에는 어떤 내용이 포함되어 있는지
+  url: "/release-notes/whats-new.html"
+- title: 알려진 문제
+  url: "/release-notes/known-issues.html"
+- title: 알려진 제한 사항
+  url: "/release-notes/known-limitations.html"

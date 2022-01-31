@@ -1,0 +1,6 @@
+---
+section: rest-api
+title: REST API를 사용하여 자동화
+entries:
+- title: 소개
+  url: "/rest-api/api-intro.html"

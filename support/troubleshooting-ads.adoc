@@ -1,0 +1,15 @@
+---
+sidebar: sidebar 
+permalink: support/troubleshooting-ads.html 
+keywords: get help, get support, troubleshooting 
+summary: 발생할 수 있는 몇 가지 일반적인 문제를 해결하는 방법에 대해 알아봅니다. 
+---
+= 문제 해결
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/support/
+
+
+발생할 수 있는 몇 가지 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
+
+https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra[]

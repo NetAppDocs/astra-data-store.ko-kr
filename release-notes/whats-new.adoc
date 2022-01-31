@@ -1,0 +1,37 @@
+---
+sidebar: sidebar 
+permalink: release-notes/whats-new.html 
+keywords: what's new, bugs, bug fixes, new features, enhancements 
+summary: NetApp은 새로운 기능, 개선 사항 및 버그 수정을 제공하기 위해 Astra Data Store를 정기적으로 업데이트합니다. 
+---
+= Astra Data Store 이번 릴리스의 내용
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/release-notes/
+
+
+Astra Data Store의 21.12 Preview 릴리스를 발표하게 되어 기쁘게 생각합니다.
+
+
+
+== 2021년 12월 21일(21.12)
+
+Astra Data Store Preview 초기 릴리즈.
+
+* link:../concepts/intro.html["그게 뭐죠"]
+* link:../concepts/architecture.html["구축 모델 및 구성 요소"]
+* link:../get-started/requirements.html["시작하는 데 필요한 사항"]
+* link:../get-started/install-ads.html["설치합니다"] 및 
+* link:../use/kubectl-commands-ads.html["관리"] 및  성능
+* link:../use/monitor-with-cloud-insights.html["Cloud Insights를 사용한 모니터링"]
+* link:../support/get-help-ads.html["도움을 받으십시오"] 및 
+
+
+
+
+== 자세한 내용을 확인하십시오
+
+* link:../release-notes/known-issues.html["알려진 문제"]
+* link:../release-notes/known-limitations.html["알려진 제한 사항"]
+* https://kb.netapp.com/Special:Search?qid=&fpid=230&fpth=&query=netapp+data+store&type=wiki["NetApp 기술 자료 문서"^]
+

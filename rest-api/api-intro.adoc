@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: rest-api/api-intro.html 
+keywords: introduction, astra control, api, rest api, astra, kubernetes 
+summary: Astra Control에는 Curl과 같은 프로그래밍 언어나 유틸리티를 사용하여 Astra Control 기능에 직접 액세스할 수 있는 REST API가 있습니다. 
+---
+= Astra Control REST API를 사용한 자동화
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/rest-api/
+
+
+Astra Control에는 Curl과 같은 프로그래밍 언어나 유틸리티를 사용하여 Astra Control 기능에 직접 액세스할 수 있는 REST API가 있습니다. Ansible 및 기타 자동화 기술을 사용하여 Astra Control 배포를 관리할 수도 있습니다.
+
+Kubernetes 앱을 설정 및 관리하려면 Astra Control UI 또는 Astra Control API를 사용할 수 있습니다.
+
+자세한 내용은 로 이동하십시오 https://docs.netapp.com/us-en/astra-automation/["Astra Control 자동화 문서"^].

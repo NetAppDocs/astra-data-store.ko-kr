@@ -1,0 +1,82 @@
+---
+sidebar: sidebar 
+permalink: concepts/intro.html 
+keywords: introduction, how astra works, how Astra works, what Astra is, astra data store, datastore, kubernetes 
+summary: Astra Data Store는 컨테이너 및 VM 워크로드 모두를 위한 Kubernetes 네이티브 공유 파일 서비스로서 엔터프라이즈 데이터 관리를 제공합니다. 
+---
+= Astra 데이터 저장소 미리 보기 소개
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/concepts/
+
+
+Astra Data Store Preview는 온프레미스 데이터 센터를 위한 Kubernetes 네이티브 공유 파일 소프트웨어 정의 스토리지(SDS) 솔루션으로, 고객이 클라우드 네이티브 애플리케이션을 관리할 수 있도록 지원합니다. Astra Data Store는 NetApp 엔터프라이즈 데이터 관리와 함께 컨테이너 및 VM 워크로드 모두를 위한 네이티브 공유 파일 서비스를 제공합니다.
+
+Astra Data Store 미리 보기를 사용하여 다음을 수행할 수 있습니다.
+
+* * Kubernetes 컨테이너 워크로드 * 지원: 엔터프라이즈 데이터 관리 서비스 및 툴을 사용하는 데 적합합니다.
+* * DevOps * 용 Kubernetes "서비스형 애플리케이션" 플랫폼 사용: 자동화되고 반복 가능한 서비스를 제공하고 개발자로부터 복잡성을 제거하는 탄력적인 소프트웨어 정의 셀프 서비스 플랫폼을 생성합니다.
+
+
+
+
+== Astra 제품군
+
+Astra 제품군은 Kubernetes 애플리케이션 데이터 라이프사이클 관리를 제공하여 상태 저장 애플리케이션의 운영을 단순화합니다. Kubernetes 워크로드를 손쉽게 보호, 백업, 마이그레이션하고 정상 작동하는 애플리케이션 클론을 즉시 생성할 수 있습니다.
+
+Astra 오퍼링은 다음과 같습니다.
+
+* * Astra Control *: 퍼블릭 클라우드와 온프레미스 모두에서 Kubernetes 워크로드를 관리, 보호 및 이동하는 애플리케이션 인식 데이터 관리 툴을 사용합니다
++
+** * Astra Control Service *: NetApp에서 관리하는 서비스를 퍼블릭 클라우드의 Kubernetes 워크로드 데이터 관리에 사용합니다.
+** * Astra Control Center *: 사내 Kubernetes 워크로드의 데이터 관리에 자가 관리 소프트웨어를 사용합니다.
+
+
+* * Astra Data Store 미리보기 *: 기업 데이터 관리를 위한 컨테이너 및 VM 워크로드를 위한 Kubernetes 네이티브 공유 파일 서비스를 사용합니다.
+* * Astra Trident *: NetApp 스토리지 공급자와 함께 CSI(Container Storage Interface)를 준수하는 스토리지 프로비저닝 및 관리 기능을 Kubernetes 워크로드에 사용합니다.
+
+
+을 참조하십시오 https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra 제품군 소개"^].
+
+image:astra-product-family.png["Astra 제품군"]
+
+
+
+== Astra Data Store 미리보기 기능
+
+Astra Data Store 미리 보기에서는 다음과 같은 기능을 사용하여 Kubernetes 네이티브 엔드 스토리지 및 데이터 관리를 클라우드 네이티브 응용 프로그램에 제공합니다.
+
+* * Kubernetes 네이티브 공유 파일 서비스 *: 표준 NFS 클라이언트를 컨테이너 및 VM에 대한 통합 데이터 저장소로 사용하여 Kubernetes 네이티브 공유 파일 서비스를 제공합니다
+* * 클라우드 확장 *: 동일한 리소스 풀에서 Kubernetes 네이티브 다중 병렬 파일 시스템을 제공하여 클라우드와 같은 확장 및 사용률을 달성하므로 스토리지와 클러스터를 따로 관리할 필요가 없습니다.
+* * API 우선 접근 방식 *: 자동화된 클러스터 및 워크로드 관리에 필요한 코드로 인프라를 제공합니다.
+* * 엔터프라이즈급 데이터 관리 *: 자동화된 애플리케이션 인식 데이터 보호 및 재해 복구 기능 제공:
++
+** * NetApp 기술 *: 스냅샷, 백업, 복제 및 클론 복제를 위해 NetApp 데이터 관리 기술을 활용하므로 사용자가 Kubernetes에서 엔터프라이즈 앱을 구축 및 구축할 수 있습니다. ​
+** * 복원력 *: Kubernetes 네이티브 워크로드에 복제 및 삭제 코딩 기술을 사용하여 뛰어난 복원력을 제공합니다.
+** * 데이터 효율성 *: 인라인 중복제거 및 압축 기능을 통해 확장 시 비용을 제어합니다.
+
+
+* * 기존 환경에 적합 *: 마이크로서비스 기반 및 기존 워크로드 지원, 주요 Kubernetes 배포 서비스, 파일 스토리지 제공, 하드웨어 방식의 하드웨어인 Windows 담은 선택하여 실행할 수 있습니다.
+* * NetApp Cloud Insights * 와의 통합: 지속적인 낙관적인 견해를 관찰 가능성, 분석 및 모니터링합니다. ​
+
+
+
+
+== Astra 데이터 저장소 미리 보기를 시작합니다
+
+첫째, link:../get-started/requirements.html["Astra Data Store 요구 사항에 대해 알아보십시오"].
+
+그런 다음 link:../get-started/quick-start.html["시작하십시오"].
+
+
+
+== 를 참조하십시오
+
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra 제품군 소개"^]
+* https://docs.netapp.com/us-en/astra/index.html["Astra Control Service 문서"^]
+* https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center 문서"^]
+* https://docs.netapp.com/us-en/trident/index.html["Astra Trident 문서"^]
+* https://docs.netapp.com/us-en/astra-automation/index.html["Astra Control API를 사용합니다"^]
+* https://docs.netapp.com/us-en/cloudinsights/["Cloud Insights 설명서"^]
+* https://docs.netapp.com/us-en/ontap/index.html["ONTAP 설명서"^]
+
