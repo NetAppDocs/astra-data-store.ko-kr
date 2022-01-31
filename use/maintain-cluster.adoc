@@ -43,10 +43,10 @@ Astra Data Store 미리 보기와 함께 kubtl 명령을 사용하여 클러스�
 +
 [listing]
 ----
-ADS Data Networks:
-    Addresses:  dataIP1, dataIP2, dataIP3, dataIP4, *newdataIP*
+adsDataNetworks:
+    -addresses:  dataIP1,dataIP2,dataIP3,dataIP4,*newdataIP*
 ----
-.. CR 파일을 저장합니다.
+.. CR을 저장합니다.
 .. Astra Data Store 미리 보기 클러스터에 노드를 추가합니다.
 +
 [listing]
