@@ -208,3 +208,9 @@ Astra 데이터 저장소 미리 보기를 사용하려면 AutoSupport를 활성
 == 다음 단계
 
 를 봅니다 link:quick-start.html["빠른 시작"] 개요.
+
+
+
+== 를 참조하십시오
+
+link:capabilities.html["Astra Data Store 미리보기 제한"]

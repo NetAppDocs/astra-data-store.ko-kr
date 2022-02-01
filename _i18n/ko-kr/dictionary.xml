@@ -566,8 +566,6 @@
   <block id="71ace59df32db700cac820349c67dd2a" category="admonition">Astra Data Store 미리 보기는 VM 워크로드를 지원하지 않습니다. VMware VVOL 워크로드 지원은 향후 릴리즈에서 제공될 예정입니다.</block>
   <block id="fb3d937ada0889a18943f9e221637388" category="admonition">Astra Data Store 미리 보기는 성능 임계치를 조절하며 성능 특성화에 사용해서는 안 됩니다.</block>
   <block id="0a20c90d5270bed19fcaf851778c663b" category="section-title">다음 단계</block>
-  <block id="b4851e92b19af0c5c82447fc0937709d" category="inline-link-macro">요구 사항</block>
-  <block id="a695e2ec087393b67c5decc922a11745" category="paragraph">구성이 에 맞는지 확인합니다 <block ref="3675fd04b78685cacd6e23511ab11d10" category="inline-link-macro-rx"></block>.</block>
   <block id="f384e304ce8ad1baf968d76cbb4f75e3" category="summary">다음 Astra Data Store 설치 절차 중 하나를 선택합니다</block>
   <block id="aae3f331fbdab3d560f2829b3edb6b42" category="doc">Astra Data Store 설치 개요</block>
   <block id="c3a5e0d3ee4046f7f704d4058047eb20" category="paragraph">다음 Astra Data Store 설치 절차 중 하나를 선택하여 완료합니다.</block>
@@ -627,7 +625,6 @@
   <block id="b4f1a748c4275cde876e19417947f3df" category="paragraph">* IPv6 주소를 관리, 데이터 및 클러스터 네트워크에 사용할 수 있습니까? * 아니요. Astra Data Store 미리 보기는 IPv4 주소만 지원합니다. IPv6 지원은 Astra Data Store Preview의 향후 릴리스에 추가될 예정입니다.</block>
   <block id="91f1ab6c785beb94a57d22cb6b25c708" category="paragraph">* Astra Data Store 미리 보기에서 볼륨을 프로비저닝하는 동안 어떤 NFS 버전이 사용됩니까? * 기본적으로 Astra Data Store 미리 보기는 Kubernetes 애플리케이션에 프로비저닝된 모든 볼륨에 대해 NFS v4.1을 지원합니다.</block>
   <block id="6c6c281439786bd3afca1ee0f6d336f2" category="paragraph">* 대용량 드라이브를 사용하여 Astra Data Store 미리보기를 구성한 경우에도 더 큰 영구 볼륨을 얻을 수 없는 이유는 무엇입니까? * Astra Data Store 미리 보기는 노드의 모든 볼륨에 대해 프로비저닝된 최대 용량을 1TiB로 제한하고 Astra Data의 모든 노드에서 최대 5TiB로 제한합니다 Store preview cluster(미리보기 클러스터 저장)</block>
-  <block id="9afd9c344216e29885949ef527d064ad" category="paragraph">을 참조하십시오 <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block>.</block>
   <block id="14cd0e4b418e0b771908183fb5ecc24e" category="section-title">Astra Data Store 미리 보기를 업그레이드하는 중입니다</block>
   <block id="9b5fa79969e9a6e522104cdbe7e5b5d3" category="paragraph">* Astra Data Store Preview 릴리스에서 업그레이드할 수 있습니까? * 아니요 Astra Data Store 미리 보기는 운영 작업 부하가 아니며, Astra Data Store 미리 보기 소프트웨어의 새 릴리즈에는 새로 설치해야 합니다.</block>
   <block id="f8e5d5352b626bd2d029c4bd8ea9d47a" category="summary">Astra Data Store를 설치하고 몇 가지 환경 요구 사항을 해결한 후에는 Astra Trident를 설치 또는 업데이트하고 K8s 스냅샷 기능을 구성하고 스토리지 백엔드를 설정한 다음 기본 스토리지 클래스를 생성합니다.</block>
@@ -987,4 +984,6 @@
   <block id="3082d4232dd32a2353e231bf8f1faba4" category="sidebar">OpenShift에 Astra Data Store 미리 보기를 설치합니다</block>
   <block id="1fe917b01f9a3f87fa2d7d3b7643fac1" category="sidebar">FAQ 를 참조하십시오</block>
   <block id="034057e29f8eb1feedd93c2bb1f3c021" category="list-text">CR을 저장합니다.</block>
+  <block id="eb178327aa7fefe80b381533b11cc4e6" category="paragraph">을 참조하십시오 <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block> 및 <block ref="e15c2a80de21c8f7a5baec91689e624f" category="inline-link-macro-rx"></block>.</block>
+  <block id="e15c2a80de21c8f7a5baec91689e624f" category="paragraph"><block ref="e15c2a80de21c8f7a5baec91689e624f" category="inline-link-macro-rx"></block></block>
 </blocks>
