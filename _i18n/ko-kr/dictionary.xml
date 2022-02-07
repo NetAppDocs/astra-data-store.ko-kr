@@ -201,7 +201,6 @@
   <block id="74cf95137df35241bf62c4cf6aaa0a33" category="paragraph">다음은 Cloud Insights에 표시되는 몇 가지 Astra 데이터 저장소 미리 보기 메트릭입니다.<block ref="b65cc9dd5d7dd9b89d038ad2252a3b1c" category="inline-image-macro-rx" type="image"></block></block>
   <block id="712f099047cda3cd74ff8f01de43d978" category="paragraph">을 사용하여 Astra Data Store 미리 보기에서 생성된 메트릭 목록을 표시할 수도 있습니다 <block ref="00ffaabd9466e38e21fd83d76092ff60" category="inline-xref-macro-rx"></block>.</block>
   <block id="4b132e0e0c60c6487aaf1e8a8b4b4daf" category="section-title">Cloud Insights 연결 필수 작업을 완료합니다</block>
-  <block id="7d14a02fd20aa817b9f312556759bc77" category="paragraph">Astra 데이터 저장소를 Cloud Insights와 연결하기 전에 다음 사항을 수행해야 합니다.</block>
   <block id="7b67f0c7b487cbbd9d0de335853f47bc" category="inline-link-macro">Astra Data Store Monitoring Operator를 설치합니다</block>
   <block id="6987bbde2267c8be13f8b6d922b41b0c" category="list-text"><block ref="dcf5b80fa05febc0501b6d9fcc7d3ab0" category="inline-link-macro-rx"></block> 이것은 Astra Data Store 미리 보기 설치 지침의 일부입니다.</block>
   <block id="5885997e518dde2f5740ce73f16e6ad5" category="inline-link-macro">kubbeck-astrads 바이너리를 설치합니다</block>
@@ -210,13 +209,7 @@
   <block id="de6bf4315ca097a0bda1ff06c7c49a20" category="list-text"><block ref="e1e29d7386d2d73bd3f1ef7e80229929" category="inline-link-rx"></block>.</block>
   <block id="1dad80a4e0ed05870800cf83e046f731" category="list-text">'awk, curl, grep', 'jq' 명령을 사용할 수 있는지 확인합니다</block>
   <block id="284dc6d1de61ec5c2a96db8bc40dd3ab" category="paragraph">다음 정보를 수집합니다.</block>
-  <block id="bb9b8565e3823e4ec709b95221f40bd1" category="list-text">획득 장치, 데이터 수집, 데이터 수집 및 로그 수집 등의 범주에 대한 읽기/쓰기 권한이 있는 * Cloud Insights API 키 이 작업은 읽기/쓰기 작업, 획득 장치 설정 및 데이터 수집 프로세스 설정에 사용됩니다.</block>
-  <block id="c4907f71169d00508df63ef9afdc68a1" category="list-text">* Kubernetes API Server IP 주소 및 포트 *. Astra Data Store 미리보기 클러스터를 모니터링하는 데 사용됩니다.</block>
-  <block id="621014ace1f1a70456f973648580f813" category="list-text">* Kubernetes API 토큰 *. Kubernetes API를 호출하는 데 사용됩니다.</block>
-  <block id="e76594ced2224ed170caf674cdb7add8" category="list-text">* 영구 볼륨 구성 *. 영구 볼륨의 프로비저닝 방법에 대한 정보입니다. 자세한 내용은 아래의 "획득 장치"를 참조하십시오.</block>
   <block id="3d3a08f39e79301ab5c0cdfa66b5b7ff" category="section-title">설치 스크립트를 다운로드하고 실행합니다</block>
-  <block id="af33037136184f5cf3624e0858a76571" category="paragraph">Cloud Insights는 모니터링 오퍼레이터를 통해 Astra 데이터 저장소 미리 보기 모니터링을 활성화하는 Bash 스크립트를 제공합니다. 설치 스크립트는 Astra Data Store Collector, Telegraf Agent 및 Fluent Bit Agent와 함께 획득 장치를 설치합니다.</block>
-  <block id="bf6aeb656eff14833c40fdf5b3a48145" category="paragraph">Cloud Insights 테넌트 도메인 이름과 선택한 API 액세스 키는 다운로드 시 설치 프로그램 스크립트에 포함됩니다.</block>
   <block id="9d4660ed840630e640b31ec3c061e7bc" category="paragraph">그런 다음 다음과 같이 메트릭이 전송됩니다.</block>
   <block id="3adb3d8a32b42a2857ad4c4b8a9003a6" category="list-text">Telegraf는 Cloud Insights 데이터 레이크에 메트릭을 전송합니다.</block>
   <block id="40c73fe92317526aa4df3d36fd3ad73d" category="list-text">Fluent bit는 로그 수집 서비스에 로그를 보냅니다.</block>
@@ -227,57 +220,36 @@
   <block id="b3cf4c5680f339b50263248f2dc48379" category="inline-image-macro">Astra 데이터 저장소 타일을 보여 주는 Cloud Insights입니다</block>
   <block id="866756ca1b4623d0fb04ca4b14daa435" category="paragraph"><block ref="866756ca1b4623d0fb04ca4b14daa435" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0064fffa49fa46977bec11c251364b0a" category="list-text">Astra Data Store * 타일을 클릭합니다.</block>
-  <block id="a634a0958bbdef5350d68e97eacc5ba6" category="list-text">올바른 API 액세스 토큰을 선택하거나 새 토큰을 생성합니다.</block>
   <block id="70830da013f2c90eadbbf13f0eea52ad" category="list-text">지침에 따라 설치 프로그램 스크립트를 다운로드하고, 권한을 업데이트하고, 스크립트를 실행합니다.</block>
-  <block id="0198ace6f08bad7ae327801e20fff81f" category="paragraph">이 스크립트에는 Cloud Insights 테넌트 URL 및 선택한 API 액세스 토큰이 포함되어 있습니다.</block>
   <block id="e9cb0fa56b60ddf0f40cb6d55732a359" category="inline-image-macro">Astra 데이터 저장소 설치 페이지가 표시된 Cloud Insights</block>
   <block id="7b0669fbc22af2b3bf66ea2884c43b85" category="paragraph"><block ref="7b0669fbc22af2b3bf66ea2884c43b85" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e9b4c864cce989f3d20b0b6aeb60895a" category="list-text">스크립트가 완료되면 * 설치 완료 * 를 클릭합니다.</block>
   <block id="5b2bcd3ee1bf241ef578bd747aaa2275" category="paragraph">설치 스크립트가 완료되면 데이터 소스 목록에 Astra Data Store Collector가 나타납니다.</block>
-  <block id="6050a6b00788c5a261f4b24b7978d60a" category="admonition">오류로 인해 스크립트가 종료되면 오류가 해결된 후 다시 실행할 수 있습니다. 이 스크립트는 환경에서 기본 설정을 사용하지 않는 경우 모니터링 운영자 네임스페이스 및 Kubernetes API 서버 포트와 같은 추가 매개 변수를 지원합니다. 용도와 도움말 텍스트를 보려면 ""-h"" 옵션을 사용하십시오.</block>
-  <block id="2863b1500d8c376831f57b60f0cbed61" category="paragraph">설치 스크립트를 실행하면 다음과 같은 출력이 생성됩니다.</block>
   <block id="99e77960ebd5aad3286059bfbd0615c5" category="section-title">획득 장치 저장</block>
-  <block id="7d53bd0f620e632b71c278ad068a19b9" category="paragraph">획득 장치는 설치 파일, 구성 데이터 및 로그를 저장하기 위해 세 개의 영구 볼륨이 필요합니다. 모니터링 운영자는 기본 스토리지 클래스를 사용하여 영구 볼륨 청구를 생성합니다. 설치 프로그램 스크립트를 실행할 때 '-s' 옵션을 사용하여 다른 스토리지 클래스 이름을 지정할 수 있습니다.</block>
   <block id="2d71aa866fd6e440cf6290ebb9f988be" category="paragraph">Kubernetes 클러스터에 스토리지 공급자(예: NetApp Trident)가 없으면 설치 관리자 스크립트를 실행할 때 '-r' 옵션을 사용하여 로컬 파일 시스템 경로를 제공할 수 있습니다. '-r' 옵션이 설정되면 설치 프로그램 스크립트는 제공된 디렉토리 내에 세 개의 영구 볼륨을 생성합니다. 이 디렉토리에는 최소 150GB의 여유 공간이 필요합니다.</block>
   <block id="20d6c8958970fb1a2ce1a95613e7665b" category="section-title">상담원 CR의 예</block>
   <block id="445c2dfab85f0763a057d90aef225a43" category="paragraph">다음은 설치 프로그램 스크립트를 실행한 후 Monitoring-NetApp 에이전트 CR이 어떻게 보일지에 대한 예입니다.</block>
-  <block id="483cd8f1747e8a0029d3cad4d22f2e94" category="section-title">설치 프로그램 스크립트 도움입니다</block>
   <block id="062a54c44bdfd9858c8054292864b1a5" category="paragraph">설치 프로그램 스크립트에 대한 전체 도움말 텍스트가 아래에 나와 있습니다.</block>
   <block id="23dd88d71d7767914d0ba74ce09182b0" category="section-title">Cloud Insights 연결을 편집합니다</block>
-  <block id="d542a9812ed087b9931c2c36f1357b43" category="paragraph">나중에 Kubernetes API 키 또는 Cloud Insights API 키를 편집할 수 있습니다.</block>
-  <block id="03d3f4f6b02641ad0957f7ae992ab815" category="list-text">Kubernetes API 키를 업데이트하려면 Cloud Insights UI에서 Astra Data Store Collector를 편집해야 합니다.</block>
-  <block id="c022dc42fc6794590ff337762e9aa004" category="list-text">원격 측정 및 로그에 사용되는 Cloud Insights API 키를 업데이트하려면 kubctl 명령을 사용하여 모니터링 오퍼레이터 CR을 편집해야 합니다.</block>
   <block id="38c3b25ebad55273cd701d86d7c5674d" category="section-title">Kubernetes API 토큰을 업데이트합니다</block>
   <block id="27322a77dff94e81f835410f4584b839" category="list-text">Admin * &gt; * Data Collector * 를 선택하여 Data Collector 페이지에 액세스합니다.</block>
   <block id="9e23ceb78a6420f20917e3be85d18084" category="list-text">Astra Data Store 클러스터의 항목을 찾습니다.</block>
   <block id="2a3e436e3df2f6c013a096178e37bd12" category="list-text">페이지 오른쪽에 있는 메뉴를 클릭하고 * 편집 * 을 선택합니다.</block>
   <block id="dad6a897e4f52efceaed582e77ec0445" category="section-title">Cloud Insights API 액세스 토큰을 업데이트합니다</block>
-  <block id="b511b5f3ed5ea6ca0fd6cb60a0fd377a" category="list-text">관리자 * &gt; * API 액세스 * 를 선택하고 * + API 액세스 토큰 * 을 클릭하여 새 Cloud Insights API 액세스 토큰을 만듭니다.</block>
   <block id="83400e61f62d567ac8c59eb422c53296" category="list-text">상담원 CR 편집:</block>
-  <block id="a9555691664079ea9bedb729314bc590" category="list-text">출력 싱크 섹션을 찾아 이름이 "CI"인 항목을 찾습니다.</block>
-  <block id="662b463e12d39626a0f9269cb252a7db" category="list-text">'api-key'라는 레이블의 경우 현재 값을 새 API 키로 바꿉니다.</block>
   <block id="48d5af6637803a576ddb9b4b5335594f" category="paragraph">섹션은 다음과 같이 표시됩니다.</block>
   <block id="08b6b5aaedb7004643c0c9f98ad82005" category="list-text">편집기 창을 저장하고 종료합니다.</block>
-  <block id="26d9ef960bdd0f4e9874ad46ba43d683" category="paragraph">모니터링 운영자는 새로운 API 키를 사용하도록 Telegraf 및 Fluent 비트를 업데이트합니다.</block>
   <block id="3186f8d18929c5ad50382958c1069796" category="section-title">Cloud Insights와의 연결을 해제합니다</block>
   <block id="dd3afc6527618de50ab808c19960d8e5" category="paragraph">Cloud Insights와의 연결을 끊으려면 먼저 Cloud Insights UI에서 Astra 데이터 저장소 수집기를 삭제해야 합니다. 이 작업이 완료되면 모니터링 작동기에서 획득 장치, 텔레그라프 및 Fluent 비트 구성을 제거할 수 있습니다.</block>
   <block id="b953bddbf540c3b2684fb1378b42b55a" category="section-title">Astra Data Store 미리 보기 수집기를 제거합니다</block>
-  <block id="3f82a83a5c61062d40184dc63f47bb9a" category="list-text">화면 오른쪽에서 케밥 메뉴를 선택하고 * Delete * 를 선택합니다.</block>
   <block id="4a4676a685d60e6b1f5813c3907f9ab6" category="list-text">확인 페이지에서 * 삭제 * 를 클릭합니다.</block>
   <block id="c65fb1125fbf2f9e2e44e32e61b62a02" category="section-title">획득 장치, 텔레그라프 및 Fluent 비트를 제거합니다</block>
-  <block id="ec2389605ec052321571ac13ec063738" category="list-text">au 섹션을 찾아 IsEnabled:false를 설정합니다</block>
-  <block id="90db19427057dc11bc0e2f5c8cf30876" category="list-text">유창한 비트 섹션을 찾아 "ads-tail-ci" 플러그인을 제거합니다. 플러그인이 더 이상 없으면 "fluent-bit" 섹션을 제거할 수 있습니다.</block>
-  <block id="ba6f7b853b4d707dd3cf6b7f2c0f497e" category="list-text">Telegraf 섹션을 찾아 "ads-open-metric" 플러그인을 제거합니다. 플러그인이 더 이상 없으면 Telegraf 섹션을 제거할 수 있습니다.</block>
-  <block id="1339f6affca26c5e554081de2348724c" category="list-text">출력 싱크 섹션을 찾아 이름이 "CI"인 싱크를 제거합니다.</block>
   <block id="0b8e607bb970ba8b1809c142f6ee9d2c" category="paragraph">모니터링 오퍼레이터는 Telegraf 및 Fluent 비트 구성을 업데이트하고 획득 장치 포드를 삭제합니다.</block>
   <block id="79e2afd2ba4ca7ab8246defff43d1c68" category="list-text">Storage Provisioner 대신 Acquisition Unit PVS에 로컬 디렉토리를 사용한 경우 PVS를 삭제합니다.</block>
-  <block id="950c71908905ca13bfc6137988331cc3" category="paragraph">그런 다음 AU가 실행 중인 노드에서 실제 디렉토리를 삭제합니다.</block>
   <block id="c1943291194b3d4796fcf7f9eff18d27" category="list-text">획득 장치 포드가 삭제된 후 Cloud Insights에서 획득 장치를 삭제할 수 있습니다.</block>
   <block id="e7b273b59c7a2201eeccd5ba9337bd87" category="list-text">Cloud Insights 메뉴에서 * Admin * &gt; * Data Collector * 를 선택합니다.</block>
   <block id="6e4c4ac7964722923536e1f01d80dab2" category="list-text">Acquisition Units(획득 단위) * 탭을 클릭합니다.</block>
   <block id="2fa6aa4ecba5f4acf3de663c21cc69ea" category="list-text">획득 장치 포드 옆에 있는 메뉴를 클릭합니다.</block>
-  <block id="874db297b2254479eeb702a2d7fa8dab" category="list-text">삭제 * 를 클릭합니다.</block>
-  <block id="0dd656c262cdf7d8dc379079337de685" category="paragraph">모니터링 작업자는 Telegraf 및 Fluent 비트 구성을 업데이트하고 획득 장치를 제거합니다.</block>
   <block id="6b40eaae8ec9ab8ff4f2fcec876f582d" category="section-title">메트릭 API 도움말을 엽니다</block>
   <block id="6f04ea05bd96c0439a8a2cd32768b309" category="paragraph">다음은 Astra Data Store 미리 보기에서 메트릭을 수집하는 데 사용할 수 있는 API 목록입니다.</block>
   <block id="d6e7985c9eb9d0b51b91b2cb937d7335" category="list-text">"도움말" 줄에 메트릭이 설명되어 있습니다.</block>
@@ -325,7 +297,6 @@
   <block id="54e8c6340515075dc435dcf858c58b51" category="list-text"><block ref="54e8c6340515075dc435dcf858c58b51" category="inline-link-macro-rx"></block></block>
   <block id="cf12ebbc6fe7b3e21046a7d8c5b3dd5f" category="summary">Astra Data Store를 제거하려면 워크로드, 바인딩, 볼륨, 엑스포트 정책, 클러스터, 라이센스, 배포 환경 및 네임스페이스.</block>
   <block id="2c5e778cc6a11e1829770d5339f5c0fa" category="doc">Astra Data Store 미리 보기를 제거합니다</block>
-  <block id="66c366a59302f9026a436cdc64aca9e6" category="paragraph">Astra Data Store 미리 보기를 제거하려면 워크로드, 바인딩, 볼륨, 엑스포트 정책, 클러스터, 라이센스, 배포 환경 및 Astra Data Store 미리 보기 네임스페이스.</block>
   <block id="1af4d14d7adc73a0cf26c741f9acf9df" category="list-text">루트 관리 권한</block>
   <block id="e88f686261fc285399abfcc5575efcee" category="paragraph">Astra Data Store 미리 보기 제거 프로세스는 다음과 같은 고급 단계를 안내합니다.</block>
   <block id="05424633f0bd5eefeaa3629e5c4d1ae1" category="list-text"><block ref="cab67cc4c69f00a37ed4ae97c08b5a2c" category="inline-xref-macro-rx"></block></block>
@@ -355,7 +326,6 @@
   <block id="ed4aa92f77103f4b2c27a6ee04599f0e" category="paragraph">제거 프로그램을 완료하는 데 약 1분 정도 걸립니다. 그런 다음 Astra Data Store 미리 보기 클러스터 범위 리소스 제거가 시작됩니다.</block>
   <block id="cca5f52fa80eb378d8e9e4499d5a49f7" category="list-text">클러스터를 삭제합니다.</block>
   <block id="224bb9d3e58164d87f1e7b1480ff3195" category="section-title">라이센스를 삭제합니다</block>
-  <block id="8c26fafc2eb158f8e1dbc5b78f67860a" category="list-text">클러스터의 각 작업자 노드에 SSH를 통해 'firewTap' 또는 'netwd'가 작업자 노드에서 실행되고 있지 않음을 확인합니다.</block>
   <block id="922f0882e69507614b86bbe67722122a" category="list-text">Astra Data Store Preview 라이센스를 삭제합니다.</block>
   <block id="9524d1588970b8601d9a6c11fbff86d2" category="section-title">Astra Data Store 미리 보기 설치를 삭제합니다</block>
   <block id="89471d1ad77aea625df3d06c6b912a6f" category="paragraph">클러스터에서 컨트롤러, 운영자, 네임스페이스 및 지원 포드를 삭제하십시오.</block>
@@ -372,10 +342,8 @@
   <block id="7e6e334737be518763a54980c076bd52" category="paragraph">표준 제거 프로세스를 완료한 후 다음 단계를 완료합니다.</block>
   <block id="ea3636dddb52a396bae27bd0e6aed06e" category="list-text">SCC 리소스 제거:</block>
   <block id="fd617944a08113e478bdc0aa81855d1e" category="list-text">rolebindings 리소스 제거:</block>
-  <block id="c4bc5ab0b4775b4a9c0dc56e5a147ad0" category="admonition">이 단계에서는 "리소스를 찾을 수 없는 오류"를 무시합니다. </block>
   <block id="2d2b3d157d3e998229a25a7e0b312343" category="list-text">모든 Kubernetes 노드에서 `/var/lib/kubelet/config.yAML'을 제거합니다. </block>
   <block id="9a92a0354fa775cc894dda9e1e38f27b" category="section-title">수동 삭제 샘플</block>
-  <block id="b6e1c19fae1f4cf0d8f94a34c5986b69" category="paragraph">다음은 실행 수동 제거 스크립트의 예입니다.</block>
   <block id="81b61a86df10dc2cb308e96040fb3001" category="summary">예를 들어, Astra Data Store와 함께 kubtl 명령을 사용하여 Confluent와 함께 사용할 엔드포인트를 구성할 수 있습니다.</block>
   <block id="d273de2a7e6e6a63f6353f5a40dccab4" category="doc">이벤트 로그를 구성하고 모니터링합니다</block>
   <block id="e1e4be2e0e9d34430d4dead51a9b0d00" category="paragraph">EMS(이벤트 관리 시스템) 로그를 모니터링하려면 다음과 같은 높은 수준의 작업을 수행해야 합니다.</block>
@@ -386,22 +354,15 @@
   <block id="9d72b006a6d605a65b501b1b03349829" category="paragraph">Astra Data Store preview cluster CR에 모니터링 옵션이 구성되어 있지 않은 경우 "Astrads" 확장을 사용하여 설정할 수 있습니다.</block>
   <block id="90bd1d70191335d705a79fedb6c343b1" category="paragraph">입력:</block>
   <block id="5976be1a3647c1d1d6df4ce77cd4c6de" category="paragraph">여기서,</block>
-  <block id="c5f610ac611fbf25aebdcb7de1887bca" category="list-text">설치된 에이전트의 네임스페이스: 이 에이전트는 모니터링 운영자용 CR입니다.</block>
-  <block id="3cf816c5eb575aae005fa877a4221022" category="list-text">'-r'은 선택 사항입니다.</block>
   <block id="55d4dcfd496ed26612f1ed4e159ccc06" category="section-title">Cloud Insights를 설정합니다</block>
   <block id="0a4b147ab38de7df220f6ee52041f91b" category="inline-link-macro">NetApp Cloud Insights 설정 방법</block>
-  <block id="79d4adf2aeb2c6fc85b983dc5d4d6f9a" category="paragraph">을 참조하십시오 <block ref="d6cf67ce476502ac807e2e588f6f029e" category="inline-link-macro-rx"></block> Astra 데이터 저장소 미리 보기와 함께 사용할 수 있습니다.</block>
   <block id="a0c8187b710dd8d0521c6fc63ed20869" category="section-title">이벤트 로그를 Elastic로 스트리밍합니다</block>
-  <block id="9121f315839d8a93e2079fd601d5e184" category="paragraph">EMS 이벤트 및 기타 POD 로그를 Elastic 등의 타사 엔드포인트로 스트리밍하려면 "Astrads" 확장을 사용합니다.</block>
   <block id="4af77be2edf71f87d3321c846afd5117" category="admonition">탄성 호스트 이름은 IP 주소일 수 있습니다.</block>
   <block id="9cce7a0f3945aa56f21e3dc73f7b5c53" category="summary">Astra Control Center UI(사용자 인터페이스)를 사용하여 Astra Data Store 작업을 수행할 수 있습니다.</block>
   <block id="9d008b99518fac45f7d187af6cdf7b49" category="doc">Astra Data Store 미리 보기와 함께 Astra Control Center를 사용합니다</block>
   <block id="5c44ae2c3fecaf90b28c9365e2a18f93" category="paragraph">Astra Control Center UI(사용자 인터페이스)를 사용하여 Astra Data Store 미리 보기 작업을 수행할 수 있습니다.</block>
   <block id="c74d76591828afc252e7610bdae71ca9" category="section-title">Astra Data Store 미리 보기를 위한 Astra Control Center를 설정합니다</block>
   <block id="04141f6e6895167b5976a22e32f00290" category="paragraph">Astra Data Store 미리 보기를 위한 Astra Control Center UI를 사용하려면 다음 작업을 완료해야 합니다.</block>
-  <block id="1c0d9f7d761fc733b600942ce233b4ea" category="inline-link">Astra Data Store 미리 보기 클러스터를 Astra Control Center 설치로 가져옵니다</block>
-  <block id="d15c24960fb67cfd894bc720e9d2ff2d" category="list-text">클러스터를 추가합니다. Astra Data Store 미리 보기가 설치된 기본 Kubernetes 클러스터입니다. 을 참조하십시오<block ref="6761f7730b26a17df3c3b59e4408b7b0" category="inline-link-rx"></block>.</block>
-  <block id="e1f95da35f557b3cdc93de4656df9aaa" category="list-text">해당 클러스터에 대한 Astra Data Store 미리 보기 스토리지 백엔드를 추가합니다.</block>
   <block id="4e649e66878b3f3b5aec5f752e57b985" category="admonition">스토리지 백엔드를 추가하고 Astra Data Store 미리 보기가 있는 Kubernetes 클러스터가 없는 경우, 먼저 클러스터를 추가해야 합니다.</block>
   <block id="2e94174c851b8d4d2427c96e0af4821c" category="section-title">Astra Control Center에서 수행할 수 있는 작업</block>
   <block id="eb243fd6f95dd4bfb1d1ccb0cca34d9f" category="paragraph">Astra Data Store 미리 보기를 위한 Astra Control Center를 설정한 후 Astra Control Center UI를 사용하여 다음 작업을 수행할 수 있습니다.</block>
@@ -409,8 +370,6 @@
   <block id="20a4a00ee22fc4ed42dc6dde7ca930a2" category="list-text"><block ref="8cc2b5fb4f2b8a99de3d80d9680561a7" category="inline-link-rx"></block>.</block>
   <block id="b3566e6d807a064421758708ff05ddc5" category="inline-link">Astra Data Store 미리 보기 백엔드 스토리지를 관리합니다</block>
   <block id="c0d07d3b128a5a7d6f60b9e86bf4f804" category="list-text"><block ref="7c89f9f798010106cb6d616702f15231" category="inline-link-rx"></block>.</block>
-  <block id="4d4207ccf851f0f5668d15b17831080c" category="inline-link">노드, 디스크 및 지속적인 PVC(Volume Claim)와 그 상태를 봅니다</block>
-  <block id="5e4382914eda12bec56e077c0d932f92" category="list-text"><block ref="5df70763c7346a3df0879f904f4e4dc6" category="inline-link-rx"></block>.</block>
   <block id="4b7a1134c870f779c0b8eecedfde4cbf" category="inline-link">Astra 제품군 소개</block>
   <block id="c2cc3948cdbda6ce71e4b9eb57f2cb63" category="list-text"><block ref="c2cc3948cdbda6ce71e4b9eb57f2cb63" category="inline-link-rx"></block></block>
   <block id="3a4b2c66d4bdac6ce0e3340c71a39eda" category="inline-link">Astra Control Center 문서</block>
@@ -986,4 +945,53 @@
   <block id="034057e29f8eb1feedd93c2bb1f3c021" category="list-text">CR을 저장합니다.</block>
   <block id="eb178327aa7fefe80b381533b11cc4e6" category="paragraph">을 참조하십시오 <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block> 및 <block ref="e15c2a80de21c8f7a5baec91689e624f" category="inline-link-macro-rx"></block>.</block>
   <block id="e15c2a80de21c8f7a5baec91689e624f" category="paragraph"><block ref="e15c2a80de21c8f7a5baec91689e624f" category="inline-link-macro-rx"></block></block>
+  <block id="b4c14db8eec92ee84594deeb518a4976" category="list-text"><block ref="2d483405481d39b9a6c7adc5f6fbf7e7" category="inline-xref-macro-rx"></block></block>
+  <block id="3f87463fbb506d4f0516867e384903e8" category="paragraph">Astra 데이터 저장소를 Cloud Insights와 연결하기 전에 다음 작업을 완료해야 합니다.</block>
+  <block id="24437864eef7531173e2d2270e155f21" category="list-text">획득 장치, 데이터 수집, 데이터 수집 및 로그 수집 등의 범주에 대한 읽기/쓰기 권한이 있는 * Cloud Insights API 액세스 토큰 *. 이 작업은 읽기/쓰기 작업, 획득 장치 설정 및 데이터 수집 프로세스 설정에 사용됩니다.</block>
+  <block id="665fae15e5d8b77388e1f6f3894519c3" category="list-text">* Kubernetes API 서버 IP 주소 및 포트 *. Astra Data Store 미리보기 클러스터를 모니터링하는 데 사용됩니다.</block>
+  <block id="9d04fb2bf64ae7e0296e32806229a724" category="list-text">* Kubernetes API 토큰 *. Kubernetes API를 호출하는 데 사용됩니다.</block>
+  <block id="935cc921263d28418fb73a354cd41efd" category="list-text">* 영구 볼륨 구성 *. 영구 볼륨의 프로비저닝 방법에 대한 정보입니다.</block>
+  <block id="8ebcaa8a2aa9767eae1ff42756477e57" category="paragraph">획득 장치는 설치 파일, 구성 데이터 및 로그를 저장하기 위해 세 개의 영구 볼륨이 필요합니다. Monitoring Operator는 기본 스토리지 클래스를 사용하여 영구 볼륨 클레임을 생성합니다. 설치 프로그램 스크립트를 실행할 때 '-s' 옵션을 사용하여 다른 스토리지 클래스 이름을 지정할 수 있습니다.</block>
+  <block id="ce434fffb15ebd4de5a7b6cd1a60eecb" category="paragraph">Cloud Insights는 모니터링 오퍼레이터를 통해 Astra 데이터 저장소 미리 보기 모니터링을 활성화하는 Bash 스크립트를 제공합니다. 설치 스크립트는 Astra Data Store Collector, Telegraf 에이전트 및 Fluent Bit Agent와 함께 획득 장치를 설치합니다.</block>
+  <block id="c36a5ac3e36a3f3614c8e101f10af370" category="paragraph">Cloud Insights 테넌트 도메인 이름과 선택한 Cloud Insights API 액세스 토큰은 다운로드될 때 설치 프로그램 스크립트에 포함됩니다.</block>
+  <block id="2c6bbc18ee7837963ff00fc80383b96e" category="section-title">설치 프로그램 스크립트 도움말을 표시합니다</block>
+  <block id="1f381d1e7d5352848c4005ed024d0548" category="paragraph">설치 프로그램 스크립트 도움말 텍스트 표시:</block>
+  <block id="544bfaab1cf7bfdf8d87b2a8985db6fd" category="section-title">설치 스크립트를 실행합니다</block>
+  <block id="fc09f2223645935b2fa19867a3a7d89f" category="list-text">올바른 Cloud Insights API 액세스 토큰을 선택하거나 새 토큰을 생성하십시오.</block>
+  <block id="f98f8e73d564dde8a48c2ec342a8f9cc" category="paragraph">이 스크립트에는 Cloud Insights 테넌트 URL 및 선택한 Cloud Insights API 액세스 토큰이 포함되어 있습니다.</block>
+  <block id="60afd5a6ed383f75d7a48ec9267857a4" category="admonition">오류로 인해 스크립트가 종료되면 나중에 오류가 해결되면 스크립트를 다시 실행할 수 있습니다. 이 스크립트는 환경에서 기본 설정을 사용하지 않는 경우 모니터링 운영자 네임스페이스 및 Kubernetes API 서버 포트와 같은 추가 매개 변수를 지원합니다. 사용법과 도움말 텍스트를 보려면 의 ``h’ 옵션을 사용하십시오./cloudinsights-ads-monitoring.sh -h.</block>
+  <block id="ce088431d95196ba5e34a00a7b33a554" category="paragraph">설치 스크립트는 구성이 성공할 때 다음과 같은 출력을 생성합니다.</block>
+  <block id="4dce790e0705b733aeab27193373f151" category="paragraph">나중에 Kubernetes API 토큰 또는 Cloud Insights API 액세스 토큰을 편집할 수 있습니다.</block>
+  <block id="94c3a6521fc4a57866841e68413f5f21" category="list-text">Kubernetes API 토큰을 업데이트하려면 Cloud Insights UI에서 Astra Data Store Collector를 편집해야 합니다.</block>
+  <block id="bd07b3393af79a48c0a0b1e42df77832" category="list-text">원격 측정 및 로그에 사용되는 Cloud Insights API 액세스 토큰을 업데이트하려면 kubctl 명령을 사용하여 모니터링 오퍼레이터 CR을 편집해야 합니다.</block>
+  <block id="cf39a76494d7973b947bf14137f64a6a" category="list-text">Kubernetes API 토큰 필드를 새 값으로 업데이트합니다.</block>
+  <block id="5716a76c5b22d46dd556b4d306c3d0a4" category="list-text">Collector 저장 * 을 선택합니다.</block>
+  <block id="95626f976ae18ae94a4188b238d2f44f" category="list-text">관리자 * &gt; * API 액세스 * 를 선택하고 * + API 액세스 토큰 * 을 클릭하여 새 Cloud Insights API 액세스 토큰을 만듭니다.</block>
+  <block id="fb2035a56f9eb3ca2f926e8e51229894" category="list-text">출력 싱크 섹션을 찾아 이름이 'CI'인 항목을 찾습니다.</block>
+  <block id="492f23e1dbe929adf7f122a925bd064b" category="list-text">'api-key'라는 레이블의 경우 현재 값을 새 Cloud Insights API 액세스 토큰으로 바꿉니다.</block>
+  <block id="e6e7891e2154effc45ae14b20c8ad639" category="paragraph">모니터링 운영자는 새로운 Cloud Insights API 액세스 토큰을 사용하도록 Telegraf 및 Fluent 비트를 업데이트합니다.</block>
+  <block id="69c14c6dd63bad8df8635c6ebbd47642" category="list-text">화면 오른쪽의 메뉴를 선택하고 * Delete * 를 선택합니다.</block>
+  <block id="fb3d4d58b3608fb49919890d83965595" category="list-text">au 섹션을 찾아 IsEnabled를 false로 설정합니다</block>
+  <block id="7fb94990d3a57c8bbff9d9a146085077" category="list-text">'유창한 비트' 섹션을 찾아 ads-tail-CI'라는 플러그인을 제거합니다. 플러그인이 더 이상 없으면 "fluent-bit" 섹션을 제거할 수 있습니다.</block>
+  <block id="28a0e32efc6733e78be34afe16b6461c" category="list-text">Telegraf 섹션을 찾아 ads-open-metric이라는 플러그인을 제거합니다. 플러그인이 더 이상 없으면 Telegraf 섹션을 제거할 수 있습니다.</block>
+  <block id="c19be73a533496804bd908db8efca532" category="list-text">출력 싱크 섹션을 찾아 'CI'라는 싱크를 제거합니다.</block>
+  <block id="fbe0315ffcbe25b549dae9be4cd9c17a" category="paragraph">그런 다음 획득 장치가 실행 중인 노드에서 실제 디렉토리를 삭제합니다.</block>
+  <block id="0f024621e0673f1f4e657983682d6e72" category="list-text">삭제 * 를 선택합니다.</block>
+  <block id="f5ef604e5c1749fb34d2f40f286b77cb" category="paragraph">모니터링 작업자는 Telegraf 및 Fluent 비트 구성을 업데이트하고 획득 장치를 제거합니다.</block>
+  <block id="937f64044c15c693fee5e345b823c82a" category="paragraph">Astra Data Store 미리 보기 및 컨트롤 플레인을 제거하려면 워크로드, 바인딩, 볼륨, 내보내기 정책, Astra Data Store 클러스터, 라이센스, 배포 환경 및 Astra Data Store 미리 보기 네임스페이스를 제거합니다.</block>
+  <block id="22f4771b27effd4ed241a94c1c3b8fae" category="list-text">클러스터의 각 작업자 노드에 SSH를 통해 'firewTap' 또는 'netwd'가 작업자 노드에서 실행되고 있지 않음을 확인합니다.</block>
+  <block id="f40621c004c5b23c3485a800fe73c8df" category="admonition">이 단계에서는 "리소스를 찾을 수 없음" 오류를 무시합니다. </block>
+  <block id="341aec78c4fcb8bc2fd0114d84ad9f59" category="paragraph">다음은 수동 제거 스크립트의 예입니다.</block>
+  <block id="592559968efa9408ca73078a0281426c" category="list-text">설치된 에이전트의 네임스페이스: 모니터링 에이전트의 기본 이름인 모니터링 에이전트의 네임스페이스를 입력합니다. 모니터링 오퍼레이터의 경우 NetApp CR입니다.</block>
+  <block id="2c823bca43aea2d1d1f31e9983e361b7" category="list-text">'-r'은 Fluent 또는 Telegraf 이미지가 있는 Docker 레지스트리를 설정하는 데 선택 사항입니다. 기본적으로 경로는 변경할 수 있는 dddocker.repo.eng.netapp.com/global/astra` 로 설정됩니다.</block>
+  <block id="aeb979a8c81ef5b2987fb3c032221352" category="paragraph">로그를 보려면 Cloud Insights 설정은 선택 사항이지만 Cloud Insights를 사용하여 데이터를 보는 것이 좋습니다. 을 참조하십시오 <block ref="d6cf67ce476502ac807e2e588f6f029e" category="inline-link-macro-rx"></block> Astra 데이터 저장소 미리 보기와 함께 사용할 수 있습니다.</block>
+  <block id="d9d6ed14c600162e996a2b655fe76a5b" category="paragraph">EMS 이벤트 및 기타 POD 로그를 Elastic 등의 타사 엔드포인트로 스트리밍하려면 "Astrads" 확장을 사용합니다.</block>
+  <block id="dd28600b37d206c458b334bd7ffb8392" category="inline-link-macro">Astra Data Store가 설치된 기본 Kubernetes 클러스터를 추가합니다</block>
+  <block id="486935e8eec639b9908b1b27009a3d45" category="list-text"><block ref="0abc3178943c2e313a51344a5a71a6f4" category="inline-link-macro-rx"></block>.</block>
+  <block id="97bf50f54963d01dea9409c25b12a862" category="inline-link-macro">해당 클러스터에 대한 Astra Data Store 미리 보기 스토리지 백엔드를 추가합니다</block>
+  <block id="2f0c9fb30324413f2ab0cdaea50981c0" category="list-text"><block ref="bad2a7ffbfb74e3294d159537164f102" category="inline-link-macro-rx"></block>.</block>
+  <block id="fb1b2d57a629a279f6ff0d53a5227a85" category="inline-link">노드, 디스크 및 지속적인 PVC(Volume Claim) 모니터링</block>
+  <block id="13c2044ccdb84b5f13a75cb4056babe7" category="list-text"><block ref="77a980d120eceb0ef7837945f6cac4d0" category="inline-link-rx"></block>.</block>
+  <block id="d2345544e5b85f26908fbbfcea4178f8" category="inline-link">Astra Control API를 참조하십시오</block>
+  <block id="e84bb7e947a5b25481546110f575734a" category="list-text"><block ref="e84bb7e947a5b25481546110f575734a" category="inline-link-rx"></block></block>
 </blocks>

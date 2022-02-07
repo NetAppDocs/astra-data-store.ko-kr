@@ -27,19 +27,20 @@ Astra Data Store preview cluster CR에 모니터링 옵션이 구성되어 있�
 
 [listing]
 ----
-~% kubectl astrads monitoring setup -n <NAMESPACE OF AGENT INSTALLED>  -r <DOCKER REPO TO FIND FLUENT/TELEGRAF ETC IMAGES>
+~% kubectl astrads monitoring setup -n <NAMESPACE OF AGENT INSTALLED>
+   -r <DOCKER REPO TO FIND FLUENT/TELEGRAF ETC IMAGES>
 ----
 여기서,
 
-* 설치된 에이전트의 네임스페이스: 이 에이전트는 모니터링 운영자용 CR입니다.
-* '-r'은 선택 사항입니다.
+* 설치된 에이전트의 네임스페이스: 모니터링 에이전트의 기본 이름인 모니터링 에이전트의 네임스페이스를 입력합니다. 모니터링 오퍼레이터의 경우 NetApp CR입니다.
+* '-r'은 Fluent 또는 Telegraf 이미지가 있는 Docker 레지스트리를 설정하는 데 선택 사항입니다. 기본적으로 경로는 변경할 수 있는 dddocker.repo.eng.netapp.com/global/astra` 로 설정됩니다.
 
 
 
 
 == Cloud Insights를 설정합니다
 
-을 참조하십시오 link:../use/monitor-with-cloud-insights.html["NetApp Cloud Insights 설정 방법"] Astra 데이터 저장소 미리 보기와 함께 사용할 수 있습니다.
+로그를 보려면 Cloud Insights 설정은 선택 사항이지만 Cloud Insights를 사용하여 데이터를 보는 것이 좋습니다. 을 참조하십시오 link:../use/monitor-with-cloud-insights.html["NetApp Cloud Insights 설정 방법"] Astra 데이터 저장소 미리 보기와 함께 사용할 수 있습니다.
 
 
 
