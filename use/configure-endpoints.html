@@ -712,7 +712,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-02-02 22:37:37 +0000">02/02/2022</time>
+    <time datetime="2022-02-07 19:13:40 +0000">02/07/2022</time>
     
   
 
@@ -778,7 +778,8 @@
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>~% kubectl astrads monitoring setup -n &lt;NAMESPACE OF AGENT INSTALLED&gt;  -r &lt;DOCKER REPO TO FIND FLUENT/TELEGRAF ETC IMAGES&gt;</pre>
+<pre>~% kubectl astrads monitoring setup -n &lt;NAMESPACE OF AGENT INSTALLED&gt;
+   -r &lt;DOCKER REPO TO FIND FLUENT/TELEGRAF ETC IMAGES&gt;</pre>
 </div>
 </div>
 <div class="paragraph">
@@ -787,10 +788,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p>설치된 에이전트의 네임스페이스: 이 에이전트는 모니터링 운영자용 CR입니다.</p>
+<p>설치된 에이전트의 네임스페이스: 모니터링 에이전트의 기본 이름인 모니터링 에이전트의 네임스페이스를 입력합니다. 모니터링 오퍼레이터의 경우 NetApp CR입니다.</p>
 </li>
 <li>
-<p>'-r&#8217;은 선택 사항입니다.</p>
+<p>'-r&#8217;은 Fluent 또는 Telegraf 이미지가 있는 Docker 레지스트리를 설정하는 데 선택 사항입니다. 기본적으로 경로는 변경할 수 있는 dddocker.repo.eng.netapp.com/global/astra` 로 설정됩니다.</p>
 </li>
 </ul>
 </div>
@@ -800,7 +801,7 @@
 <h2 id="cloud-insights를-설정합니다">Cloud Insights를 설정합니다</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>을 참조하십시오 <a href="../use/monitor-with-cloud-insights.html">"NetApp Cloud Insights 설정 방법"</a> Astra 데이터 저장소 미리 보기와 함께 사용할 수 있습니다.</p>
+<p>로그를 보려면 Cloud Insights 설정은 선택 사항이지만 Cloud Insights를 사용하여 데이터를 보는 것이 좋습니다. 을 참조하십시오 <a href="../use/monitor-with-cloud-insights.html">"NetApp Cloud Insights 설정 방법"</a> Astra 데이터 저장소 미리 보기와 함께 사용할 수 있습니다.</p>
 </div>
 </div>
 </div>
