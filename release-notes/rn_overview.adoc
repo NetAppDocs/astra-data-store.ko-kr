@@ -12,7 +12,7 @@ summary: NetApp은 새로운 기능, 개선 사항 및 버그 수정을 제공�
 
 Astra Data Store의 21.12 Preview 릴리스를 발표하게 되어 기쁘게 생각합니다.
 
-* link:../release-notes/whats-new.html["Astra Data Store 이번 릴리즈에는 어떤 내용이 포함되어 있는지"]
+* link:../release-notes/whats-new.html["Astra Data Store Preview의 이번 릴리스의 새로운 기능"]
 * link:../release-notes/known-issues.html["알려진 문제"]
 * link:../release-notes/known-limitations.html["알려진 제한 사항"]
 

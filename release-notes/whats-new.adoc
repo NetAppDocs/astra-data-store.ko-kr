@@ -4,13 +4,25 @@ permalink: release-notes/whats-new.html
 keywords: 'what"s new, bugs, bug fixes, new features, enhancements' 
 summary: NetApp은 새로운 기능, 개선 사항 및 버그 수정을 제공하기 위해 Astra Data Store를 정기적으로 업데이트합니다. 
 ---
-= Astra Data Store 이번 릴리스의 내용
+= Astra Data Store 이번 릴리스의 새로운 기능
 :hardbreaks:
 :icons: font
 :imagesdir: ../media/release-notes/
 
 
-Astra Data Store의 21.12 Preview 릴리스를 발표하게 되어 기쁘게 생각합니다.
+Astra Data Store의 출시 미리 보기 릴리스의 2021.12.1 패치를 발표하게 되어 기쁘게 생각합니다.
+
+
+
+== 2022년 2월 8일(2021.12.1)
+
+Astra Data Store 미리 보기(21.12)용 패치 릴리스(2021.12.1)입니다.
+
+* 이 릴리즈에서는 Astra Data Store 미리 보기가 Calico CNI를 사용한 VXLAN 구성을 지원합니다.
+* Calico WireGuard 지원 네트워크 구성은 이제 Astra Data Store Preview에서 지원됩니다.
+* 업데이트된 AstraDSCluster.YAML 'adsNetworkInterfaces' 섹션에 보다 자세한 설명이 추가되었습니다.
+* kubeck 명령 제거 프로세스 대신 새로운 Astra Data Store 제거 스크립트가 제공됩니다.
+
 
 
 

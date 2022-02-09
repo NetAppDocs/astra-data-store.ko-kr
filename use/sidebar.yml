@@ -14,5 +14,7 @@ entries:
   url: "/use/configure-endpoints.html"
 - title: Astra Control Center 통합
   url: "/use/ads-acc-ui.html"
-- title: Astra Data Store 미리 보기를 제거합니다
+- title: 스크립트를 사용하여 Astra Data Store 미리 보기를 자동으로 제거합니다
   url: "/use/uninstall-ads.html"
+- title: 스크립트 없이 Astra Data Store 미리 보기를 수동으로 제거합니다
+  url: "/use/uninstall-ads-manual.html"

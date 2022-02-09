@@ -1,0 +1,21 @@
+---
+sidebar: sidebar 
+permalink: release-notes/resolved-issues.html 
+keywords: astra, data store, fixed bugs, fixes, resolved issues 
+summary: 이 릴리스에서 제품 사용을 성공적으로 방해했을 수 있는 문제를 해결했습니다. 
+---
+= 해결된 문제
+:hardbreaks:
+:icons: font
+:imagesdir: ../media/release-notes/
+
+
+이 제품 릴리스에서 다음과 같은 문제가 수정되었습니다.
+
+
+
+== VXLAN 구성 및 Calico CNI의 네트워크 인터페이스 이름은 Astra Data Store 미리보기에서 인식되지 않습니다
+
+이 오류로 인해 포드가 충돌했습니다.
+
+이 릴리즈에서는 Astra Data Store 미리 보기가 Calico CNI를 사용한 VXLAN 구성을 지원합니다.

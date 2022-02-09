@@ -39,7 +39,6 @@ Astra Data Store 미리 보기 설치 프로세스는 다음과 같은 고급 �
 * <<Understand deployment-related events>>
 * <<Configure Astra Data Store preview monitoring>>
 * <<Install the monitoring operator>>
-* <<Set up iptables>>
 
 
 
@@ -482,7 +481,7 @@ NOTE: YAML 파일의 간단한 예는 다음과 같습니다.
 *** 클러스터의 작업자 노드에서 라우팅할 수 있는 부동 관리 IP의 IP 주소로 mVIP 문자열을 변경합니다.
 *** adsDataNetworks에서 NetApp 볼륨을 마운트할 호스트에서 라우팅할 수 있는 쉼표로 구분된 부동 IP 주소 목록("주소")을 추가합니다. 노드당 하나의 부동 IP 주소를 사용합니다. Astra Data Store 미리 보기 노드만큼 데이터 네트워크 IP 주소가 적어도 몇 개 있어야 합니다. Astra Data Store 미리 보기의 경우 4개 이상의 주소가 있어야 하며, 나중에 5개 노드로 클러스터를 확장할 계획이면 5개 이상의 주소가 필요합니다.
 *** adsDataNetworks에서 데이터 네트워크에서 사용하는 넷마스크를 지정한다.
-*** adsNetworkInterfaces에서 mGMT와 data 값을 관리, 클러스터 및 스토리지에 사용할 네트워크 인터페이스 이름으로 바꿉니다. 이름을 지정하지 않으면 노드의 기본 인터페이스가 관리, 클러스터 및 스토리지 네트워킹에 사용됩니다.
+*** adsNetworkInterfaces에서 '<mgmt_interface_name>' 및 '<cluster_and_storage_interface_name>' 값을 관리, 클러스터 및 스토리지에 사용할 네트워크 인터페이스 이름으로 바꿉니다. 이름을 지정하지 않으면 노드의 기본 인터페이스가 관리, 클러스터 및 스토리지 네트워킹에 사용됩니다.
 +
 
 NOTE: 클러스터 및 스토리지 네트워크는 동일한 인터페이스에 있어야 합니다. Astra Data Store 미리 보기 관리 인터페이스는 Kubernetes 노드의 관리 인터페이스와 동일해야 합니다.
@@ -520,13 +519,14 @@ kind: AstraDSCluster
       *netmask:*
   # Specify the network interface names to use for management, cluster and storage networks.
   # If none are specified, the node's primary interface will be used for management, cluster and storage networking.
-  # To move the cluster and storage networks a different interface than management, specify all three interfaces to use here.
-  # The Astra Data Store management interface should be same as the Kubernetes node’s management interface.
+  # To move the cluster and storage networks to a different interface than management, specify all three interfaces to use here.
   # NOTE: The cluster and storage networks need to be on the same interface.
   *adsNetworkInterfaces:*
-    *managementInterface: "mgmt"*
-    *clusterInterface: "data"*
-    *storageInterface: "data"*
+    *managementInterface: "<mgmt_interface_name>"*
+    *clusterInterface: "<cluster_and_storage_interface_name>"*
+    *storageInterface: "<cluster_and_storage_interface_name>"*
+  # [Optional] Provide a k8s label key that defines which protection domain a node belongs to.
+    # adsProtectionDomainKey: ""
   # [Optional] Provide a monitoring config to be used to setup/configure a monitoring agent.
  *# monitoringConfig:*
    *# namespace: "netapp-monitoring"*
@@ -700,57 +700,6 @@ kubectl apply -f ./manifests/monitoring_operator.yaml
 kubectl astrads monitoring -m netapp-monitoring -r [YOUR REGISTRY] setup
 ----
 
-
-
-
-== iptables를 설정합니다
-
-OpenShift SDN(OpenShift용 기본 CNI 플러그인)은 호스트 루프백 인터페이스(127.0.0.1/localhost)에서 HostPorts로 트래픽을 마스커하지 않습니다.
-
-Astra Data Store 미리보기 클러스터에는 localhost에서 클러스터 서비스 포트(9920)로 트래픽을 전달하기 위한 NAT 규칙이 추가되어 있어야 합니다.
-
-.단계
-. NAT 테이블의 출력 체인에 있는 현재 KUBE-HOSTS 규칙의 행 번호를 확인합니다.
-+
-아래 예에서는 KUBE-HOSTS가 4위치에 있습니다.
-
-+
-[listing]
-----
-$ sudo iptables -t nat -L OUTPUT --line-numbers
-Chain OUTPUT (policy ACCEPT)
-num target prot opt source destination
-1 KUBE-SERVICES all -- anywhere anywhere /* kubernetes service portals */
-2 KUBE-PORTALS-HOST all -- anywhere anywhere /* handle ClusterIPs; NOTE: this must be before the NodePort rules */
-3 KUBE-NODEPORT-HOST all -- anywhere anywhere ADDRTYPE match dst-type LOCAL /* handle service NodePorts; NOTE: this must be the last rule in the chain */
-4 KUBE-HOSTPORTS all -- anywhere anywhere /* kube hostport portals */ ADDRTYPE match dst-type LOCAL
-----
-. KUBE-HOSTS 항목 바로 위에 NAT 테이블에 새 규칙을 추가합니다.
-+
-[listing]
-----
-$ sudo iptables -t nat -I OUTPUT 4 -s 127.0.0.1 -j KUBE-MARK-MASQ -p tcp --dport 9920
-----
-. 새로 추가된 규칙이 KUBE-HOSTS 규칙 바로 위에 NAT 테이블에 추가되었는지 확인합니다.
-+
-[listing]
-----
-$ sudo iptables -t nat -L OUTPUT --line-numbers
-Chain OUTPUT (policy ACCEPT)
-num target prot opt source destination
-1 KUBE-SERVICES all -- anywhere anywhere /* kubernetes service portals */
-2 KUBE-PORTALS-HOST all -- anywhere anywhere /* handle ClusterIPs; NOTE: this must be before the NodePort rules */
-3 KUBE-NODEPORT-HOST all -- anywhere anywhere ADDRTYPE match dst-type LOCAL /* handle service NodePorts; NOTE: this must be the last rule in the chain */
-4 KUBE-MARK-MASQ tcp -- localhost anywhere tcp dpt:9920
-5 KUBE-HOSTPORTS all -- anywhere anywhere /* kube hostport portals */ ADDRTYPE match dst-type LOCAL
-----
-
-
-
-NOTE: Astra Data Store 미리보기 클러스터의 모든 노드에 대해 단계를 수행합니다.
-
-
-NOTE: Astra Data Store preview 클러스터 노드가 다시 시작되면 이 단계를 반복합니다.
 
 
 
