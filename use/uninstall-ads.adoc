@@ -51,7 +51,7 @@ Astra Data Store 미리 보기를 제거하려면 NetApp Support 사이트에서
 +
 [listing]
 ----
-sed -i -e “s~netappsdsoperator.yaml~astradsoperator.yaml~” uninstall.sh
+sed -i -e 's~netappsdsoperator.yaml~astradsoperator.yaml~' uninstall.sh
 ----
 . 제거할 항목을 나타내는 다음 스크립트를 실행합니다.
 +
