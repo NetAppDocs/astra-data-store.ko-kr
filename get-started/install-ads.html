@@ -501,6 +501,8 @@
 
 
 
+
+
           
         </li>
       </ul>
@@ -582,7 +584,7 @@
         <div class="na-navbar-padding"> 릴리스 정보</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/release-notes/whats-new.html">
-        Astra Data Store 이번 릴리즈에는 어떤 내용이 포함되어 있는지
+        Astra Data Store 이번 릴리스의 새로운 기능
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/release-notes/known-issues.html">
         알려진 문제
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/release-notes/known-limitations.html">
@@ -636,7 +638,9 @@
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use/ads-acc-ui.html">
         Astra Control Center 통합
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use/uninstall-ads.html">
-        Astra Data Store 미리 보기를 제거합니다
+        스크립트를 사용하여 Astra Data Store 미리 보기를 자동으로 제거합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use/uninstall-ads-manual.html">
+        스크립트 없이 Astra Data Store 미리 보기를 수동으로 제거합니다
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 지식 및 지원</div>
       </a>
@@ -712,7 +716,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-02-07 19:13:40 +0000">02/07/2022</time>
+    <time datetime="2022-02-09 14:55:11 +0000">02/09/2022</time>
     
   
 
@@ -1136,7 +1140,7 @@ YAML 파일의 간단한 예는 다음과 같습니다.
 <p>adsDataNetworks에서 데이터 네트워크에서 사용하는 넷마스크를 지정한다.</p>
 </li>
 <li>
-<p>adsNetworkInterfaces에서 mGMT와 data 값을 관리, 클러스터 및 스토리지에 사용할 네트워크 인터페이스 이름으로 바꿉니다. 이름을 지정하지 않으면 노드의 기본 인터페이스가 관리, 클러스터 및 스토리지 네트워킹에 사용됩니다.</p>
+<p>adsNetworkInterfaces에서 '&lt;mgmt_interface_name&gt;' 및 '&lt;cluster_and_storage_interface_name&gt;' 값을 관리, 클러스터 및 스토리지에 사용할 네트워크 인터페이스 이름으로 바꿉니다. 이름을 지정하지 않으면 노드의 기본 인터페이스가 관리, 클러스터 및 스토리지 네트워킹에 사용됩니다.</p>
 <div class="admonitionblock note">
 <table>
 <tr>
@@ -1198,13 +1202,14 @@ kind: AstraDSCluster
       <strong>netmask:</strong>
   # Specify the network interface names to use for management, cluster and storage networks.
   # If none are specified, the node's primary interface will be used for management, cluster and storage networking.
-  # To move the cluster and storage networks a different interface than management, specify all three interfaces to use here.
-  # The Astra Data Store management interface should be same as the Kubernetes node’s management interface.
+  # To move the cluster and storage networks to a different interface than management, specify all three interfaces to use here.
   # NOTE: The cluster and storage networks need to be on the same interface.
   <strong>adsNetworkInterfaces:</strong>
-    <strong>managementInterface: "mgmt"</strong>
-    <strong>clusterInterface: "data"</strong>
-    <strong>storageInterface: "data"</strong>
+    <strong>managementInterface: "&lt;mgmt_interface_name&gt;"</strong>
+    <strong>clusterInterface: "&lt;cluster_and_storage_interface_name&gt;"</strong>
+    <strong>storageInterface: "&lt;cluster_and_storage_interface_name&gt;"</strong>
+  # [Optional] Provide a k8s label key that defines which protection domain a node belongs to.
+    # adsProtectionDomainKey: ""
   # [Optional] Provide a monitoring config to be used to setup/configure a monitoring agent.
  <strong># monitoringConfig:</strong>
    <strong># namespace: "netapp-monitoring"</strong>
