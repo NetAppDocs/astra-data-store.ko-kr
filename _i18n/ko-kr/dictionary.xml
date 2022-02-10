@@ -1016,4 +1016,31 @@
   <block id="15388dda568bd0771380969281e3fb4d" category="list-text">프롬프트에서 계속 진행할지 확인하고 erasedata를 입력합니다</block>
   <block id="858c3e811ac734bb143694fc06b49de1" category="list-text">adsNetworkInterfaces에서 '&lt;mgmt_interface_name&gt;' 및 '&lt;cluster_and_storage_interface_name&gt;' 값을 관리, 클러스터 및 스토리지에 사용할 네트워크 인터페이스 이름으로 바꿉니다. 이름을 지정하지 않으면 노드의 기본 인터페이스가 관리, 클러스터 및 스토리지 네트워킹에 사용됩니다.</block>
   <block id="1b828e66f98e1084d2ec48e088373a14" category="sidebar">Astra Data Store 이번 릴리스의 새로운 기능</block>
+  <block id="211e9e8a4cf9ff3c00e04155da6f31d9" category="summary">Prometheus 및 Grafana를 사용하여 Astra Data Store 자산을 모니터링할 수 있습니다.</block>
+  <block id="00e0d60d6c6845e2c5c19961e437a70c" category="doc">Prometheus 및 Grafana를 사용하여 메트릭을 모니터링합니다</block>
+  <block id="7b132651c6be946cb45ebbc5729d0fae" category="paragraph">Prometheus 및 Grafana를 사용하여 Astra Data Store 미리보기 메트릭을 모니터링할 수 있습니다. Ameta Data Store 미리보기 Kubernetes 클러스터 메트릭 엔드포인트에서 메트릭을 수집하도록 Prometheus를 구성할 수 있으며 Grafana를 사용하여 메트릭 데이터를 시각화할 수 있습니다.</block>
+  <block id="90895f68c3d61650306b9827ff7c6324" category="list-text">Astra Data Store 미리 보기 클러스터 또는 Astra Data Store 미리 보기 클러스터와 통신할 수 있는 다른 클러스터에 Prometheus 및 Grafana 패키지를 다운로드하여 설치했는지 확인합니다. 공식 설명서의 지침에 따라 각 도구를 설치합니다.</block>
+  <block id="88b8613d339947a37e41b1f514dcc42c" category="inline-link">Prometheus를 설치합니다</block>
+  <block id="763383a68e405097875c37e8ab57d401" category="list-text"><block ref="763383a68e405097875c37e8ab57d401" category="inline-link-rx"></block></block>
+  <block id="3de41522a35f102d48905bc53fd5c383" category="inline-link">Grafana를 설치합니다</block>
+  <block id="a557323906eaeb845274f1275674df7a" category="list-text"><block ref="a557323906eaeb845274f1275674df7a" category="inline-link-rx"></block></block>
+  <block id="a78f5549cd86895c64aa29975a576b48" category="list-text">Prometheus 및 Grafana는 Astra Data Store 미리보기 Kubernetes 클러스터와 통신할 수 있어야 합니다. Prometheus와 Grafana가 Astra Data Store 미리보기 클러스터에 설치되어 있지 않은 경우, Astra Data Store 미리보기 클러스터에서 실행 중인 메트릭 서비스와 통신할 수 있는지 확인해야 합니다.</block>
+  <block id="7119175e2ec3286002664b430cbc1c19" category="section-title">Prometheus를 구성합니다</block>
+  <block id="cd93c151a525dff780b53bdf1dee4c20" category="paragraph">Astra Data Store Preview는 Kubernetes 클러스터의 TCP 포트 9341에 메트릭 서비스를 노출합니다. 이 서비스에서 메트릭을 수집하려면 Prometheus를 구성해야 합니다.</block>
+  <block id="262824fa21333665f816f40f8094f64e" category="list-text">Prometheus 설치를 위해 'Prometheus.yml' 설정 파일을 편집합니다.</block>
+  <block id="73df1fcf9d0ed4ea97560857f6173bd5" category="list-text">Astra Data Store 미리 보기 서비스 이름 및 해당 포트를 가리키는 서비스 목표를 추가합니다. 예를 들면 다음과 같습니다.</block>
+  <block id="4ce6645d84fcfdc26a06bbcb3cb2200e" category="list-text">Prometheus 서비스를 시작합니다.</block>
+  <block id="e91d9af5ad925c5de9147c893effa4d4" category="section-title">Grafana 구성</block>
+  <block id="fd629abff45ee23c6bdc73d9d91a66a4" category="paragraph">Grafana를 구성하여 Prometheus에서 수집한 메트릭을 표시할 수 있습니다.</block>
+  <block id="51b365774144e20a83d88f3a9cd021ae" category="list-text">Grafana 설치를 위해 'datasources.yAML' 구성 파일을 편집합니다.</block>
+  <block id="c3aa2019ef2104794c22ebca3d9699af" category="list-text">Prometheus를 데이터 소스로 추가합니다. 예를 들면 다음과 같습니다.</block>
+  <block id="72d2326d0f93988ea6c944cc1f71e4d7" category="list-text">Grafana 서비스를 시작합니다.</block>
+  <block id="d59dfb8e877e5af488f89204ccb03248" category="list-text">에 대한 Grafana 설명서의 지침을 따릅니다<block ref="1cf3392e814c31461defe80ff0d63d38" category="inline-link-rx"></block>.</block>
+  <block id="9ef9f6e92b5af42394c5f060e5252493" category="section-title">Grafana 대시보드 템플릿을 가져옵니다</block>
+  <block id="b7941e6fc2c5f63e8515ed63676c7d70" category="paragraph">Astra Data Store 미리 보기를 설치하기 위해 다운로드한 번들 파일에는 Grafana 내에서 가져올 수 있는 Grafana 대시보드 템플릿 파일이 포함되어 있습니다. 이러한 대시보드 템플릿을 사용하면 Astra Data Store 미리 보기에서 사용할 수 있는 메트릭의 유형과 이를 보는 방법을 확인할 수 있습니다.</block>
+  <block id="1783d559dc171f13beba29b4df9ac9d9" category="list-text">Astra Data Store preview '.tar.gz' bundle을 엽니다.</block>
+  <block id="7aa7363407fe50db6732fda1c3546635" category="list-text">'manifests' 디렉터리를 엽니다.</block>
+  <block id="3da799470552bc99d72c76674914bc47" category="list-text">graana_cluster.json과 graana_volume.json 파일을 추출한다.</block>
+  <block id="7b2ccb49d7bc87351cf57d3e0c234471" category="inline-link">에서 대시보드 템플릿 파일을 Grafana로 가져옵니다</block>
+  <block id="2d44692dc4e76f18d1b4df631a84302e" category="list-text">Grafana 웹 UI 사용,<block ref="2cc34fe35a733f5131c1ab2d18b17aaf" category="inline-link-rx"></block>.</block>
 </blocks>
