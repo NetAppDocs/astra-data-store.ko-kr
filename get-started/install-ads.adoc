@@ -36,6 +36,8 @@ Astra Data Store 미리 보기 설치 프로세스는 다음과 같은 고급 �
 * <<Configure Astra Data Store preview monitoring>>
 
 
+Astra Data Store 미리 보기를 사용하여 비밀이 있는 이미지 등록부와 함께 작업하려면 을 참조하십시오 https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/How_to_enable_Astra_Data_Store_preview_to_work_with_image_registries_with_secret["이 KB입니다"].
+
 
 
 == Astra Data Store 미리보기 번들을 다운로드하고 이미지를 추출합니다
@@ -467,7 +469,7 @@ kubectl astrads monitoring -m netapp-monitoring -r [YOUR REGISTRY] setup
 
 === 모니터링 운전자를 설치합니다
 
-(선택 사항) Astra Data Store Preview를 Astra Control Center로 가져오지 않는 경우에만 모니터링 운용자를 권장합니다. Astra 데이터 저장소 미리 보기 인스턴스가 독립 실행형 배포이거나, Cloud Insights를 사용하여 원격 측정을 모니터링하거나, Elastic과 같은 타사 엔드포인트로 로그를 스트리밍하는 경우 모니터링 연산자를 설치할 수 있습니다.
+(선택 사항) Astra Data Store Preview를 Astra Control Center로 가져오지 않는 경우 모니터링 운용자를 권장합니다. Astra 데이터 저장소 미리 보기 인스턴스가 독립 실행형 배포이거나, Cloud Insights를 사용하여 원격 측정을 모니터링하거나, Elastic과 같은 타사 엔드포인트로 로그를 스트리밍하는 경우 모니터링 연산자를 설치할 수 있습니다.
 
 . 다음 설치 명령을 실행합니다.
 +
