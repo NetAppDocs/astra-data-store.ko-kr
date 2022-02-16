@@ -296,7 +296,7 @@ OpenShift는 kubelet 구성 파일('/var/lib/kubelet/config.json')에 json 형�
 +
 [listing]
 ----
-sudo cp /var/lib/kubelet/config.json /var/lib/kubelet/config.yaml`
+sudo cp /var/lib/kubelet/config.json /var/lib/kubelet/config.yaml
 ----
 . 클러스터 YAML이 적용되기 전에 모든 Kubernetes 노드에서 이 절차를 완료하십시오.
 
