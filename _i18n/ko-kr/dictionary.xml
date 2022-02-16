@@ -947,10 +947,6 @@
   <block id="2c823bca43aea2d1d1f31e9983e361b7" category="list-text">'-r'은 Fluent 또는 Telegraf 이미지가 있는 Docker 레지스트리를 설정하는 데 선택 사항입니다. 기본적으로 경로는 변경할 수 있는 dddocker.repo.eng.netapp.com/global/astra` 로 설정됩니다.</block>
   <block id="aeb979a8c81ef5b2987fb3c032221352" category="paragraph">로그를 보려면 Cloud Insights 설정은 선택 사항이지만 Cloud Insights를 사용하여 데이터를 보는 것이 좋습니다. 을 참조하십시오 <block ref="d6cf67ce476502ac807e2e588f6f029e" category="inline-link-macro-rx"></block> Astra 데이터 저장소 미리 보기와 함께 사용할 수 있습니다.</block>
   <block id="d9d6ed14c600162e996a2b655fe76a5b" category="paragraph">EMS 이벤트 및 기타 POD 로그를 Elastic 등의 타사 엔드포인트로 스트리밍하려면 "Astrads" 확장을 사용합니다.</block>
-  <block id="dd28600b37d206c458b334bd7ffb8392" category="inline-link-macro">Astra Data Store가 설치된 기본 Kubernetes 클러스터를 추가합니다</block>
-  <block id="486935e8eec639b9908b1b27009a3d45" category="list-text"><block ref="0abc3178943c2e313a51344a5a71a6f4" category="inline-link-macro-rx"></block>.</block>
-  <block id="97bf50f54963d01dea9409c25b12a862" category="inline-link-macro">해당 클러스터에 대한 Astra Data Store 미리 보기 스토리지 백엔드를 추가합니다</block>
-  <block id="2f0c9fb30324413f2ab0cdaea50981c0" category="list-text"><block ref="bad2a7ffbfb74e3294d159537164f102" category="inline-link-macro-rx"></block>.</block>
   <block id="fb1b2d57a629a279f6ff0d53a5227a85" category="inline-link">노드, 디스크 및 지속적인 PVC(Volume Claim) 모니터링</block>
   <block id="13c2044ccdb84b5f13a75cb4056babe7" category="list-text"><block ref="77a980d120eceb0ef7837945f6cac4d0" category="inline-link-rx"></block>.</block>
   <block id="d2345544e5b85f26908fbbfcea4178f8" category="inline-link">Astra Control API를 참조하십시오</block>
@@ -1045,4 +1041,8 @@
   <block id="1892645d2782c9bf9dc34851d08c3fc0" category="inline-link">이 KB입니다</block>
   <block id="9d360497e26014d0f465e4f870bdeadc" category="paragraph">Astra Data Store 미리 보기를 사용하여 비밀이 있는 이미지 등록부와 함께 작업하려면 을 참조하십시오<block ref="31862b8c922a22dfae2a0bc44d5fcca7" category="inline-link-rx"></block>.</block>
   <block id="8b3692dee4534020feae3ae8064407c3" category="paragraph">(선택 사항) Astra Data Store Preview를 Astra Control Center로 가져오지 않는 경우 모니터링 운용자를 권장합니다. Astra 데이터 저장소 미리 보기 인스턴스가 독립 실행형 배포이거나, Cloud Insights를 사용하여 원격 측정을 모니터링하거나, Elastic과 같은 타사 엔드포인트로 로그를 스트리밍하는 경우 모니터링 연산자를 설치할 수 있습니다.</block>
+  <block id="ae5562b31c4323f309fb889a9b093cdf" category="inline-link">Astra Data Store를 실행하는 기본 Kubernetes 클러스터를 Astra Control Center에 추가합니다</block>
+  <block id="fc8f50043a90344f7ed3abf976a2c2bf" category="list-text"><block ref="4c0801f62183e0e2f60f1c6b67702af3" category="inline-link-rx"></block>.</block>
+  <block id="75dda14e63e81d459a63d119ddf1df01" category="inline-link">Astra Data Store 미리 보기를 Astra Control Center에 스토리지 백엔드로 추가합니다</block>
+  <block id="463b550d7836a6234ad681f2c2eb84f6" category="list-text"><block ref="6ba69dca5449a718fd2d8fff37a9e3af" category="inline-link-rx"></block>.</block>
 </blocks>

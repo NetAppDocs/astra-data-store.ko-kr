@@ -18,8 +18,8 @@ Astra Control Center UI(사용자 인터페이스)를 사용하여 Astra Data St
 
 Astra Data Store 미리 보기를 위한 Astra Control Center UI를 사용하려면 다음 작업을 완료해야 합니다.
 
-* link:../get-started/setup_overview.html#add-cluster["Astra Data Store가 설치된 기본 Kubernetes 클러스터를 추가합니다"^].
-* link:../get-started/setup_overview.html#add-a-storage-backend["해당 클러스터에 대한 Astra Data Store 미리 보기 스토리지 백엔드를 추가합니다"].
+* https://docs.netapp.com/us-en/astra-control-center/get-started/setup_overview.html#add-cluster["Astra Data Store를 실행하는 기본 Kubernetes 클러스터를 Astra Control Center에 추가합니다"].
+* https://docs.netapp.com/us-en/astra-control-center/get-started/setup_overview.html#add-a-storage-backend["Astra Data Store 미리 보기를 Astra Control Center에 스토리지 백엔드로 추가합니다"].
 +
 
 NOTE: 스토리지 백엔드를 추가하고 Astra Data Store 미리 보기가 있는 Kubernetes 클러스터가 없는 경우, 먼저 클러스터를 추가해야 합니다.
