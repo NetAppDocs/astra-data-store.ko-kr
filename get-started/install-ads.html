@@ -9,7 +9,7 @@
   <meta property="og:title" content="Astra Data Store 미리 보기를 설치합니다" />
 	<meta property="og:type" content="website" />
 	<meta property="og:url" content="https://docs.netapp.com/ko-kr/astra-data-store/get-started/install-ads.html" />
-	<meta property="og:description" content="몇 가지 환경 요구 사항을 설명한 후 Astra Data Store를 설치하려면 번들을 다운로드하여 설명된 단계에 따라 설치합니다." />
+	<meta property="og:description" content="몇 가지 환경 요구 사항을 충족한 후 Astra Data Store를 설치하려면 번들을 다운로드하고 다음 단계를 따라 설치합니다. OpenShift에 Astra Data Store를 설치하는 방법" />
   <meta property="og:image" content="https://docs.netapp.com/ko-kr/astra-data-store/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
@@ -18,8 +18,8 @@
   <meta http-equiv="nss-type" content="Product Documentation"/>
   <meta http-equiv="nss-subtype" content="User Guide"/>
   
-  <meta name="description" content="몇 가지 환경 요구 사항을 설명한 후 Astra Data Store를 설치하려면 번들을 다운로드하여 설명된 단계에 따라 설치합니다.">
-  <meta name="keywords" content=" astra, astra data store, install, deploy, download">
+  <meta name="description" content="몇 가지 환경 요구 사항을 충족한 후 Astra Data Store를 설치하려면 번들을 다운로드하고 다음 단계를 따라 설치합니다. OpenShift에 Astra Data Store를 설치하는 방법">
+  <meta name="keywords" content=" astra, astra data store, install, deploy, download, openshift, red hat, ocp">
   
   
 
@@ -423,19 +423,6 @@
 
 
 
-
-    
-      <ul class="subfolders" style="display:none;">
-        <li class="pdf-ux-container">
-          <a target="_blank" 
-            
-              href="/ko-kr/astra-data-store/pdfs/sidebar/설치_개요.pdf" 
-            
-          >
-            <img src="/ko-kr/astra-data-store/images/pdf.png" width="16" height="16"/>
-            설치 개요
-          </a>
-          
     <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
   <a target="_blank" href="/ko-kr/astra-data-store/pdfs/pages/get-started/install-ads.pdf" >
     <img src="/ko-kr/astra-data-store/images/pdf.png" width="16" height="16"/>
@@ -444,17 +431,6 @@
 </li>
 
 </ul>
-  
-
-
-
-
-
-          
-        </li>
-      </ul>
-    
-
   
 
 
@@ -611,14 +587,9 @@
         Astra Data Store 미리 보기 요구 사항
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/get-started/quick-start.html">
         Astra 데이터 저장소 미리 보기를 빠르게 시작합니다
-      </a></li><li class="subfolders "><a href="/ko-kr/astra-data-store/get-started/install-overview.html">
-        <div class="na-navbar-padding"> 설치 개요</div>
-      </a>
-      <ul><li class="  active "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/get-started/install-ads.html">
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/get-started/install-ads.html">
         Astra Data Store 미리 보기를 설치합니다
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/get-started/install-ads-openshift.html">
-        OpenShift에 Astra Data Store 미리 보기를 설치합니다
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/get-started/setup-ads.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/get-started/setup-ads.html">
         Astra Data Store 미리보기 구성 요소를 설정합니다
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/get-started/capabilities.html">
         Astra Data Store 미리보기 제한
@@ -720,7 +691,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-02-16 23:51:13 +0000">02/16/2022</time>
+    <time datetime="2022-02-25 16:31:25 +0000">02/25/2022</time>
     
   
 
@@ -758,10 +729,7 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Astra Data Store 미리 보기를 설치하려면 에서 설치 번들을 다운로드하십시오 <a href="https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab" target="_blank" rel="noopener">"NetApp Support 사이트"</a> 및 이 절차에 설명된 설치 단계를 완료합니다.</p>
-</div>
-<div class="paragraph">
-<p>또는 을(를) 사용할 수 있습니다 <a href="install-ads-openshift.html">"Red Hat OpenShift Container Platform(OCP)에 Astra Data Store Preview 설치"</a>.</p>
+<p>Astra Data Store 미리 보기를 설치하려면 에서 설치 번들을 다운로드하십시오 <a href="https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab" target="_blank" rel="noopener">"NetApp Support 사이트"</a> 이 절차에 설명된 설치 단계를 완료합니다.</p>
 </div>
 <div class="videoblock">
 <div class="content">
@@ -794,6 +762,9 @@
 <div class="paragraph">
 <p>Astra Data Store 미리 보기 설치 프로세스는 다음과 같은 고급 단계를 안내합니다.</p>
 </div>
+<div class="paragraph">
+<p>일부 단계는 Red Hat OpenShift Container Platform(OCP)에서만 배포되며 OCP 전용으로 지정됩니다. OCP가 아닌 Kubernetes 클러스터 구축에 대해서는 이러한 단계를 건너뛸 수 있습니다.</p>
+</div>
 <div class="ulist">
 <ul>
 <li>
@@ -801,6 +772,18 @@
 </li>
 <li>
 <p><a href="#Copy the binary and push images to your local registry">[Copy the binary and push images to your local registry]</a></p>
+</li>
+<li>
+<p><a href="#OCP only: Create a namespace to deploy Astra Data Store preview">[OCP only: Create a namespace to deploy Astra Data Store preview]</a></p>
+</li>
+<li>
+<p><a href="#OCP only: Create a custom SCC">[OCP only: Create a custom SCC]</a></p>
+</li>
+<li>
+<p><a href="#OCP only: Create the roles and role bindings">[OCP only: Create the roles and role bindings]</a></p>
+</li>
+<li>
+<p><a href="#OCP only: Prepare the worker nodes">[OCP only: Prepare the worker nodes]</a></p>
 </li>
 <li>
 <p><a href="#Install the Astra Data Store preview operator">[Install the Astra Data Store preview operator]</a></p>
@@ -918,6 +901,245 @@ sed -i 's~\[YOUR REGISTRY\]~'${REGISTRY}'~' ./manifests/*.yaml</pre>
 </div>
 </li>
 </ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ocp-전용-astra-data-store-미리-보기를-배포할-네임스페이스를-생성합니다">OCP 전용: Astra Data Store 미리 보기를 배포할 네임스페이스를 생성합니다</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>모든 Astra Data Store 미리 보기 구성 요소를 설치할 네임스페이스 'astrads-system&#8217;을 만듭니다.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>네임스페이스 만들기:</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl create -f ads_namespace.yaml</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>샘플: ads_namespace.YAML</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>apiVersion: v1
+kind: Namespace
+metadata:
+  labels:
+    control-plane: operator
+  name: astrads-system</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ocp만-해당-사용자-정의-scc를-생성합니다">OCP만 해당: 사용자 정의 SCC를 생성합니다</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>OpenShift는 POD가 수행할 수 있는 작업을 제어하는 SCC(Security Context Constraints)를 사용합니다. 기본적으로 모든 컨테이너의 실행에는 제한된 SCC와 해당 SCC에 의해 정의된 기능만 부여됩니다.</p>
+</div>
+<div class="paragraph">
+<p>제한된 SCC는 Astra Data Store 미리보기 클러스터 포드에 필요한 권한을 제공하지 않습니다. 이 절차를 사용하여 Astra Data Store 미리 보기에 필요한 권한(샘플에 나열되어 있음)을 제공합니다.</p>
+</div>
+<div class="paragraph">
+<p>사용자 지정 SCC를 Astra Data Store 미리 보기 네임스페이스의 기본 서비스 계정에 할당합니다.</p>
+</div>
+<div class="olist arabic">
+<div class="title">단계</div>
+<ol class="arabic">
+<li>
+<p>사용자 지정 SCC 생성:</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl create -f ads_privileged_scc.yaml</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>샘플: ads_privileged_csC.yAML</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>allowHostDirVolumePlugin: true
+allowHostIPC: true
+allowHostNetwork: true
+allowHostPID: true
+allowHostPorts: true
+allowPrivilegeEscalation: true
+allowPrivilegedContainer: true
+allowedCapabilities:
+- '*'
+allowedUnsafeSysctls:
+- '*'
+apiVersion: security.openshift.io/v1
+defaultAddCapabilities: null
+fsGroup:
+  type: RunAsAny
+groups: []
+kind: SecurityContextConstraints
+metadata:
+  annotations:
+    kubernetes.io/description: 'ADS privileged. Grant with caution.'
+    release.openshift.io/create-only: "true"
+  name: ads-privileged
+priority: null
+readOnlyRootFilesystem: false
+requiredDropCapabilities: null
+runAsUser:
+  type: RunAsAny
+seLinuxContext:
+  type: RunAsAny
+seccompProfiles:
+- '*'
+supplementalGroups:
+  type: RunAsAny
+users:
+- system:serviceaccount:astrads-system:default
+volumes:
+- '*'</pre>
+</div>
+</div>
+</li>
+<li>
+<p>OC Get SCC 명령을 사용하여 새로 추가한 SCC를 출력한다.</p>
+<div class="listingblock">
+<div class="content">
+<pre># oc get scc/ads-privileged
+NAME             PRIV   CAPS    SELINUX    RUNASUSER   FSGROUP    SUPGROUP   PRIORITY     READONLYROOTFS   VOLUMES
+ads-privileged   true   ["*"]   RunAsAny   RunAsAny    RunAsAny   RunAsAny   &lt;no value&gt;   false            ["*"]
+#</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ocp-전용-역할-및-역할-바인딩을-만듭니다">OCP 전용: 역할 및 역할 바인딩을 만듭니다</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Astra Data Store 미리 보기의 기본 서비스 계정에서 사용할 필수 역할 및 역할 바인딩을 만듭니다.</p>
+</div>
+<div class="paragraph">
+<p>다음 YAML 정의는 Astra Data Store 미리보기 리소스에 필요한 다양한 역할(rolebindings)을 'astrads.netapp.io` API 그룹&#8217;에서 할당합니다.</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>정의된 역할 및 역할 바인딩을 생성합니다.</p>
+<div class="listingblock">
+<div class="content">
+<pre>kubectl create -f oc_role_bindings.yaml</pre>
+</div>
+</div>
+<div class="paragraph">
+<p>샘플: OC_ROLE_BINDINGS.YAML</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: privcrole
+rules:
+- apiGroups:
+  - security.openshift.io
+  resourceNames:
+  - ads-privileged
+  resources:
+  - securitycontextconstraints
+  verbs:
+  - use
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: default-scc-rolebinding
+  namespace: astrads-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: privcrole
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: astrads-system
+---
+
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  name: ownerref
+  namespace: astrads-system
+rules:
+- apiGroups:
+  - astrads.netapp.io
+  resources:
+  - '*/finalizers'
+  verbs:
+  - update
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: or-rb
+  namespace: astrads-system
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: Role
+  name: ownerref
+subjects:
+- kind: ServiceAccount
+  name: default
+  namespace: astrads-system</pre>
+</div>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="ocp-전용-작업자-노드를-준비합니다">OCP 전용: 작업자 노드를 준비합니다</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>Astra Data Store 클러스터 미리 보기 구축을 위해 작업자 노드를 준비합니다. Astra Data Store preview 클러스터에 사용되는 모든 작업자 노드에서 이 절차를 수행합니다.</p>
+</div>
+<div class="paragraph">
+<p>OpenShift는 kubelet 구성 파일('/var/lib/kubelet/config.json')에 json 형식을 사용합니다. Astra Data Store Preview 클러스터는 kubelet config 파일의 YAML 형식을 찾습니다.</p>
+</div>
+<div class="olist arabic">
+<div class="title">단계</div>
+<ol class="arabic">
+<li>
+<p>클러스터 설치를 시작하기 전에 각 작업자 노드에 '/var/lib/kubelet/config.YAML' 파일을 생성합니다.</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo cp /var/lib/kubelet/config.json /var/lib/kubelet/config.yaml`</pre>
+</div>
+</div>
+</li>
+<li>
+<p>클러스터 YAML이 적용되기 전에 모든 Kubernetes 작업자 노드에서 이 절차를 완료하십시오.</p>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="참고">
+</td>
+<td class="content">
+이렇게 하지 않으면 Astra Data Store Preview 클러스터 설치가 실패합니다.
+</td>
+</tr>
+</table>
 </div>
 </div>
 </div>
@@ -1250,6 +1472,31 @@ kind: AstraDSCluster
 <div class="content">
 <pre>kubectl apply -f ./manifests/astradscluster.yaml</pre>
 </div>
+</div>
+</li>
+<li>
+<p>(OCP만 해당) SELinux가 설정된 경우 Astra Data Store preview 클러스터의 노드에서 다음 디렉토리에 대한 'elinux' 컨텍스트의 레이블을 다시 지정합니다.</p>
+<div class="listingblock">
+<div class="content">
+<pre>sudo chcon -R -t container_file_t /var/opt/netapp/firetap/rootfs/var/asup/notification/firetap/</pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre>sudo chcon -R -t container_file_t /var/netapp/firetap/firegen/persist/</pre>
+</div>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="참고">
+</td>
+<td class="content">
+이 단계는 셀린스가 이 디렉토리를 쓸 수 없도록 하여 지원 포드가 CrashLoopoff 상태로 들어가는 원인이 되기 때문에 필요합니다. 이 단계는 Astra Data Store 미리 보기 클러스터의 모든 노드에서 수행해야 합니다.
+</td>
+</tr>
+</table>
 </div>
 </li>
 <li>
