@@ -618,10 +618,6 @@
   <block id="cd0b441465398fa0d75eba9947c66599" category="list-text">트리덴트 CSI 생성:</block>
   <block id="8213c33dc9ac92d509af698f9a2e597f" category="list-text">스토리지 클래스가 추가되었는지 확인합니다.</block>
   <block id="22d9b315b29e2e8600a67e65475c18de" category="list-text">Astra Trident 백엔드가 기본 스토리지 클래스 매개 변수로 업데이트되었는지 확인합니다.</block>
-  <block id="f6b5c68237555d09d9a7f7e2de93b432" category="summary">몇 가지 환경 요구 사항을 설명한 후 Astra Data Store를 설치하려면 번들을 다운로드하여 설명된 단계에 따라 설치합니다.</block>
-  <block id="2f67cd55143c2541e6edf7020c06c3d5" category="paragraph">Astra Data Store 미리 보기를 설치하려면 에서 설치 번들을 다운로드하십시오<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> 및 이 절차에 설명된 설치 단계를 완료합니다.</block>
-  <block id="d3d764264531a47774f6224c0245037c" category="inline-link-macro">Red Hat OpenShift Container Platform(OCP)에 Astra Data Store Preview 설치</block>
-  <block id="012afa59aa5540c24544e89ee39ecf33" category="paragraph">또는 을(를) 사용할 수 있습니다 <block ref="ec1d518175157305e3ede5bea61d33e3" category="inline-link-macro-rx"></block>.</block>
   <block id="0ba7583639a274c434bbe6ef797115a4" category="inline-link">등록</block>
   <block id="74bc6e591c8afde1756c60343fc6adb7" category="list-text">에 액세스합니다<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block>.<block ref="a14d2f1983300ed8731dcf11dfa18e8a" category="inline-link-rx"></block> 전체 액세스 권한이 없는 NetApp Support 사이트 계정이 없는 경우 미리 보기를 위해</block>
   <block id="dfcac5e258bdfa0f1d552f9e95472f56" category="inline-link-macro">NetApp 라이센스 파일(NLF)</block>
@@ -902,8 +898,6 @@
   <block id="6762973af9b127d271f0d2b2aea0bc96" category="sidebar">구축 모델</block>
   <block id="fd18465573ec21a6218982055981f6b1" category="sidebar">스토리지 효율성</block>
   <block id="2fae32629d4ef4fc6341f1751b405e45" category="sidebar">보안</block>
-  <block id="46921a75e8534ad7d1c379a9e3aec033" category="sidebar">설치 개요</block>
-  <block id="3082d4232dd32a2353e231bf8f1faba4" category="sidebar">OpenShift에 Astra Data Store 미리 보기를 설치합니다</block>
   <block id="1fe917b01f9a3f87fa2d7d3b7643fac1" category="sidebar">FAQ 를 참조하십시오</block>
   <block id="034057e29f8eb1feedd93c2bb1f3c021" category="list-text">CR을 저장합니다.</block>
   <block id="eb178327aa7fefe80b381533b11cc4e6" category="paragraph">을 참조하십시오 <block ref="a69191794982bdd23bf166d7d80bad2a" category="inline-link-macro-rx"></block> 및 <block ref="e15c2a80de21c8f7a5baec91689e624f" category="inline-link-macro-rx"></block>.</block>
@@ -1045,4 +1039,18 @@
   <block id="fc8f50043a90344f7ed3abf976a2c2bf" category="list-text"><block ref="4c0801f62183e0e2f60f1c6b67702af3" category="inline-link-rx"></block>.</block>
   <block id="75dda14e63e81d459a63d119ddf1df01" category="inline-link">Astra Data Store 미리 보기를 Astra Control Center에 스토리지 백엔드로 추가합니다</block>
   <block id="463b550d7836a6234ad681f2c2eb84f6" category="list-text"><block ref="6ba69dca5449a718fd2d8fff37a9e3af" category="inline-link-rx"></block>.</block>
+  <block id="7f5cabaf7d28d34dc4ab3be67d9c8237" category="summary">몇 가지 환경 요구 사항을 충족한 후 Astra Data Store를 설치하려면 번들을 다운로드하고 다음 단계를 따라 설치합니다. OpenShift에 Astra Data Store를 설치하는 방법</block>
+  <block id="f54f0a86dc809f7ec97575af6fbc8b84" category="paragraph">Astra Data Store 미리 보기를 설치하려면 에서 설치 번들을 다운로드하십시오<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> 이 절차에 설명된 설치 단계를 완료합니다.</block>
+  <block id="0aa47503f31feab060eaf884a45cd2d6" category="paragraph">Astra Data Store 미리 보기 설치 프로세스는 다음과 같은 고급 단계를 안내합니다.</block>
+  <block id="48b85b5d24f1050cddd92b2569a3d7d6" category="paragraph">일부 단계는 Red Hat OpenShift Container Platform(OCP)에서만 배포되며 OCP 전용으로 지정됩니다. OCP가 아닌 Kubernetes 클러스터 구축에 대해서는 이러한 단계를 건너뛸 수 있습니다.</block>
+  <block id="06511bd701b1be04064c0b42e9cab089" category="list-text"><block ref="60600013397dfec6ca46381b39ae39f3" category="inline-xref-macro-rx"></block></block>
+  <block id="6b304521db7471f07f8ff21ab6379311" category="list-text"><block ref="5184f3b4b84888db746c615b831fbfa7" category="inline-xref-macro-rx"></block></block>
+  <block id="175212d41d3aa10559d2124b6221c6a9" category="list-text"><block ref="6af5fc26efcf86593457394860cec4f6" category="inline-xref-macro-rx"></block></block>
+  <block id="b7c4e1d462c1474c0f853e5f7398ac52" category="list-text"><block ref="b4bf96f1d944d36dbf8b7aa8a7932243" category="inline-xref-macro-rx"></block></block>
+  <block id="a2fc1f9c02730bbe98a8674816fe470e" category="section-title">OCP 전용: Astra Data Store 미리 보기를 배포할 네임스페이스를 생성합니다</block>
+  <block id="78e10172f6f4b75a10617e31c10c3d5b" category="section-title">OCP만 해당: 사용자 정의 SCC를 생성합니다</block>
+  <block id="2df285027c0d59c311ecb70dd41834c7" category="section-title">OCP 전용: 역할 및 역할 바인딩을 만듭니다</block>
+  <block id="d886a832387eaadb4f847ec48c2582f4" category="section-title">OCP 전용: 작업자 노드를 준비합니다</block>
+  <block id="3af1f7efc94ad5db8224730d535bf721" category="list-text">클러스터 YAML이 적용되기 전에 모든 Kubernetes 작업자 노드에서 이 절차를 완료하십시오.</block>
+  <block id="0b7d1f8b8805a1c587689821bca47324" category="list-text">(OCP만 해당) SELinux가 설정된 경우 Astra Data Store preview 클러스터의 노드에서 다음 디렉토리에 대한 'elinux' 컨텍스트의 레이블을 다시 지정합니다.</block>
 </blocks>

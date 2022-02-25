@@ -6,13 +6,8 @@ entries:
   url: "/get-started/requirements.html"
 - title: Astra 데이터 저장소 미리 보기를 빠르게 시작합니다
   url: "/get-started/quick-start.html"
-- title: 설치 개요
-  url: "/get-started/install-overview.html"
-  entries:
-  - title: Astra Data Store 미리 보기를 설치합니다
-    url: "/get-started/install-ads.html"
-  - title: OpenShift에 Astra Data Store 미리 보기를 설치합니다
-    url: "/get-started/install-ads-openshift.html"
+- title: Astra Data Store 미리 보기를 설치합니다
+  url: "/get-started/install-ads.html"
 - title: Astra Data Store 미리보기 구성 요소를 설정합니다
   url: "/get-started/setup-ads.html"
 - title: Astra Data Store 미리보기 제한
