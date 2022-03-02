@@ -734,9 +734,7 @@
   <block id="5036b658f8a53c4fae6b137bbbda7cdb" category="list-text">Dell R740</block>
   <block id="e17640313f77daf8929e4ba5e5d691a6" category="paragraph">Astra Data Store 미리 보기는 다음 드라이브 유형으로 검증되었습니다.</block>
   <block id="e1e135fb56845d917b3148da7cfeb1ee" category="list-text">* 베어 메탈 배포 *: 하이퍼바이저 없이 Kubernetes 클러스터에 직접 설치된 Astra Data Store 미리보기</block>
-  <block id="844d33654c81fc2a271afbc6e6e2be29" category="list-text">NVMe TLC SSD</block>
   <block id="9b457c92683a310dc6efb6123d814fa6" category="list-text">* VM 기반 구축 *: ESXi 클러스터에서 호스팅되는 Linux VM의 Kubernetes 클러스터에 설치된 Astra Data Store 미리보기</block>
-  <block id="9f79eec1648f781d94bc7ca1e42c3417" category="list-text">SAS 또는 NVMe TLC SSD 기반 데이터 저장소</block>
   <block id="09195210bb32cb68478488870fe3d637" category="list-text">드라이브가 가상 디스크 또는 패스스루 드라이브로 표시됩니다</block>
   <block id="003c6ca2750566a4e0ac19207c3b49c1" category="admonition">호스트에서 하드웨어 RAID 컨트롤러 뒤에 SSD를 사용하는 경우 "통과" 모드를 사용하도록 하드웨어 RAID 컨트롤러를 구성합니다.</block>
   <block id="0b3dea0c3d33c00792e5cd4182c9c9ad" category="admonition">각 드라이브에는 고유한 일련 번호가 있어야 합니다. VM 생성 시 가상 머신 고급 설정에 disk.enableuid=true 속성을 추가합니다.</block>
@@ -1054,4 +1052,6 @@
   <block id="3af1f7efc94ad5db8224730d535bf721" category="list-text">클러스터 YAML이 적용되기 전에 모든 Kubernetes 작업자 노드에서 이 절차를 완료하십시오.</block>
   <block id="0b7d1f8b8805a1c587689821bca47324" category="list-text">(OCP만 해당) SELinux가 설정된 경우 Astra Data Store preview 클러스터의 노드에서 다음 디렉토리에 대한 'elinux' 컨텍스트의 레이블을 다시 지정합니다.</block>
   <block id="f15043967dbb0640e4d4c31a6e7a6ac0" category="admonition">네임스페이스 응답은 표준 설치를 수행했는지 OCP 설치를 수행했는지에 따라 다를 수 있습니다.</block>
+  <block id="1caa3cf5a72fc35e939157dc1f96280a" category="list-text">SATA 또는 NVMe TLC SSD</block>
+  <block id="e90425f62a91773b5d2173b487308075" category="list-text">SATA, SAS 또는 NVMe TLC SSD 기반 데이터 저장소</block>
 </blocks>

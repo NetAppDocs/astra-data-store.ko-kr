@@ -73,12 +73,12 @@ Astra Data Store 미리 보기는 다음 드라이브 유형으로 검증되었�
 
 * * 베어 메탈 배포 *: 하이퍼바이저 없이 Kubernetes 클러스터에 직접 설치된 Astra Data Store 미리보기
 +
-** NVMe TLC SSD
+** SATA 또는 NVMe TLC SSD
 
 
 * * VM 기반 구축 *: ESXi 클러스터에서 호스팅되는 Linux VM의 Kubernetes 클러스터에 설치된 Astra Data Store 미리보기
 +
-** SAS 또는 NVMe TLC SSD 기반 데이터 저장소
+** SATA, SAS 또는 NVMe TLC SSD 기반 데이터 저장소
 ** 드라이브가 가상 디스크 또는 패스스루 드라이브로 표시됩니다
 
 
