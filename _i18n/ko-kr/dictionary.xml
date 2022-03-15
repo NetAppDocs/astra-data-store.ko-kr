@@ -1046,4 +1046,5 @@
   <block id="9f6ec430b518fa5326fa28dc6b4aa003" category="paragraph">다음 절차는 Red Hat OpenShift Container Platform(OCP)에서 배포용으로만 필요합니다. OCP가 아닌 Kubernetes 클러스터 구축에 대해서는 이 절차를 건너뛸 수 있습니다.</block>
   <block id="3ec365dd533ddb7ef3d1c111186ce872" category="example-title">세부 정보</block>
   <block id="9d596ac4d3d28a6c2a6f2d976a322372" category="paragraph">다음 단계는 Red Hat OpenShift Container Platform(OCP)에 배포용으로만 필요합니다.</block>
+  <block id="d53320adbca5e8d343a11ce083d101a7" category="list-text">에 로그인합니다<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> Astra Data Store Preview 번들('2021.12.01_ads.tar')을 다운로드하십시오.</block>
 </blocks>
