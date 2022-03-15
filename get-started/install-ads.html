@@ -678,7 +678,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-03-15 16:18:48 +0000">03/15/2022</time>
+    <time datetime="2022-03-15 16:34:30 +0000">03/15/2022</time>
     
   
 
@@ -790,13 +790,13 @@
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>에 로그인합니다 <a href="https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab" target="_blank" rel="noopener">"NetApp Support 사이트"</a> 그리고 Astra Data Store 미리보기 번들('2021.12_astradatastore.tar')을 다운로드하십시오.</p>
+<p>에 로그인합니다 <a href="https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab" target="_blank" rel="noopener">"NetApp Support 사이트"</a> Astra Data Store Preview 번들('2021.12.01_ads.tar')을 다운로드하십시오.</p>
 </li>
 <li>
 <p>(선택 사항) 다음 명령을 사용하여 번들의 서명을 확인합니다.</p>
 <div class="listingblock">
 <div class="content">
-<pre>openssl dgst -sha256 -verify 2021.12_astradatastore.pub -signature 2021.12_astradatastore.sig 2021.12_astradatastore.tar</pre>
+<pre>openssl dgst -sha256 -verify 2021.12_ads.pub -signature 2021.12_ads.sig 2021.12.01_ads.tar</pre>
 </div>
 </div>
 </li>
@@ -804,7 +804,7 @@
 <p>이미지 추출:</p>
 <div class="listingblock">
 <div class="content">
-<pre>tar -xvf 2021.12_astradatastore.tar</pre>
+<pre>tar -xvf 2021.12.01_ads.tar</pre>
 </div>
 </div>
 </li>
@@ -1622,7 +1622,7 @@ astrads-example-cluster   created   2021.10.0   p100000006       10.x.x.x   10m<
 <p>Astra Control Center에서 모니터링하는 Astra Data Store 미리 보기를 구성합니다.</p>
 <div class="listingblock">
 <div class="content">
-<pre>kubectl astrads monitoring -m netapp-monitoring -r [YOUR REGISTRY] setup</pre>
+<pre>kubectl astrads monitoring -n netapp-monitoring -r [YOUR REGISTRY] setup</pre>
 </div>
 </div>
 </li>
@@ -1648,7 +1648,7 @@ astrads-example-cluster   created   2021.10.0   p100000006       10.x.x.x   10m<
 <p>모니터링을 위해 Astra Data Store 미리 보기를 구성합니다.</p>
 <div class="listingblock">
 <div class="content">
-<pre>kubectl astrads monitoring -m netapp-monitoring -r [YOUR REGISTRY] setup</pre>
+<pre>kubectl astrads monitoring -n netapp-monitoring -r [YOUR REGISTRY] setup</pre>
 </div>
 </div>
 </li>
