@@ -6,6 +6,7 @@ summary: 'NetApp은 Astra Data Store 미리보기 기능을 다양한 방법으�
 ---
 = 자동 지원 모니터링
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/support/
 

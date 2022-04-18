@@ -6,6 +6,7 @@ summary: Prometheus 및 Grafana를 사용하여 Astra Data Store 자산을 모�
 ---
 = Prometheus 및 Grafana를 사용하여 메트릭을 모니터링합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 
@@ -15,8 +16,8 @@ Prometheus 및 Grafana를 사용하여 Astra Data Store 미리보기 메트릭�
 .무엇을 &#8217;필요로 할거야
 * Astra Data Store 미리 보기 클러스터 또는 Astra Data Store 미리 보기 클러스터와 통신할 수 있는 다른 클러스터에 Prometheus 및 Grafana 패키지를 다운로드하여 설치했는지 확인합니다. 공식 설명서의 지침에 따라 각 도구를 설치합니다.
 +
-** https://prometheus.io/docs/prometheus/latest/installation/["Prometheus를 설치합니다"^]
-** https://grafana.com/docs/grafana/latest/installation/debian/["Grafana를 설치합니다"^]
+** https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/How_to_deploy_Prometheus_with_Astra_Data_Store["Prometheus를 설치합니다"^]
+** https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/How_to_set_up_Grafana_for_monitoring_Astra_Data_Store_cluster["Grafana를 설치합니다"^]
 
 
 * Prometheus 및 Grafana는 Astra Data Store 미리보기 Kubernetes 클러스터와 통신할 수 있어야 합니다. Prometheus와 Grafana가 Astra Data Store 미리보기 클러스터에 설치되어 있지 않은 경우, Astra Data Store 미리보기 클러스터에서 실행 중인 메트릭 서비스와 통신할 수 있는지 확인해야 합니다.

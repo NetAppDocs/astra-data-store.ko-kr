@@ -6,6 +6,7 @@ summary: Cloud Insights 메트릭을 사용하여 Astra 데이터 저장소 자�
 ---
 = Cloud Insights를 통해 메트릭을 모니터링합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

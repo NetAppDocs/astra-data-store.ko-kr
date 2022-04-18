@@ -6,6 +6,7 @@ summary: Astra Data Store에 kubeck 명령을 사용하여 드라이브를 교�
 ---
 = 드라이브를 교체합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/troubleshooting/
 

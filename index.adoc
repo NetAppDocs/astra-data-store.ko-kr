@@ -7,6 +7,7 @@ summary: Astra Data Store는 Kubernetes 기본 컨테이너 애플리케이션�
 ---
 = Astra Data Store 미리 보기 문서
 :hardbreaks:
+:allow-uri-read: 
 :nofooter: 
 :icons: font
 :linkattrs: 

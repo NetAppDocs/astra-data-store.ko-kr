@@ -6,6 +6,7 @@ summary: Astra Data Store를 제거하려면 워크로드, 바인딩, 볼륨, �
 ---
 = 자동 스크립트로 Astra Data Store 미리 보기를 제거합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

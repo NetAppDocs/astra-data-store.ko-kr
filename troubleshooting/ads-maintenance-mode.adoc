@@ -6,6 +6,7 @@ summary: 호스트 유지보수 또는 패키지 업그레이드를 수행해야
 ---
 = 노드를 유지보수 모드로 전환합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/troubleshooting/
 

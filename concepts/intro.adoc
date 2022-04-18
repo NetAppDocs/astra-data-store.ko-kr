@@ -6,6 +6,7 @@ summary: Astra Data Store는 컨테이너 및 VM 워크로드 모두를 위한 K
 ---
 = Astra 데이터 저장소 미리 보기 소개
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/concepts/
 

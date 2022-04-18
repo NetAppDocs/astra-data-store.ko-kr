@@ -6,6 +6,7 @@ summary: Astra Data Store에서 kubtl 명령을 사용하여 클러스터를 유
 ---
 = 클러스터를 관리합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

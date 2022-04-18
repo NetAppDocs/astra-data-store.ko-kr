@@ -6,6 +6,7 @@ summary: Astra Data Store는 여러 가지 방법을 사용하여 클라이언�
 ---
 = Astra Data Store 미리 보기의 보안
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/concepts/
 

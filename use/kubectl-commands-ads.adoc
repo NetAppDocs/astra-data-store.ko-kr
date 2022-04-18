@@ -6,6 +6,7 @@ summary: Astra Data Store에서 kudeck 명령을 직접 사용할 수 있습니�
 ---
 = kubctl 명령을 사용하여 Astra Data Store 미리 보기 자산을 관리합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

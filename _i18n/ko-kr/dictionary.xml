@@ -381,8 +381,6 @@
   <block id="3962691e8a7c8b7a00673c9035950515" category="list-text">명령에 대한 자세한 내용은 'astrads[command]--help'를 사용하십시오.</block>
   <block id="e9c44bbfd795a5d63d74c6a77afee70d" category="summary">법적 고지 사항은 저작권 선언, 상표, 특허 등에 대한 액세스를 제공합니다.</block>
   <block id="30d965eef5ba25c6b9998ae38270b43e" category="doc">법적 고지</block>
-  <block id="c59ae8d7beeb519a23478ab048af482c" category="paragraph"><block ref="c59ae8d7beeb519a23478ab048af482c" category="inline-link-macro-rx"></block></block>
-  <block id="6f2ac1cf1da8ec34232c651d4bba0149" category="paragraph"><block ref="6f2ac1cf1da8ec34232c651d4bba0149" category="inline-link-macro-rx"></block></block>
   <block id="bd9a92025f272fdbcf82dbe7c6751b8e" category="inline-link-macro">Astra Data Store 21.12 릴리스에 대한 고지 사항</block>
   <block id="1f6cc7061c99b2f46c25473fe9b7ea3a" category="paragraph"><block ref="1f6cc7061c99b2f46c25473fe9b7ea3a" category="inline-link-macro-rx"></block></block>
   <block id="6929f0cedcea1d6e056ea216f0388b3a" category="summary">Astra Data Store 클러스터를 확장할 수 있습니다.</block>
@@ -500,13 +498,6 @@
   <block id="71ace59df32db700cac820349c67dd2a" category="admonition">Astra Data Store 미리 보기는 VM 워크로드를 지원하지 않습니다. VMware VVOL 워크로드 지원은 향후 릴리즈에서 제공될 예정입니다.</block>
   <block id="fb3d937ada0889a18943f9e221637388" category="admonition">Astra Data Store 미리 보기는 성능 임계치를 조절하며 성능 특성화에 사용해서는 안 됩니다.</block>
   <block id="0a20c90d5270bed19fcaf851778c663b" category="section-title">다음 단계</block>
-  <block id="f384e304ce8ad1baf968d76cbb4f75e3" category="summary">다음 Astra Data Store 설치 절차 중 하나를 선택합니다</block>
-  <block id="aae3f331fbdab3d560f2829b3edb6b42" category="doc">Astra Data Store 설치 개요</block>
-  <block id="c3a5e0d3ee4046f7f704d4058047eb20" category="paragraph">다음 Astra Data Store 설치 절차 중 하나를 선택하여 완료합니다.</block>
-  <block id="d99bdf0294b88b88ebeb7c5a3dd478d0" category="inline-link-macro">표준 프로세스를 사용하여 Astra Data Store를 설치합니다</block>
-  <block id="473248c5259367a46bb162931f7c51ef" category="list-text"><block ref="e2426583e3d976b64c068eb029ece1a2" category="inline-link-macro-rx"></block>.</block>
-  <block id="f70c6700d280b2af512dec2815cebb4a" category="inline-link-macro">Red Hat OpenShift를 사용하는 경우 OpenShift를 사용하여 Astra Data Store를 설치합니다</block>
-  <block id="702096ecdc14aab30475ed7a1a2893c1" category="list-text"><block ref="9c6e2269ed85995d4b7b0fb33aa8fd3b" category="inline-link-macro-rx"></block>.</block>
   <block id="b1151aae9531d2f5e85d085e8878cea6" category="summary">이 FAQ는 질문에 대한 간단한 답변을 찾는 경우에 도움이 될 수 있습니다.</block>
   <block id="0fc384ade3fa0a49e6200f91385d65a9" category="doc">Astra Data Store 미리 보기를 위한 질문과 대답</block>
   <block id="6014dc7d785a91f39eda065d13d62e52" category="paragraph">Astra Data Store 미리 보기의 설치, 구성, 업그레이드 및 문제 해결에 대해 자주 묻는 질문에 대한 답변을 찾아보십시오.</block>
@@ -627,7 +618,6 @@
   <block id="bef0c0a82c5520f237b380213d0b07d6" category="inline-link-macro">역할 및 권한</block>
   <block id="806b5637c063705c8d625e758efc64b6" category="list-text">에 대한 이해 <block ref="dee7c80cda852bd179a0b8a64dc2d187" category="inline-link-macro-rx"></block> Astra Data Store 미리 보기에서 사용합니다.</block>
   <block id="1e822a9286ce82521a4c839250498223" category="list-text">인터넷 연결. Astra Data Store 미리 보기는 대기 환경을 지원하지 않습니다. 직접 또는 프록시를 통해 support.netapp.com 에 접속하려면 인터넷 연결이 필요합니다.</block>
-  <block id="59d5f0097f4998113fed5d843c64f82e" category="paragraph">Astra Data Store 미리 보기 설치 프로세스는 다음과 같은 고급 단계를 안내합니다.</block>
   <block id="a556f5398142ae7011d0de50dc8b6c5b" category="list-text"><block ref="8d9993295d6b271ce4d01f645185155b" category="inline-xref-macro-rx"></block></block>
   <block id="6d0f824f6a186eea3583d29e3aed365a" category="list-text"><block ref="28f9f989c873aca847e12e3f56387e81" category="inline-xref-macro-rx"></block></block>
   <block id="b70c468b8ef55be96953554233f196f8" category="list-text"><block ref="038e87b146a54831da5266e118724b0a" category="inline-xref-macro-rx"></block></block>
@@ -637,7 +627,6 @@
   <block id="c8834ddc1c87f17c8d417b37fcbd87f0" category="list-text"><block ref="59d3a9e0f85930d559866ff811a1da02" category="inline-xref-macro-rx"></block></block>
   <block id="d81ec671d645986632c1dff9a52a8d03" category="list-text"><block ref="9fcc40a9325fa4fdd116019afa5bfea2" category="inline-xref-macro-rx"></block></block>
   <block id="38a46257d48221851cd4c911eb65d23a" category="section-title">Astra Data Store 미리보기 번들을 다운로드하고 이미지를 추출합니다</block>
-  <block id="06e707c9bfaad1d590b948f0c4975ea0" category="list-text">에 로그인합니다<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> 그리고 Astra Data Store 미리보기 번들('2021.12_astradatastore.tar')을 다운로드하십시오.</block>
   <block id="7ccab09493cf97c9665c6c2126741ee5" category="list-text">(선택 사항) 다음 명령을 사용하여 번들의 서명을 확인합니다.</block>
   <block id="ae32a002cf3df8354380980ceb442a90" category="list-text">이미지 추출:</block>
   <block id="a179389f208c9573ee510e5e4bcceeba" category="section-title">이진 파일을 복사하고 이미지를 로컬 레지스트리에 푸시합니다</block>
@@ -789,47 +778,23 @@
   <block id="6fe9b5b6d729ff69562cf18c46d7a020" category="paragraph">를 클릭합니다 <block ref="3ff252deb2705468c8bcd50f62610a2a" category="inline-link-macro-rx"></block> 변경해서는 안 됩니다. 주기적인 AutoSupport 번들 전송을 해제하면 클러스터가 잠기며, 주기적인 설정을 다시 활성화할 때까지 새 볼륨을 생성할 수 없습니다.</block>
   <block id="159b2efa467f3d1f53e7c16668353bf5" category="inline-link-macro">빠른 시작</block>
   <block id="77a7c94739d3e3b6a3c106162739bbcd" category="paragraph">를 봅니다 <block ref="4a78f9b7a1530228ea4c970be46c5b94" category="inline-link-macro-rx"></block> 개요.</block>
-  <block id="477f44d2fd5557c2e0c1483136673d2f" category="summary">OpenShift를 사용하여 Astra Data Store를 설치하는 방법</block>
-  <block id="b42c39c7d62ef43f96e18ab1143c5fdd" category="doc">Red Hat OpenShift Container Platform에 Astra Data Store 미리보기를 설치합니다</block>
-  <block id="d7bf95d6f9f4a327892f5cc8792f238b" category="paragraph">Red Hat OpenShift Container Platform(OCP)에 Astra Data Store 미리보기를 설치하려면 에서 설치 번들을 다운로드하십시오<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> 및 이 절차에 설명된 설치 단계를 완료합니다.</block>
-  <block id="18e412f69270053d6fbd006203726f31" category="inline-link-macro">Astra Data Store 구축을 위한 환경을 준비합니다</block>
-  <block id="9afe9329533b4d46b804c6dce265f011" category="list-text">설치를 시작하기 전에 <block ref="1339fb1bdf2e0eaea9baf01fd47337cd" category="inline-link-macro-rx"></block>.</block>
-  <block id="6896d0b08ffa51cd7dc1e431bca01038" category="inline-link-macro">NetApp 라이센스 파일</block>
-  <block id="5e33d62267635f1264e9a158679068f0" category="list-text">A <block ref="137bea87b1ed38b6b747ca593fab05eb" category="inline-link-macro-rx"></block> (NLF) - Astra Data Store 미리 보기. 라이센스 다운로드 지침은 가입 후 발송됩니다.</block>
-  <block id="fb124d22233366c281eae5c20e8f50a5" category="inline-link-macro">역할 및 권한</block>
-  <block id="3fbcff5931f9df10a12c3e41b3b6e99c" category="list-text">에 대한 이해 <block ref="05c77a29e62e6b5374baaf8c208c49d9" category="inline-link-macro-rx"></block> Astra Data Store 미리 보기에서 사용합니다.</block>
-  <block id="0b5bf43f901bdaa6ab67ba6ba2b415f0" category="list-text">인터넷 연결. Astra Data Store Preview는 대기 환경을 지원하지 않습니다. 직접 또는 프록시를 통해 support.netapp.com 에 접속하려면 인터넷 연결이 필요합니다.</block>
-  <block id="bbe48fb854ea022537208eeeff822f91" category="section-title">이 작업에 대해</block>
-  <block id="66a4210255768fa7ce150f406e4d2de3" category="list-text"><block ref="8aad3752e2094aac1115c216d64491e4" category="inline-xref-macro-rx"></block></block>
-  <block id="33479e9fa2f705061f6d568f2a579e42" category="list-text"><block ref="2726811d07a06cce3b8a8fe537309a8e" category="inline-xref-macro-rx"></block></block>
-  <block id="3b0adcdb7a1d7bd146376dcfc6accd6c" category="list-text"><block ref="0af761fa812dc9e1ab2a2b67718089d0" category="inline-xref-macro-rx"></block></block>
-  <block id="80fd50d2c29afdea09a446ffc7bb6b15" category="list-text"><block ref="96f517c99ba407f5b231283daa5c1544" category="inline-xref-macro-rx"></block></block>
-  <block id="17ed07ff15b5d43d3eca288ae4a093bd" category="list-text">(선택 사항) 번들의 서명을 확인합니다.</block>
-  <block id="3590e28b9b85fc9dc8f47946a6a81c5b" category="section-title">Astra Data Store 미리 보기를 배포할 네임스페이스를 생성합니다</block>
   <block id="1d05061aec39922b91b02b045d31d674" category="paragraph">모든 Astra Data Store 미리 보기 구성 요소를 설치할 네임스페이스 'astrads-system'을 만듭니다.</block>
   <block id="7baf7b8d385cfa43e2ebd4decbe383e8" category="list-text">네임스페이스 만들기:</block>
   <block id="9484da3843b6d29183c961f5805374c0" category="paragraph">샘플: ads_namespace.YAML</block>
-  <block id="7a981942788d33c4001730188b89e6db" category="section-title">사용자 지정 SCC를 생성합니다</block>
   <block id="9279e1a9a6dc21e00ad8bfe646d12d80" category="paragraph">OpenShift는 POD가 수행할 수 있는 작업을 제어하는 SCC(Security Context Constraints)를 사용합니다. 기본적으로 모든 컨테이너의 실행에는 제한된 SCC와 해당 SCC에 의해 정의된 기능만 부여됩니다.</block>
   <block id="d84d14dd008a483ff803734de04a9be6" category="paragraph">제한된 SCC는 Astra Data Store 미리보기 클러스터 포드에 필요한 권한을 제공하지 않습니다. 이 절차를 사용하여 Astra Data Store 미리 보기에 필요한 권한(샘플에 나열되어 있음)을 제공합니다.</block>
   <block id="2593c56a647b16e5b609f03e09ff7e38" category="paragraph">사용자 지정 SCC를 Astra Data Store 미리 보기 네임스페이스의 기본 서비스 계정에 할당합니다.</block>
   <block id="a404b42248dc15fc7c9f96beb39ce0bf" category="list-text">사용자 지정 SCC 생성:</block>
   <block id="675d6759427bcd3ef0478a3576c113b4" category="paragraph">샘플: ads_privileged_csC.yAML</block>
   <block id="44988a3cdc9c8d194b4f0791b2fd559e" category="list-text">OC Get SCC 명령을 사용하여 새로 추가한 SCC를 출력한다.</block>
-  <block id="1ff7f0ad4e23e88d48bae4f9be6bf1d6" category="section-title">역할 및 역할 바인딩을 만듭니다</block>
   <block id="fc67753b692b97bd691fc9ce7e3373f7" category="paragraph">Astra Data Store 미리 보기의 기본 서비스 계정에서 사용할 필수 역할 및 역할 바인딩을 만듭니다.</block>
   <block id="217623d6cc04d74a7e1c0c99da77531c" category="paragraph">다음 YAML 정의는 Astra Data Store 미리보기 리소스에 필요한 다양한 역할(rolebindings)을 'astrads.netapp.io` API 그룹'에서 할당합니다.</block>
   <block id="c8679407d1ef279caad76d123b67c3cf" category="list-text">정의된 역할 및 역할 바인딩을 생성합니다.</block>
   <block id="241dbe54decdb2543808cb04b50976c5" category="paragraph">샘플: OC_ROLE_BINDINGS.YAML</block>
-  <block id="d7dde07915bbe8056e6854c2b5e50480" category="section-title">작업자 노드를 준비합니다</block>
   <block id="4d75e8aa0d18f88ccca8348318fd0374" category="paragraph">Astra Data Store 클러스터 미리 보기 구축을 위해 작업자 노드를 준비합니다. Astra Data Store preview 클러스터에 사용되는 모든 작업자 노드에서 이 절차를 수행합니다.</block>
   <block id="90ae8d3116b0e0639d8b6bab1fb94a83" category="paragraph">OpenShift는 kubelet 구성 파일('/var/lib/kubelet/config.json')에 json 형식을 사용합니다. Astra Data Store Preview 클러스터는 kubelet config 파일의 YAML 형식을 찾습니다.</block>
   <block id="619b377b67311492e2301f498fa6a192" category="list-text">클러스터 설치를 시작하기 전에 각 작업자 노드에 '/var/lib/kubelet/config.YAML' 파일을 생성합니다.</block>
-  <block id="8116c401bbe8d3e819e7fbeab37dfd9c" category="list-text">클러스터 YAML이 적용되기 전에 모든 Kubernetes 노드에서 이 절차를 완료하십시오.</block>
   <block id="e75a81ccddd342b222755829558870b4" category="admonition">이렇게 하지 않으면 Astra Data Store Preview 클러스터 설치가 실패합니다.</block>
-  <block id="ab99eb629243e2831288d50f19591112" category="list-text">kubbeck apply 명령을 사용하여 운용자를 배치한다.</block>
-  <block id="a0043c0af3acf54941321b091a08c953" category="list-text">kubbeck apply 명령을 사용하여 구축:</block>
-  <block id="9a18f1a51db98667d766563e48ba7225" category="list-text">SELinux가 설정된 경우 Astra Data Store preview 클러스터의 노드에 있는 다음 디렉토리에 대한 'strinux' 컨텍스트의 레이블을 다시 지정합니다.</block>
   <block id="f22b8fb6dcc9aa31e0b2d9e9e84205c7" category="admonition">이 단계는 셀린스가 이 디렉토리를 쓸 수 없도록 하여 지원 포드가 CrashLoopoff 상태로 들어가는 원인이 되기 때문에 필요합니다. 이 단계는 Astra Data Store 미리 보기 클러스터의 모든 노드에서 수행해야 합니다.</block>
   <block id="a9066c7b36f74393f45392470bdf22d8" category="summary">몇 단계만 거치하면 Astra Data Store를 시작할 수 있습니다.</block>
   <block id="3551ec406ac2e45ff0f50e87c946ab31" category="doc">Astra 데이터 저장소 미리 보기를 빠르게 시작합니다</block>
@@ -989,9 +954,7 @@
   <block id="7b132651c6be946cb45ebbc5729d0fae" category="paragraph">Prometheus 및 Grafana를 사용하여 Astra Data Store 미리보기 메트릭을 모니터링할 수 있습니다. Ameta Data Store 미리보기 Kubernetes 클러스터 메트릭 엔드포인트에서 메트릭을 수집하도록 Prometheus를 구성할 수 있으며 Grafana를 사용하여 메트릭 데이터를 시각화할 수 있습니다.</block>
   <block id="90895f68c3d61650306b9827ff7c6324" category="list-text">Astra Data Store 미리 보기 클러스터 또는 Astra Data Store 미리 보기 클러스터와 통신할 수 있는 다른 클러스터에 Prometheus 및 Grafana 패키지를 다운로드하여 설치했는지 확인합니다. 공식 설명서의 지침에 따라 각 도구를 설치합니다.</block>
   <block id="88b8613d339947a37e41b1f514dcc42c" category="inline-link">Prometheus를 설치합니다</block>
-  <block id="763383a68e405097875c37e8ab57d401" category="list-text"><block ref="763383a68e405097875c37e8ab57d401" category="inline-link-rx"></block></block>
   <block id="3de41522a35f102d48905bc53fd5c383" category="inline-link">Grafana를 설치합니다</block>
-  <block id="a557323906eaeb845274f1275674df7a" category="list-text"><block ref="a557323906eaeb845274f1275674df7a" category="inline-link-rx"></block></block>
   <block id="a78f5549cd86895c64aa29975a576b48" category="list-text">Prometheus 및 Grafana는 Astra Data Store 미리보기 Kubernetes 클러스터와 통신할 수 있어야 합니다. Prometheus와 Grafana가 Astra Data Store 미리보기 클러스터에 설치되어 있지 않은 경우, Astra Data Store 미리보기 클러스터에서 실행 중인 메트릭 서비스와 통신할 수 있는지 확인해야 합니다.</block>
   <block id="7119175e2ec3286002664b430cbc1c19" category="section-title">Prometheus를 구성합니다</block>
   <block id="cd93c151a525dff780b53bdf1dee4c20" category="paragraph">Astra Data Store Preview는 Kubernetes 클러스터의 TCP 포트 9341에 메트릭 서비스를 노출합니다. 이 서비스에서 메트릭을 수집하려면 Prometheus를 구성해야 합니다.</block>
@@ -1047,4 +1010,18 @@
   <block id="3ec365dd533ddb7ef3d1c111186ce872" category="example-title">세부 정보</block>
   <block id="9d596ac4d3d28a6c2a6f2d976a322372" category="paragraph">다음 단계는 Red Hat OpenShift Container Platform(OCP)에 배포용으로만 필요합니다.</block>
   <block id="d53320adbca5e8d343a11ce083d101a7" category="list-text">에 로그인합니다<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> Astra Data Store Preview 번들('2021.12.01_ads.tar')을 다운로드하십시오.</block>
+  <block id="9f656569b5b0db7993b62a5b0072ded3" category="list-text"><block ref="9f656569b5b0db7993b62a5b0072ded3" category="inline-link-rx"></block></block>
+  <block id="0e21520e616fa6a17ae2ececc6c27419" category="list-text"><block ref="0e21520e616fa6a17ae2ececc6c27419" category="inline-link-rx"></block></block>
+  <block id="6016a2b341113bf496b719905398ecd2" category="section-title">저작권</block>
+  <block id="09e95b77ffe81fe465a83ba99efad5c8" category="paragraph"><block ref="09e95b77ffe81fe465a83ba99efad5c8" category="inline-link-rx"></block></block>
+  <block id="126a02652da6de02962cf1b654fd6376" category="section-title">상표</block>
+  <block id="c4ce4761e466527d26b3e3d5ed1006fd" category="paragraph">NetApp, NetApp 로고, NetApp 상표 페이지에 나열된 마크는 NetApp Inc.의 상표입니다. 기타 회사 및 제품 이름은 해당 소유자의 상표일 수 있습니다.</block>
+  <block id="7aa531e9acfe2b98e34d2c92fe9846ff" category="paragraph"><block ref="7aa531e9acfe2b98e34d2c92fe9846ff" category="inline-link-rx"></block></block>
+  <block id="be89498d2f8a22ce47c02ba9795fe2af" category="section-title">특허</block>
+  <block id="d0b19d36be2c5f16e9aef46c8a452d3d" category="paragraph">NetApp 소유 특허 목록은 다음 사이트에서 확인할 수 있습니다.</block>
+  <block id="d7f1fbcf9ce4e42f705add574d262b2c" category="paragraph"><block ref="d7f1fbcf9ce4e42f705add574d262b2c" category="inline-link-rx"></block></block>
+  <block id="56c34c6410dd45c5cec44149ad0ce037" category="section-title">개인 정보 보호 정책</block>
+  <block id="fc248f74f5e36542f7f5627b8610e9a3" category="paragraph"><block ref="fc248f74f5e36542f7f5627b8610e9a3" category="inline-link-rx"></block></block>
+  <block id="c0227cef6f07a8cd2ac72f2945b031aa" category="section-title">오픈 소스</block>
+  <block id="9b73989307c1975dfa4d5e1581e4afe8" category="paragraph">통지 파일은 NetApp 소프트웨어에 사용된 타사의 저작권 및 라이센스에 대한 정보를 제공합니다.</block>
 </blocks>

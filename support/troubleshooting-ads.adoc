@@ -6,6 +6,7 @@ summary: 발생할 수 있는 몇 가지 일반적인 문제를 해결하는 방
 ---
 = 문제 해결
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/support/
 

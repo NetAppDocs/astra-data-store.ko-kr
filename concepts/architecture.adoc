@@ -6,6 +6,7 @@ summary: Astra Data Store는 독립 실행형 Kubernetes 클러스터에 구축�
 ---
 = Astra Data Store 구축 모델을 미리 봅니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/concepts/
 

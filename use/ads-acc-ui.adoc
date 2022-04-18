@@ -6,6 +6,7 @@ summary: 'Astra Control Center UI(사용자 인터페이스)를 사용하여 Ast
 ---
 = Astra Data Store 미리 보기와 함께 Astra Control Center를 사용합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

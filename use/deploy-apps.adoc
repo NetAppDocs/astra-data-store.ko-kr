@@ -6,6 +6,7 @@ summary: 다음은 Astra Data Store에서 사용할 수 있는 테스트 애플�
 ---
 = 테스트 응용 프로그램을 배포합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/use/
 

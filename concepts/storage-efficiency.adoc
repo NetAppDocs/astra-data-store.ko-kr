@@ -6,6 +6,7 @@ summary: Astra Data Store는 씬 프로비저닝, 제로 블록 제거, 압축, 
 ---
 = Astra Data Store 미리보기 내의 스토리지 효율성
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/concepts/
 

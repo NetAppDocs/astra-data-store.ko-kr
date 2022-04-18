@@ -6,6 +6,7 @@ summary: Astra Control에는 Curl과 같은 프로그래밍 언어나 유틸리�
 ---
 = Astra Control REST API를 사용한 자동화
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/rest-api/
 

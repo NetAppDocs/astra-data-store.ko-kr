@@ -6,6 +6,7 @@ summary: NetApp은 새로운 기능, 개선 사항 및 버그 수정을 제공�
 ---
 = Astra Data Store 이번 릴리스의 새로운 기능
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/release-notes/
 
@@ -33,10 +34,10 @@ Astra Data Store Preview 초기 릴리즈.
 * link:../concepts/intro.html["그게 뭐죠"]
 * link:../concepts/architecture.html["구축 모델 및 구성 요소"]
 * link:../get-started/requirements.html["시작하는 데 필요한 사항"]
-* link:../get-started/install-ads.html["설치합니다"] 및 
-* link:../use/kubectl-commands-ads.html["관리"] 및  성능
+* link:../get-started/install-ads.html["설치합니다"] 및 link:../get-started/setup-ads.html["설정"]
+* link:../use/kubectl-commands-ads.html["관리"] 및 link:../use/monitor-with-cloud-insights.html["모니터링"] 성능
 * link:../use/monitor-with-cloud-insights.html["Cloud Insights를 사용한 모니터링"]
-* link:../support/get-help-ads.html["도움을 받으십시오"] 및 
+* link:../support/get-help-ads.html["도움을 받으십시오"] 및 link:../support/autosupport.html["자동 지원 모니터링을 사용합니다"]
 
 
 

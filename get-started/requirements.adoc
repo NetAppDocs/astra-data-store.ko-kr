@@ -6,6 +6,7 @@ summary: 먼저 환경에 대한 지원을 확인하십시오.
 ---
 = Astra Data Store 미리 보기 요구 사항
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

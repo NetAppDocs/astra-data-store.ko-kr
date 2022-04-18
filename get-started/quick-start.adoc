@@ -6,6 +6,7 @@ summary: 몇 단계만 거치하면 Astra Data Store를 시작할 수 있습니�
 ---
 = Astra 데이터 저장소 미리 보기를 빠르게 시작합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 

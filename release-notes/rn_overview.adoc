@@ -6,6 +6,7 @@ summary: NetApp은 새로운 기능, 개선 사항 및 버그 수정을 제공�
 ---
 = 릴리스 정보
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/release-notes/
 

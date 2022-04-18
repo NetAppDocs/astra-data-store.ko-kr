@@ -6,6 +6,7 @@ summary: 노드를 교체하려면 kubeck 명령을 Astra Data Store와 함께 �
 ---
 = 노드를 교체합니다
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/troubleshooting/
 

@@ -6,6 +6,7 @@ summary: 이 릴리스에서 제품 사용을 성공적으로 방해했을 수 �
 ---
 = 해결된 문제
 :hardbreaks:
+:allow-uri-read: 
 :icons: font
 :imagesdir: ../media/release-notes/
 
