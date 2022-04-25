@@ -717,7 +717,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 21:57:07 +0000">04/18/2022</time>
+    <time datetime="2022-04-25 21:52:41 +0000">04/25/2022</time>
     
   
 
@@ -1091,42 +1091,6 @@ subjects:
 </div>
 </li>
 </ol>
-</div>
-<div class="paragraph">
-<p>Astra Data Store 클러스터 미리 보기 구축을 위해 작업자 노드를 준비합니다. Astra Data Store preview 클러스터에 사용되는 모든 작업자 노드에서 이 절차를 수행합니다.</p>
-</div>
-<div class="paragraph">
-<p>OpenShift는 kubelet 구성 파일('/var/lib/kubelet/config.json')에 json 형식을 사용합니다. Astra Data Store Preview 클러스터는 kubelet config 파일의 YAML 형식을 찾습니다.</p>
-</div>
-<div class="paragraph">
-<p>다음 단계는 Red Hat OpenShift Container Platform(OCP)에 배포용으로만 필요합니다.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>클러스터 설치를 시작하기 전에 각 작업자 노드에 '/var/lib/kubelet/config.YAML' 파일을 생성합니다.</p>
-<div class="listingblock">
-<div class="content">
-<pre>sudo cp /var/lib/kubelet/config.json /var/lib/kubelet/config.yaml</pre>
-</div>
-</div>
-</li>
-<li>
-<p>클러스터 YAML이 적용되기 전에 모든 Kubernetes 작업자 노드에서 이 절차를 완료하십시오.</p>
-</li>
-</ol>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-data-store/images/note.svg" alt="참고">
-</td>
-<td class="content">
-이렇게 하지 않으면 Astra Data Store Preview 클러스터 설치가 실패합니다.
-</td>
-</tr>
-</table>
 </div>
 </div>
 </div>
