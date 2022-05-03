@@ -791,10 +791,6 @@
   <block id="217623d6cc04d74a7e1c0c99da77531c" category="paragraph">다음 YAML 정의는 Astra Data Store 미리보기 리소스에 필요한 다양한 역할(rolebindings)을 'astrads.netapp.io` API 그룹'에서 할당합니다.</block>
   <block id="c8679407d1ef279caad76d123b67c3cf" category="list-text">정의된 역할 및 역할 바인딩을 생성합니다.</block>
   <block id="241dbe54decdb2543808cb04b50976c5" category="paragraph">샘플: OC_ROLE_BINDINGS.YAML</block>
-  <block id="4d75e8aa0d18f88ccca8348318fd0374" category="paragraph">Astra Data Store 클러스터 미리 보기 구축을 위해 작업자 노드를 준비합니다. Astra Data Store preview 클러스터에 사용되는 모든 작업자 노드에서 이 절차를 수행합니다.</block>
-  <block id="90ae8d3116b0e0639d8b6bab1fb94a83" category="paragraph">OpenShift는 kubelet 구성 파일('/var/lib/kubelet/config.json')에 json 형식을 사용합니다. Astra Data Store Preview 클러스터는 kubelet config 파일의 YAML 형식을 찾습니다.</block>
-  <block id="619b377b67311492e2301f498fa6a192" category="list-text">클러스터 설치를 시작하기 전에 각 작업자 노드에 '/var/lib/kubelet/config.YAML' 파일을 생성합니다.</block>
-  <block id="e75a81ccddd342b222755829558870b4" category="admonition">이렇게 하지 않으면 Astra Data Store Preview 클러스터 설치가 실패합니다.</block>
   <block id="f22b8fb6dcc9aa31e0b2d9e9e84205c7" category="admonition">이 단계는 셀린스가 이 디렉토리를 쓸 수 없도록 하여 지원 포드가 CrashLoopoff 상태로 들어가는 원인이 되기 때문에 필요합니다. 이 단계는 Astra Data Store 미리 보기 클러스터의 모든 노드에서 수행해야 합니다.</block>
   <block id="a9066c7b36f74393f45392470bdf22d8" category="summary">몇 단계만 거치하면 Astra Data Store를 시작할 수 있습니다.</block>
   <block id="3551ec406ac2e45ff0f50e87c946ab31" category="doc">Astra 데이터 저장소 미리 보기를 빠르게 시작합니다</block>
@@ -998,7 +994,6 @@
   <block id="7f5cabaf7d28d34dc4ab3be67d9c8237" category="summary">몇 가지 환경 요구 사항을 충족한 후 Astra Data Store를 설치하려면 번들을 다운로드하고 다음 단계를 따라 설치합니다. OpenShift에 Astra Data Store를 설치하는 방법</block>
   <block id="f54f0a86dc809f7ec97575af6fbc8b84" category="paragraph">Astra Data Store 미리 보기를 설치하려면 에서 설치 번들을 다운로드하십시오<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> 이 절차에 설명된 설치 단계를 완료합니다.</block>
   <block id="0aa47503f31feab060eaf884a45cd2d6" category="paragraph">Astra Data Store 미리 보기 설치 프로세스는 다음과 같은 고급 단계를 안내합니다.</block>
-  <block id="3af1f7efc94ad5db8224730d535bf721" category="list-text">클러스터 YAML이 적용되기 전에 모든 Kubernetes 작업자 노드에서 이 절차를 완료하십시오.</block>
   <block id="0b7d1f8b8805a1c587689821bca47324" category="list-text">(OCP만 해당) SELinux가 설정된 경우 Astra Data Store preview 클러스터의 노드에서 다음 디렉토리에 대한 'elinux' 컨텍스트의 레이블을 다시 지정합니다.</block>
   <block id="f15043967dbb0640e4d4c31a6e7a6ac0" category="admonition">네임스페이스 응답은 표준 설치를 수행했는지 OCP 설치를 수행했는지에 따라 다를 수 있습니다.</block>
   <block id="1caa3cf5a72fc35e939157dc1f96280a" category="list-text">SATA 또는 NVMe TLC SSD</block>
@@ -1024,4 +1019,5 @@
   <block id="fc248f74f5e36542f7f5627b8610e9a3" category="paragraph"><block ref="fc248f74f5e36542f7f5627b8610e9a3" category="inline-link-rx"></block></block>
   <block id="c0227cef6f07a8cd2ac72f2945b031aa" category="section-title">오픈 소스</block>
   <block id="9b73989307c1975dfa4d5e1581e4afe8" category="paragraph">통지 파일은 NetApp 소프트웨어에 사용된 타사의 저작권 및 라이센스에 대한 정보를 제공합니다.</block>
+  <block id="a44aabf523591d454f3c29d4f0b04192" category="paragraph">모니터링을 설정하기 전에 "Astra-system" 네임스페이스에 활성 Astra 데이터 저장소 클러스터가 필요합니다.</block>
 </blocks>
