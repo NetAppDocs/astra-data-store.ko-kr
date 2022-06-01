@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head class="at-element-marker">
-  <title>스크립트 없이 Astra Data Store 미리 보기를 제거합니다</title>
+  <title>VMware 설치의 구성 요소를 모니터링합니다</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="스크립트 없이 Astra Data Store 미리 보기를 제거합니다" />
+  <meta property="og:title" content="VMware 설치의 구성 요소를 모니터링합니다" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/ko-kr/astra-data-store/use/uninstall-ads-manual.html" />
-	<meta property="og:description" content="Astra Data Store를 제거하려면 워크로드, 바인딩, 볼륨, 엑스포트 정책, 클러스터, 라이센스, 배포 환경 및 네임스페이스." />
+	<meta property="og:url" content="https://docs.netapp.com/ko-kr/astra-data-store/use-vmware/monitor-ads-vmware.html" />
+	<meta property="og:description" content="vCenter 플러그인을 사용하여 Astra Data Store 성능을 모니터링할 수 있습니다." />
   <meta property="og:image" content="https://docs.netapp.com/ko-kr/astra-data-store/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Astra Data Store를 제거하려면 워크로드, 바인딩, 볼륨, 엑스포트 정책, 클러스터, 라이센스, 배포 환경 및 네임스페이스.">
-  <meta name="keywords" content=" astra, astra data store, astra datastore, uninstall"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="vCenter 플러그인을 사용하여 Astra Data Store 성능을 모니터링할 수 있습니다.">
+  <meta name="keywords" content=" astra, astra data store, vmware, vcenter, esxi"><!-- Icons -->
   <link rel="icon" href="/ko-kr/astra-data-store/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -169,7 +169,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[스크립트 없이 Astra Data Store 미리 보기를 제거합니다](https://docs.netapp.com/ko-kr/astra-data-store/use/uninstall-ads-manual.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/astra-data-store/images/discuss-sm.svg" class="github-icon" />문서 변경 요청</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/use/uninstall-ads-manual.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/astra-data-store/images/edit-sm.svg" class="github-icon" />이 페이지 편집</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/astra-data-store/images/article-sm.svg" class="github-icon" />기여하는 방법 자세히 알아보기</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[VMware 설치의 구성 요소를 모니터링합니다](https://docs.netapp.com/ko-kr/astra-data-store/use-vmware/monitor-ads-vmware.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/astra-data-store/images/discuss-sm.svg" class="github-icon" />문서 변경 요청</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/use-vmware/monitor-ads-vmware.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/astra-data-store/images/edit-sm.svg" class="github-icon" />이 페이지 편집</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/astra-data-store/images/article-sm.svg" class="github-icon" />기여하는 방법 자세히 알아보기</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">이 페이지의 내용</div>
@@ -292,15 +292,15 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-data-store/use/uninstall-ads-manual.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                  <a href="https://docs.netapp.com/us-en/astra-data-store/use-vmware/monitor-ads-vmware.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/use/uninstall-ads-manual.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/use-vmware/monitor-ads-vmware.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/use/uninstall-ads-manual.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/use-vmware/monitor-ads-vmware.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/use/uninstall-ads-manual.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/use-vmware/monitor-ads-vmware.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/use/uninstall-ads-manual.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
+                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/use-vmware/monitor-ads-vmware.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -358,7 +358,7 @@
         
         
         
-        <a target="_blank" href="/ko-kr/astra-data-store/pdfs/fullsite-sidebar/Astra_Data_Store_미리_보기_문서.pdf" >
+        <a target="_blank" href="/ko-kr/astra-data-store/pdfs/fullsite-sidebar/Astra_Data_Store_문서.pdf" >
           <img src="/ko-kr/astra-data-store/images/pdf.png" width="16" height="16"/>이 문서 사이트의 PDF</a>
 
 
@@ -488,9 +488,96 @@
 
 
 
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ko-kr/astra-data-store/pdfs/sidebar/Astra_Data_Store를_모니터링합니다.pdf" 
+            
+          >
+            <img src="/ko-kr/astra-data-store/images/pdf.png" width="16" height="16"/>
+            Astra Data Store를 모니터링합니다
+          </a>
+          
 
 
 
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ko-kr/astra-data-store/pdfs/sidebar/보안_Astra_데이터_저장소.pdf" 
+            
+          >
+            <img src="/ko-kr/astra-data-store/images/pdf.png" width="16" height="16"/>
+            보안 Astra 데이터 저장소
+          </a>
+          
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+
+
+
+
+
+
+          
+        </li>
+      </ul>
+    
+
+  
+
+
+
+    
+      <ul class="subfolders" style="display:none;">
+        <li class="pdf-ux-container">
+          
+          
+          
+          <a target="_blank" 
+            
+              href="/ko-kr/astra-data-store/pdfs/sidebar/VMware와_함께_Astra_Data_Store를_사용하십시오.pdf" 
+            
+          >
+            <img src="/ko-kr/astra-data-store/images/pdf.png" width="16" height="16"/>
+            VMware와 함께 Astra Data Store를 사용하십시오
+          </a>
+          
 
 
 
@@ -498,7 +585,7 @@
 
 
     <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/ko-kr/astra-data-store/pdfs/pages/use/uninstall-ads-manual.pdf" >
+  <a target="_blank" href="/ko-kr/astra-data-store/pdfs/pages/use-vmware/monitor-ads-vmware.pdf" >
     <img src="/ko-kr/astra-data-store/images/pdf.png" width="16" height="16"/>
     PDF of this page
   </a>
@@ -506,6 +593,10 @@
 
 </ul>
   
+
+
+
+
 
 
 
@@ -546,6 +637,8 @@
     
 
   
+
+
 
 
 
@@ -602,7 +695,7 @@
         <div class="na-navbar-padding"> 개념</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/concepts/intro.html">
-        Astra Data Store 소개
+        Astra Data Store에 대해 자세히 알아보십시오
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/concepts/architecture.html">
         구축 모델
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/concepts/expansion.html">
@@ -615,38 +708,63 @@
         <div class="na-navbar-padding"> 시작하십시오</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/get-started/requirements.html">
-        Astra Data Store 미리 보기 요구 사항
+        Astra 데이터 저장소 요구 사항
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/get-started/quick-start.html">
-        Astra 데이터 저장소 미리 보기를 빠르게 시작합니다
+        Astra Data Store를 빠르게 시작합니다
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/get-started/install-ads.html">
-        Astra Data Store 미리 보기를 설치합니다
+        Astra Data Store를 설치합니다
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/get-started/setup-ads.html">
-        Astra Data Store 미리보기 구성 요소를 설정합니다
+        Astra Data Store 구성 요소를 설정합니다
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/get-started/capabilities.html">
-        Astra Data Store 미리보기 제한
+        Astra 데이터 저장소 제한
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/get-started/faq-ads.html">
         FAQ 를 참조하십시오
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> Astra Data Store를 사용하십시오</div>
       </a>
       <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use/kubectl-commands-ads.html">
-        Astra Data Store 자산 관리
+        Astra Data Store 리소스 관리
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use/deploy-apps.html">
         테스트 응용 프로그램을 배포합니다
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use/maintain-cluster.html">
         클러스터를 관리합니다
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use/monitor-with-cloud-insights.html">
+      </a></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> Astra Data Store를 모니터링합니다</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use/monitor-with-cloud-insights.html">
         Cloud Insights를 통해 메트릭을 모니터링합니다
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use/monitor-with-prometheus-grafana.html">
         Prometheus 및 Grafana를 사용하여 메트릭을 모니터링합니다
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use/configure-endpoints.html">
         이벤트 로그를 구성하고 모니터링합니다
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use/ads-acc-ui.html">
-        Astra Control Center 통합
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> 보안 Astra 데이터 저장소</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use/manage-certificates.html">
+        보안 인증서를 관리합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use/manage-keys.html">
+        외부 키 관리
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use/update-ads-license.html">
+        Astra Data Store 라이센스를 업데이트합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use/upgrade-ads.html">
+        Astra Data Store를 업그레이드합니다
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use/uninstall-ads.html">
-        스크립트를 사용하여 Astra Data Store 미리 보기를 자동으로 제거합니다
-      </a></li><li class="  active "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use/uninstall-ads-manual.html">
-        스크립트 없이 Astra Data Store 미리 보기를 수동으로 제거합니다
+        Astra Data Store를 제거합니다
+      </a></li></ul></li><li class="subfolders "><a href="#">
+        <div class="na-navbar-padding"> VMware와 함께 Astra Data Store를 사용하십시오</div>
+      </a>
+      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use-vmware/use-ads-vmware-overview.html">
+        VMware를 사용한 Astra Data Store에 대해 자세히 알아보십시오
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use-vmware/ads-vmware-requirements.html">
+        VMware 요구 사항이 있는 Astra Data Store
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use-vmware/setup-ads-vmware.html">
+        VMware와 함께 Astra Data Store를 설정합니다
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use-vmware/monitor-ads-vmware.html">
+        VMware 설치의 구성 요소를 모니터링합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use-vmware/manage-ads-vmware.html">
+        VMware 설치의 Astra Data Store 구성 요소를 관리합니다
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use-vmware/uninstall-ads-vmware.html">
+        VMware 통합 환경에서 Astra Data Store를 제거합니다
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 지식 및 지원</div>
       </a>
@@ -656,7 +774,9 @@
         도움을 받으십시오
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/support/autosupport.html">
         자동 지원 모니터링
-      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/legal-notices.html">
+      </a></li></ul></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/ads-earlier-versions.html">
+        이전 버전
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/legal-notices.html">
         법적 고지
       </a></li></ul>
 </div>
@@ -716,14 +836,14 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">스크립트 없이 Astra Data Store 미리 보기를 제거합니다</h1>
+  <h1 class="n-doc__component-detail-heading">VMware 설치의 구성 요소를 모니터링합니다</h1>
 </div>
 
 
 <p class="page-details">
   
     
-    <time datetime="2022-04-18 21:57:07 +0000">04/18/2022</time>
+    <time datetime="2022-06-01 01:15:02 +0000">06/01/2022</time>
     
   
 
@@ -733,83 +853,71 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>자동 스크립트 없이 Astra Data Store 미리 보기를 수동으로 제거하려면 워크로드, 바인딩, 볼륨, 엑스포트 정책, 클러스터, 라이센스, 배포 환경 및 Astra Data Store 미리 보기 네임스페이스.</p>
-</div>
-<div class="paragraph">
-<p>또는 을(를) 사용할 수 있습니다 <a href="../use/uninstall-ads.html">"스크립트를 사용하여 Astra Data Store 미리 보기를 제거합니다"</a>.</p>
-</div>
-<div class="ulist">
-<div class="title">무엇을 &#8217;필요로 할거야</div>
-<ul>
-<li>
-<p>루트 관리 권한</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Astra Data Store 미리 보기 제거 프로세스는 다음과 같은 고급 단계를 안내합니다.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="#Remove existing workloads and bindings">[Remove existing workloads and bindings]</a></p>
-</li>
-<li>
-<p><a href="#Uninstall the Astra Data Store preview cluster and control plane">[Uninstall the Astra Data Store preview cluster and control plane]</a></p>
-</li>
-<li>
-<p><a href="#Delete the license">[Delete the license]</a></p>
-</li>
-<li>
-<p><a href="#Delete the Astra Data Store preview installation">[Delete the Astra Data Store preview installation]</a></p>
-</li>
-<li>
-<p><a href="#Validate the removal of the astrads-system namespace">[Validate the removal of the astrads-system namespace]</a></p>
-</li>
-<li>
-<p><a href="#Ensure containers are not running on worker nodes">[Ensure containers are not running on worker nodes]</a></p>
-</li>
-<li>
-<p><a href="#Delete OpenShift Container Platform resources">[Delete OpenShift Container Platform resources]</a></p>
-</li>
-<li>
-<p><a href="#Troubleshoot the Astra Data Store preview uninstall process">[Troubleshoot the Astra Data Store preview uninstall process]</a></p>
-</li>
-</ul>
+<p>NetApp Astra Plugin for VMware vSphere를 사용하여 Astra Data Store 설치의 구성 요소를 모니터링할 수 있습니다. 스토리지 백엔드, VASA 공급자, VM 및 VVOL을 비롯한 시스템의 상태를 모니터링할 수 있습니다. 용량 및 vCenter 정보를 볼 수도 있습니다.</p>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="기존-워크로드-및-바인딩을-제거합니다">기존 워크로드 및 바인딩을 제거합니다</h2>
+<h2 id="vmware-vsphere용-astra-plugin-대시보드를-사용하여-시스템-상태를-모니터링합니다">VMware vSphere용 Astra Plugin 대시보드를 사용하여 시스템 상태를 모니터링합니다</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Astra Data Store 미리 보기를 제거하기 전에 먼저 다음을 제거해야 합니다</p>
+<p>VMware 환경에서 Astra Data Store를 관리하려면 스토리지 백엔드 및 VASA 공급업체의 전반적인 상태를 모니터링해야 합니다.</p>
+</div>
+<div class="paragraph">
+<p>NetApp Astra Plugin for VMware vSphere 대시보드를 사용하여 다음 정보를 확인할 수 있습니다.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Astra Data Store 미리 보기를 스토리지 백엔드로 사용하는 모든 애플리케이션 워크로드</p>
+<p>이 vCenter에서 사용되는 모든 스토리지 백엔드의 물리적 용량 및 사용 가능한 용량입니다. 정보 위로 마우스를 가져가면 자세한 정보를 볼 수 있습니다.</p>
 </li>
 <li>
-<p>Astra Data Store 미리 보기를 백엔드로 사용하는 Trident 바인딩</p>
+<p>정상 상태가 아닌 스토리지 백엔드 및 VASA 공급자</p>
+</li>
+<li>
+<p>상위 10개 VM의 지연 시간, IOPS, 처리량, 용량 활용률</p>
 </li>
 </ul>
 </div>
 <div class="paragraph">
-<p>이렇게 하면 Kubernetes 환경이 클린 상태로 유지됩니다. 이는 다시 설치할 때 중요합니다.</p>
+<p>대시보드에서 다음과 같은 몇 가지 추가 작업을 수행할 수 있습니다.</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>용량을 모니터링합니다</p>
+</li>
+<li>
+<p>기존 스토리지 백엔드를 사용합니다. 을 참조하십시오 <a href="../use-vmware/setup-ads-vmware.html">"저장소 백엔드를 설정합니다"</a>.</p>
+</li>
+<li>
+<p>제품 설명서에 액세스합니다</p>
+</li>
+</ul>
 </div>
+<div class="olist arabic">
+<div class="title">대시보드 검토 단계</div>
+<ol class="arabic">
+<li>
+<p>VMware vSphere용 Astra Plugin에 액세스합니다.</p>
+</li>
+<li>
+<p>개요 페이지에서 다음 섹션을 검토합니다.</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>* 스토리지 백엔드 * 섹션: 스토리지 백엔드와 VASA 공급자 모두의 상태를 클릭하여 해당 상태에 대한 세부 정보를 볼 수 있습니다. 을 클릭하여 모든 스토리지 백엔드를 볼 수도 있습니다.</p>
+</li>
+<li>
+<p>* 스토리지 백엔드 용량 * 섹션: 선택한 vCenter에서 스토리지 백엔드에 대해 사용된 총 물리적 용량과 사용 가능한 용량을 검토합니다. vCenter Server를 변경하려면 오른쪽 위에 있는 vCenter Server 옵션을 클릭합니다.</p>
+</li>
+<li>
+<p>* 가상 머신 * 섹션: 10대 용량 사용률이 가장 높은 가상 머신을 검토합니다.</p>
+</li>
+</ol>
 </div>
-<div class="sect1">
-<h2 id="astra-data-store-미리-보기-클러스터와-컨트롤-플레인을-제거합니다">Astra Data Store 미리 보기 클러스터와 컨트롤 플레인을 제거합니다</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Astra Data Store 미리 보기를 수동으로 제거하려면 아래 단계를 따르십시오.</p>
-</div>
-<div class="sect2">
-<h3 id="볼륨-및-엑스포트-정책을-삭제합니다">볼륨 및 엑스포트 정책을 삭제합니다</h3>
-<div class="paragraph">
-<p>클러스터를 삭제하기 전에 Astra Data Store 미리 보기 볼륨 및 엑스포트 정책을 삭제해야 합니다.</p>
+</li>
+</ol>
 </div>
 <div class="admonitionblock tip">
 <table>
@@ -818,7 +926,64 @@
 <img src="/us-en/astra-data-store/images/tip.svg" alt="팁">
 </td>
 <td class="content">
-먼저 볼륨을 삭제하고 정책을 내보내지 않으면 Astra Data Store 미리 보기 볼륨 개체가 삭제될 때까지 클러스터 삭제 프로세스가 일시 중지됩니다. 클러스터 삭제를 시작하기 전에 이러한 항목을 제거하는 것이 더 효율적입니다.
+대신 표 제목을 클릭하여 대기 시간이 긴 상위 10개 VM과 같이 원하는 항목을 표시할 수 있습니다.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">다른 보기에서 Astra Data Store를 모니터링하는 단계입니다</div>
+<ol class="arabic">
+<li>
+<p>Astra Data Store 구성 요소를 모니터링하려면 다음 보기에 액세스하십시오.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>* 가상 머신 * 탭: 최상위 10개의 VM만 나열되는 대시보드와 비교하여 Astra Data Store에서 관리하는 모든 VM을 나열합니다.</p>
+</li>
+<li>
+<p>* Storage * 드릴다운: 스토리지 시스템과 연결된 호스트, 가상 머신 및 데이터 저장소를 표시합니다.</p>
+</li>
+<li>
+<p>* VM Storage * view(VM 스토리지 * 보기): VASA 공급자가 생성한 VVOL에 대한 세부 정보를 제공합니다.</p>
+</li>
+</ul>
+</div>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="스토리지-백엔드-임계값-설정을-검토합니다">스토리지 백엔드 임계값 설정을 검토합니다</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>스토리지 백엔드 용량 임계값 설정은 스토리지 백엔드의 모든 데이터 저장소에 알림 메시지가 표시되는 시기를 제어합니다.</p>
+</div>
+<div class="paragraph">
+<p>Astra Plugin for VMware vSphere를 사용하여 스토리지 백엔드를 구축 또는 추가할 때 다음과 같은 기본 임계값이 설정됩니다.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>90% 차 있는 경우 빨간색 경고가 생성됩니다</p>
+</li>
+<li>
+<p>80% 차 있음 은 노란색 경고를 생성합니다</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>VMware에서 시스템에서 알림을 생성하는 레벨을 볼 수 있습니다.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="참고">
+</td>
+<td class="content">
+Astra Data Store Early Access Program의 경우 여러 데이터 센터에서 동일한 스토리지 컨테이너를 사용하는 경우 데이터 저장소에 대한 잘못된 알람이 표시될 수 있습니다.
 </td>
 </tr>
 </table>
@@ -827,305 +992,30 @@
 <div class="title">단계</div>
 <ol class="arabic">
 <li>
-<p>볼륨 삭제:</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl delete astradsvolumes --all -A
-~% kubectl get astradsvolumes -A</pre>
-</div>
-</div>
+<p>VMware vSphere용 NetApp Astra Plugin에 액세스합니다.</p>
 </li>
 <li>
-<p>엑스포트 정책 삭제:</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl delete astradsexportpolicies --all -A
-~% kubectl get astradsexportpolicies -A</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-<div class="sect2">
-<h3 id="astra-data-store-미리보기-클러스터를-삭제합니다">Astra Data Store 미리보기 클러스터를 삭제합니다</h3>
-<div class="paragraph">
-<p>클러스터를 삭제하면 클러스터 범위 리소스와 함께 Astra Data Store 미리보기 클러스터 객체 사용자 지정 리소스(CR)만 삭제됩니다.</p>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-data-store/images/note.svg" alt="참고">
-</td>
-<td class="content">
-클러스터가 삭제된 후에도 운영자, 노드 정보 포드 및 클러스터 컨트롤러(Kubernetes 범위 리소스)는 그대로 유지됩니다.
-</td>
-</tr>
-</table>
-</div>
-<div class="paragraph">
-<p>클러스터를 삭제하면 기본 운영 체제가 노드에서 제거되므로 'firtap' 및 'netwd' 서비스가 중지됩니다.</p>
-</div>
-<div class="paragraph">
-<p>제거 프로그램을 완료하는 데 약 1분 정도 걸립니다. 그런 다음 Astra Data Store 미리 보기 클러스터 범위 리소스 제거가 시작됩니다.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>클러스터를 삭제합니다.</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl delete astradsclusters --all -A
-~% kubectl get astradsclusters -A</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="라이센스를-삭제합니다">라이센스를 삭제합니다</h2>
-<div class="sectionbody">
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>클러스터의 각 작업자 노드에 SSH를 통해 'firewTap' 또는 'netwd&#8217;가 작업자 노드에서 실행되고 있지 않음을 확인합니다.</p>
+<p>왼쪽 탐색 창에서 * 설정 * 을 선택합니다.</p>
 </li>
 <li>
-<p>Astra Data Store Preview 라이센스를 삭제합니다.</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl delete astradslicenses --all -A
-~% kubectl get astradslicenses -A</pre>
-</div>
-</div>
+<p>설정 임계값을 검토합니다.</p>
 </li>
 </ol>
 </div>
 </div>
 </div>
 <div class="sect1">
-<h2 id="astra-data-store-미리-보기-설치를-삭제합니다">Astra Data Store 미리 보기 설치를 삭제합니다</h2>
+<h2 id="를-참조하십시오">를 참조하십시오</h2>
 <div class="sectionbody">
-<div class="paragraph">
-<p>클러스터에서 컨트롤러, 운영자, 네임스페이스 및 지원 포드를 삭제하십시오.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
+<div class="ulist">
+<ul>
 <li>
-<p>Astra Data Store 미리 보기 설치 객체를 삭제합니다.</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl delete astradsversion astradsversion -n astrads-system
-~% kubectl get astradsversion -n astrads-system</pre>
-</div>
-</div>
+<p><a href="https://docs.netapp.com/us-en/astra-control-center/" target="_blank" rel="noopener">"Astra Control Center 문서"</a></p>
 </li>
 <li>
-<p>데이터 저장소 DemonSets 및 모든 Astra Data Store 미리 보기 컨트롤러 리소스를 삭제합니다.</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl delete ds --all -n astrads-system
-~% kubectl get ds -n astrads-system
-
-~% kubectl delete deployments --all -n astrads-system
-~% kubectl get deployments -n astrads-system</pre>
-</div>
-</div>
+<p><a href="https://docs.netapp.com/us-en/astra-family/intro-family.html" target="_blank" rel="noopener">"Astra 제품군 소개"</a></p>
 </li>
-<li>
-<p>나머지 아티팩트 및 작업자 YAML 파일 삭제:</p>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl delete -f ./manifests/astradsoperator.yaml
-~% kubectl get pods -n astrads-system</pre>
-</div>
-</div>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="astads-system-namespace의-제거를-검증합니다">Astads-system namespace의 제거를 검증합니다</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>다음 명령을 실행하면 결과가 반환되지 않는지 확인합니다.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>~% kubectl get ns | grep astrads-system</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="컨테이너를-작업자-노드에서-실행하지-않도록-합니다">컨테이너를 작업자 노드에서 실행하지 않도록 합니다</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>소방관이나 netwd 같은 컨테이너가 작업자 노드에서 실행되고 있지 않는지 확인합니다. 각 노드에서 다음을 실행합니다.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>ssh &lt;mynode1&gt;
-# runc list</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="openshift-container-platform-리소스를-삭제합니다">OpenShift Container Platform 리소스를 삭제합니다</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Red Hat OpenShift Container Platform(OCP)에 Astra Data Store 미리보기를 설치한 경우 OCP SCC(Security Context Constraints) 및 rolebindings 리소스를 제거할 수 있습니다.</p>
-</div>
-<div class="paragraph">
-<p>OpenShift는 POD가 수행할 수 있는 작업을 제어하는 SCC(Security Context Constraints)를 사용합니다.</p>
-</div>
-<div class="paragraph">
-<p>표준 제거 프로세스를 완료한 후 다음 단계를 완료합니다.</p>
-</div>
-<div class="olist arabic">
-<ol class="arabic">
-<li>
-<p>SCC 리소스 제거:</p>
-<div class="listingblock">
-<div class="content">
-<pre>oc delete -f ads_privileged_scc.yaml</pre>
-</div>
-</div>
-</li>
-<li>
-<p>rolebindings 리소스 제거:</p>
-<div class="listingblock">
-<div class="content">
-<pre>oc delete -f oc_role_bindings.yaml</pre>
-</div>
-</div>
-<div class="admonitionblock note">
-<table>
-<tr>
-<td class="icon">
-<img src="/us-en/astra-data-store/images/note.svg" alt="참고">
-</td>
-<td class="content">
-이 단계에서는 "리소스를 찾을 수 없는 오류"를 무시합니다. 
-</td>
-</tr>
-</table>
-</div>
-</li>
-<li>
-<p>모든 Kubernetes 노드에서 `/var/lib/kubelet/config.yAML&#8217;을 제거합니다. </p>
-</li>
-</ol>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="수동-삭제-샘플">수동 삭제 샘플</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>다음은 실행 수동 제거 스크립트의 예입니다.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>$ kubectl delete astradsvolumes --all -A
-No resources found
-$ kubectl delete astradsexportpolicies --all -A
-No resources found
-$ kubectl delete astradsclusters --all -A
-astradscluster.astrads.netapp.io "astrads-sti-c6220-09-10-11-12" deleted
-
-$ kubectl delete astradslicenses --all -A
-astradslicense.astrads.netapp.io "e900000005" deleted
-
-$ kubectl delete astradsdeployment astradsdeployment -n astrads-system
-astradsdeployment.astrads.netapp.io "astradsdeployment" deleted
-
-$ kubectl delete ds --all -n astrads-system
-daemonset.apps "astrads-ds-astrads-sti-c6220-09-10-11-12" deleted
-daemonset.apps "astrads-ds-nodeinfo-astradsdeployment" deleted
-daemonset.apps "astrads-ds-support" deleted
-
-$ kubectl delete deployments --all -n astrads-system
-deployment.apps "astrads-cluster-controller" deleted
-deployment.apps "astrads-deployment-support" deleted
-deployment.apps "astrads-license-controller" deleted
-deployment.apps "astrads-operator" deleted
-
-$ kubectl delete -f /.../firetap/sds/manifests/netappsdsoperator.yaml
-namespace "astrads-system" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsautosupports.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradscloudsnapshots.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsclusters.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsdeployments.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsexportpolicies.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsfaileddrives.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradslicenses.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsnfsoptions.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsnodeinfoes.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsqospolicies.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsvolumefiles.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsvolumes.astrads.netapp.io" deleted
-customresourcedefinition.apiextensions.k8s.io "astradsvolumesnapshots.astrads.netapp.io" deleted
-role.rbac.authorization.k8s.io "astrads-leader-election-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradscloudsnapshot-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradscloudsnapshot-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradscluster-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradscluster-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradslicense-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradslicense-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradsvolume-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-astradsvolume-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-autosupport-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-autosupport-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-manager-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-metrics-reader" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappexportpolicy-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappexportpolicy-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappsdsdeployment-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappsdsdeployment-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnfsoption-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnfsoption-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnodeinfo-editor-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-netappsdsnodeinfo-viewer-role" deleted
-clusterrole.rbac.authorization.k8s.io "astrads-proxy-role" deleted
-rolebinding.rbac.authorization.k8s.io "astrads-leader-election-rolebinding" deleted
-clusterrolebinding.rbac.authorization.k8s.io "astrads-manager-rolebinding" deleted
-clusterrolebinding.rbac.authorization.k8s.io "astrads-proxy-rolebinding" deleted
-configmap "astrads-autosupport-cm" deleted
-configmap "astrads-firetap-cm" deleted
-configmap "astrads-fluent-bit-cm" deleted
-configmap "astrads-kevents-asup" deleted
-configmap "astrads-metrics-cm" deleted
-service "astrads-operator-metrics-service" deleted
- Error from server (NotFound): error when deleting "/.../export/firetap/sds/manifests/netappsdsoperator.yaml": deployments.apps "astrads-operator" not found
-
-$ kubectl get ns | grep astrads-system
-
-[root@sti-rx2540-535c ~]# runc list
-ID      PID     STATUS    BUNDLE       CREATED    OWNER</pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="astra-data-store-미리보기-제거-프로세스-문제를-해결합니다">Astra Data Store 미리보기 제거 프로세스 문제를 해결합니다</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>Kubernetes v1.20의 Astra Data Store 미리 보기 제거 프로세스를 사용하면 Pod가 종료 상태로 유지되는 경우가 있습니다.</p>
-</div>
-<div class="paragraph">
-<p>이 문제가 발생하면 다음 명령을 실행하여 "astrads-system" 네임스페이스의 모든 Pod를 강제로 삭제합니다.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre>kubectl delete pods --all  -n astrads-system   --force --grace-period 0</pre>
-</div>
+</ul>
 </div>
 </div>
 </div>

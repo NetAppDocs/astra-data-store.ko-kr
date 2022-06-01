@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head class="at-element-marker">
-  <title>Astra Data Store의 보안</title>
+  <title>VMware를 사용한 Astra Data Store에 대해 자세히 알아보십시오</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Astra Data Store의 보안" />
+  <meta property="og:title" content="VMware를 사용한 Astra Data Store에 대해 자세히 알아보십시오" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/ko-kr/astra-data-store/concepts/security.html" />
-	<meta property="og:description" content="Astra Data Store는 여러 가지 방법을 사용하여 클라이언트 및 관리자의 스토리지 액세스 권한을 보호하고, 통신 및 데이터를 보호하며, 바이러스로부터 보호합니다." />
+	<meta property="og:url" content="https://docs.netapp.com/ko-kr/astra-data-store/use-vmware/use-ads-vmware-overview.html" />
+	<meta property="og:description" content="Astra vCenter 플러그인 사용자 인터페이스를 사용하여 Astra Data Store 작업을 수행할 수 있습니다." />
   <meta property="og:image" content="https://docs.netapp.com/ko-kr/astra-data-store/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Astra Data Store는 여러 가지 방법을 사용하여 클라이언트 및 관리자의 스토리지 액세스 권한을 보호하고, 통신 및 데이터를 보호하며, 바이러스로부터 보호합니다.">
-  <meta name="keywords" content=" how astra works, how astra security works, what Astra is, astra data store, kubernetes"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Astra vCenter 플러그인 사용자 인터페이스를 사용하여 Astra Data Store 작업을 수행할 수 있습니다.">
+  <meta name="keywords" content=" astra, astra data store, astra vcenter plug-in, vmware, vcenter, esxi"><!-- Icons -->
   <link rel="icon" href="/ko-kr/astra-data-store/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -169,7 +169,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[Astra Data Store의 보안](https://docs.netapp.com/ko-kr/astra-data-store/concepts/security.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/astra-data-store/images/discuss-sm.svg" class="github-icon" />문서 변경 요청</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/concepts/security.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/astra-data-store/images/edit-sm.svg" class="github-icon" />이 페이지 편집</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/astra-data-store/images/article-sm.svg" class="github-icon" />기여하는 방법 자세히 알아보기</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[VMware를 사용한 Astra Data Store에 대해 자세히 알아보십시오](https://docs.netapp.com/ko-kr/astra-data-store/use-vmware/use-ads-vmware-overview.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/astra-data-store/images/discuss-sm.svg" class="github-icon" />문서 변경 요청</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/use-vmware/use-ads-vmware-overview.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/astra-data-store/images/edit-sm.svg" class="github-icon" />이 페이지 편집</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/astra-data-store/images/article-sm.svg" class="github-icon" />기여하는 방법 자세히 알아보기</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">이 페이지의 내용</div>
@@ -292,15 +292,15 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-data-store/concepts/security.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                  <a href="https://docs.netapp.com/us-en/astra-data-store/use-vmware/use-ads-vmware-overview.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/concepts/security.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/use-vmware/use-ads-vmware-overview.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/concepts/security.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/use-vmware/use-ads-vmware-overview.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/concepts/security.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/use-vmware/use-ads-vmware-overview.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/concepts/security.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
+                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/use-vmware/use-ads-vmware-overview.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -417,15 +417,6 @@
 
 
 
-    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/ko-kr/astra-data-store/pdfs/pages/concepts/security.pdf" >
-    <img src="/ko-kr/astra-data-store/images/pdf.png" width="16" height="16"/>
-    PDF of this page
-  </a>
-</li>
-
-</ul>
-  
 
 
 
@@ -587,6 +578,15 @@
             VMware와 함께 Astra Data Store를 사용하십시오
           </a>
           
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/ko-kr/astra-data-store/pdfs/pages/use-vmware/use-ads-vmware-overview.pdf" >
+    <img src="/ko-kr/astra-data-store/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
 
 
 
@@ -702,7 +702,7 @@
         클러스터 확장
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/concepts/storage-efficiency.html">
         스토리지 효율성
-      </a></li><li class="  active "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/concepts/security.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/concepts/security.html">
         보안
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 시작하십시오</div>
@@ -753,7 +753,7 @@
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> VMware와 함께 Astra Data Store를 사용하십시오</div>
       </a>
-      <ul><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use-vmware/use-ads-vmware-overview.html">
+      <ul><li class="  active "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use-vmware/use-ads-vmware-overview.html">
         VMware를 사용한 Astra Data Store에 대해 자세히 알아보십시오
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use-vmware/ads-vmware-requirements.html">
         VMware 요구 사항이 있는 Astra Data Store
@@ -836,7 +836,7 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Astra Data Store의 보안</h1>
+  <h1 class="n-doc__component-detail-heading">VMware를 사용한 Astra Data Store에 대해 자세히 알아보십시오</h1>
 </div>
 
 
@@ -853,29 +853,26 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Astra Data Store는 여러 가지 방법을 사용하여 클라이언트 및 관리자의 스토리지 액세스 권한을 보호하고, 통신 및 데이터를 보호하며, 바이러스로부터 보호합니다.</p>
+<p>Astra Data Store는 컨테이너 워크로드와 가상화 워크로드를 모두 지원합니다. vSphere 관리자는 VVOL 및 스토리지 정책 기반 관리와 통합하여 스토리지 QoS를 적용할 수 있습니다. NetApp Astra Plugin for VMware vSphere는 익숙한 관리 및 모니터링 환경을 제공하므로 번거로운 스토리지 작업을 제거할 수 있습니다.</p>
 </div>
 <div class="paragraph">
-<p>Astra Data Store는 다음과 같은 보안 방법을 사용합니다.</p>
+<p>VMware vSphere용 Astra 플러그인은 다음과 같은 이점을 제공합니다.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>MTL(상호 전송 계층 보안)을 사용한 통신 암호화</p>
+<p>전체 VVol 및 VASA 통합을 통한 VM 세부 스토리지 프로비저닝</p>
 </li>
 <li>
-<p>기능에 대한 액세스를 제어하는 역할 기반 액세스 제어</p>
+<p>스토리지 정책 기반 관리 통합</p>
 </li>
 <li>
-<p>배포 보안</p>
-</li>
-<li>
-<p>인증서 관리</p>
-</li>
-<li>
-<p>내부 및 외부 키 관리를 포함하여 유휴 상태의 소프트웨어 암호화</p>
+<p>vSphere 기본 관리용 vCenter 플러그인</p>
 </li>
 </ul>
+</div>
+<div class="paragraph">
+<p>다음 이미지는 VMware와 Astra 제품군 에코시스템을 보여 줍니다.<span class="image"><img src="../media/use/astra-ads-architecture-diagram-v4-vmware.png" alt="Astra 아키텍처 다이어그램 및 구성 요소"></span></p>
 </div>
 </div>
 </div>
@@ -885,25 +882,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.netapp.com/us-en/astra-family/intro-family.html" target="_blank" rel="noopener">"Astra 제품군 소개"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra/index.html" target="_blank" rel="noopener">"Astra Control Service 문서"</a></p>
-</li>
-<li>
 <p><a href="https://docs.netapp.com/us-en/astra-control-center/" target="_blank" rel="noopener">"Astra Control Center 문서"</a></p>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/trident/index.html" target="_blank" rel="noopener">"Astra Trident 문서"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-automation/index.html" target="_blank" rel="noopener">"Astra Control API를 사용합니다"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/cloudinsights/" target="_blank" rel="noopener">"Cloud Insights 설명서"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/ontap/index.html" target="_blank" rel="noopener">"ONTAP 설명서"</a></p>
+<p><a href="https://docs.netapp.com/us-en/astra-family/intro-family.html" target="_blank" rel="noopener">"Astra 제품군 소개"</a></p>
 </li>
 </ul>
 </div>

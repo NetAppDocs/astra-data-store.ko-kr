@@ -1,23 +1,23 @@
 <!DOCTYPE html>
 <html lang="ko">
   <head class="at-element-marker">
-  <title>Astra Data Store의 보안</title>
+  <title>VMware 설치의 Astra Data Store 구성 요소를 관리합니다</title>
   <meta charset="utf-8">
   <meta http-equiv="x-ua-compatible" content="ie=edge,chrome=1">
   <meta http-equiv="language" content="en">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta property="og:title" content="Astra Data Store의 보안" />
+  <meta property="og:title" content="VMware 설치의 Astra Data Store 구성 요소를 관리합니다" />
 	<meta property="og:type" content="website" />
-	<meta property="og:url" content="https://docs.netapp.com/ko-kr/astra-data-store/concepts/security.html" />
-	<meta property="og:description" content="Astra Data Store는 여러 가지 방법을 사용하여 클라이언트 및 관리자의 스토리지 액세스 권한을 보호하고, 통신 및 데이터를 보호하며, 바이러스로부터 보호합니다." />
+	<meta property="og:url" content="https://docs.netapp.com/ko-kr/astra-data-store/use-vmware/manage-ads-vmware.html" />
+	<meta property="og:description" content="VMware 애플리케이션을 사용하여 Astra Data Store를 관리할 수 있습니다." />
   <meta property="og:image" content="https://docs.netapp.com/ko-kr/astra-data-store/images/logo-tophat-social.png" />
   <meta property="og:image:alt" content="NetApp Logo" />
   <meta name="format-detection" content="telephone=no">
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
   <meta http-equiv="encoding" content="utf-8">
   <meta http-equiv="nss-type" content="Product Documentation"/>
-  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="Astra Data Store는 여러 가지 방법을 사용하여 클라이언트 및 관리자의 스토리지 액세스 권한을 보호하고, 통신 및 데이터를 보호하며, 바이러스로부터 보호합니다.">
-  <meta name="keywords" content=" how astra works, how astra security works, what Astra is, astra data store, kubernetes"><!-- Icons -->
+  <meta http-equiv="nss-subtype" content="User Guide"/><meta name="description" content="VMware 애플리케이션을 사용하여 Astra Data Store를 관리할 수 있습니다.">
+  <meta name="keywords" content=" astra data store, vm, vcenter, datastore, manage"><!-- Icons -->
   <link rel="icon" href="/ko-kr/astra-data-store/images/favicon.ico" type="image/x-icon">
 
   <!-- RSS Feed --><!-- CSS Definitions: NetApp CSS should be defined after generic css -->
@@ -169,7 +169,7 @@
   
   <!-- Start Page Toolbar -->
   
-  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[Astra Data Store의 보안](https://docs.netapp.com/ko-kr/astra-data-store/concepts/security.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/astra-data-store/images/discuss-sm.svg" class="github-icon" />문서 변경 요청</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/concepts/security.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/astra-data-store/images/edit-sm.svg" class="github-icon" />이 페이지 편집</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/astra-data-store/images/article-sm.svg" class="github-icon" />기여하는 방법 자세히 알아보기</a></div>
+  <div class="page-nav-toolbar"><div class="page-nav-contribute"><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/issues/new?body=Page%3A%20[VMware 설치의 Astra Data Store 구성 요소를 관리합니다](https://docs.netapp.com/ko-kr/astra-data-store/use-vmware/manage-ads-vmware.html)" class="page-nav-contribute-link" role="button"><img src="/ko-kr/astra-data-store/images/discuss-sm.svg" class="github-icon" />문서 변경 요청</a><a target="_blank" href="https://github.com/NetAppDocs/astra-data-store/blob/main/use-vmware/manage-ads-vmware.adoc" class="page-nav-contribute-link" role="button"><img src="/ko-kr/astra-data-store/images/edit-sm.svg" class="github-icon" />이 페이지 편집</a><a target="_blank" href="https://docs.netapp.com/us-en/contribute/" class="page-nav-contribute-link"  ><img src="/ko-kr/astra-data-store/images/article-sm.svg" class="github-icon" />기여하는 방법 자세히 알아보기</a></div>
     <div class="page-nav-container">
       <nav class="page-nav-fixed">
         <div class="page-nav-title">이 페이지의 내용</div>
@@ -292,15 +292,15 @@
           <ul class="n-menu__list">
             <li class="n-menu__list-column">
               <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-data-store/concepts/security.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
+                  <a href="https://docs.netapp.com/us-en/astra-data-store/use-vmware/manage-ads-vmware.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/concepts/security.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
+                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/use-vmware/manage-ads-vmware.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/concepts/security.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
+                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/use-vmware/manage-ads-vmware.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/concepts/security.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
+                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/use-vmware/manage-ads-vmware.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
                 </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/concepts/security.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
+                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/use-vmware/manage-ads-vmware.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
                 </li></ul>
             </li>
           </ul>
@@ -417,15 +417,6 @@
 
 
 
-    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
-  <a target="_blank" href="/ko-kr/astra-data-store/pdfs/pages/concepts/security.pdf" >
-    <img src="/ko-kr/astra-data-store/images/pdf.png" width="16" height="16"/>
-    PDF of this page
-  </a>
-</li>
-
-</ul>
-  
 
 
 
@@ -595,6 +586,15 @@
 
 
 
+    <ul class="subfolders" style="display:none;"><li class="active pdf-hide">
+  <a target="_blank" href="/ko-kr/astra-data-store/pdfs/pages/use-vmware/manage-ads-vmware.pdf" >
+    <img src="/ko-kr/astra-data-store/images/pdf.png" width="16" height="16"/>
+    PDF of this page
+  </a>
+</li>
+
+</ul>
+  
 
 
 
@@ -702,7 +702,7 @@
         클러스터 확장
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/concepts/storage-efficiency.html">
         스토리지 효율성
-      </a></li><li class="  active "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/concepts/security.html">
+      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/concepts/security.html">
         보안
       </a></li></ul></li><li class="subfolders "><a href="#">
         <div class="na-navbar-padding"> 시작하십시오</div>
@@ -761,7 +761,7 @@
         VMware와 함께 Astra Data Store를 설정합니다
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use-vmware/monitor-ads-vmware.html">
         VMware 설치의 구성 요소를 모니터링합니다
-      </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use-vmware/manage-ads-vmware.html">
+      </a></li><li class="  active "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use-vmware/manage-ads-vmware.html">
         VMware 설치의 Astra Data Store 구성 요소를 관리합니다
       </a></li><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/use-vmware/uninstall-ads-vmware.html">
         VMware 통합 환경에서 Astra Data Store를 제거합니다
@@ -836,7 +836,7 @@
     </div>
   </span>
 </div><div class="n-doc__component-detail-heading-wrap">
-  <h1 class="n-doc__component-detail-heading">Astra Data Store의 보안</h1>
+  <h1 class="n-doc__component-detail-heading">VMware 설치의 Astra Data Store 구성 요소를 관리합니다</h1>
 </div>
 
 
@@ -853,29 +853,357 @@
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
-<p>Astra Data Store는 여러 가지 방법을 사용하여 클라이언트 및 관리자의 스토리지 액세스 권한을 보호하고, 통신 및 데이터를 보호하며, 바이러스로부터 보호합니다.</p>
-</div>
-<div class="paragraph">
-<p>Astra Data Store는 다음과 같은 보안 방법을 사용합니다.</p>
+<p>vSphere 환경과 Astra Control Center에서 다음과 같은 Astra Data Store 구성 요소를 관리할 수 있습니다.</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>MTL(상호 전송 계층 보안)을 사용한 통신 암호화</p>
+<p><a href="#Work with managed vCenters">[Work with managed vCenters]</a></p>
 </li>
 <li>
-<p>기능에 대한 액세스를 제어하는 역할 기반 액세스 제어</p>
+<p><a href="#Manage VMs from vSphere">[Manage VMs from vSphere]</a></p>
 </li>
 <li>
-<p>배포 보안</p>
+<p><a href="#Manage the storage backend">[Manage the storage backend]</a></p>
 </li>
 <li>
-<p>인증서 관리</p>
-</li>
-<li>
-<p>내부 및 외부 키 관리를 포함하여 유휴 상태의 소프트웨어 암호화</p>
+<p><a href="#Manage datastores">[Manage datastores]</a></p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="관리되는-vcenter와-함께-작업합니다">관리되는 vCenter와 함께 작업합니다</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>다음과 같은 방법으로 관리되는 vCenter를 사용할 수 있습니다.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="#View vCenter details in Astra Control Center">[View vCenter details in Astra Control Center]</a></p>
+</li>
+<li>
+<p><a href="#View vCenter details in Astra Control Center">[View vCenter details in Astra Control Center]</a></p>
+</li>
+<li>
+<p><a href="#Unmanage a vCenter in Astra Control Center">[Unmanage a vCenter in Astra Control Center]</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="astra-control-center에서-vcenter-세부-정보를-봅니다">Astra Control Center에서 vCenter 세부 정보를 봅니다</h3>
+<div class="paragraph">
+<p>클러스터와 연결된 모든 vCenter를 확인할 수 있습니다.</p>
+</div>
+<div class="olist arabic">
+<div class="title">단계</div>
+<ol class="arabic">
+<li>
+<p>Astra Control Center 왼쪽 탐색 창에서 * Clusters * 를 선택합니다.</p>
+</li>
+<li>
+<p>vCenter 목록을 봅니다.</p>
+</li>
+<li>
+<p>저장 * 을 선택합니다.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="astra-control-center에서-vcenter-세부-정보를-봅니다-2">Astra Control Center에서 vCenter 세부 정보를 봅니다</h3>
+<div class="paragraph">
+<p>시스템 및 클러스터의 상태를 볼 수 있습니다. Astra Control Center 대시보드를 보면 몇 개의 클러스터를 관리할 수 있는지 확인할 수 있습니다.</p>
+</div>
+<div class="olist arabic">
+<div class="title">단계</div>
+<ol class="arabic">
+<li>
+<p>Astra Control Center 왼쪽 탐색 창에서 * Clusters * 를 선택합니다.</p>
+</li>
+<li>
+<p>vCenter를 선택합니다.</p>
+</li>
+<li>
+<p>정보를 봅니다.</p>
+</li>
+</ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="astra-control-center에서-vcenter-관리를-해제합니다">Astra Control Center에서 vCenter 관리를 해제합니다</h3>
+<div class="paragraph">
+<p>Astra Control Center에서 vCenter를 더 이상 관리하지 않으려면 관리를 해제할 수 있습니다. 그러면 Astra Control Center에서 vCenter가 제거되고 등록이 해제됩니다.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="참고">
+</td>
+<td class="content">
+먼저 이 vCenter와 연결된 클러스터, 스토리지 백엔드 및 VM을 VMware vSphere용 Astra 플러그인에서 제거해야 합니다.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">단계</div>
+<ol class="arabic">
+<li>
+<p>Astra Control Center 왼쪽 탐색 창에서 * Clusters * 를 선택합니다.</p>
+</li>
+<li>
+<p>클러스터 페이지에서 vCenter를 선택합니다.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/tip.svg" alt="팁">
+</td>
+<td class="content">
+또는 여러 vCenter를 선택하고 * Unmanage All * 을 선택합니다.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Actions * 메뉴를 마우스 오른쪽 버튼으로 클릭하고 * Unmanage * 를 선택합니다.</p>
+</li>
+<li>
+<p>vCenter 관리 해제 페이지에서 "unmanage"를 입력합니다.</p>
+</li>
+<li>
+<p>Yes, unmanage vcenter * 를 선택합니다.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="vsphere에서-vm을-관리합니다">vSphere에서 VM을 관리합니다</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>기본 vSphere 작업을 사용하여 Astra Data Store와 연결된 VM을 관리할 수 있습니다.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-358BF9C1-333E-4AB4-A1CB-62BEA1C94878.html?hWord=N4IghgNiBcICYFMIIC4IAQDcC2IC+QA" target="_blank" rel="noopener">"VM을 삭제합니다"</a></p>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-76E73C62-A973-4839-BB67-AC1817908E6D.html" target="_blank" rel="noopener">"VM의 이름을 바꿉니다"</a></p>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-E1D541D1-DF96-467A-89B7-E84F83B2563D.html?hWord=N4IghgNiBcIMYAswDsDmBTABAZwJYC8sA3AWxAF8g" target="_blank" rel="noopener">"VM 크기를 조정합니다"</a></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="참고">
+</td>
+<td class="content">
+이 릴리즈에서는 한 번에 하나의 VM 디스크만 크기를 조정할 수 있습니다. 여러 디스크의 크기를 조정하려고 하면 실패합니다.
+</td>
+</tr>
+</table>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-450AF515-09D4-44B6-85B2-EE848B371E58.html?hWord=N4IghgNiBcIAoHsDuBTATgAgMoBcw5QGcMEAzDMDANQEs0cBXSDAWTAGMALGgOxQ14YcnflRZIwafgAkEhHBgDCEGih44QAXyA" target="_blank" rel="noopener">"VM의 전원을 켜거나 끕니다"</a></p>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-879FA851-2B24-49E6-B58F-F25D0E923D17.html?hWord=N4IghgNiBcIM4Fc4AcCmA7AJgAgGoFkQBfIA" target="_blank" rel="noopener">"VM을 일시 중단합니다"</a></p>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-450AF515-09D4-44B6-85B2-EE848B371E58.html?hWord=N4IghgNiBcIAoHsDuBTATgAgMoBcw5QGcMEAzDMDANQEs0cBXSDAWTAGMALGgOxQ14YcnflRZIwafgAkEhHBgDCEGih44QAXyA" target="_blank" rel="noopener">"VM을 재설정합니다"</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>기본 vCenter 작업을 사용하는 Astra Data Store에 대해 다음과 같은 스냅샷 워크플로우를 사용할 수 있습니다.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-9720B104-9875-4C2C-A878-F1C351A4F3D8.html" target="_blank" rel="noopener">"Astra Data Store의 스냅샷을 생성합니다"</a></p>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-3E1BB630-9223-45E8-A64B-DCB90D450673.html" target="_blank" rel="noopener">"스냅샷을 복구합니다"</a></p>
+</li>
+<li>
+<p><a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-542CF191-B8DE-42F1-9CCC-D9030491AE25.html" target="_blank" rel="noopener">"스냅샷을 삭제합니다"</a></p>
+</li>
+</ul>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="참고">
+</td>
+<td class="content">
+VVOL 런타임 오류로 인해 스냅샷 작업이 실패하는 경우가 있습니다. 이 경우 작업을 다시 시도하십시오.
+</td>
+</tr>
+</table>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="스토리지-백엔드를-관리합니다">스토리지 백엔드를 관리합니다</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>스토리지 백엔드를 제거할 수 있습니다. 스토리지 백엔드를 제거해도 데이터가 삭제되는 것이 아니라 Astra Data Store 제품 자체를 삭제하지 않습니다. VMware에서 VASA 공급자를 등록 해제하고 해당 vCenter에 대한 스토리지 백엔드의 링크를 해제하기만 하면 됩니다.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="참고">
+</td>
+<td class="content">
+VASA Provider가 vCenter 외부에서 설정 및 구축된 경우 Astra Data Store만 제거할 수 있습니다. 스토리지 백엔드가 데이터 저장소 프로비저닝 프로세스의 일부로 사용되는 경우 스토리지 백엔드를 제거할 수 없습니다.
+</td>
+</tr>
+</table>
+</div>
+<div class="paragraph">
+<p>Astra Data Store가 둘 이상의 vCenter와 연결되어 있지 않은 경우 vCenter를 제거하면 VASA Provider가 등록 취소되고 제거됩니다.</p>
+</div>
+<div class="olist arabic">
+<div class="title">단계</div>
+<ol class="arabic">
+<li>
+<p>VMware vSphere용 Astra Plugin에 액세스합니다. </p>
+</li>
+<li>
+<p>왼쪽 탐색 창에서 * 스토리지 백엔드 * 를 선택합니다. </p>
+</li>
+<li>
+<p>스토리지 백엔드 페이지에서 스토리지 백엔드 작업 메뉴를 클릭하고 * 제거 * 를 선택합니다.</p>
+</li>
+<li>
+<p>VASA 공급자 사용자 이름 및 암호를 입력합니다. </p>
+</li>
+<li>
+<p>제거 * 를 선택합니다.</p>
+</li>
+</ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="데이터-저장소를-관리합니다">데이터 저장소를 관리합니다</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>기본 vCenter 작업을 사용하여 vSphere 환경에서 Astra Data Store를 관리하고, VM 및 Astra Plugin 확장을 통해 데이터 저장소를 관리할 수 있습니다.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="../use-vmware/setup-ads-vmware.html">"데이터 저장소를 생성합니다"</a> </p>
+</li>
+<li>
+<p><a href="#Mount a datastore">[Mount a datastore]</a></p>
+</li>
+<li>
+<p><a href="#Delete a datastore">[Delete a datastore]</a></p>
+</li>
+</ul>
+</div>
+<div class="sect2">
+<h3 id="데이터-저장소를-마운트합니다">데이터 저장소를 마운트합니다</h3>
+<div class="paragraph">
+<p>VMware vSphere용 Astra 플러그인을 사용하여 하나 이상의 추가 호스트에 데이터 저장소를 마운트할 수 있습니다.</p>
+</div>
+<div class="olist arabic">
+<div class="title">단계</div>
+<ol class="arabic">
+<li>
+<p>vCenter의 데이터 센터 인벤토리에서 Astra Data Store용 데이터 저장소를 선택합니다.</p>
+</li>
+<li>
+<p>데이터 저장소를 마우스 오른쪽 버튼으로 클릭하고 * VMware vSphere * 용 Astra Plugin &gt; * 데이터 저장소 마운트 * 를 선택합니다.</p>
+</li>
+<li>
+<p>Mount datastore on hosts 페이지에서 데이터 저장소를 마운트할 호스트를 선택합니다.</p>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/tip.svg" alt="팁">
+</td>
+<td class="content">
+모든 호스트에 데이터 저장소를 마운트하려면 * 모든 호스트에 마운트 * 를 선택합니다.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Mount * 를 선택합니다.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>작업을 시작한 후 vSphere Client의 Recent Tasks 패널에서 진행률을 추적할 수 있습니다.</p>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/note.svg" alt="참고">
+</td>
+<td class="content">
+스캔 실패 또는 일반 시스템 오류와 관련된 오류가 발생하면 <a href="https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.storage.doc/GUID-E8EA857E-268C-41AE-BBD9-08092B9A905D.html">"vCenter에서 스토리지 공급자를 다시 검색/동기화합니다"</a> 그런 다음 데이터 저장소를 다시 생성하십시오.
+</td>
+</tr>
+</table>
+</div>
+</div>
+<div class="sect2">
+<h3 id="데이터-저장소를-삭제합니다">데이터 저장소를 삭제합니다</h3>
+<div class="paragraph">
+<p>VMware vSphere용 Astra 플러그인을 사용하여 데이터 저장소를 삭제할 수 있습니다.</p>
+</div>
+<div class="admonitionblock tip">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/astra-data-store/images/tip.svg" alt="팁">
+</td>
+<td class="content">
+데이터 저장소를 삭제하려면 먼저 데이터 저장소의 모든 VM을 제거해야 합니다.
+</td>
+</tr>
+</table>
+</div>
+<div class="olist arabic">
+<div class="title">단계</div>
+<ol class="arabic">
+<li>
+<p>vCenter의 데이터 센터 인벤토리에서 데이터 저장소를 선택합니다.</p>
+</li>
+<li>
+<p>데이터 저장소를 마우스 오른쪽 버튼으로 클릭하고 * Astra Plugin * &gt; * Delete Datastore * 를 선택합니다.</p>
+</li>
+<li>
+<p>데이터 저장소 삭제 페이지에서 정보를 확인하거나 추가 권장 조치를 수행하여 데이터 저장소를 삭제할 수 있습니다.</p>
+</li>
+<li>
+<p>삭제 * 를 선택합니다.</p>
+</li>
+</ol>
+</div>
 </div>
 </div>
 </div>
@@ -885,25 +1213,10 @@
 <div class="ulist">
 <ul>
 <li>
-<p><a href="https://docs.netapp.com/us-en/astra-family/intro-family.html" target="_blank" rel="noopener">"Astra 제품군 소개"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra/index.html" target="_blank" rel="noopener">"Astra Control Service 문서"</a></p>
-</li>
-<li>
 <p><a href="https://docs.netapp.com/us-en/astra-control-center/" target="_blank" rel="noopener">"Astra Control Center 문서"</a></p>
 </li>
 <li>
-<p><a href="https://docs.netapp.com/us-en/trident/index.html" target="_blank" rel="noopener">"Astra Trident 문서"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/astra-automation/index.html" target="_blank" rel="noopener">"Astra Control API를 사용합니다"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/cloudinsights/" target="_blank" rel="noopener">"Cloud Insights 설명서"</a></p>
-</li>
-<li>
-<p><a href="https://docs.netapp.com/us-en/ontap/index.html" target="_blank" rel="noopener">"ONTAP 설명서"</a></p>
+<p><a href="https://docs.netapp.com/us-en/astra-family/intro-family.html" target="_blank" rel="noopener">"Astra 제품군 소개"</a></p>
 </li>
 </ul>
 </div>
