@@ -1,25 +1,25 @@
 ---
 sidebar: sidebar 
 permalink: concepts/security.html 
-keywords: how astra works, how Astra security works, what Astra is, astra data store, kubernetes 
+keywords: how astra works, how astra security works, what Astra is, astra data store, kubernetes 
 summary: Astra Data Store는 여러 가지 방법을 사용하여 클라이언트 및 관리자의 스토리지 액세스 권한을 보호하고, 통신 및 데이터를 보호하며, 바이러스로부터 보호합니다. 
 ---
-= Astra Data Store 미리 보기의 보안
+= Astra Data Store의 보안
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/concepts/
 
 
-Astra Data Store Preview는 여러 가지 방법을 사용하여 클라이언트 및 관리자의 스토리지 액세스 권한을 보호하고, 통신 및 데이터를 보호하고, 바이러스로부터 보호합니다.
+Astra Data Store는 여러 가지 방법을 사용하여 클라이언트 및 관리자의 스토리지 액세스 권한을 보호하고, 통신 및 데이터를 보호하며, 바이러스로부터 보호합니다.
 
-Astra Data Store Preview에서는 다음과 같은 보안 방법을 사용합니다.
+Astra Data Store는 다음과 같은 보안 방법을 사용합니다.
 
 * MTL(상호 전송 계층 보안)을 사용한 통신 암호화
 * 기능에 대한 액세스를 제어하는 역할 기반 액세스 제어
 * 배포 보안
 * 인증서 관리
-* 내부 키 관리를 비롯한 유휴 소프트웨어 암호화
+* 내부 및 외부 키 관리를 포함하여 유휴 상태의 소프트웨어 암호화
 
 
 

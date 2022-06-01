@@ -1,0 +1,53 @@
+---
+sidebar: sidebar 
+permalink: use/manage-certificates.html 
+keywords: astra, astra data store, kubectl, certs, cert, certificate, certificates, revoke, security, secure, expired, compromised, regenerate, generate 
+summary: Astra Data Store에서 손상된 인증서 또는 만료된 인증서를 수동으로 취소할 수 있습니다. 
+---
+= 보안 인증서를 관리합니다
+:allow-uri-read: 
+
+
+Astra Data Store는 클러스터의 소프트웨어 구성 요소 간에 MTL(Mutual Transport Layer Security) 암호화를 사용합니다. 각 Astra Data Store 클러스터에는 자체 서명된 루트 CA 인증서("astrads-cert-root")와 중간 CA 인증서("astrads-cert-<cluster_name>")가 있습니다. 이 인증서는 Astra Data Store 운영자가 관리합니다. 운영자는 만료 날짜 7일 전에 각 인증서를 자동으로 갱신합니다. 인증서를 수동으로 취소할 수도 있습니다.
+
+
+
+== 인증서를 해지합니다
+
+Astra Data Store 컨트롤러, 노드 또는 CA 인증서가 손상된 경우 MTL 암호를 삭제하여 이를 취소할 수 있습니다. 이렇게 하면 Astra Data Store 운영자가 자동으로 새 인증서를 발급합니다. 언제든지 Astra Data Store 인증서를 해지할 수 있습니다.
+
+
+NOTE: CA 인증서를 해지하면 해당 CA에서 서명한 인증서가 해지됩니다.
+
+.단계
+. Astra Data Store 클러스터의 컨트롤러 노드에 로그인합니다.
+. 시스템에 있는 기존 인증서를 나열합니다. 예를 들면 다음과 같습니다.
++
+[listing]
+----
+kubectl get secrets -n astrads-system | grep astrads-cert
+----
++
+출력은 다음과 비슷해야 합니다.
+
++
+[listing]
+----
+astrads-cert-astrads-cluster-controller                   kubernetes.io/tls     4      6d6h
+astrads-cert-astrads-cluster-f23d158                      kubernetes.io/tls     4      6d6h
+astrads-cert-astrads-ds-dms-astrads-cluster-f23d158       kubernetes.io/tls     4      6d6h
+astrads-cert-astrads-ds-support-astrads-cluster-f23d158   kubernetes.io/tls     4      6d6h
+astrads-cert-astrads-support-astrads-cluster-f23d158      kubernetes.io/tls     4      6d6h
+astrads-cert-root                                         kubernetes.io/tls     4      6d6h
+astrads-cert-sti-net-com                                  kubernetes.io/tls     5      6d6h
+----
+. 출력에서 취소할 인증서의 이름을 기록합니다.
+. kubeck 유틸리티를 사용하여 인증서를 해지하고 certificate_name을 인증서 이름으로 바꿉니다. 예를 들면 다음과 같습니다.
++
+[listing]
+----
+kubectl delete secret CERTIFICATE_NAME -n astrads-system
+----
+
+
+기존 인증서가 해지되고 대신 새 인증서가 자동으로 생성됩니다.

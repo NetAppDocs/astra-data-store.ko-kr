@@ -4,26 +4,30 @@ permalink: get-started/setup-ads.html
 keywords: astra, astra data store, setup, trident, backend 
 summary: Astra Data Store를 설치하고 몇 가지 환경 요구 사항을 해결한 후에는 Astra Trident를 설치 또는 업데이트하고 K8s 스냅샷 기능을 구성하고 스토리지 백엔드를 설정한 다음 기본 스토리지 클래스를 생성합니다. 
 ---
-= Astra Data Store 미리보기 구성 요소를 설정합니다
+= Astra Data Store 구성 요소를 설정합니다
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 
 
-Astra Data Store 미리 보기를 설치하고 몇 가지 환경 요구 사항을 해결한 후에는 Astra Trident를 설치하고, Kubernetes 스냅샷 기능을 구성하고, 스토리지 백엔드를 설정하고, 기본 스토리지 클래스를 생성합니다.
+먼저 해 link:../get-started/install-ads.html#install-a-standalone-astra-data-store["독립 실행형 Astra Data Store를 설치했습니다"] 몇 가지 문제를 해결했습니다 link:../get-started/requirements.html["환경 전제 조건"]Astra Trident를 설치하고, Kubernetes 스냅샷 기능을 구성하고, 스토리지 백엔드를 설정하고, 기본 스토리지 클래스를 생성합니다.
+
+
+NOTE: Astra Control Center를 사용하여 Astra Data Store를 배포하는 경우, 설정을 계획하지 않는 한 다음 단계를 따를 필요가 없습니다 <<Configure Astra Data Store monitoring,추가 모니터링 옵션>>.
 
 * <<Install Astra Trident>>
 * <<Install Kubernetes snapshot CRDs and Controller>>
 * <<Set up Astra Data Store as storage backend>>
 * <<Create a default Astra Data Store storage class>>
+* <<Configure Astra Data Store monitoring>>
 
 
 
 
 == Astra Trident를 설치합니다
 
-Astra Data Store 미리 보기의 경우 Astra Trident 21.10.1을 설치해야 합니다. 다음 옵션 중 하나를 사용하여 Astra Trident를 설치할 수 있습니다.
+Astra Data Store의 경우 Astra Trident 21.10.1 이상을 설치해야 합니다. 다음 옵션 중 하나를 사용하여 Astra Trident를 설치할 수 있습니다.
 
 * https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-tridentctl.html["tridentctl을 사용하여 Astra Trident를 설치합니다"^].
 * https://docs.netapp.com/us-en/trident/trident-get-started/kubernetes-deploy-operator.html["Trident 연산자를 사용하여 Astra Trident를 설치합니다"^].
@@ -43,7 +47,7 @@ NOTE: Trident 연산자는 수동으로 또는 Hrom을 사용하여 배포할 �
 NOTE: 다음 명령 예제에서는 디렉터리를 '/trident'로 가정합니다. 그러나 사용하는 디렉터리는 YAML 파일을 다운로드하는 데 사용한 디렉터리일 수 있습니다.
 
 .무엇을 &#8217;필요로 할거야
-* link:requirements.html["설치를 시작하기 전에 Astra Data Store 미리 보기 구축을 위한 환경을 준비합니다"].
+* link:requirements.html["설치를 시작하기 전에 Astra Data Store 구축을 위한 환경을 준비하십시오"].
 * 를 다운로드합니다 link:https://github.com/kubernetes-csi/external-snapshotter/tree/master/deploy/kubernetes/snapshot-controller["Kubernetes 스냅샷 컨트롤러 YAML 파일"^]:
 +
 ** 설정 - 스냅샷 - 컨트롤러.YAML
@@ -183,6 +187,10 @@ vi ads_backend.json
 ----
 . JSON 파일 구성:
 +
+
+NOTE: JSON 샘플은 다음 단계를 따릅니다.
+
++
 .. ""클러스터"" 값을 Astra Data Store 클러스터의 클러스터 이름으로 변경합니다.
 .. '"namespace" 값을 볼륨 생성에 사용할 네임스페이스로 변경합니다.
 .. 이 백엔드에 대한 내보내기 정책 CR을 대신 설정하지 않는 한 ""autoExportPolicy"" 값을 "true"로 변경합니다.
@@ -226,7 +234,7 @@ cat kubeconf.json | base64 | tr -d '\n'
     "debugTraceFlags": {"method": true, "api": true},
     "labels": {"cloud": "on-prem", "creator": "trident-dev"},
     "defaults": {
-        "qosPolicy": "bronze"
+        "qosPolicy": "silver"
     },
     "storage": [
         {
@@ -234,7 +242,7 @@ cat kubeconf.json | base64 | tr -d '\n'
                 "performance": "extreme"
             },
             "defaults": {
-                "qosPolicy": "bronze"
+                "qosPolicy": "gold"
             }
         },
         {
@@ -242,7 +250,7 @@ cat kubeconf.json | base64 | tr -d '\n'
                 "performance": "premium"
             },
             "defaults": {
-                "qosPolicy": "bronze"
+                "qosPolicy": "silver"
             }
         },
         {
@@ -303,16 +311,22 @@ vi ads_sc_example.yaml
 +
 [listing]
 ----
+allowVolumeExpansion: true
 apiVersion: storage.k8s.io/v1
 kind: StorageClass
 metadata:
-  name: trident-csi
+  creationTimestamp: "2022-05-09T18:05:21Z"
+  name: ads-silver
+  resourceVersion: "3361772"
+  uid: lo023456-da4b-51e3-b430-3aa1e3bg111a
+mountOptions:
+- vers=4
+parameters:
+  backendType: astrads-nas
+  selector: performance=premium
 provisioner: csi.trident.netapp.io
 reclaimPolicy: Delete
 volumeBindingMode: Immediate
-allowVolumeExpansion: true
-mountOptions:
-  - vers=4.1
 ----
 .. 트리덴트 CSI 생성:
 +
@@ -334,7 +348,7 @@ storageclass.storage.k8s.io/trident-csi created
 +
 [listing]
 ----
-kubectl get storageclass -A
+kubectl get storageclass
 ----
 +
 응답:
@@ -343,7 +357,7 @@ kubectl get storageclass -A
 [listing]
 ----
 NAME          PROVISIONER             RECLAIMPOLICY   VOLUMEBINDINGMODE   ALLOWVOLUMEEXPANSION   AGE
-trident-csi   csi.trident.netapp.io   Delete          Immediate           true                   6h29m
+ads-silver    csi.trident.netapp.io   Delete          Immediate           true                   6h29m
 ----
 . Trident 설치 프로그램을 다운로드한 디렉토리로 이동합니다.
 +
@@ -395,7 +409,7 @@ items:
     storage:
     - defaults:
         exportPolicy: ""
-        qosPolicy: bronze
+        qosPolicy: gold
         size: ""
         snapshotDir: ""
         snapshotPolicy: ""
@@ -406,7 +420,7 @@ items:
       zone: ""
     - defaults:
         exportPolicy: ""
-        qosPolicy: bronze
+        qosPolicy: silver
         size: ""
         snapshotDir: ""
         snapshotPolicy: ""
@@ -495,8 +509,42 @@ items:
         snapshots:
           offer: true
       storageClasses:
-      *- trident-csi*
+      *- ads-silver*
       supportedTopologies: null
   volumes: []
+----
+
+
+
+
+== Astra Data Store 모니터링을 구성합니다
+
+(선택 사항) 다른 원격 측정 서비스를 통해 모니터링하도록 Astra Data Store를 구성할 수 있습니다. Astra Data Store 모니터링을 위해 Astra Control Center를 사용하지 않거나 모니터링을 추가 엔드포인트로 확장하려면 이 절차를 권장합니다.
+
+Astra Data Store 인스턴스가 독립 실행형 배포이거나 Cloud Insights를 사용하여 원격 측정을 모니터링하거나 Elastic과 같은 타사 엔드포인트로 로그를 스트리밍하는 경우 모니터링 연산자를 설치할 수 있습니다.
+
+
+NOTE: Astra Control Center 배포의 경우 모니터링 운영자가 자동으로 구성됩니다. 다음 절차의 처음 두 명령을 건너뛸 수 있습니다.
+
+모니터링을 설정하기 전에 "Astra-system" 네임스페이스에 활성 Astra 데이터 저장소 클러스터가 필요합니다.
+
+.단계
+. 다음 설치 명령을 실행합니다.
++
+[listing]
+----
+kubectl apply -f ./manifests/monitoring_operator.yaml
+----
+. 모니터링을 위해 Astra Data Store 구성:
++
+[listing]
+----
+kubectl astrads monitoring -n netapp-monitoring -r [YOUR REGISTRY] setup
+----
+. EMS 로그를 Elastic 끝점으로 스트리밍하도록 Astra Data Store 구성:
++
+[listing]
+----
+kubectl astrads monitoring es --port <portname> --host <hostname>
 ----
 

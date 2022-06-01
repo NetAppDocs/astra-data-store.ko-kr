@@ -1,0 +1,49 @@
+---
+sidebar: sidebar 
+permalink: use/update-ads-license.html 
+keywords: astra, astra data store, kubectl 
+summary: 명령줄을 사용하여 Astra Data Store에 대해 설치된 라이센스를 업데이트할 수 있습니다. 
+---
+= Astra Data Store 라이센스를 업데이트합니다
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+평가 기간을 연장하기 위해 Astra Data Store에 대해 설치된 평가 라이센스를 업데이트할 수 있습니다. 다음 세 가지 방법 중 하나를 사용하여 라이센스를 업데이트할 수 있습니다.
+
+* Astra Control Center를 사용하여 Astra Data Store 라이센스를 업데이트하려면 을 참조하십시오 https://docs.netapp.com/us-en/astra-control-center/use/manage-backend.html#update-a-storage-backend-license["스토리지 백엔드 라이센스를 업데이트합니다"].
+* Astra VMware 플러그인을 사용하여 Astra Data Store 라이센스를 업데이트하려면 을 참조하십시오 link:../use-vmware/manage-ads-vmware.html["VMware를 사용하여 Astra Data Store를 관리합니다"].
+* 명령줄을 사용하여 Astra Data Store 라이센스를 업데이트하려면 을 참조하십시오 <<Update the Astra Data Store license using the command line>>.
+
+
+
+
+== 명령줄을 사용하여 Astra Data Store 라이센스를 업데이트합니다
+
+kubeck 유틸리티를 사용하여 Astra Data Store 라이센스를 업데이트할 수 있습니다.
+
+.단계
+. NetApp에서 구입한 대체 NetApp 라이센스 파일(NLF)을 적용합니다. 명령을 실행하기 전에 클러스터 이름(<<Astra-Data-Store-cluster-name>')과 라이센스 파일 경로('<file_path/file.txt>')를 입력합니다.
++
+[listing]
+----
+kubectl astrads license add --license-file-path <file_path/file.txt> --ads-cluster-name <Astra-Data-Store-cluster-name> -n astrads-system
+----
+. 라이센스가 추가되었는지 확인합니다.
++
+[listing]
+----
+kubectl astrads license list
+----
++
+다음과 유사한 응답이 표시됩니다.
+
++
+[listing]
+----
+NAME        ADSCLUSTER                 VALID   PRODUCT             EVALUATION  ENDDATE     VALIDATED
+p100000006  astrads-example-cluster    true    Astra Data Store    true        2023-01-23  2022-04-04T14:38:54Z
+----
+

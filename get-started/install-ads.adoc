@@ -1,73 +1,108 @@
 ---
 sidebar: sidebar 
 permalink: get-started/install-ads.html 
-keywords: astra, astra data store, install, deploy, download, openshift, red hat, ocp 
-summary: 몇 가지 환경 요구 사항을 충족한 후 Astra Data Store를 설치하려면 번들을 다운로드하고 다음 단계를 따라 설치합니다. OpenShift에 Astra Data Store를 설치하는 방법 
+keywords: astra data store, install, deploy, openshift, astra control center, rancher, anthos 
+summary: Kubernetes 네이티브 명령을 사용하거나 Astra Control Center의 UI를 사용하여 Astra Data Store를 설치할 수 있습니다. 
 ---
-= Astra Data Store 미리 보기를 설치합니다
+= Astra Data Store를 설치합니다
 :hardbreaks:
 :allow-uri-read: 
 :icons: font
 :imagesdir: ../media/get-started/
 
 
-Astra Data Store 미리 보기를 설치하려면 에서 설치 번들을 다운로드하십시오 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp Support 사이트"^] 이 절차에 설명된 설치 단계를 완료합니다.
+Kubernetes 네이티브 명령을 사용하거나 Astra Control Center의 UI를 사용하여 Astra Data Store를 설치할 수 있습니다.
 
-video::jz6EuryqYps[youtube, ]
-.무엇을 &#8217;필요로 할거야
-* link:requirements.html["설치를 시작하기 전에 Astra Data Store 미리 보기 구축을 위한 환경을 준비합니다"].
-* 에 액세스합니다 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp Support 사이트"^]. https://www.netapp.com/cloud-services/astra/data-store-form/["등록"^] 전체 액세스 권한이 없는 NetApp Support 사이트 계정이 없는 경우 미리 보기를 위해
-* A link:../get-started/requirements.html#licensing["NetApp 라이센스 파일(NLF)"] Astra Data Store 미리 보기입니다. 라이센스 다운로드 지침이 사용자에게 전송됩니다 https://www.netapp.com/cloud-services/astra/data-store-form["가입하세요"^].
+
+
+== 설치 옵션
+
+* * Kubernetes 네이티브 명령 * 사용: Kubernetes 네이티브 명령을 사용하여 Astra Data Store를 설치하려면 에 설명된 설치 단계를 완료하십시오 <<Install Astra Data Store,수행할 수 있습니다>>.
+* * Astra Control Center * 포함: Astra Control Center를 사용하여 Astra Data Store를 설치하려면 에 설명된 설치 단계를 완료하십시오 <<Install Astra Data Store using Astra Control Center,수행할 수 있습니다>>.
+
+
+
+
+== 필요한 것
+
+* link:requirements.html["설치를 시작하기 전에 Astra Data Store 구축을 위한 환경을 준비하십시오"].
+* 에 액세스합니다 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp Support 사이트"^]. https://www.netapp.com/cloud-services/astra/data-store-form/["등록"^] NetApp Support 사이트 계정이 아직 없는 경우 평가판을 다운로드하십시오.
+* A link:../get-started/requirements.html#licensing["NetApp 라이센스 파일(NLF)"] Astra Data Store용. 라이센스 다운로드 지침이 사용자에게 전송됩니다 https://www.netapp.com/cloud-services/astra/data-store-form["가입하세요"^].
 * 활성 컨텍스트에 대한 클러스터 관리자 권한이 있는 활성 kubecononfig.
-* 에 대한 이해 link:../get-started/faq-ads.html#installation-and-use-of-astra-data-store-preview-on-a-kubernetes-cluster["역할 및 권한"] Astra Data Store 미리 보기에서 사용합니다.
-* 인터넷 연결. Astra Data Store 미리 보기는 대기 환경을 지원하지 않습니다. 직접 또는 프록시를 통해 support.netapp.com 에 접속하려면 인터넷 연결이 필요합니다.
+* 에 대한 이해 link:../get-started/faq-ads.html#installation-and-use-of-astra-data-store-on-a-kubernetes-cluster["역할 및 권한"] Astra Data Store에서 사용합니다.
 
 
-Astra Data Store 미리 보기 설치 프로세스는 다음과 같은 고급 단계를 안내합니다.
 
-* <<Download the Astra Data Store preview bundle and extract the images>>
+
+== Astra Data Store를 설치합니다
+
+표준 Kubernetes 클러스터를 위한 Astra Data Store 설치 프로세스는 다음과 같은 고급 단계를 안내합니다. Red Hat OpenShift Container Platform(OCP) 환경의 추가 설치 단계도 설명되어 있습니다.
+
+* <<Download the Astra Data Store bundle and extract the images>>
 * <<Copy the binary and push images to your local registry>>
 * <<OpenShift procedure>>
-* <<Install the Astra Data Store preview operator>>
-* <<Deploy the Astra Data Store preview version YAML>>
-* <<Apply the Astra Data Store preview license>>
-* <<Install the Astra Data Store preview cluster>>
+* <<Install the Astra Data Store operator>>
+* <<Deploy the Astra Data Store version YAML>>
+* <<Apply the Astra Data Store license>>
+* <<Install the Astra Data Store cluster>>
 * <<Understand deployment-related events>>
-* <<Configure Astra Data Store preview monitoring>>
-
-
-Astra Data Store 미리 보기를 사용하여 비밀이 있는 이미지 등록부와 함께 작업하려면 을 참조하십시오 https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra/How_to_enable_Astra_Data_Store_preview_to_work_with_image_registries_with_secret["이 KB입니다"].
 
 
 
-== Astra Data Store 미리보기 번들을 다운로드하고 이미지를 추출합니다
+NOTE: Google Anthos와 함께 Astra Data Store를 사용하려면 설치 단계를 완료하고 Anthos 환경에 Astra Data Store 클러스터를 추가하십시오.
 
-. 에 로그인합니다 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp Support 사이트"^] Astra Data Store Preview 번들('2021.12.01_ads.tar')을 다운로드하십시오.
+
+NOTE: Rancher RKE 환경과 함께 Astra Data Store를 설치하려면 설치 단계와 kubctl 명령을 위한 대체 rancher 명령을 수행합니다.
+
+
+
+=== Astra Data Store 번들을 다운로드하고 이미지를 추출합니다
+
+. 에 로그인합니다 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp Support 사이트"^] Astra Data Store 번들('Astra_Data_Store_2022.05.tar')을 다운로드하십시오.
++
+
+NOTE: 이전 버전의 번들에 대한 지침은 을 참조하십시오 link:../acc-earlier-versions.html["해당 버전에 대한 설명서입니다"].
+
 . (선택 사항) 다음 명령을 사용하여 번들의 서명을 확인합니다.
 +
 [listing]
 ----
-openssl dgst -sha256 -verify 2021.12_ads.pub -signature 2021.12_ads.sig 2021.12.01_ads.tar
+openssl dgst -sha256 -verify Astra_Data_Store_2022.05.pub -signature Astra_Data_Store_2022.05.sig 2022.12.01_ads.tar
+----
+. 디렉토리 생성:
++
+[listing]
+----
+mkdir Astra_Data_Store_2022.05
+cd Astra_Data_Store_2022.05
 ----
 . 이미지 추출:
 +
 [listing]
 ----
-tar -xvf 2021.12.01_ads.tar
+tar -xvf <path to tar file>/Astra_Data_Store_2022.05.tar
 ----
++
+
+NOTE: 이미지는 작업 디렉토리 내에 생성된 'Astrads/images' 디렉토리에 압축이 풀립니다.
 
 
 
 
-== 이진 파일을 복사하고 이미지를 로컬 레지스트리에 푸시합니다
 
-. k8kubbeck 바이너리가 설치된 표준 경로(예: "/usr/bin/")로 이미지를 추출하기 위해 사용한 디렉토리에서 kubbctl-astrs 바이너리를 복사합니다. kubbctl-astrs는 Astra Data Store Preview 클러스터를 설치 및 관리하는 사용자 지정 kubtl 확장입니다.
+=== 이진 파일을 복사하고 이미지를 로컬 레지스트리에 푸시합니다
+
+. k8s kubbectl 바이너리가 설치된 표준 경로로 이미지를 추출하는 데 사용한 디렉토리에서 kubbctl-astrads 바이너리를 복사합니다("/usr/bin/"은 아래 예에서 경로로 사용됨). kubbctl-astra 데이터 저장소 클러스터를 설치 및 관리하는 사용자 지정 kubtl 확장입니다.
++
+
+TIP: kubbeck 명령을 사용하여 kubbctl 바이너리가 설치된 경로를 찾습니다.
+
 +
 [listing]
 ----
-cp -p ./bin/kubectl-astrads /usr/bin/.
+cp -p ./astrads/bin/kubectl-astrads /usr/bin/.
 ----
-. Astra Data Store 미리보기 이미지 디렉토리의 파일을 로컬 레지스트리에 추가합니다.
+. Astra Data Store 이미지 디렉토리의 파일을 로컬 레지스트리에 추가합니다.
 +
 
 NOTE: 아래 이미지의 자동 로드에 대한 샘플 스크립트를 참조하십시오.
@@ -79,37 +114,37 @@ NOTE: 아래 이미지의 자동 로드에 대한 샘플 스크립트를 참조�
 ----
 docker login [your_registry_path]
 ----
-.. 환경 변수를 레지스트리 경로로 설정하여 Astra Data Store 미리 보기 이미지를 푸시합니다(예: repo.company.com`).
+.. 환경 변수를 레지스트리 경로로 설정하여 Astra Data Store 이미지를 푸시합니다(예: REpo.company.com`).
 +
 [listing]
 ----
 export REGISTRY=repo.company.com/astrads
 ----
 .. 스크립트를 실행하여 이미지를 Docker에 로드하고, 이미지에 태그를 지정하고, [[substep_image_local_registry_push]]를 눌러 이미지를 로컬 레지스트리에 로드합니다.
-
-
 +
 [listing]
 ----
-for astraImageFile in $(ls images/*.tar) ; do
+for astraImageFile in $(ls astrads/images/*.tar) ; do
    astraImage=$(docker load --input ${astraImageFile} | sed 's~Loaded image: ~~')
    astraImageShort=`echo $astraImage | sed 's~.*/~~'`
    docker tag ${astraImage} ${REGISTRY}/${astraImageShort}
    docker push ${REGISTRY}/${astraImageShort}
 done
-sed -i 's~\[YOUR REGISTRY\]~'${REGISTRY}'~' ./manifests/*.yaml
+sed -i 's~\[YOUR REGISTRY\]~'${REGISTRY}'~' ./astrads/manifests/*.yaml
 ----
 
 
 
 
-== OpenShift 절차
 
-다음 절차는 Red Hat OpenShift Container Platform(OCP)에서 배포용으로만 필요합니다. OCP가 아닌 Kubernetes 클러스터 구축에 대해서는 이 절차를 건너뛸 수 있습니다.
+
+=== OpenShift 절차
+
+다음 절차는 Red Hat OpenShift Container Platform(OCP)에서의 배포에만 사용하십시오. OCP Kubernetes가 아닌 클러스터에 구축할 경우 이 절차를 건너뛰십시오.
 
 .세부 정보
 ====
-모든 Astra Data Store 미리 보기 구성 요소를 설치할 네임스페이스 'astrads-system'을 만듭니다.
+모든 Astra Data Store 구성 요소를 설치할 네임스페이스 'astrads-system'을 만듭니다.
 
 다음 단계는 Red Hat OpenShift Container Platform(OCP)에 배포용으로만 필요합니다.
 
@@ -136,9 +171,9 @@ metadata:
 
 OpenShift는 POD가 수행할 수 있는 작업을 제어하는 SCC(Security Context Constraints)를 사용합니다. 기본적으로 모든 컨테이너의 실행에는 제한된 SCC와 해당 SCC에 의해 정의된 기능만 부여됩니다.
 
-제한된 SCC는 Astra Data Store 미리보기 클러스터 포드에 필요한 권한을 제공하지 않습니다. 이 절차를 사용하여 Astra Data Store 미리 보기에 필요한 권한(샘플에 나열되어 있음)을 제공합니다.
+제한된 SCC는 Astra Data Store 클러스터 포드에 필요한 권한을 제공하지 않습니다. 이 절차를 사용하여 Astra Data Store에 필요한 권한(샘플에 나열되어 있음)을 제공합니다.
 
-사용자 지정 SCC를 Astra Data Store 미리 보기 네임스페이스의 기본 서비스 계정에 할당합니다.
+사용자 지정 SCC를 Astra Data Store 네임스페이스의 기본 서비스 계정에 할당합니다.
 
 다음 단계는 Red Hat OpenShift Container Platform(OCP)에 배포용으로만 필요합니다.
 
@@ -203,9 +238,9 @@ ads-privileged   true   ["*"]   RunAsAny   RunAsAny    RunAsAny   RunAsAny   <no
 ----
 
 
-Astra Data Store 미리 보기의 기본 서비스 계정에서 사용할 필수 역할 및 역할 바인딩을 만듭니다.
+Astra Data Store의 기본 서비스 계정에서 사용할 필수 역할 및 역할 바인딩을 만듭니다.
 
-다음 YAML 정의는 Astra Data Store 미리보기 리소스에 필요한 다양한 역할(rolebindings)을 'astrads.netapp.io` API 그룹'에서 할당합니다.
+다음 YAML 정의는 Astra Data Store 리소스에 필요한 다양한 역할(rolebindings)을 'astrads.netapp.io` API 그룹'에 할당합니다.
 
 다음 단계는 Red Hat OpenShift Container Platform(OCP)에 배포용으로만 필요합니다.
 
@@ -282,13 +317,43 @@ subjects:
 ====
 
 
-== Astra Data Store preview operator를 설치한다
+=== 개인 이미지 레지스트리를 구성합니다
 
-. Astra Data Store 미리 보기 목록을 나열합니다.
+특정 환경의 선택적 단계로서 구성을 변경하여 비밀을 사용하는 개인 레지스트리에서 이미지를 가져올 수 있습니다.
+
+. 이전 단계에서 이미 작성한 경우를 제외하고 'Astads-system' 네임스페이스를 만듭니다.
 +
 [listing]
 ----
-ls manifests/*yaml
+kubectl create namespace astrads-system
+----
+. 비밀 만들기:
++
+[listing]
+----
+kubectl create secret docker-registry <secret-name> -n astrads-system --docker-server=<registry name> --docker-username= <registry username> --docker-password=<registry user password>
+----
+. 서비스 계정에 비밀 구성 정보 추가:
++
+[listing]
+----
+kubectl patch serviceaccount default -p '{"imagePullSecrets": [{"name": "<secret-name>"}]}' -n astrads-system
+----
++
+
+NOTE: 이 변경 사항은 사용자가 적용할 때 적용됩니다 <<Install the Astra Data Store operator,Astra Data Store 운영자를 설치합니다>>.
+
+
+
+
+
+=== Astra Data Store 운영자를 설치합니다
+
+. Astra Data Store 매니페스트 나열:
++
+[listing]
+----
+ls astrads/manifests/*yaml
 ----
 +
 응답:
@@ -296,72 +361,100 @@ ls manifests/*yaml
 +
 [listing]
 ----
-manifests/astradscluster.yaml
-manifests/astradsoperator.yaml
-manifests/astradsversion.yaml
-manifests/monitoring_operator.yaml
+astrads/manifests/monitoring_operator.yaml
+astrads/manifests/astradscluster.yaml
+astrads/manifests/astradsversion.yaml
+astrads/manifests/astradsoperator.yaml
+astrads/manifests/vasa_asup_certs.yaml
+astrads/manifests/manifest.yaml
+astrads/manifests/configuration.yaml
 ----
 . kubeck 적용 시 운용자 배치:
 +
 [listing]
 ----
-kubectl apply -f ./manifests/astradsoperator.yaml
+kubectl apply -f ./astrads/manifests/astradsoperator.yaml
 ----
 +
 응답:
 
 +
 
-NOTE: 네임스페이스 응답은 표준 설치를 수행했는지 OCP 설치를 수행했는지에 따라 다를 수 있습니다.
+NOTE: 네임스페이스 응답은 표준 설치를 수행했는지 또는 을 수행했는지에 따라 다를 수 있습니다 link:../get-started/install-ads.html#openshift-procedure["OCP 설치"].
 
 +
 [listing]
 ----
 namespace/astrads-system created
+customresourcedefinition.apiextensions.k8s.io/astradsadddrives.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradsautosupports.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradscloudsnapshots.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradsclusters.astrads.netapp.io created
-customresourcedefinition.apiextensions.k8s.io/astradsdeployments.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradsexportpolicies.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradsfaileddrives.astrads.netapp.io created
+customresourcedefinition.apiextensions.k8s.io/astradskeyproviders.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradslicenses.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradsnfsoptions.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradsnodeinfoes.astrads.netapp.io created
+customresourcedefinition.apiextensions.k8s.io/astradsnodemanagements.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradsqospolicies.astrads.netapp.io created
+customresourcedefinition.apiextensions.k8s.io/astradssearkeyrotaterequests.astrads.netapp.io created
+customresourcedefinition.apiextensions.k8s.io/astradsversions.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradsvolumefiles.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradsvolumes.astrads.netapp.io created
 customresourcedefinition.apiextensions.k8s.io/astradsvolumesnapshots.astrads.netapp.io created
+role.rbac.authorization.k8s.io/astrads-astrads-system-admin-role created
+role.rbac.authorization.k8s.io/astrads-astrads-system-reader-role created
+role.rbac.authorization.k8s.io/astrads-astrads-system-writer-role created
 role.rbac.authorization.k8s.io/astrads-leader-election-role created
+role.rbac.authorization.k8s.io/astrads-manager-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astrads-admin-clusterrole created
+clusterrole.rbac.authorization.k8s.io/astrads-astrads-reader-clusterrole created
+clusterrole.rbac.authorization.k8s.io/astrads-astrads-writer-clusterrole created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsautosupport-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsautosupport-viewer-role created
 clusterrole.rbac.authorization.k8s.io/astrads-astradscloudsnapshot-editor-role created
 clusterrole.rbac.authorization.k8s.io/astrads-astradscloudsnapshot-viewer-role created
 clusterrole.rbac.authorization.k8s.io/astrads-astradscluster-editor-role created
 clusterrole.rbac.authorization.k8s.io/astrads-astradscluster-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsexportpolicy-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsexportpolicy-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsfaileddrive-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsfaileddrive-viewer-role created
 clusterrole.rbac.authorization.k8s.io/astrads-astradslicense-editor-role created
 clusterrole.rbac.authorization.k8s.io/astrads-astradslicense-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsnfsoption-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsnfsoption-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsnodeinfo-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsnodeinfo-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsnodemanagement-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsnodemanagement-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsqospolicy-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsversion-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsversion-viewer-role created
 clusterrole.rbac.authorization.k8s.io/astrads-astradsvolume-editor-role created
 clusterrole.rbac.authorization.k8s.io/astrads-astradsvolume-viewer-role created
-clusterrole.rbac.authorization.k8s.io/astrads-autosupport-editor-role created
-clusterrole.rbac.authorization.k8s.io/astrads-autosupport-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsvolumefile-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsvolumefile-viewer-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsvolumesnapshot-editor-role created
+clusterrole.rbac.authorization.k8s.io/astrads-astradsvolumesnapshot-viewer-role created
 clusterrole.rbac.authorization.k8s.io/astrads-manager-role created
-clusterrole.rbac.authorization.k8s.io/astrads-metrics-reader created
-clusterrole.rbac.authorization.k8s.io/astrads-netappexportpolicy-editor-role created
-clusterrole.rbac.authorization.k8s.io/astrads-netappexportpolicy-viewer-role created
-clusterrole.rbac.authorization.k8s.io/astrads-netappsdsdeployment-editor-role created
-clusterrole.rbac.authorization.k8s.io/astrads-netappsdsdeployment-viewer-role created
-clusterrole.rbac.authorization.k8s.io/astrads-netappsdsnfsoption-editor-role created
-clusterrole.rbac.authorization.k8s.io/astrads-netappsdsnfsoption-viewer-role created
-clusterrole.rbac.authorization.k8s.io/astrads-netappsdsnodeinfo-editor-role created
-clusterrole.rbac.authorization.k8s.io/astrads-netappsdsnodeinfo-viewer-role created
-clusterrole.rbac.authorization.k8s.io/astrads-proxy-role created
+rolebinding.rbac.authorization.k8s.io/astrads-astrads-admin-rolebinding created
+rolebinding.rbac.authorization.k8s.io/astrads-astrads-reader-rolebinding created
+rolebinding.rbac.authorization.k8s.io/astrads-astrads-writer-rolebinding created
 rolebinding.rbac.authorization.k8s.io/astrads-leader-election-rolebinding created
+rolebinding.rbac.authorization.k8s.io/astrads-manager-rolebinding created
+clusterrolebinding.rbac.authorization.k8s.io/astrads-astrads-admin-rolebinding created
+clusterrolebinding.rbac.authorization.k8s.io/astrads-astrads-reader-rolebinding created
+clusterrolebinding.rbac.authorization.k8s.io/astrads-astrads-writer-rolebinding created
 clusterrolebinding.rbac.authorization.k8s.io/astrads-manager-rolebinding created
-clusterrolebinding.rbac.authorization.k8s.io/astrads-proxy-rolebinding created
 configmap/astrads-autosupport-cm created
 configmap/astrads-firetap-cm created
-configmap/astrads-fluent-bit-cm created
 configmap/astrads-kevents-asup created
 configmap/astrads-metrics-cm created
-service/astrads-operator-metrics-service created
+secret/astrads-autosupport-certs created
+secret/astrads-webhook-server-cert created
+service/astrads-webhook-service created
 deployment.apps/astrads-operator created
 ----
 . Astra Data Store 운영자 POD가 시작되고 실행 중인지 확인합니다.
@@ -383,13 +476,13 @@ astrads-operator-5ffb94fbf-7ln4h    1/1     Running   0          17m
 
 
 
-== Astra Data Store Preview 버전 YAML을 배포하십시오
+=== Astra Data Store 버전 YAML을 배포하십시오
 
 . kubeck을 사용하여 구축 적용:
 +
 [listing]
 ----
-kubectl apply -f ./manifests/astradsversion.yaml
+kubectl apply -f ./astrads/manifests/astradsversion.yaml
 ----
 . Pod가 실행 중인지 확인합니다.
 +
@@ -405,10 +498,10 @@ kubectl get pods -n astrads-system
 ----
 NAME                                          READY   STATUS    RESTARTS   AGE
 astrads-cluster-controller-7f6f884645-xxf2n   1/1     Running   0          117s
-astrads-ds-nodeinfo-astradsversion-2jqnk      1/1     Running   0          2m7s
-astrads-ds-nodeinfo-astradsversion-dbk7v      1/1     Running   0          2m7s
-astrads-ds-nodeinfo-astradsversion-rn9tt      1/1     Running   0          2m7s
-astrads-ds-nodeinfo-astradsversion-vsmhv      1/1     Running   0          2m7s
+astrads-ds-nodeinfo-2jqnk                     1/1     Running   0          2m7s
+astrads-ds-nodeinfo-dbk7v                     1/1     Running   0          2m7s
+astrads-ds-nodeinfo-rn9tt                     1/1     Running   0          2m7s
+astrads-ds-nodeinfo-vsmhv                     1/1     Running   0          2m7s
 astrads-license-controller-fb8fd56bc-bxq7j    1/1     Running   0          2m2s
 astrads-operator-5ffb94fbf-7ln4h              1/1     Running   0          2m10s
 ----
@@ -416,9 +509,9 @@ astrads-operator-5ffb94fbf-7ln4h              1/1     Running   0          2m10s
 
 
 
-== Astra Data Store Preview 라이센스를 적용합니다
+=== Astra Data Store 라이센스를 적용합니다
 
-. 미리 보기에 등록할 때 얻은 NetApp 라이센스 파일(NLF)을 적용합니다. 명령을 실행하기 전에 현재 클러스터 이름('<Astra-Data-Store-cluster-name>')을 입력합니다 <<Install the Astra Data Store preview cluster,배포로 이동합니다>> 또는 이미 배포되어 있고 사용권 파일('<file_path/file.txt>')에 대한 경로가 있습니다.
+. NetApp에서 구입한 NetApp 라이센스 파일(NLF)을 적용합니다. 명령을 실행하기 전에 현재 클러스터 이름('<Astra-Data-Store-cluster-name>')을 입력합니다 <<Install the Astra Data Store cluster,배포로 이동합니다>> 또는 이미 배포되어 있고 사용권 파일('<file_path/file.txt>')에 대한 경로가 있습니다.
 +
 [listing]
 ----
@@ -436,20 +529,20 @@ kubectl astrads license list
 +
 [listing]
 ----
-NAME        ADSCLUSTER                 VALID   PRODUCT                     EVALUATION  ENDDATE     VALIDATED
-p100000006  astrads-example-cluster    true    Astra Data Store Preview    true        2022-01-23  2021-11-04T14:38:54Z
+NAME                     ADSCLUSTER                 VALID   PRODUCT             EVALUATION  ENDDATE     VALIDATED
+e100000006-ads-capacity  astrads-example-cluster    true    Astra Data Store    true        2023-01-23  2022-04-04T14:38:54Z
 ----
 
 
 
 
-== Astra Data Store Preview 클러스터를 설치합니다
+=== Astra Data Store 클러스터를 설치합니다
 
 . YAML 파일을 엽니다.
 +
 [listing]
 ----
-vim ./manifests/astradscluster.yaml
+vim ./astrads/manifests/astradscluster.yaml
 ----
 . YAML 파일에서 다음 값을 편집합니다.
 +
@@ -457,16 +550,24 @@ vim ./manifests/astradscluster.yaml
 NOTE: YAML 파일의 간단한 예는 다음과 같습니다.
 
 +
-.. (필수) * 메타데이터 *: metadata에서 이름 문자열을 클러스터 이름으로 변경합니다. 이 이름은 사용 시 사용한 클러스터 이름과 같아야 합니다 <<Apply the Astra Data Store preview license,라이센스를 적용합니다>>.
+.. (필수) * 메타데이터 *: metadata에서 이름 문자열을 클러스터 이름으로 변경합니다. 이 이름은 사용 시 사용한 클러스터 이름과 같아야 합니다 <<Apply the Astra Data Store license,라이센스를 적용합니다>>.
 .. (필수) * Spec *: 'sepec'에서 다음 필수 값을 변경합니다.
 +
+*** "adsNodeConfig" 값을 라이센스 및 Astra Data Store 설치 크기에 따라 설치에 필요한 값으로 변경합니다.
++
+**** 소형: 9 CPU 및 38 메모리
+**** 보통: 23 CPU 및 94 메모리
+
+
+*** (선택 사항) 'adsNodeSelector' 섹션 주위의 코멘트를 제거합니다. 선택한 작업자 노드 풀에만 설치하도록 Astra Data Store를 제한하려면 이 옵션을 구성합니다.
+*** (선택 사항) Astra Data Store 클러스터에서 사용해야 하는 4-16개의 특정 노드 수를 지정합니다.
 *** 클러스터의 작업자 노드에서 라우팅할 수 있는 부동 관리 IP의 IP 주소로 mVIP 문자열을 변경합니다.
-*** adsDataNetworks에서 NetApp 볼륨을 마운트할 호스트에서 라우팅할 수 있는 쉼표로 구분된 부동 IP 주소 목록("주소")을 추가합니다. 노드당 하나의 부동 IP 주소를 사용합니다. Astra Data Store 미리 보기 노드만큼 데이터 네트워크 IP 주소가 적어도 몇 개 있어야 합니다. Astra Data Store 미리 보기의 경우 4개 이상의 주소가 있어야 하며, 나중에 5개 노드로 클러스터를 확장할 계획이면 5개 이상의 주소가 필요합니다.
+*** adsDataNetworks에서 NetApp 볼륨을 마운트할 호스트에서 라우팅할 수 있는 쉼표로 구분된 부동 IP 주소 목록("주소")을 추가합니다. 노드당 하나의 부동 IP 주소를 사용합니다. Astra Data Store 노드만큼 데이터 네트워크 IP 주소가 적어도 몇 개 있어야 합니다. Astra Data Store의 경우 4개 이상의 주소를 의미하며, 나중에 클러스터를 확장할 계획이라면 최대 16개까지 가능합니다.
 *** adsDataNetworks에서 데이터 네트워크에서 사용하는 넷마스크를 지정한다.
-*** adsNetworkInterfaces에서 '<mgmt_interface_name>' 및 '<cluster_and_storage_interface_name>' 값을 관리, 클러스터 및 스토리지에 사용할 네트워크 인터페이스 이름으로 바꿉니다. 이름을 지정하지 않으면 노드의 기본 인터페이스가 관리, 클러스터 및 스토리지 네트워킹에 사용됩니다.
+*** adsNetworkInterfaces에서 '<mgmt_interface_name>' 및 '<cluster_and_storage_interface_name>' 값을 관리, 클러스터 및 스토리지에 사용할 네트워크 인터페이스 이름으로 바꿉니다. 이름을 지정하지 않으면 노드의 기본 인터페이스가 관리, 클러스터 및 스토리지 네트워킹에 사용됩니다. 또한 adsNetworkInterfaces 섹션에 대한 주석도 제거해야 합니다.
 +
 
-NOTE: 클러스터 및 스토리지 네트워크는 동일한 인터페이스에 있어야 합니다. Astra Data Store 미리 보기 관리 인터페이스는 Kubernetes 노드의 관리 인터페이스와 동일해야 합니다.
+NOTE: 클러스터 및 스토리지 네트워크는 동일한 인터페이스에 있어야 합니다. Astra Data Store 관리 인터페이스는 Kubernetes 노드의 관리 인터페이스와 동일해야 합니다.
 
 
 
@@ -478,22 +579,26 @@ NOTE: 클러스터 및 스토리지 네트워크는 동일한 인터페이스에
 
 +
 
-NOTE: 아래의 YAML 샘플에서 대부분의 의견이 제거되었습니다.
+NOTE: 간결성을 위해 아래의 YAML 샘플에서 몇 가지 의견이 제거되었습니다.
 
 
 
 +
 [listing, subs="+quotes"]
 ----
-apiVersion: astrads.netapp.io/v1alpha1
+apiVersion: astrads.netapp.io/v1beta1
 kind: AstraDSCluster
 *metadata:*
   *name: astrads-cluster-name*
   namespace: astrads-system
 *spec:*
-  adsNodeConfig:
-    cpu: 9
-    memory: 34
+  *adsNodeConfig:*
+    *cpu: 9*
+    *memory: 38*
+  # [Optional] Specify node selector labels to select the nodes for creating ADS cluster
+  # adsNodeSelector:
+  #   matchLabels:
+  #     customLabelKey: customLabelValue
   adsNodeCount: 4
   *mvip: ""*
   *adsDataNetworks:*
@@ -507,8 +612,6 @@ kind: AstraDSCluster
     *managementInterface: "<mgmt_interface_name>"*
     *clusterInterface: "<cluster_and_storage_interface_name>"*
     *storageInterface: "<cluster_and_storage_interface_name>"*
-  # [Optional] Provide a k8s label key that defines which protection domain a node belongs to.
-    # adsProtectionDomainKey: ""
   # [Optional] Provide a monitoring config to be used to setup/configure a monitoring agent.
  *# monitoringConfig:*
    *# namespace: "netapp-monitoring"*
@@ -538,23 +641,8 @@ kind: AstraDSCluster
 +
 [listing]
 ----
-kubectl apply -f ./manifests/astradscluster.yaml
+kubectl apply -f ./astrads/manifests/astradscluster.yaml
 ----
-. (OCP만 해당) SELinux가 설정된 경우 Astra Data Store preview 클러스터의 노드에서 다음 디렉토리에 대한 'elinux' 컨텍스트의 레이블을 다시 지정합니다.
-+
-[listing]
-----
-sudo chcon -R -t container_file_t /var/opt/netapp/firetap/rootfs/var/asup/notification/firetap/
-----
-+
-[listing]
-----
-sudo chcon -R -t container_file_t /var/netapp/firetap/firegen/persist/
-----
-+
-
-NOTE: 이 단계는 셀린스가 이 디렉토리를 쓸 수 없도록 하여 지원 포드가 CrashLoopoff 상태로 들어가는 원인이 되기 때문에 필요합니다. 이 단계는 Astra Data Store 미리 보기 클러스터의 모든 노드에서 수행해야 합니다.
-
 . 클러스터 생성 작업이 완료될 때까지 몇 분 정도 기다린 후 Pod가 실행 중인지 확인합니다.
 +
 [listing]
@@ -567,23 +655,23 @@ kubectl get pods -n astrads-system
 +
 [listing]
 ----
-NAME                     READY     STATUS    RESTARTS    AGE
-astrads-cluster-controller-7c67cc7f7b-2jww2 1/1 Running 0 7h31m
-astrads-deployment-support-788b859c65-2qjkn 3/3 Running 19 12d
-astrads-ds-astrads-cluster-1ab0dbc-j9jzc 1/1 Running 0 5d2h
-astrads-ds-astrads-cluster-1ab0dbc-k9wp8 1/1 Running 0 5d1h
-astrads-ds-astrads-cluster-1ab0dbc-pwk42 1/1 Running 0 5d2h
-astrads-ds-astrads-cluster-1ab0dbc-qhvc6 1/1 Running 0 8h
-astrads-ds-nodeinfo-astradsversion-gcmj8 1/1 Running 1 12d
-astrads-ds-nodeinfo-astradsversion-j826x 1/1 Running 3 12d
-astrads-ds-nodeinfo-astradsversion-vdthh 1/1 Running 3 12d
-astrads-ds-nodeinfo-astradsversion-xwgsf 1/1 Running 0 12d
-astrads-ds-support-828vw 2/2 Running 2 5d2h
-astrads-ds-support-cfzts 2/2 Running 0 8h
-astrads-ds-support-nzkkr 2/2 Running 15 7h49m
-astrads-ds-support-xxbnp 2/2 Running 1 5d2h
-astrads-license-controller-86c69f76bb-s6fb7 1/1 Running 0 8h
-astrads-operator-79ff8fbb6d-vpz9m 1/1 Running 0 8h
+NAME                                              READY     STATUS    RESTARTS    AGE
+astrads-cluster-controller-7c67cc7f7b-2jww2       1/1       Running   0           7h31m
+astrads-deployment-support-788b859c65-2qjkn       3/3       Running   19          12d
+astrads-ds-astrads-cluster-1ab0dbc-j9jzc          1/1       Running   0           5d2h
+astrads-ds-astrads-cluster-1ab0dbc-k9wp8          1/1       Running   0           5d1h
+astrads-ds-astrads-cluster-1ab0dbc-pwk42          1/1       Running   0           5d2h
+astrads-ds-astrads-cluster-1ab0dbc-qhvc6          1/1       Running   0           8h
+astrads-ds-nodeinfo-gcmj8                         1/1       Running   1           12d
+astrads-ds-nodeinfo-j826x                         1/1       Running   3           12d
+astrads-ds-nodeinfo-vdthh                         1/1       Running   3           12d
+astrads-ds-nodeinfo-xwgsf                         1/1       Running   0           12d
+astrads-ds-support-828vw                          2/2       Running   2           5d2h
+astrads-ds-support-astrads-example-cluster-cfzts  2/2       Running   0           8h
+astrads-ds-support-astrads-example-cluster-nzkkr  2/2       Running   15          7h49m
+astrads-ds-support-astrads-example-cluster-xxbnp  2/2       Running   1           5d2h
+astrads-license-controller-86c69f76bb-s6fb7       1/1       Running   0           8h
+astrads-operator-79ff8fbb6d-vpz9m                 1/1       Running   0           8h
 ----
 . 클러스터 배포 진행 상태 확인:
 +
@@ -597,15 +685,15 @@ kubectl get astradscluster -n astrads-system
 +
 [listing]
 ----
-NAME                        STATUS    VERSION    SERIAL NUMBER    MVIP       AGE
+NAME                        STATUS    VERSION      SERIAL NUMBER    MVIP       AGE
 
-astrads-example-cluster   created   2021.10.0   p100000006       10.x.x.x   10m
+astrads-example-cluster     created   2022.05.0-X  e100000006       10.x.x.x   13m
 ----
 
 
 
 
-== 배포 관련 이벤트를 이해합니다
+=== 배포 관련 이벤트를 이해합니다
 
 클러스터 배치 중에는 작동 상태가 공란에서 진행 중 상태로 변경되어야 합니다. 클러스터 구축은 약 8~10분간 지속됩니다. 구축하는 동안 클러스터 이벤트를 모니터링하려면 다음 명령 중 하나를 실행합니다.
 
@@ -620,16 +708,16 @@ kubectl describe astradscluster <cluster name> -n astrads-system
 다음은 배포 중에 발생하는 주요 이벤트입니다.
 
 |===
-| 이벤트 메시지입니다 | 의미 
+| 이벤트 | 메시지와 중요성 
 
 
-| ADS 클러스터를 연결할 4개의 컨트롤 플레인 노드를 성공적으로 선택했습니다 | Astra Data Store 미리보기 운영자는 CPU, 메모리, 스토리지 및 네트워킹으로 Astra Data Store 미리보기 클러스터를 생성할 수 있는 충분한 노드를 식별했습니다. 
+| ControlPlaneNotesSelected 를 선택합니다 | ADS 클러스터에 연결할 [number] 컨트롤 플레인 노드를 성공적으로 선택했습니다. Astra Data Store 운영자는 CPU, 메모리, 스토리지 및 네트워킹으로 Astra Data Store 클러스터를 생성할 수 있는 충분한 노드를 식별했습니다. 
 
 
-| ADS 클러스터 생성 진행 중 | Astra Data Store 미리보기 클러스터 컨트롤러가 클러스터 생성 작업을 시작했습니다. 
+| ADSClusterCreateInProgress(ADSClusterCreateInProgress | Astra Data Store 클러스터 컨트롤러가 클러스터 생성 작업을 시작했습니다. 
 
 
-| ADS 클러스터가 생성되었습니다 | 클러스터가 생성되었습니다. 
+| ADSClusterCreateSuccess | 클러스터가 생성되었습니다. 
 |===
 클러스터의 상태가 "In progress(진행 중)"로 변경되지 않는 경우 운영자 로그에서 노드 선택에 대한 자세한 내용을 확인하십시오.
 
@@ -637,7 +725,7 @@ kubectl describe astradscluster <cluster name> -n astrads-system
 ----
 kubectl logs -n astrads-system <astrads operator pod name>
 ----
-클러스터의 상태가 "in progress(진행 중)"로 고착된 경우 클러스터 컨트롤러의 로그를 확인하십시오.
+클러스터의 상태가 "In progress(진행 중)"로 고착된 경우 클러스터 컨트롤러의 로그를 확인하십시오.
 
 [listing]
 ----
@@ -645,48 +733,29 @@ kubectl logs -n astrads-system <astrads cluster controller pod name>
 ----
 
 
-== Astra Data Store 미리보기 모니터링을 구성합니다
+== Astra Control Center를 사용하여 Astra Data Store를 설치합니다
 
-Astra Control Center 모니터링 또는 다른 원격 측정 서비스의 모니터링을 위해 Astra Data Store 미리보기를 구성할 수 있습니다.
+Astra Control Center와 함께 Astra Data Store를 배포하고 사용하려면 다음을 수행하십시오.
 
-모니터링을 설정하기 전에 "Astra-system" 네임스페이스에 활성 Astra 데이터 저장소 클러스터가 필요합니다.
-
-
-
-=== Astra Control Center 미리 보기에 대한 모니터링을 구성합니다
-
-Astra Control Center에서 Astra Data Store 미리 보기를 백엔드로 관리하는 경우에만 다음 단계를 수행하십시오.
-
-. Astra Control Center에서 모니터링하는 Astra Data Store 미리 보기를 구성합니다.
-+
-[listing]
-----
-kubectl astrads monitoring -n netapp-monitoring -r [YOUR REGISTRY] setup
-----
+.무엇을 &#8217;필요로 할거야
+* 검토했습니다 <<What you'll need,일반 Astra Data Store 필수 구성 요소입니다>>.
+* Astra Control Center를 설치했습니다.
 
 
-
-
-=== 모니터링 운전자를 설치합니다
-
-(선택 사항) Astra Data Store Preview를 Astra Control Center로 가져오지 않는 경우 모니터링 운용자를 권장합니다. Astra 데이터 저장소 미리 보기 인스턴스가 독립 실행형 배포이거나, Cloud Insights를 사용하여 원격 측정을 모니터링하거나, Elastic과 같은 타사 엔드포인트로 로그를 스트리밍하는 경우 모니터링 연산자를 설치할 수 있습니다.
-
-. 다음 설치 명령을 실행합니다.
-+
-[listing]
-----
-kubectl apply -f ./manifests/monitoring_operator.yaml
-----
-. 모니터링을 위해 Astra Data Store 미리 보기를 구성합니다.
-+
-[listing]
-----
-kubectl astrads monitoring -n netapp-monitoring -r [YOUR REGISTRY] setup
-----
+.단계
+. https://docs.netapp.com/us-en/astra-control-center/get-started/setup_overview.html#add-a-storage-backend["Astra Control Center를 사용하여 Astra Data Store를 구축합니다"^].
 
 
 
 
 == 다음 단계
 
-를 수행하여 배포를 완료합니다 link:setup-ads.html["설정 작업"].
+* * Kubernetes 네이티브 구축 및 타사 배포 *: 추가 작업을 수행하여 Astra Data Store 구축을 완료합니다 link:setup-ads.html["설정 작업"].
+* * Astra Control Center *: Astra Control Center를 사용하여 Astra Data Store를 구축한 경우 이러한 사항을 따를 필요가 없습니다 link:../get-started/setup-ads.html#configure-astra-data-store-monitoring["설정 작업"] 추가 모니터링 옵션을 구성하지 않는 경우. Astra Data Store를 구축한 후 Astra Control Center UI를 사용하여 다음과 같은 작업을 수행할 수 있습니다.
++
+** https://docs.netapp.com/us-en/astra-control-center/use/monitor-protect.html["Astra Data Store 자산의 상태를 모니터링합니다"^].
+** https://docs.netapp.com/us-en/astra-control-center/use/manage-backend.html["Astra Data Store 백엔드 스토리지를 관리합니다"^].
+** https://docs.netapp.com/us-en/astra-control-center/use/view-dashboard.html["노드, 디스크 및 지속적인 PVC(Volume Claim) 모니터링"^].
+
+
+

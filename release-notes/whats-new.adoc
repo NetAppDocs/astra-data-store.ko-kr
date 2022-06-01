@@ -11,7 +11,24 @@ summary: NetApp은 새로운 기능, 개선 사항 및 버그 수정을 제공�
 :imagesdir: ../media/release-notes/
 
 
-Astra Data Store의 출시 미리 보기 릴리스의 2021.12.1 패치를 발표하게 되어 기쁘게 생각합니다.
+Astra Data Store의 2022.05 조기 액세스 프로그램(EAP) 릴리스를 발표하게 되어 기쁘게 생각합니다.
+
+
+
+== 2022년 5월 31일(2022.05 EAP 릴리스)
+
+Astra Data Store 2022.05 릴리즈에는 다음과 같은 기능이 포함되어 있습니다.
+
+* VMware 환경 통합:
++
+** NFS VVOL 데이터 저장소 워크플로우 및 스토리지 정책 기반 관리 스토리지 프로비저닝
+** vCenter에서 기본 스토리지 관리 및 모니터링을 위한 VMware vSphere용 Astra 플러그인
+
+
+* 클러스터 관리 기능이 향상되었습니다 link:../get-started/install-ads.html#install-astra-data-store-using-astra-control-center["Astra Control Center에서 GUI 기반 클러스터 구축"].
+* 에 대한 지원 link:../get-started/requirements.html#kubernetes-worker-node-resource-requirements["대규모 클러스터 확장"] (노드 수 증가, CPU 및 용량 증가)
+* 보안 강화(키 및 인증서, 외부 키 관리(KMIP) 지원)
+
 
 
 
@@ -31,13 +48,13 @@ Astra Data Store 미리 보기(21.12)용 패치 릴리스(2021.12.1)입니다.
 
 Astra Data Store Preview 초기 릴리즈.
 
-* link:../concepts/intro.html["그게 뭐죠"]
-* link:../concepts/architecture.html["구축 모델 및 구성 요소"]
-* link:../get-started/requirements.html["시작하는 데 필요한 사항"]
-* link:../get-started/install-ads.html["설치합니다"] 및 link:../get-started/setup-ads.html["설정"]
-* link:../use/kubectl-commands-ads.html["관리"] 및 link:../use/monitor-with-cloud-insights.html["모니터링"] 성능
-* link:../use/monitor-with-cloud-insights.html["Cloud Insights를 사용한 모니터링"]
-* link:../support/get-help-ads.html["도움을 받으십시오"] 및 link:../support/autosupport.html["자동 지원 모니터링을 사용합니다"]
+* https://docs.netapp.com/us-en/astra-data-store-2112/concepts/intro.html["그게 뭐죠"^]
+* https://docs.netapp.com/us-en/astra-data-store-2112/concepts/architecture.html["구축 모델 및 구성 요소"^]
+* https://docs.netapp.com/us-en/astra-data-store-2112/get-started/requirements.html["시작하는 데 필요한 사항"^]
+* https://docs.netapp.com/us-en/astra-data-store-2112/get-started/install-ads.html["설치합니다"^] 및 https://docs.netapp.com/us-en/astra-data-store-2112/get-started/setup-ads.html["설정"^]
+* https://docs.netapp.com/us-en/astra-data-store-2112/use/kubectl-commands-ads.html["관리"^] 및 https://docs.netapp.com/us-en/astra-data-store-2112/use/monitor-with-cloud-insights.html["모니터링"^] 성능
+* https://docs.netapp.com/us-en/astra-data-store-2112/use/monitor-with-cloud-insights.html["Cloud Insights를 사용한 모니터링"^]
+* https://docs.netapp.com/us-en/astra-data-store-2112/support/get-help-ads.html["도움을 받으십시오"^] 및 https://docs.netapp.com/us-en/astra-data-store-2112/support/autosupport.html["자동 지원 모니터링을 사용합니다"^]
 
 
 

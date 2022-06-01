@@ -11,10 +11,10 @@ summary: 'NetApp은 다양한 방법으로 Astra Data Store를 지원합니다. 
 :imagesdir: ../media/support/
 
 
-NetApp은 Astra Data Store 미리보기 기능을 다양한 방법으로 지원합니다. 무료 셀프 서비스 지원 옵션은 기술 자료(KB) 기사 및 Slack 채널과 같이 24x7 이용할 수 있습니다.
+NetApp은 다양한 방법으로 Astra Data Store를 지원합니다. 무료 셀프 서비스 지원 옵션은 기술 자료(KB) 기사 및 Slack 채널과 같이 24x7 이용할 수 있습니다.
 
 
-IMPORTANT: Astra Data Store 미리보기에 대한 커뮤니티 기술 지원을 받을 수 있습니다. 를 사용하여 케이스를 생성합니다 https://mysupport.netapp.com/site/["NetApp Support 사이트(NSS)"^] 은(는) 미리보기 릴리스에 사용할 수 없습니다. 피드백 옵션을 통해 지원 팀에 문의하거나 Slack 채널을 사용하여 셀프 서비스를 받을 수 있습니다.
+IMPORTANT: Astra Data Store에 대한 커뮤니티 기술 지원을 받을 수 있습니다. 를 사용하여 케이스를 생성합니다 https://mysupport.netapp.com/site/["NetApp Support 사이트(NSS)"^] 은(는) 이 릴리스에서 사용할 수 없습니다. 피드백 옵션을 통해 지원 팀에 문의하거나 Slack 채널을 사용하여 셀프 서비스를 받을 수 있습니다.
 
 
 
@@ -24,7 +24,7 @@ IMPORTANT: Astra Data Store 미리보기에 대한 커뮤니티 기술 지원을
 
 * https://kb.netapp.com/Advice_and_Troubleshooting/Cloud_Services/Astra["기술 자료(로그인 필요)"^]
 +
-Astra Data Store 미리 보기와 관련된 문서, FAQ 또는 고장 수리 정보를 검색합니다.
+Astra Data Store와 관련된 문서, FAQ 또는 고장 수리 정보를 검색합니다.
 
 * 문서화
 +

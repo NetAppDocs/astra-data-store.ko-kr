@@ -11,21 +11,41 @@ summary: 알려진 문제점은 이 제품 릴리스를 성공적으로 사용�
 :imagesdir: ../media/release-notes/
 
 
-알려진 문제점은 제품의 이 미리보기 릴리스를 성공적으로 사용하지 못하게 할 수 있는 문제를 식별합니다.
+알려진 문제점은 이 제품 릴리스를 성공적으로 사용하지 못하게 만들 수 있는 문제를 식별합니다.
 
 
 
-== 기본 활성 프로브 값을 가진 MongoDB 구축은 충돌 루프에서 Pod와 함께 실패합니다
+== Astra Data Store 2202.05 조기 액세스 프로그램(EAP) 릴리스
 
-해결 방법으로 MongoDB 구축 사양에서 활성 프로브 initialDelaySeconds를 600초로 설정합니다.
+이 릴리스에는 이러한 알려진 문제가 포함되어 있습니다. 이러한 알려진 문제를 주의 깊게 검토하십시오.
 
 
 
-== Astra Data Store 미리 보기 제거 프로세스를 사용하면 Pod가 종료 상태로 유지될 수 있습니다
+=== vSphere에 스토리지 백엔드 작업이 표시되지 않습니다
 
-Kubernetes v1.20의 Astra Data Store 미리 보기 제거 프로세스를 사용하면 Pod가 종료 상태로 유지되는 경우가 있습니다.
+기존 스토리지 백엔드를 사용하거나 스토리지 백엔드를 제거하는 작업이 제출되면 vSphere Client의 Recent Tasks 패널에 작업이 나타나지 않습니다.
 
-을 참조하십시오 link:../use/uninstall-ads-manual.html["스크립트 없이 Astra Data Store 미리 보기를 수동으로 제거합니다"] 또는link:../use/uninstall-ads.html["스크립트를 사용하여 Astra Data Store 미리 보기를 자동으로 제거합니다"].
+
+
+=== VM을 생성할 때 추가 폴더가 생성됩니다
+
+vSphere에서 VM을 생성할 때 데이터 저장소 아래의 VM당 단일 폴더 대신 추가 폴더가 생성되는 경우가 있습니다.
+
+
+
+=== VMware vSphere용 Astra Plugin의 필터링된 보기에는 데이터가 간헐적으로 표시되지 않습니다
+
+가상 머신에 대한 테이블 열 필터는 필터링된 데이터를 생략하는 경우가 있습니다. 필터링된 보기에는 로드 아이콘이 대신 표시됩니다. 이 문제를 해결하려면 다른 보기로 이동하여 필터를 다시 설정하여 데이터를 다시 표시할 수 있습니다.
+
+
+
+=== Kubernetes 작업자 노드의 IP 주소 제한
+
+다음 시나리오에서 Astra Data Store 클러스터 생성이 실패합니다.
+
+. Kubernetes 작업자 노드의 IP 주소는 Astra Data Store에 할당되지 않은 인터페이스에서 호스팅됩니다.
+. IP 주소는 Astra Data Store 클러스터에 할당된 클러스터/데이터 IP 주소와 동일한 서브넷에 있습니다.
+
 
 
 

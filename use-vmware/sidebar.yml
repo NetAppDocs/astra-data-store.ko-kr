@@ -1,0 +1,16 @@
+---
+section: use-vmware
+title: VMware와 함께 Astra Data Store를 사용하십시오
+entries:
+- title: VMware를 사용한 Astra Data Store에 대해 자세히 알아보십시오
+  url: "/use-vmware/use-ads-vmware-overview.html"
+- title: VMware 요구 사항이 있는 Astra Data Store
+  url: "/use-vmware/ads-vmware-requirements.html"
+- title: VMware와 함께 Astra Data Store를 설정합니다
+  url: "/use-vmware/setup-ads-vmware.html"
+- title: VMware 설치의 구성 요소를 모니터링합니다
+  url: "/use-vmware/monitor-ads-vmware.html"
+- title: VMware 설치의 Astra Data Store 구성 요소를 관리합니다
+  url: "/use-vmware/manage-ads-vmware.html"
+- title: VMware 통합 환경에서 Astra Data Store를 제거합니다
+  url: "/use-vmware/uninstall-ads-vmware.html"

@@ -1,0 +1,365 @@
+---
+sidebar: sidebar 
+permalink: use-vmware/setup-ads-vmware.html 
+keywords: astra, vmware, vcenter, astra data store 
+summary: Astra vCenter 플러그인과 VMware vSphere 기본 기능을 사용하여 Astra Data Store를 구축 및 관리할 수 있습니다. 
+---
+= VMware와 함께 Astra Data Store를 설정합니다
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use-vmware/
+
+
+Astra Data Store를 스토리지 백엔드로 설정하고 VMware vSphere용 NetApp Astra Plugin을 사용하여 관리할 수 있습니다.
+
+VMware를 사용하여 Astra Data Store를 설정하는 작업은 다음과 같습니다.
+
+* <<Activate VMware vSphere services using Astra Control Center>>.
+* <<Add a vCenter using Astra Control Center>>.
+* <<Create a custom SCC (if using OpenShift)>>
+* <<Use an existing storage backend in the Astra Plugin for VMware vSphere>>.
+* <<Create a datastore using the Astra Plugin for VMware vSphere>>.
+* <<Generate VM storage policies>>.
+
+
+VMware와 함께 Astra Data Store를 설치하기 전에 다음 사항을 확인해야 합니다.
+
+* Astra Control Center는 https://docs.netapp.com/us-en/astra-control-center/get-started/install_overview.html["설치되어 있습니다"] 및 설정.
+* Astra Data Store는 라이센스가 부여되고 배포되었습니다. 을 참조하십시오 link:../get-started/install-ads.html["Astra Data Store를 설치합니다"].
+
+
+
+NOTE: Astra Data Store Early Access Program(EAP) 릴리스의 경우 Astra Control Center 및 Astra Data Store를 두 개의 서로 다른 Kubernetes 클러스터에 구축해야 합니다.
+
+* Astra Control Center 및 Astra Data Store를 구축하는 데 사용된 Kubernetes 클러스터는 Astra Control Center에서 이미 관리해야 합니다.
+* NFSv3이 설정되어 있습니다.
+* vCenter를 추가하기 전에 Astra Control Center 및 VASA 공급자 패키지를 업로드했습니다. https://docs.netapp.com/us-en/astra-control-center/use/manage-packages-acc.html["소프트웨어 패키지 관리 를 참조하십시오"^].
+
+
+
+
+== Astra Control Center를 사용하여 VMware vSphere 서비스를 활성화합니다
+
+Astra Control Center에서 vSphere 서비스를 활성화하여 VMware와 함께 Astra Data Store를 설정합니다.
+
+
+NOTE: Astra Control Center의 VMware vSphere 서비스는 기본적으로 설정되어 있지 않습니다.
+
+. Astra Control Center에 로그인합니다.
+. 왼쪽 탐색 창에서 * 클러스터 * 를 선택합니다.
++
+배너에는 VMware vSphere 서비스가 아직 설정되지 않았다는 메시지가 표시됩니다.
+
+. VMware vSphere 서비스 활성화 * 를 선택합니다.
++
+이 작업은 다소 시간이 걸릴 수 있습니다. 서비스가 활성화되면 * vCenter 추가 * 버튼이 활성화됩니다.
+
+
+
+
+
+== Astra Control Center를 사용하여 vCenter를 추가합니다
+
+VMware vSphere용 Astra Plugin을 등록하는 첫 번째 vCenter를 추가합니다.
+
+vCenter를 Astra Control Center에 추가하려면 관리 권한이 있어야 합니다.
+
+
+TIP: VMware vSphere에 플러그인을 등록하면 VMware vSphere용 Astra Plugin 아이콘이 VMware 바로 가기 페이지에 나타납니다.
+
+. Astra Control Center에 로그인합니다.
+. 왼쪽 탐색 창에서 * 클러스터 * 를 선택합니다.
+. Add vCenter * 를 선택합니다.
+. vCenter Server 세부 정보, vCenter 포트, 관리 사용자 이름 및 암호를 입력하여 Astra Control Center에 제공합니다.
++
+
+TIP: 이를 통해 VMware vSphere Client에 이 vCenter용 Astra Plugin을 구축할 수 있습니다.
+
+. 추가 * 를 선택합니다.
++
+클러스터 페이지에 vCenter가 나타나고 관리 대상 vCenter의 총 수가 Astra Control Dashboard에 업데이트됩니다. 그러면 VMware vSphere용 Astra Plugin 구축도 시작됩니다.
+
+
+
+
+
+=== vCenter 추가를 확인합니다
+
+새로 추가된 vCenter가 클러스터 페이지와 대시보드에 나타납니다.
+
+
+TIP: vCenter와 Kubernetes 클러스터가 모두 Astra Control Center 대시보드에 나타납니다.
+
+. Astra Control Center에 액세스합니다.
+. 왼쪽 탐색 창에서 * 클러스터 * 를 선택합니다.
+. 새로 관리되는 vCenter가 클러스터 페이지에 나타나는지 확인합니다.
+. 왼쪽 탐색 모음에서 * 대시보드 * 를 선택합니다.
+. Astra Control Center Dashboard에서 새로운 관리 vCenter 클러스터를 * Managed * 카운트의 일부로 기록합니다.
++
+
+TIP: 관리 클러스터 수에는 vCenter 및 Kubernetes 클러스터가 모두 포함됩니다.
+
+. 클러스터 세부 정보를 보려면 * Managed * 개수를 클릭합니다.
++
+클러스터 페이지가 나타납니다.
+
+
+
+
+
+== 사용자 지정 SCC 생성(OpenShift를 사용하는 경우)
+
+OpenShift를 사용하는 경우 POD에서 수행할 수 있는 작업을 제어하고 POD에서 액세스할 수 있는 작업을 제어하는 SCC(Security Context Constraints)를 선택적으로 할당할 수 있습니다.
+
+기본적으로 모든 컨테이너의 실행에는 제한된 SCC와 해당 SCC에 의해 정의된 기능만 부여됩니다. 제한된 SCC는 VASA 공급자 포드에 필요한 사용 권한을 제공하지 않습니다. 이 절차를 사용하여 필요한 높은 권한(샘플에 나열됨)을 VASA 공급자 구축에 사용되는 서비스 계정에 제공합니다.
+
+권한이 부여된 노드-수출자 SCC의 혼합인 Astra Data Store 'NTV-system' 네임스페이스의 다양한 기본 서비스 계정에 사용자 지정 SCC를 할당합니다.
+
+다음 단계는 Red Hat OpenShift Container Platform(OCP)에 배포용으로만 필요합니다.
+
+. Vp_backend_privileged_SCC.YAML이라는 사용자 정의 SCC를 생성한다.
++
+[listing]
+----
+kubectl create -f vp_backend_privileged_scc.yaml
+----
++
+샘플: vp_backend_privileged_csC.yAML
+
++
+[listing]
+----
+allowHostDirVolumePlugin: true
+allowHostIPC: false
+allowHostNetwork: true
+allowHostPID: false
+allowHostPorts: true
+allowPrivilegeEscalation: true
+allowPrivilegedContainer: true
+allowedCapabilities:
+  - '*'
+allowedUnsafeSysctls:
+  - '*'
+apiVersion: security.openshift.io/v1
+defaultAddCapabilities: null
+fsGroup:
+  type: RunAsAny
+groups: []
+kind: SecurityContextConstraints
+metadata:
+  name: vpbackend-privileged
+priority: null
+readOnlyRootFilesystem: false
+requiredDropCapabilities: null
+runAsUser:
+  type: RunAsAny
+seLinuxContext:
+  type: RunAsAny
+seccompProfiles:
+  - '*'
+supplementalGroups:
+  type: RunAsAny
+users:
+  - system:serviceaccount:ntv-system:default
+  - system:serviceaccount:ntv-system:ntv-auth-svc
+  - system:serviceaccount:ntv-system:ntv-autosupport
+  - system:serviceaccount:ntv-system:ntv-compliance-svc
+  - system:serviceaccount:ntv-system:ntv-datastore-svc
+  - system:serviceaccount:ntv-system:ntv-metallb-controller
+  - system:serviceaccount:ntv-system:ntv-metallb-speaker
+  - system:serviceaccount:ntv-system:ntv-mongodb
+  - system:serviceaccount:ntv-system:ntv-nfs-svc
+  - system:serviceaccount:ntv-system:ntv-rabbitmq-svc
+  - system:serviceaccount:ntv-system:ntv-storage-svc
+  - system:serviceaccount:ntv-system:ntv-vault
+  - system:serviceaccount:ntv-system:ntv-vault-admin
+  - system:serviceaccount:ntv-system:ntv-vault-agent-injector
+  - system:serviceaccount:ntv-system:ntv-vault-controller
+  - system:serviceaccount:ntv-system:ntv-vault-initializer
+  - system:serviceaccount:ntv-system:ntv-vcenter-svc
+  - system:serviceaccount:ntv-system:ntv-vm-management-svc
+  - system:serviceaccount:ntv-system:ntv-watcher-svc
+  - system:serviceaccount:ntv-system:ntv-vault-sa-vault-tls
+  - system:serviceaccount:ntv-system:ntv-gateway-svc
+  - system:serviceaccount:ntv-system:ntv-jobmanager-svc
+  - system:serviceaccount:ntv-system:ntv-vasa-svc
+volumes:
+  - '*'
+----
+. OC Get SCC 명령을 사용하여 새로 추가한 SCC를 출력한다.
++
+[listing]
+----
+oc get scc vpbackend-privileged
+----
++
+응답:
+
++
+[listing]
+----
+NAME                 PRIV  CAPS  SELINUX  RUNASUSER FSGROUP  SUPGROUP PRIORITY   READONLYROOTFS VOLUMES
+vpbackend-privileged true ["*"]  RunAsAny RunAsAny  RunAsAny RunAsAny <no value> false          ["*"]
+----
+
+
+
+
+== VMware vSphere용 Astra Plugin에서 기존 스토리지 백엔드를 사용합니다
+
+Astra Control Center UI를 사용하여 vCenter를 추가한 후 Astra Plugin for VMware vSphere를 사용하여 Astra Data Store 스토리지 백엔드를 추가합니다.
+
+이 프로세스는 다음 작업을 완료합니다.
+
+* 선택한 vCenter에 기존 스토리지 백엔드를 추가합니다.
+* 선택한 vCenter에 VASA 공급자를 등록합니다. VASA Provider는 VMware와 Astra Data Store 간의 통신을 제공합니다.
+* 스토리지 백엔드에 VASA 공급자 자체 서명 인증서를 추가합니다.
+
+
+
+NOTE: 추가한 vCenter가 스토리지 백엔드 마법사에 나타나는 데 10분이 걸릴 수 있습니다.
+
+
+NOTE: Astra Data Store는 여러 vCenter와 공유해서는 안 됩니다.
+
+.단계
+. VMware vSphere용 NetApp Astra Plugin에 액세스합니다.
+. 왼쪽 탐색 창에서 * VMware vSphere * 용 Astra Plugin * 을 선택하거나 바로 가기 페이지에서 * VMware vSphere * 용 Astra Plugin 아이콘을 선택합니다.
+. VMware vSphere용 Astra Plugin 개요 페이지에서 * 기존 스토리지 백엔드 사용 * 을 선택합니다. 또는 왼쪽 탐색 창에서 * 스토리지 백엔드 * > * 추가 * 를 선택하고 * 기존 스토리지 백엔드 사용 * 을 선택합니다.
+. 스토리지 백엔드로 기존 Astra Data Store를 선택하고 * Next * 를 선택합니다.
+. VASA 공급자 페이지에서 VASA 공급자 이름, IP 주소(로드 밸런싱 장치를 사용하는 경우), 사용자 이름 및 암호를 입력합니다.
++
+
+TIP: 사용자 이름에는 영숫자 및 밑줄을 사용할 수 있습니다. 특수 문자를 입력하지 마십시오. 사용자 이름의 첫 문자는 영문자로 시작해야 합니다.
+
+. 로드 밸런싱 장치를 구축할지 여부를 표시하고 VASA 공급자에 액세스하는 데 사용할 IP 주소를 입력합니다. IP는 노드 IP와 별도로 사용 가능한 추가 IP가 되어야 합니다. 로드 밸런서가 활성화되면 Metallb는 Astra Data Store Kubernetes 클러스터에 구축되며 사용 가능한 IP를 할당하도록 구성됩니다.
++
+
+NOTE: Google Anthos 클러스터를 배포용으로 사용하는 경우, Anthos가 이미 로드 밸런서로 메타 디바이스를 실행하므로 로드 밸런서를 배포하지 않도록 선택합니다. VASA 공급자 CR(v1beta1_vasaprovider.YAML)에서는 메타 배포 플래그를 false로 설정해야 합니다.
+
++
+로드 밸런서를 배포하지 않도록 선택한 경우 로드 밸런서가 이미 구축되어 있으며 * 로드 밸런서 * 유형의 Kubernetes 서비스에 대한 IP를 할당하도록 구성되어 있다고 가정합니다.
+
++
+
+TIP: 이 구축 시점에는 VASA Provider가 아직 구축되지 않았습니다.
+
+. 다음 * 을 선택합니다.
+. 인증서 페이지에서 자체 서명된 인증서의 인증서 정보를 검토합니다.
+. 다음 * 을 선택합니다.
+. 요약 정보를 검토합니다.
+. 추가 * 를 선택합니다.
++
+이렇게 하면 VASA Provider가 구축됩니다.
+
+
+
+
+
+=== VMware vSphere용 Astra Plugin에서 스토리지 백엔드를 확인합니다
+
+Astra Data Store 스토리지 백엔드가 등록되면 VMware vSphere용 Astra Plugin 스토리지 백엔드 목록에 나타납니다.
+
+스토리지 백엔드 상태와 VASA 공급자 상태를 확인할 수 있습니다. 각 스토리지 백엔드의 사용된 용량도 확인할 수 있습니다.
+
+스토리지 백엔드를 선택한 후 사용된 용량과 사용 가능한 용량, 데이터 축소율 및 내부 네트워크 관리 IP 주소를 볼 수도 있습니다.
+
+.단계
+. NetApp Astra Plugin for VMware vSphere의 왼쪽 탐색 모음에서 * Storage backends * 를 선택합니다.
+. 요약 탭을 보려면 Astra Data Store 스토리지 백엔드를 선택합니다.
+. VASA Provider의 Used 및 Available Capacity, Data Reduction Ratio 및 Status를 검토합니다.
+. 다른 탭을 선택하여 VM, 데이터 저장소, 호스트 및 스토리지 노드에 대한 정보를 확인합니다.
+
+
+
+
+== VMware vSphere용 Astra Plugin을 사용하여 데이터 저장소를 생성합니다
+
+스토리지 백엔드를 추가하고 VMware vSphere용 Astra Plugin을 등록하면 VMware에서 데이터 저장소를 생성할 수 있습니다.
+
+데이터 센터, 컴퓨팅 또는 호스트 클러스터에 데이터 저장소를 추가할 수 있습니다.
+
+
+NOTE: 동일한 스토리지 백엔드를 사용하여 동일한 데이터 센터에 여러 데이터 저장소를 생성할 수 없습니다.
+
+NFS 프로토콜을 사용하여 VVOL 데이터 저장소 유형을 추가할 수 있습니다.
+
+.단계
+. VMware vSphere용 Astra Plugin에 액세스합니다.
+. 플러그인 메뉴에서 * Create Datastore * 를 선택합니다.
+. 새 데이터 저장소 이름, 유형(VVol) 및 프로토콜(NFS)을 입력합니다.
+. 다음 * 을 선택합니다.
+. 스토리지 페이지에서 방금 생성한 Astra Data Store 스토리지 백엔드를 선택합니다.
++
+
+TIP: 기존 데이터 저장소가 있는 스토리지 백엔드는 사용할 수 없습니다.
+
+. 다음 * 을 선택합니다.
+. 요약 페이지에서 정보를 검토합니다.
+. Create * 를 선택합니다.
++
+
+NOTE: 스캔 실패 또는 일반 시스템 오류와 관련된 오류가 발생하면 https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.storage.doc/GUID-E8EA857E-268C-41AE-BBD9-08092B9A905D.html["vCenter에서 스토리지 공급자를 다시 검색/동기화합니다"] 그런 다음 데이터 저장소를 다시 생성하십시오.
+
+
+
+
+
+== VM 스토리지 정책을 생성합니다
+
+데이터 저장소를 생성한 후 VM을 생성하기 전에 REST API UI에서 '/virtualization/api/v1/vCenters/vm-storage-policies'를 사용하여 미리 디자인된 VM 스토리지 정책을 생성해야 합니다.
+
+.단계
+. REST API UI 페이지는 https://<ads_gateway_ip>:8443` 으로 이동합니다.
+. API 'POST/virtualization/API/auth/login'으로 이동하여 사용자 이름, 암호 및 vCenter 호스트 이름을 입력합니다.
++
+응답:
+
++
+[listing]
+----
+{
+  "vmware-api-session-id": "212f4d6447b05586ab1509a76c6e7da56d29cc5b",
+  "vcenter-guid": "8e475060-b3c8-4267-bf0f-9d472d592d39"
+}
+----
+. API 'get/virtualization/api/auth/validate-session'으로 이동하여 다음 단계를 완료합니다.
++
+.. 위에서 생성한 VMware-API-session-id와 vCenter-GUID를 헤더로 사용합니다.
+.. 지금 체험하기 * 를 선택합니다.
++
+응답: (아래에서 인증이 잘림):
+
++
+[listing]
+----
+authorization: eyJhbGciOiJSUzI1NiIsInR...9h15DYYvClT3oA  connection: keep-alive  content-type: application/json  date: Wed,18 May 2022 13:31:18 GMT  server: nginx  transfer-encoding: chunked
+----
+
+
+. API '/virtualization/api/v1/vCenters/vmVM-storage-policies'로 이동하여 이전 응답에서 생성된 베어러 토큰을 'authorization'으로 추가합니다.
++
+"200" 응답이 나타나고 세 개의 VM 스토리지 정책이 생성됩니다.
+
+. vCenter 스토리지 정책 페이지에서 새 VM 스토리지 정책(Bronze, Silver, Gold 이름)을 확인합니다.
+. VM을 생성하여 계속합니다.
+
+
+
+
+== 다음 단계
+
+다음 작업을 수행할 수 있습니다.
+
+* VM을 생성합니다.
+* 데이터 저장소를 마운트합니다. 을 참조하십시오 link:../use-vmware/manage-ads-vmware.html#mount-a-datastore["데이터 저장소를 마운트합니다"].
+
+
+
+
+== 를 참조하십시오
+
+* https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center 문서"^]
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra 제품군 소개"^]
+

@@ -1,7 +1,7 @@
 ---
 sidebar: sidebar 
 permalink: release-notes/known-limitations.html 
-keywords: astra, control center, limitations, known limitations, interoperability 
+keywords: astra, astra data store, control center, limitations, known limitations, interoperability 
 summary: 알려진 제한 사항은 이 제품 릴리스에서 지원하지 않거나 올바르게 상호 운용되지 않는 플랫폼, 장치 또는 기능을 식별합니다. 이러한 제한 사항을 주의 깊게 검토하십시오. 
 ---
 = 알려진 제한 사항
@@ -11,37 +11,45 @@ summary: 알려진 제한 사항은 이 제품 릴리스에서 지원하지 않�
 :imagesdir: ../media/release-notes/
 
 
-알려진 제한 사항은 이 제품의 미리 보기 릴리스에 의해 지원되지 않거나 올바르게 상호 운용되지 않는 플랫폼, 장치 또는 기능을 식별합니다. 이러한 제한 사항을 주의 깊게 검토하십시오.
+알려진 제한 사항은 제품의 이 조기 액세스 프로그램(EAP) 릴리스에서 지원하지 않거나 제품과 올바르게 상호 운용되지 않는 플랫폼, 장치 또는 기능을 식별합니다.
 
 
 
-== 하나 이상의 노드를 제거하는 기능은 지원되지 않습니다
+== Astra Data Store 2022.05 조기 액세스 프로그램(EAP) 릴리스
 
-Astra Data Store 미리 보기는 장애가 발생한 노드 교체를 지원하지만 노드 제거 기능은 지원하지 않습니다.
-
-
-
-== 드라이브를 추가하거나 제거하는 기능은 지원되지 않습니다
-
-Astra Data Store 미리 보기는 장애가 발생한 드라이브 교체를 지원하지만 기존 클러스터에 드라이브를 추가하거나 기존 클러스터에서 드라이브를 제거하는 기능은 지원하지 않습니다.
+이 릴리스에는 알려진 제한 사항이 포함되어 있습니다. 이러한 알려진 제한 사항을 주의 깊게 검토하십시오.
 
 
 
-== Astra Data Store 미리보기 기능은 방화벽이 활성화된 상태에서 검증되지 않았습니다
+=== VMware 통합 제한 사항
 
-Astra Data Store 미리 보기를 사용하려면 호스트 방화벽(firwalld)을 비활성화해야 합니다. Calico HostEndpoint와 같은 CNI 도구를 사용하여 방화벽을 활성화하는 것은 검증되지 않았습니다.
+다음 기능은 지원되지 않습니다.
 
-
-
-== 업그레이드 또는 패치를 설치하려면 새로 설치해야 합니다
-
-Astra Data Store 미리 보기는 운영 워크로드를 대상으로 하지 않습니다.
-
+* VM 워크플로:
++
+** 템플릿의 클론을 포함하여 VM을 클론 복제합니다
+** 이전에 VM 디스크를 제거한 후 VM 디스크를 연결합니다
 
 
-== Ubuntu 기반 베어 메탈 또는 VM 패스스루 배포에는 NVMe TLC SSD가 필요합니다
+* VVOL 복제
+* VVOL 데이터 저장소를 삭제합니다
+* 일등석 디스크(FCD)
+* 마이그레이션 했습니다
+* 연결 모드 vCenter 서버
+* 규정 준수 경고 및 알림
+* 다중 vCenter 및 다중 VASA Provider 구성
++
+** vCenter당 단일 VASA Provider 구성이 지원됩니다
 
-이 제한은 RHEL, RHCOS 또는 CentOS 기반 배포에는 적용되지 않습니다.
+
+* 스토리지 정책 기반 관리는 VM 레벨에서만 가능하며 VM 생성 후에는 수정할 수 없습니다.
+
+
+
+
+==== 여러 VM 디스크의 크기를 동시에 조정할 수 없습니다
+
+이 릴리즈에서는 한 번에 하나의 디스크만 크기를 조정할 수 있습니다. 한 번에 여러 디스크의 크기를 조정하려고 하면 크기 조정 작업은 첫 번째 디스크에만 적용됩니다.
 
 
 

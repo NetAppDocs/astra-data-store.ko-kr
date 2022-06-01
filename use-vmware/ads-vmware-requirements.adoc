@@ -1,0 +1,62 @@
+---
+sidebar: sidebar 
+permalink: use-vmware/ads-vmware-requirements.html 
+keywords: astra, astra data store, requirements, vmware, vcenter, esxi 
+summary: 사용 환경이 VMware 구성 요소와 함께 Astra Data Store를 사용하기 위한 최소 요구 사항을 충족하는지 확인해야 합니다. 
+---
+= VMware 요구 사항이 있는 Astra Data Store
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+사용자 환경이 일반을 충족하는지 확인한 후 link:../get-started/requirements.html["Astra 데이터 저장소 요구 사항"]또한 VMware VASA 공급자, NetApp Astra Plugin for VMware vSphere와 같은 VMware 구성 요소에 대한 최소 요구 사항도 충족하는지 확인해야 합니다.
+
+
+
+== VMware vSphere 요구 사항
+
+Astra Data Store는 VMware VASA Provider를 API 인터페이스로 사용하여 스토리지와 통신합니다. 환경이 기본 사항을 충족하는지 확인하십시오 https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.storage.doc/GUID-BB4207DB-2DED-4E08-BC6D-DEF6D7357C63.html?hWord=N4IghgNiBcIG5gM5hAXyA["VASA 공급자 요구 사항"^] 또한 다음과 같은 추가 요구 사항이 있습니다.
+
+* VMware vSphere 7.0(업데이트 1부터 업데이트 3까지 지원)
+* 수신 트래픽에 대해 할당되지 않은 IP 주소 1개
+
+
+[NOTE]
+====
+* NetApp Astra Plugin for VMware vSphere는 vSphere 7.0 Update 3c를 지원하지 않습니다. 대신 vSphere 7.0 Update 3D를 사용하십시오.
+* NetApp Astra Plugin for VMware vSphere는 Linked Mode vCenter Server를 지원하지 않습니다.
+
+
+====
+
+
+== VMware vSphere용 NetApp Astra Plugin 요구 사항
+
+VMware vSphere용 NetApp Astra Plugin의 요구 사항은 다음과 같습니다.
+
+* Kubernetes 클러스터에서 실행 중인 Astra Control Center 인스턴스
+* Kubernetes 클러스터에서 실행 중인 라이센스 보유 Astra Data Store 인스턴스
+* Astra Data Store 클러스터에서 NFSv3이 설정되었습니다
+
+
+
+
+=== 지원되는 웹 브라우저
+
+NetApp Astra Plugin for VMware vSphere는 다음 웹 브라우저의 최신 버전을 지원합니다.
+
+* Mozilla Firefox
+* Microsoft Edge(크롬 기반)
+* Google Chrome
+
+
+
+
+== 를 참조하십시오
+
+* https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center 문서"^]
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra 제품군 소개"^]
+* link:../get-started/requirements.html["Astra 데이터 저장소 요구 사항"]
+

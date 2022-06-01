@@ -1,0 +1,181 @@
+---
+sidebar: sidebar 
+permalink: use-vmware/manage-ads-vmware.html 
+keywords: astra data store, vm, vcenter, datastore, manage 
+summary: VMware 애플리케이션을 사용하여 Astra Data Store를 관리할 수 있습니다. 
+---
+= VMware 설치의 Astra Data Store 구성 요소를 관리합니다
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+vSphere 환경과 Astra Control Center에서 다음과 같은 Astra Data Store 구성 요소를 관리할 수 있습니다.
+
+* <<Work with managed vCenters>>
+* <<Manage VMs from vSphere>>
+* <<Manage the storage backend>>
+* <<Manage datastores>>
+
+
+
+
+== 관리되는 vCenter와 함께 작업합니다
+
+다음과 같은 방법으로 관리되는 vCenter를 사용할 수 있습니다.
+
+* <<View vCenter details in Astra Control Center>>
+* <<View vCenter details in Astra Control Center>>
+* <<Unmanage a vCenter in Astra Control Center>>
+
+
+
+
+=== Astra Control Center에서 vCenter 세부 정보를 봅니다
+
+클러스터와 연결된 모든 vCenter를 확인할 수 있습니다.
+
+.단계
+. Astra Control Center 왼쪽 탐색 창에서 * Clusters * 를 선택합니다.
+. vCenter 목록을 봅니다.
+. 저장 * 을 선택합니다.
+
+
+
+
+=== Astra Control Center에서 vCenter 세부 정보를 봅니다
+
+시스템 및 클러스터의 상태를 볼 수 있습니다. Astra Control Center 대시보드를 보면 몇 개의 클러스터를 관리할 수 있는지 확인할 수 있습니다.
+
+.단계
+. Astra Control Center 왼쪽 탐색 창에서 * Clusters * 를 선택합니다.
+. vCenter를 선택합니다.
+. 정보를 봅니다.
+
+
+
+
+=== Astra Control Center에서 vCenter 관리를 해제합니다
+
+Astra Control Center에서 vCenter를 더 이상 관리하지 않으려면 관리를 해제할 수 있습니다. 그러면 Astra Control Center에서 vCenter가 제거되고 등록이 해제됩니다.
+
+
+NOTE: 먼저 이 vCenter와 연결된 클러스터, 스토리지 백엔드 및 VM을 VMware vSphere용 Astra 플러그인에서 제거해야 합니다.
+
+.단계
+. Astra Control Center 왼쪽 탐색 창에서 * Clusters * 를 선택합니다.
+. 클러스터 페이지에서 vCenter를 선택합니다.
++
+
+TIP: 또는 여러 vCenter를 선택하고 * Unmanage All * 을 선택합니다.
+
+. Actions * 메뉴를 마우스 오른쪽 버튼으로 클릭하고 * Unmanage * 를 선택합니다.
+. vCenter 관리 해제 페이지에서 "unmanage"를 입력합니다.
+. Yes, unmanage vcenter * 를 선택합니다.
+
+
+
+
+== vSphere에서 VM을 관리합니다
+
+기본 vSphere 작업을 사용하여 Astra Data Store와 연결된 VM을 관리할 수 있습니다.
+
+* https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-358BF9C1-333E-4AB4-A1CB-62BEA1C94878.html?hWord=N4IghgNiBcICYFMIIC4IAQDcC2IC+QA["VM을 삭제합니다"^]
+* https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-76E73C62-A973-4839-BB67-AC1817908E6D.html["VM의 이름을 바꿉니다"^]
+* https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-E1D541D1-DF96-467A-89B7-E84F83B2563D.html?hWord=N4IghgNiBcIMYAswDsDmBTABAZwJYC8sA3AWxAF8g["VM 크기를 조정합니다"^]
+
+
+
+NOTE: 이 릴리즈에서는 한 번에 하나의 VM 디스크만 크기를 조정할 수 있습니다. 여러 디스크의 크기를 조정하려고 하면 실패합니다.
+
+* https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-450AF515-09D4-44B6-85B2-EE848B371E58.html?hWord=N4IghgNiBcIAoHsDuBTATgAgMoBcw5QGcMEAzDMDANQEs0cBXSDAWTAGMALGgOxQ14YcnflRZIwafgAkEhHBgDCEGih44QAXyA["VM의 전원을 켜거나 끕니다"^]
+* https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-879FA851-2B24-49E6-B58F-F25D0E923D17.html?hWord=N4IghgNiBcIM4Fc4AcCmA7AJgAgGoFkQBfIA["VM을 일시 중단합니다"^]
+* https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.hostclient.doc/GUID-450AF515-09D4-44B6-85B2-EE848B371E58.html?hWord=N4IghgNiBcIAoHsDuBTATgAgMoBcw5QGcMEAzDMDANQEs0cBXSDAWTAGMALGgOxQ14YcnflRZIwafgAkEhHBgDCEGih44QAXyA["VM을 재설정합니다"^]
+
+
+기본 vCenter 작업을 사용하는 Astra Data Store에 대해 다음과 같은 스냅샷 워크플로우를 사용할 수 있습니다.
+
+* https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-9720B104-9875-4C2C-A878-F1C351A4F3D8.html["Astra Data Store의 스냅샷을 생성합니다"^]
+* https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-3E1BB630-9223-45E8-A64B-DCB90D450673.html["스냅샷을 복구합니다"^]
+* https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.vm_admin.doc/GUID-542CF191-B8DE-42F1-9CCC-D9030491AE25.html["스냅샷을 삭제합니다"^]
+
+
+
+NOTE: VVOL 런타임 오류로 인해 스냅샷 작업이 실패하는 경우가 있습니다. 이 경우 작업을 다시 시도하십시오.
+
+
+
+== 스토리지 백엔드를 관리합니다
+
+스토리지 백엔드를 제거할 수 있습니다. 스토리지 백엔드를 제거해도 데이터가 삭제되는 것이 아니라 Astra Data Store 제품 자체를 삭제하지 않습니다. VMware에서 VASA 공급자를 등록 해제하고 해당 vCenter에 대한 스토리지 백엔드의 링크를 해제하기만 하면 됩니다.
+
+
+NOTE: VASA Provider가 vCenter 외부에서 설정 및 구축된 경우 Astra Data Store만 제거할 수 있습니다. 스토리지 백엔드가 데이터 저장소 프로비저닝 프로세스의 일부로 사용되는 경우 스토리지 백엔드를 제거할 수 없습니다.
+
+Astra Data Store가 둘 이상의 vCenter와 연결되어 있지 않은 경우 vCenter를 제거하면 VASA Provider가 등록 취소되고 제거됩니다.
+
+.단계
+. VMware vSphere용 Astra Plugin에 액세스합니다. 
+. 왼쪽 탐색 창에서 * 스토리지 백엔드 * 를 선택합니다. 
+. 스토리지 백엔드 페이지에서 스토리지 백엔드 작업 메뉴를 클릭하고 * 제거 * 를 선택합니다.
+. VASA 공급자 사용자 이름 및 암호를 입력합니다. 
+. 제거 * 를 선택합니다.
+
+
+
+
+== 데이터 저장소를 관리합니다
+
+기본 vCenter 작업을 사용하여 vSphere 환경에서 Astra Data Store를 관리하고, VM 및 Astra Plugin 확장을 통해 데이터 저장소를 관리할 수 있습니다.
+
+* link:../use-vmware/setup-ads-vmware.html["데이터 저장소를 생성합니다"] 
+* <<Mount a datastore>>
+* <<Delete a datastore>>
+
+
+
+
+=== 데이터 저장소를 마운트합니다
+
+VMware vSphere용 Astra 플러그인을 사용하여 하나 이상의 추가 호스트에 데이터 저장소를 마운트할 수 있습니다.
+
+.단계
+. vCenter의 데이터 센터 인벤토리에서 Astra Data Store용 데이터 저장소를 선택합니다.
+. 데이터 저장소를 마우스 오른쪽 버튼으로 클릭하고 * VMware vSphere * 용 Astra Plugin > * 데이터 저장소 마운트 * 를 선택합니다.
+. Mount datastore on hosts 페이지에서 데이터 저장소를 마운트할 호스트를 선택합니다.
++
+
+TIP: 모든 호스트에 데이터 저장소를 마운트하려면 * 모든 호스트에 마운트 * 를 선택합니다.
+
+. Mount * 를 선택합니다.
+
+
+작업을 시작한 후 vSphere Client의 Recent Tasks 패널에서 진행률을 추적할 수 있습니다.
+
+
+NOTE: 스캔 실패 또는 일반 시스템 오류와 관련된 오류가 발생하면 https://docs.vmware.com/en/VMware-vSphere/7.0/com.vmware.vsphere.storage.doc/GUID-E8EA857E-268C-41AE-BBD9-08092B9A905D.html["vCenter에서 스토리지 공급자를 다시 검색/동기화합니다"] 그런 다음 데이터 저장소를 다시 생성하십시오.
+
+
+
+=== 데이터 저장소를 삭제합니다
+
+VMware vSphere용 Astra 플러그인을 사용하여 데이터 저장소를 삭제할 수 있습니다.
+
+
+TIP: 데이터 저장소를 삭제하려면 먼저 데이터 저장소의 모든 VM을 제거해야 합니다.
+
+.단계
+. vCenter의 데이터 센터 인벤토리에서 데이터 저장소를 선택합니다.
+. 데이터 저장소를 마우스 오른쪽 버튼으로 클릭하고 * Astra Plugin * > * Delete Datastore * 를 선택합니다.
+. 데이터 저장소 삭제 페이지에서 정보를 확인하거나 추가 권장 조치를 수행하여 데이터 저장소를 삭제할 수 있습니다.
+. 삭제 * 를 선택합니다.
+
+
+
+
+== 를 참조하십시오
+
+* https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center 문서"^]
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra 제품군 소개"^]
+

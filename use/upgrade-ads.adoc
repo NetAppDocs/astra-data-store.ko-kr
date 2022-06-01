@@ -1,0 +1,128 @@
+---
+sidebar: sidebar 
+permalink: use/upgrade-ads.html 
+keywords: astra, astra data store, kubectl, upgrade 
+summary: Astra Data Store를 최신 버전으로 업그레이드할 수 있습니다. 
+---
+= Astra Data Store를 업그레이드합니다
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/use/
+
+
+Astra Data Store를 업그레이드하여 최신 기능과 수정 사항을 활용할 수 있습니다. Astra Data Store의 kubeck 확장자로 Astra Data Store를 업그레이드할 수 있습니다.
+
+
+
+== kubectl을 사용하여 Astra Data Store를 업그레이드합니다
+
+Astra Data Store의 kubctl을 이용하여 Astra Data Store를 업그레이드할 수 있습니다.
+
+
+
+=== Astra Data Store 번들을 다운로드하고 이미지를 추출합니다
+
+.단계
+. 에 로그인합니다 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp Support 사이트"^] Astra Data Store 번들('Astra_Data_Store_2022.05.tar')을 다운로드하십시오.
+. (선택 사항) 다음 명령을 사용하여 번들의 서명을 확인합니다.
++
+[listing]
+----
+openssl dgst -sha256 -verify Astra_Data_Store_2022.05.pub -signature Astra_Data_Store_2022.05.sig 2022.12.01_ads.tar
+----
+. 디렉토리 생성:
++
+[listing]
+----
+mkdir Astra_Data_Store_2022.05
+cd Astra_Data_Store_2022.05
+----
+. 이미지 추출:
++
+[listing]
+----
+tar -vxzf <path to tar file>/Astra_Data_Store_2022.05.tar
+----
++
+
+NOTE: 이미지는 작업 디렉토리 내에 생성된 'Astrads/images' 디렉토리에 압축이 풀립니다.
+
+
+
+
+
+=== 이진 파일을 복사하고 이미지를 로컬 레지스트리에 푸시합니다
+
+.단계
+. 쿠버네티스 쿠베틀바이너리가 설치된 표준 경로에 이미지를 추출하는 데 사용한 디렉토리에서 kubbctl-astrs 바이너리를 복사합니다('/usr/bin/'은 아래 예에서 경로로 사용됨). kubbctl-astra 데이터 저장소 클러스터를 설치 및 관리하는 사용자 지정 kubtl 확장입니다.
++
+
+TIP: kubbeck 명령을 사용하여 kubbctl 바이너리가 설치된 경로를 찾습니다.
+
++
+[listing]
+----
+cp -p .astrads/bin/kubectl-astrads /usr/bin/.
+----
+. Astra Data Store 이미지 디렉토리의 파일을 로컬 레지스트리에 추가합니다.
++
+
+NOTE: 아래 이미지의 자동 로드에 대한 샘플 스크립트를 참조하십시오.
+
++
+.. 레지스트리에 로그인합니다.
++
+[listing]
+----
+docker login [your_registry_path]
+----
+.. 환경 변수를 레지스트리 경로로 설정하여 Astra Data Store 이미지를 푸시합니다(예: REpo.company.com`).
++
+[listing]
+----
+export REGISTRY=repo.company.com/astrads
+----
+.. 다음 스크립트를 실행하여 이미지를 Docker에 로드하고, 이미지에 태그를 지정한 다음 이미지를 로컬 레지스트리에 푸시합니다.
++
+[listing]
+----
+for astraImageFile in $(ls astrads/images/*.tar) ; do
+   astraImage=$(docker load --input ${astraImageFile} | sed 's~Loaded image(s): ~~')
+   astraImageShort=`echo $astraImage | sed 's~.*/~~'`
+   docker tag ${astraImage} ${REGISTRY}/${astraImageShort}
+   docker push ${REGISTRY}/${astraImageShort}
+done
+sed -i 's~\[YOUR REGISTRY\]~'${REGISTRY}'~' ./astrads/manifests/*.yaml
+----
+
+
+
+
+
+
+=== 업그레이드를 수행합니다
+
+.단계
+. Astradsoperator.YAML 파일을 로컬 디렉토리에 복사합니다.
++
+[source, sh]
+----
+cp /PATH/TO/FILE/astradsoperator.yaml ./
+----
+. 운용자를 업그레이드 한다. 대문자의 인수를 환경에 적합한 정보로 바꿉니다.
++
+[source, kubectl]
+----
+kubectl-astrads upgrade ads-operator --repository-url REPOSITORY_URL --operator-yaml astradsoperator.yaml
+----
+. Astra Data Store 업그레이드를 시작합니다. 대문자의 인수를 환경에 적합한 정보로 바꿉니다.
++
+[source, kubectl]
+----
+kubectl-astrads upgrade ads-version --repository-url REPOSITORY_URL --ads-version-yaml ./astrads/manifests/astradsversion.yaml
+----
++
+업그레이드가 시작되었다는 메시지가 나타나고 완료하는 데 몇 분 정도 걸립니다.
+
+

@@ -1,0 +1,89 @@
+---
+sidebar: sidebar 
+permalink: use-vmware/monitor-ads-vmware.html 
+keywords: astra, astra data store, vmware, vcenter, esxi 
+summary: vCenter 플러그인을 사용하여 Astra Data Store 성능을 모니터링할 수 있습니다. 
+---
+= VMware 설치의 구성 요소를 모니터링합니다
+:hardbreaks:
+:allow-uri-read: 
+:icons: font
+:imagesdir: ../media/get-started/
+
+
+NetApp Astra Plugin for VMware vSphere를 사용하여 Astra Data Store 설치의 구성 요소를 모니터링할 수 있습니다. 스토리지 백엔드, VASA 공급자, VM 및 VVOL을 비롯한 시스템의 상태를 모니터링할 수 있습니다. 용량 및 vCenter 정보를 볼 수도 있습니다.
+
+
+
+== VMware vSphere용 Astra Plugin 대시보드를 사용하여 시스템 상태를 모니터링합니다
+
+VMware 환경에서 Astra Data Store를 관리하려면 스토리지 백엔드 및 VASA 공급업체의 전반적인 상태를 모니터링해야 합니다.
+
+NetApp Astra Plugin for VMware vSphere 대시보드를 사용하여 다음 정보를 확인할 수 있습니다.
+
+* 이 vCenter에서 사용되는 모든 스토리지 백엔드의 물리적 용량 및 사용 가능한 용량입니다. 정보 위로 마우스를 가져가면 자세한 정보를 볼 수 있습니다.
+* 정상 상태가 아닌 스토리지 백엔드 및 VASA 공급자
+* 상위 10개 VM의 지연 시간, IOPS, 처리량, 용량 활용률
+
+
+대시보드에서 다음과 같은 몇 가지 추가 작업을 수행할 수 있습니다.
+
+* 용량을 모니터링합니다
+* 기존 스토리지 백엔드를 사용합니다. 을 참조하십시오 link:../use-vmware/setup-ads-vmware.html["저장소 백엔드를 설정합니다"].
+* 제품 설명서에 액세스합니다
+
+
+.대시보드 검토 단계
+. VMware vSphere용 Astra Plugin에 액세스합니다.
+. 개요 페이지에서 다음 섹션을 검토합니다.
++
+.. * 스토리지 백엔드 * 섹션: 스토리지 백엔드와 VASA 공급자 모두의 상태를 클릭하여 해당 상태에 대한 세부 정보를 볼 수 있습니다. 을 클릭하여 모든 스토리지 백엔드를 볼 수도 있습니다.
+.. * 스토리지 백엔드 용량 * 섹션: 선택한 vCenter에서 스토리지 백엔드에 대해 사용된 총 물리적 용량과 사용 가능한 용량을 검토합니다. vCenter Server를 변경하려면 오른쪽 위에 있는 vCenter Server 옵션을 클릭합니다.
+.. * 가상 머신 * 섹션: 10대 용량 사용률이 가장 높은 가상 머신을 검토합니다.
+
+
+
+
+
+TIP: 대신 표 제목을 클릭하여 대기 시간이 긴 상위 10개 VM과 같이 원하는 항목을 표시할 수 있습니다.
+
+.다른 보기에서 Astra Data Store를 모니터링하는 단계입니다
+. Astra Data Store 구성 요소를 모니터링하려면 다음 보기에 액세스하십시오.
++
+** * 가상 머신 * 탭: 최상위 10개의 VM만 나열되는 대시보드와 비교하여 Astra Data Store에서 관리하는 모든 VM을 나열합니다.
+** * Storage * 드릴다운: 스토리지 시스템과 연결된 호스트, 가상 머신 및 데이터 저장소를 표시합니다.
+** * VM Storage * view(VM 스토리지 * 보기): VASA 공급자가 생성한 VVOL에 대한 세부 정보를 제공합니다.
+
+
+
+
+
+
+== 스토리지 백엔드 임계값 설정을 검토합니다
+
+스토리지 백엔드 용량 임계값 설정은 스토리지 백엔드의 모든 데이터 저장소에 알림 메시지가 표시되는 시기를 제어합니다.
+
+Astra Plugin for VMware vSphere를 사용하여 스토리지 백엔드를 구축 또는 추가할 때 다음과 같은 기본 임계값이 설정됩니다.
+
+* 90% 차 있는 경우 빨간색 경고가 생성됩니다
+* 80% 차 있음 은 노란색 경고를 생성합니다
+
+
+VMware에서 시스템에서 알림을 생성하는 레벨을 볼 수 있습니다.
+
+
+NOTE: Astra Data Store Early Access Program의 경우 여러 데이터 센터에서 동일한 스토리지 컨테이너를 사용하는 경우 데이터 저장소에 대한 잘못된 알람이 표시될 수 있습니다.
+
+.단계
+. VMware vSphere용 NetApp Astra Plugin에 액세스합니다.
+. 왼쪽 탐색 창에서 * 설정 * 을 선택합니다.
+. 설정 임계값을 검토합니다.
+
+
+
+
+== 를 참조하십시오
+
+* https://docs.netapp.com/us-en/astra-control-center/["Astra Control Center 문서"^]
+* https://docs.netapp.com/us-en/astra-family/intro-family.html["Astra 제품군 소개"^]
+

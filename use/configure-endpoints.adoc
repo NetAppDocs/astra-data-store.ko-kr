@@ -13,23 +13,22 @@ summary: 예를 들어, Astra Data Store와 함께 kubtl 명령을 사용하여 
 
 EMS(이벤트 관리 시스템) 로그를 모니터링하려면 다음과 같은 높은 수준의 작업을 수행해야 합니다.
 
-* <<Configure monitoring in the Astra Data Store preview cluster custom resource (CR)>>
+* <<Configure monitoring in the Astra Data Store cluster custom resource (CR)>>
 * <<Set up Cloud Insights>>
 * <<Stream event logs to Elastic>>.
 
 
 
 
-== Astra 데이터 저장소 미리 보기 클러스터 사용자 지정 리소스(CR)에서 모니터링 구성
+== Astra Data Store 클러스터 사용자 지정 리소스(CR)에서 모니터링 구성
 
-Astra Data Store preview cluster CR에 모니터링 옵션이 구성되어 있지 않은 경우 "Astrads" 확장을 사용하여 설정할 수 있습니다.
+Astra Data Store 클러스터 CR에 모니터링 옵션이 구성되어 있지 않은 경우 "Astrads" 확장을 사용하여 설정할 수 있습니다.
 
 입력:
 
 [listing]
 ----
-~% kubectl astrads monitoring setup -n <NAMESPACE OF AGENT INSTALLED>
-   -r <DOCKER REPO TO FIND FLUENT/TELEGRAF ETC IMAGES>
+kubectl astrads monitoring setup -n <NAMESPACE OF AGENT INSTALLED> -r <DOCKER REPO TO FIND FLUENT/TELEGRAF ETC IMAGES>
 ----
 여기서,
 
@@ -41,7 +40,7 @@ Astra Data Store preview cluster CR에 모니터링 옵션이 구성되어 있�
 
 == Cloud Insights를 설정합니다
 
-로그를 보려면 Cloud Insights 설정은 선택 사항이지만 Cloud Insights를 사용하여 데이터를 보는 것이 좋습니다. 을 참조하십시오 link:../use/monitor-with-cloud-insights.html["NetApp Cloud Insights 설정 방법"] Astra 데이터 저장소 미리 보기와 함께 사용할 수 있습니다.
+로그를 보려면 Cloud Insights 설정은 선택 사항이지만 Cloud Insights를 사용하여 데이터를 보는 것이 좋습니다. 을 참조하십시오 link:../use/monitor-with-cloud-insights.html["NetApp Cloud Insights 설정 방법"] Astra Data Store와 함께 사용
 
 
 
@@ -53,7 +52,7 @@ EMS 이벤트 및 기타 POD 로그를 Elastic 등의 타사 엔드포인트로 
 
 [listing]
 ----
-~% kubectl astrads monitoring --host <ELASTIC HOST NAME> --port <ELASTIC HOST PORT> es
+kubectl astrads monitoring --host <ELASTIC HOST NAME> --port <ELASTIC HOST PORT> es
 ----
 
 NOTE: 탄성 호스트 이름은 IP 주소일 수 있습니다.
