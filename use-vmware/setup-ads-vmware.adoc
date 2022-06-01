@@ -33,7 +33,6 @@ VMware와 함께 Astra Data Store를 설치하기 전에 다음 사항을 확인
 NOTE: Astra Data Store Early Access Program(EAP) 릴리스의 경우 Astra Control Center 및 Astra Data Store를 두 개의 서로 다른 Kubernetes 클러스터에 구축해야 합니다.
 
 * Astra Control Center 및 Astra Data Store를 구축하는 데 사용된 Kubernetes 클러스터는 Astra Control Center에서 이미 관리해야 합니다.
-* NFSv3이 설정되어 있습니다.
 * vCenter를 추가하기 전에 Astra Control Center 및 VASA 공급자 패키지를 업로드했습니다. https://docs.netapp.com/us-en/astra-control-center/use/manage-packages-acc.html["소프트웨어 패키지 관리 를 참조하십시오"^].
 
 
