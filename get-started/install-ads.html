@@ -843,7 +843,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-01 01:15:02 +0000">06/01/2022</time>
+    <time datetime="2022-06-02 16:30:23 +0000">06/02/2022</time>
     
   
 
@@ -967,7 +967,7 @@ Rancher RKE 환경과 함께 Astra Data Store를 설치하려면 설치 단계�
 <img src="/us-en/astra-data-store/images/note.svg" alt="참고">
 </td>
 <td class="content">
-이전 버전의 번들에 대한 지침은 을 참조하십시오 <a href="../acc-earlier-versions.html">"해당 버전에 대한 설명서입니다"</a>.
+이전 버전의 번들에 대한 지침은 을 참조하십시오 <a href="../ads-earlier-versions.html">"해당 버전에 대한 문서"</a>.
 </td>
 </tr>
 </table>
@@ -1094,6 +1094,19 @@ sed -i 's~\[YOUR REGISTRY\]~'${REGISTRY}'~' ./astrads/manifests/*.yaml</pre>
 <div class="paragraph">
 <p>다음 절차는 Red Hat OpenShift Container Platform(OCP)에서의 배포에만 사용하십시오. OCP Kubernetes가 아닌 클러스터에 구축할 경우 이 절차를 건너뛰십시오.</p>
 </div>
+<div class="ulist">
+<ul>
+<li>
+<p>Namespace를 생성하여 Astra Data Store를 구축합니다</p>
+</li>
+<li>
+<p>사용자 지정 SCC를 생성합니다</p>
+</li>
+<li>
+<p>역할 및 역할 바인딩을 만듭니다</p>
+</li>
+</ul>
+</div>
 <div class="exampleblock">
 <div class="title">예 1. 세부 정보</div>
 <div class="content">
@@ -1199,8 +1212,8 @@ volumes:
 <div class="listingblock">
 <div class="content">
 <pre># oc get scc/ads-privileged
-NAME             PRIV   CAPS    SELINUX    RUNASUSER   FSGROUP    SUPGROUP   PRIORITY     READONLYROOTFS   VOLUMES
-ads-privileged   true   ["*"]   RunAsAny   RunAsAny    RunAsAny   RunAsAny   &lt;no value&gt;   false            ["*"]
+NAME           PRIV  CAPS  SELINUX  RUNASUSER FSGROUP   SUPGROUP  PRIORITY   READONLYROOTFS  VOLUMES
+ads-privileged true  ["*"] RunAsAny RunAsAny  RunAsAny  RunAsAny  &lt;no value&gt; false           ["*"]
 #</pre>
 </div>
 </div>
@@ -1296,7 +1309,7 @@ subjects:
 <div class="sect2">
 <h3 id="개인-이미지-레지스트리를-구성합니다">개인 이미지 레지스트리를 구성합니다</h3>
 <div class="paragraph">
-<p>특정 환경의 선택적 단계로서 구성을 변경하여 비밀을 사용하는 개인 레지스트리에서 이미지를 가져올 수 있습니다.</p>
+<p>특정 환경의 선택적 단계로서 암호를 사용하는 개인 레지스트리에서 이미지를 가져올 수 있도록 구성을 변경할 수 있습니다.</p>
 </div>
 <div class="olist arabic">
 <ol class="arabic">
@@ -1330,7 +1343,7 @@ subjects:
 <img src="/us-en/astra-data-store/images/note.svg" alt="참고">
 </td>
 <td class="content">
-이 변경 사항은 사용자가 적용할 때 적용됩니다 <a href="#Install the Astra Data Store operator">Astra Data Store 운영자를 설치합니다</a>.
+이러한 변경 사항은 사용자가 적용할 때 적용됩니다 <a href="#Install the Astra Data Store operator">Astra Data Store 운영자를 설치합니다</a>.
 </td>
 </tr>
 </table>
@@ -1366,7 +1379,7 @@ astrads/manifests/configuration.yaml</pre>
 </div>
 </li>
 <li>
-<p>kubeck 적용 시 운용자 배치:</p>
+<p>kubbeck apply를 사용하여 운용자를 배치한다.</p>
 <div class="listingblock">
 <div class="content">
 <pre>kubectl apply -f ./astrads/manifests/astradsoperator.yaml</pre>
@@ -1382,7 +1395,7 @@ astrads/manifests/configuration.yaml</pre>
 <img src="/us-en/astra-data-store/images/note.svg" alt="참고">
 </td>
 <td class="content">
-네임스페이스 응답은 표준 설치를 수행했는지 또는 을 수행했는지에 따라 다를 수 있습니다 <a href="../get-started/install-ads.html#openshift-procedure">"OCP 설치"</a>.
+네임스페이스 응답은 표준 설치를 수행했는지 또는 을 수행했는지에 따라 다를 수 있습니다 <a href="../get-started/install-ads.html#openshift-procedure">"OpenShift Container Platform 설치"</a>.
 </td>
 </tr>
 </table>
@@ -1488,7 +1501,7 @@ astrads-operator-5ffb94fbf-7ln4h    1/1     Running   0          17m</pre>
 <div class="olist arabic">
 <ol class="arabic">
 <li>
-<p>kubeck을 사용하여 구축 적용:</p>
+<p>kubbeck apply를 이용한 구축:</p>
 <div class="listingblock">
 <div class="content">
 <pre>kubectl apply -f ./astrads/manifests/astradsversion.yaml</pre>
@@ -1545,8 +1558,8 @@ astrads-operator-5ffb94fbf-7ln4h              1/1     Running   0          2m10s
 </div>
 <div class="listingblock">
 <div class="content">
-<pre>NAME                     ADSCLUSTER                 VALID   PRODUCT             EVALUATION  ENDDATE     VALIDATED
-e100000006-ads-capacity  astrads-example-cluster    true    Astra Data Store    true        2023-01-23  2022-04-04T14:38:54Z</pre>
+<pre>NAME                    ADSCLUSTER               VALID PRODUCT          EVALUATION  ENDDATE     VALIDATED
+e100000006-ads-capacity astrads-example-cluster  true  Astra Data Store true        2023-01-23  2022-04-04T14:38:54Z</pre>
 </div>
 </div>
 </li>
