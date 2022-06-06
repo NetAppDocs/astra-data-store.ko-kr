@@ -277,35 +277,27 @@
     </div>
   </div>
   <div class="n-property-bar__toolbar">
-    <!-- Start Language Selector --><div id="ie-i18n" class="n-property-bar__lang-selector">
-      <div id="ie-i18n-menu">
-      <span class="ie-i18n-lang">한국어</span>
-        <button class="ie-i18n-icon-container" type="button">
+    <!-- Start Language Selector --><div id="language-dropdown" class="custom-dropdown custom-dropdown-lang">
+      <div class="custom-dropdown-select custom-dropdown-select-lang">
+      <span class="lang-name">한국어</span>
           <svg class="n-globe__icon" aria-labelledby="title">
             <title>globe</title>
             <use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="/ko-kr/astra-data-store/common/svg/sprite.svg#globe"></use>
           </svg>
         </button>
       </div>
-      <div id="n-property-navigation-bar__menu--language-selector" class="ie-i18n-results-container n-menu n-menu--v3 n-menu--is-active" style="display: none;">
-        <div class="n-language-selector-menu">
-          <ul class="n-menu__list">
-            <li class="n-menu__list-column">
-              <ul class="n-menu__list"><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/us-en/astra-data-store/get-started/requirements.html" class="n-menu__header-text"><span translate="no" class="notranslate">English</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ja-jp/astra-data-store/get-started/requirements.html" class="n-menu__header-text"><span translate="no" class="notranslate">日本語</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/ko-kr/astra-data-store/get-started/requirements.html" class="n-menu__header-text"><span translate="no" class="notranslate">한국어</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-cn/astra-data-store/get-started/requirements.html" class="n-menu__header-text"><span translate="no" class="notranslate">简体中文</span></a>
-                </li><li class="n-menu__list-item n-menu__list-item--level-1">
-                  <a href="https://docs.netapp.com/zh-tw/astra-data-store/get-started/requirements.html" class="n-menu__header-text"><span translate="no" class="notranslate">繁體中文</span></a>
-                </li></ul>
-            </li>
-          </ul>
-        </div>
-      </div>
+
+      <ul class="custom-dropdown-menu"><li>
+          <a href="https://docs.netapp.com/ko-kr/astra-data-store/get-started/requirements.html" target="_self"><span translate="no" class="notranslate">한국어</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/us-en/astra-data-store/get-started/requirements.html" target="_self"><span translate="no" class="notranslate">English</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/ja-jp/astra-data-store/get-started/requirements.html" target="_self"><span translate="no" class="notranslate">日本語</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-cn/astra-data-store/get-started/requirements.html" target="_self"><span translate="no" class="notranslate">简体中文</span></a>
+        </li><li>
+          <a href="https://docs.netapp.com/zh-tw/astra-data-store/get-started/requirements.html" target="_self"><span translate="no" class="notranslate">繁體中文</span></a>
+        </li></ul>
     </div><!-- End Language Selector -->
 
     <div class="n-property-bar__cta"></div>
@@ -679,7 +671,7 @@
     $("#toggleContainerPdf").toggle('display');
     $(".n-pdf-body-container .zip-pdf-link-container").toggle('display');
   });
-</script><div class="sidebar-nav-container">
+</script><div class="sidebar-nav-container" id="mysidebardiv">
   <ul id="mysidebar" class="nav"><li class=" "><a class="na-navbar-padding" href="/ko-kr/astra-data-store/index.html">
         Astra Data Store 문서
       </a></li><li class="subfolders "><a href="/ko-kr/astra-data-store/release-notes/rn_overview.html">
@@ -843,7 +835,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-06-01 01:15:02 +0000">06/01/2022</time>
+    <time datetime="2022-06-06 15:59:07 +0000">06/06/2022</time>
     
   
 
@@ -1216,6 +1208,130 @@ Astra Data Store에는 스토리지 프로비저닝 및 오케스트레이션을
 </tr>
 </table>
 </div>
+<div class="sect2">
+<h3 id="방화벽-고려-사항">방화벽 고려 사항</h3>
+<div class="paragraph">
+<p>네트워크 방화벽 트래픽 필터링을 적용하는 환경에서는 아래 표에 나와 있는 포트 및 프로토콜에 들어오는 트래픽을 허용하도록 방화벽을 구성해야 합니다. IP 주소 열은 다음과 같은 약어를 사용합니다.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>MIP: 각 노드의 관리 인터페이스에 있는 기본 IP 주소입니다</p>
+</li>
+<li>
+<p>CIP: 각 노드의 클러스터 인터페이스에 있는 기본 IP 주소입니다</p>
+</li>
+<li>
+<p>DIP: 노드에 구성된 하나 이상의 데이터 IP 주소입니다</p>
+</li>
+<li>
+<p>MVIP: 하나의 클러스터 노드에 구성된 관리 가상 IP 주소입니다</p>
+</li>
+</ul>
+</div>
+<table class="tableblock frame-all grid-all stretch">
+<colgroup>
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+<col style="width: 25%;">
+</colgroup>
+<thead>
+<tr>
+<th class="tableblock halign-left valign-top">포트/프로토콜</th>
+<th class="tableblock halign-left valign-top">IP 주소입니다</th>
+<th class="tableblock halign-left valign-top">목적</th>
+<th class="tableblock halign-left valign-top">참고</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">111/TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">딥</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS 를 참조하십시오</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">데이터 IP는 런타임 시 클러스터 노드 간에 이동합니다. 각 노드는 모든 데이터 IP(또는 전체 서브넷)에 대해 이 트래픽을 허용해야 합니다.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">442/TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API를 참조하십시오</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">635/TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">딥</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS 를 참조하십시오</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">데이터 IP는 런타임 시 클러스터 노드 간에 이동합니다. 각 노드는 모든 데이터 IP(또는 전체 서브넷)에 대해 이 트래픽을 허용해야 합니다.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2010/UDP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">클러스터/노드 검색</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">응답을 포함하여 UDP 포트 2010과 UDP 포트 2010을 오가는 유니캐스트 및 브로드캐스트 트래픽을 모두 포함합니다.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2049/TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">딥</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS 를 참조하십시오</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">데이터 IP는 런타임 시 클러스터 노드 간에 이동합니다. 각 노드는 모든 데이터 IP(또는 전체 서브넷)에 대해 이 트래픽을 허용해야 합니다.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2181-2183/TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">분산 통신</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2443/TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API를 참조하십시오</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">2443/TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MVIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">API를 참조하십시오</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MVIP 주소는 모든 클러스터 노드에서 호스팅할 수 있으며 필요할 때 런타임에 재배치됩니다.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4000-4006/TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">클러스터 내 RPC</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">4045-4046/TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">딥</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">NFS 를 참조하십시오</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">데이터 IP는 런타임 시 클러스터 노드 간에 이동합니다. 각 노드는 모든 데이터 IP(또는 전체 서브넷)에 대해 이 트래픽을 허용해야 합니다.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">7700/TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">세션 관리자</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9919/TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">MIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DMS API</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">9920/TCP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">딥</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">DMS REST 서버</p></td>
+<td class="tableblock halign-left valign-top"></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock">ICMP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">CIP + DIP</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">노드 내 통신, 상태 점검</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">데이터 IP는 런타임 시 클러스터 노드 간에 이동합니다. 각 노드는 모든 데이터 IP(또는 전체 서브넷)에 대해 이 트래픽을 허용해야 합니다.</p></td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 </div>
 <div class="sect1">
@@ -1444,4 +1560,5 @@ Astra Data Store에는 스토리지 프로비저닝 및 오케스트레이션을
     </script>
     <script src='/ko-kr/astra-data-store/js/www-ntap.js'></script>
     <script src='/ko-kr/astra-data-store/js/tabbed-blocks.js'></script>
+    <script src='/ko-kr/astra-data-store/js/sidebar.js'></script>
   </body></html>
