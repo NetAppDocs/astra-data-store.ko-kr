@@ -1460,4 +1460,5 @@
   <block id="7d6fe0dd606232f7155fdeae2ea620a9" category="cell">ICMP</block>
   <block id="467653e20f06c3650935c1eb1ce36030" category="cell">CIP + DIP</block>
   <block id="9715191847525c91e6fda56e2ee0a99e" category="cell">노드 내 통신, 상태 점검</block>
+  <block id="9fb754c9c56f6f84f2fe43112a05f265" category="admonition">Astra Data Store Early Access Program(EAP) 릴리스의 경우 Astra Control Center를 사용하여 Astra Data Store를 관리하고 VMware 워크플로우를 활성화하려면 "pcloud" 네임스페이스에만 Astra Control Center를 배포하십시오.</block>
 </blocks>
