@@ -69,7 +69,7 @@ VMware vSphere용 Astra Plugin을 등록하는 첫 번째 vCenter를 추가합�
 vCenter를 Astra Control Center에 추가하려면 관리 권한이 있어야 합니다.
 
 
-TIP: VMware vSphere에 플러그인을 등록하면 VMware vSphere용 Astra Plugin 아이콘이 VMware 바로 가기 페이지에 나타납니다.
+TIP: VMware vSphere에 플러그인을 등록하면 VMware vSphere용 Astra Plugin 아이콘이 VMware 바로 가기 페이지에 나타납니다. VMware vSphere용 Astra Plugin을 등록해도 플러그인이 즉시 나타나지 않는 경우가 있습니다. 이 경우 몇 초 정도 기다린 후 브라우저를 새로 고치십시오.
 
 . Astra Control Center에 로그인합니다.
 . 왼쪽 탐색 창에서 * 클러스터 * 를 선택합니다.

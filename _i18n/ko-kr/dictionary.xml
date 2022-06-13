@@ -754,7 +754,6 @@
   <block id="99320689299afd3e34c2f05893a58082" category="section-title">Astra Control Center를 사용하여 vCenter를 추가합니다</block>
   <block id="acdeb9262b02646a369977cf27e262c0" category="paragraph">VMware vSphere용 Astra Plugin을 등록하는 첫 번째 vCenter를 추가합니다.</block>
   <block id="ba7fc14966a7c37356c6bda604dad7ed" category="paragraph">vCenter를 Astra Control Center에 추가하려면 관리 권한이 있어야 합니다.</block>
-  <block id="aa0c899a11c221e5e7e9558dca793d69" category="admonition">VMware vSphere에 플러그인을 등록하면 VMware vSphere용 Astra Plugin 아이콘이 VMware 바로 가기 페이지에 나타납니다.</block>
   <block id="0fad596c25ef36a260c47293acf33a48" category="list-text">Add vCenter * 를 선택합니다.</block>
   <block id="a0a8b1aa27af5f2fc2bcfc0acdda85d5" category="list-text">vCenter Server 세부 정보, vCenter 포트, 관리 사용자 이름 및 암호를 입력하여 Astra Control Center에 제공합니다.</block>
   <block id="947bcbd9c287211ea4b30b8fb1a45b2e" category="admonition">이를 통해 VMware vSphere Client에 이 vCenter용 Astra Plugin을 구축할 수 있습니다.</block>
@@ -1461,4 +1460,5 @@
   <block id="467653e20f06c3650935c1eb1ce36030" category="cell">CIP + DIP</block>
   <block id="9715191847525c91e6fda56e2ee0a99e" category="cell">노드 내 통신, 상태 점검</block>
   <block id="9fb754c9c56f6f84f2fe43112a05f265" category="admonition">Astra Data Store Early Access Program(EAP) 릴리스의 경우 Astra Control Center를 사용하여 Astra Data Store를 관리하고 VMware 워크플로우를 활성화하려면 "pcloud" 네임스페이스에만 Astra Control Center를 배포하십시오.</block>
+  <block id="a013c4206bb1d6d5c2ec96679a9ea56d" category="admonition">VMware vSphere에 플러그인을 등록하면 VMware vSphere용 Astra Plugin 아이콘이 VMware 바로 가기 페이지에 나타납니다. VMware vSphere용 Astra Plugin을 등록해도 플러그인이 즉시 나타나지 않는 경우가 있습니다. 이 경우 몇 초 정도 기다린 후 브라우저를 새로 고치십시오.</block>
 </blocks>
