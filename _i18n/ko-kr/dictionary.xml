@@ -1461,4 +1461,6 @@
   <block id="9715191847525c91e6fda56e2ee0a99e" category="cell">노드 내 통신, 상태 점검</block>
   <block id="9fb754c9c56f6f84f2fe43112a05f265" category="admonition">Astra Data Store Early Access Program(EAP) 릴리스의 경우 Astra Control Center를 사용하여 Astra Data Store를 관리하고 VMware 워크플로우를 활성화하려면 "pcloud" 네임스페이스에만 Astra Control Center를 배포하십시오.</block>
   <block id="a013c4206bb1d6d5c2ec96679a9ea56d" category="admonition">VMware vSphere에 플러그인을 등록하면 VMware vSphere용 Astra Plugin 아이콘이 VMware 바로 가기 페이지에 나타납니다. VMware vSphere용 Astra Plugin을 등록해도 플러그인이 즉시 나타나지 않는 경우가 있습니다. 이 경우 몇 초 정도 기다린 후 브라우저를 새로 고치십시오.</block>
+  <block id="7d8019149f75b25a53d2461a1eb477f2" category="inline-link">Astra Control Center의 스토리지 백엔드 클러스터에 노드를 추가합니다</block>
+  <block id="27a8ed330fb0e757a7fd3ce6f78a92d1" category="list-text"><block ref="27a8ed330fb0e757a7fd3ce6f78a92d1" category="inline-link-rx"></block></block>
 </blocks>
