@@ -1463,4 +1463,12 @@
   <block id="a013c4206bb1d6d5c2ec96679a9ea56d" category="admonition">VMware vSphere에 플러그인을 등록하면 VMware vSphere용 Astra Plugin 아이콘이 VMware 바로 가기 페이지에 나타납니다. VMware vSphere용 Astra Plugin을 등록해도 플러그인이 즉시 나타나지 않는 경우가 있습니다. 이 경우 몇 초 정도 기다린 후 브라우저를 새로 고치십시오.</block>
   <block id="7d8019149f75b25a53d2461a1eb477f2" category="inline-link">Astra Control Center의 스토리지 백엔드 클러스터에 노드를 추가합니다</block>
   <block id="27a8ed330fb0e757a7fd3ce6f78a92d1" category="list-text"><block ref="27a8ed330fb0e757a7fd3ce6f78a92d1" category="inline-link-rx"></block></block>
+  <block id="de93102ec4b436fc99e2d5c4f2461e28" category="section-title">Astra Control Center 웹 UI에서 Astra Data Store를 제거할 수 없습니다</block>
+  <block id="b7865115c7c6bc24a8349abcbc4bb445" category="paragraph">Astra Control Center 웹 UI에서 프로그램을 시작하면 Astra Data Store 제거 프로세스가 실패할 수 있습니다.</block>
+  <block id="ce9e26154d02db4cb2b8782df2d32138" category="paragraph">이 문제가 발생하면 다음 단계를 수행하십시오.</block>
+  <block id="0562e69710e3b4fd2b95653650194299" category="list-text">에 로그인합니다<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> 그리고 Astra Data Store 번들('Astra_Data_Store_2022.05.tar')을 Astra Data Store가 있는 Kubernetes 클러스터에 액세스할 수 있는 머신에 다운로드하십시오.</block>
+  <block id="7dc32dcac8a46d2290bd5cd5f198681a" category="list-text">Astra Data Store 번들을 다운로드한 시스템에 로그인합니다.</block>
+  <block id="cd111719eb2a51044ba027133eadbca4" category="list-text">번들 내용을 추출합니다.</block>
+  <block id="59f54f26ac5b828c04c0feead1cda5dc" category="list-text">제거 스크립트가 저장된 매니페스트 디렉토리로 변경합니다.</block>
+  <block id="9a73786dc4f684fddd37eafd0ce31132" category="list-text">Astra Data Store 수동 제거:</block>
 </blocks>
