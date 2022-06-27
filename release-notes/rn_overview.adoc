@@ -11,7 +11,7 @@ summary: NetApp은 새로운 기능, 개선 사항 및 버그 수정을 제공�
 :imagesdir: ../media/release-notes/
 
 
-Astra Data Store의 2022.05 조기 액세스 프로그램(EAP) 릴리스를 발표하게 되어 기쁘게 생각합니다.
+Astra Data Store의 2022.05.01 조기 액세스 프로그램(EAP) 릴리스를 발표하게 되어 기쁘게 생각합니다.
 
 * link:../release-notes/whats-new.html["Astra Data Store 이번 릴리스의 새로운 기능"]
 * link:../release-notes/known-issues.html["알려진 문제"]

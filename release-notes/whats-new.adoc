@@ -11,7 +11,20 @@ summary: NetApp은 새로운 기능, 개선 사항 및 버그 수정을 제공�
 :imagesdir: ../media/release-notes/
 
 
-Astra Data Store의 2022.05 조기 액세스 프로그램(EAP) 릴리스를 발표하게 되어 기쁘게 생각합니다.
+Astra Data Store의 2022.05.01 조기 액세스 프로그램(EAP) 릴리스를 발표하게 되어 기쁘게 생각합니다.
+
+
+
+== 2022년 6월 28일(2022.05.01 EAP 릴리스)
+
+Astra Data Store EAP 릴리스(22.05)에 대한 이 패치 릴리스(2022.05.01)에는 다음과 같은 개선 사항이 포함되어 있습니다.
+
+* 이제 Astra Data Store와 Astra Control Center를 동일한 클러스터에서 실행할 수 있습니다.
+* 이제 vSphere에서 VVOL 데이터 저장소 워크플로우를 삭제할 수 있습니다.
+
+
+
+NOTE: 이 릴리스에는 kubeck-Astra 플러그인과 함께 패키지로 제공되는 Astra Control Center의 업데이트 버전이 필요합니다.
 
 
 

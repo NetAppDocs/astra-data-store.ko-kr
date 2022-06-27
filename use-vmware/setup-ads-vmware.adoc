@@ -31,11 +31,6 @@ VMware와 함께 Astra Data Store를 설치하기 전에 다음 사항을 확인
 NOTE: Astra Data Store Early Access Program(EAP) 릴리스의 경우 Astra Control Center를 사용하여 Astra Data Store를 관리하고 VMware 워크플로우를 활성화하려면 "pcloud" 네임스페이스에만 Astra Control Center를 배포하십시오.
 
 * Astra Data Store는 라이센스가 부여되고 배포되었습니다. 을 참조하십시오 link:../get-started/install-ads.html["Astra Data Store를 설치합니다"].
-
-
-
-NOTE: Astra Data Store Early Access Program(EAP) 릴리스의 경우 Astra Control Center 및 Astra Data Store를 두 개의 서로 다른 Kubernetes 클러스터에 구축해야 합니다.
-
 * Astra Control Center 및 Astra Data Store를 구축하는 데 사용된 Kubernetes 클러스터는 Astra Control Center에서 이미 관리해야 합니다.
 * vCenter를 추가하기 전에 Astra Control Center 및 VASA 공급자 패키지를 업로드했습니다. https://docs.netapp.com/us-en/astra-control-center/use/manage-packages-acc.html["소프트웨어 패키지 관리 를 참조하십시오"^].
 
@@ -221,7 +216,7 @@ Astra Control Center UI를 사용하여 vCenter를 추가한 후 Astra Plugin fo
 
 
 
-NOTE: 추가한 vCenter가 스토리지 백엔드 마법사에 나타나는 데 10분이 걸릴 수 있습니다.
+NOTE: 추가한 스토리지 백엔드가 스토리지 백엔드 마법사에 나타나는 데 몇 분 정도 걸릴 수 있습니다.
 
 
 NOTE: Astra Data Store는 여러 vCenter와 공유해서는 안 됩니다.

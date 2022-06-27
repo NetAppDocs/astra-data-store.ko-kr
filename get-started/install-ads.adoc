@@ -58,7 +58,7 @@ NOTE: Rancher RKE 환경과 함께 Astra Data Store를 설치하려면 설치 �
 
 === Astra Data Store 번들을 다운로드하고 이미지를 추출합니다
 
-. 에 로그인합니다 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp Support 사이트"^] Astra Data Store 번들('Astra_Data_Store_2022.05.tar')을 다운로드하십시오.
+. 에 로그인합니다 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp Support 사이트"^] Astra Data Store 번들('Astra_Data_Store_2022.05.01.tar')을 다운로드하십시오.
 +
 
 NOTE: 이전 버전의 번들에 대한 지침은 을 참조하십시오 link:../ads-earlier-versions.html["해당 버전에 대한 문서"].
@@ -67,20 +67,20 @@ NOTE: 이전 버전의 번들에 대한 지침은 을 참조하십시오 link:..
 +
 [listing]
 ----
-openssl dgst -sha256 -verify Astra_Data_Store_2022.05.pub -signature Astra_Data_Store_2022.05.sig 2022.12.01_ads.tar
+openssl dgst -sha256 -verify Astra_Data_Store_2022.05.01.pub -signature Astra_Data_Store_2022.05.01.sig 2022.12.01_ads.tar
 ----
 . 디렉토리 생성:
 +
 [listing]
 ----
-mkdir Astra_Data_Store_2022.05
-cd Astra_Data_Store_2022.05
+mkdir Astra_Data_Store_2022.05.01
+cd Astra_Data_Store_2022.05.01
 ----
 . 이미지 추출:
 +
 [listing]
 ----
-tar -xvf <path to tar file>/Astra_Data_Store_2022.05.tar
+tar -xvf <path to tar file>/Astra_Data_Store_2022.05.01.tar
 ----
 +
 

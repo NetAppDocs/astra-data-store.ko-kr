@@ -654,13 +654,13 @@ Astra Control Center 웹 UI에서 프로그램을 시작하면 Astra Data Store 
 이 문제가 발생하면 다음 단계를 수행하십시오.
 
 .단계
-. 에 로그인합니다 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp Support 사이트"^] 그리고 Astra Data Store 번들('Astra_Data_Store_2022.05.tar')을 Astra Data Store가 있는 Kubernetes 클러스터에 액세스할 수 있는 머신에 다운로드하십시오.
+. 에 로그인합니다 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp Support 사이트"^] 그리고 Astra Data Store 번들('Astra_Data_Store_2022.05.01.tar')을 Astra Data Store가 있는 Kubernetes 클러스터에 액세스할 수 있는 시스템으로 다운로드합니다.
 . Astra Data Store 번들을 다운로드한 시스템에 로그인합니다.
 . 번들 내용을 추출합니다.
 +
 [listing]
 ----
-tar -xvf <path to tar file>/Astra_Data_Store_2022.05.tar
+tar -xvf <path to tar file>/Astra_Data_Store_2022.05.01.tar
 ----
 . 제거 스크립트가 저장된 매니페스트 디렉토리로 변경합니다.
 +

@@ -645,7 +645,6 @@
   <block id="17d6fb8ac6af8dbaeeb6a6b132b87546" category="paragraph">이전 릴리스에 대한 문서를 사용할 수 있습니다.</block>
   <block id="a68d5fd5578b1ccf876faffbf7c2b6b2" category="inline-link">Astra Data Store 21.12 문서</block>
   <block id="7ac58243fcf95610c6a5ad215c63ba59" category="list-text"><block ref="7ac58243fcf95610c6a5ad215c63ba59" category="inline-link-rx"></block></block>
-  <block id="62e72931f7852895f263c1d84a9880fe" category="paragraph">Astra Data Store의 2022.05 조기 액세스 프로그램(EAP) 릴리스를 발표하게 되어 기쁘게 생각합니다.</block>
   <block id="ac4b2c717b7b0e251e30e60b6b737e01" category="section-title">2022년 5월 31일(2022.05 EAP 릴리스)</block>
   <block id="a6a56368455ad5b9eba90e9f90e038b0" category="paragraph">Astra Data Store 2022.05 릴리즈에는 다음과 같은 기능이 포함되어 있습니다.</block>
   <block id="4d3b896dfa64696e99997f98fa331878" category="list-text">VMware 환경 통합:</block>
@@ -677,7 +676,6 @@
   <block id="ccfbdfd1b2af5208a055a71ed33cc478" category="list-text">IP 주소는 Astra Data Store 클러스터에 할당된 클러스터/데이터 IP 주소와 동일한 서브넷에 있습니다.</block>
   <block id="b4906e06634c0db2a2ea89b7657231be" category="list-text"><block ref="b4906e06634c0db2a2ea89b7657231be" category="inline-link-macro-rx"></block></block>
   <block id="e06796f5edcbff9ec7a6b060c96e304a" category="paragraph">알려진 제한 사항은 제품의 이 조기 액세스 프로그램(EAP) 릴리스에서 지원하지 않거나 제품과 올바르게 상호 운용되지 않는 플랫폼, 장치 또는 기능을 식별합니다.</block>
-  <block id="4e6b30aaac636ff7e9473868abb3bd28" category="section-title">Astra Data Store 2022.05 조기 액세스 프로그램(EAP) 릴리스</block>
   <block id="1b5c6e7907cf9c46f5edaff42bd11410" category="paragraph">이 릴리스에는 알려진 제한 사항이 포함되어 있습니다. 이러한 알려진 제한 사항을 주의 깊게 검토하십시오.</block>
   <block id="c2a27caa6052749bd9639e9099deaa24" category="section-title">VMware 통합 제한 사항</block>
   <block id="b7b42132f8e93917eac40b208d22bece" category="paragraph">다음 기능은 지원되지 않습니다.</block>
@@ -685,7 +683,6 @@
   <block id="87b56c556cb4ea3c4e3cb8ed83104abd" category="list-text">템플릿의 클론을 포함하여 VM을 클론 복제합니다</block>
   <block id="6a776555e801e78b60b64313ae7f49ea" category="list-text">이전에 VM 디스크를 제거한 후 VM 디스크를 연결합니다</block>
   <block id="7ae1684f637daf6b4d5eee857fd95c23" category="list-text">VVOL 복제</block>
-  <block id="778e60f63232bef57ef209fa59253415" category="list-text">VVOL 데이터 저장소를 삭제합니다</block>
   <block id="24f1bc28ac1357d77fb82fad5469c402" category="list-text">일등석 디스크(FCD)</block>
   <block id="d86030abdf90a0e463f815e6366bf38e" category="list-text">마이그레이션 했습니다</block>
   <block id="fc8417a1a9c240603c6ea7ed80dfce1f" category="list-text">연결 모드 vCenter 서버</block>
@@ -739,7 +736,6 @@
   <block id="2f3aed0a9846bf51daa98694af299373" category="list-text">Astra Control Center는<block ref="1b027c268f1a7b02c2d20e35deb0e665" category="inline-link-rx"></block> 및 설정.</block>
   <block id="cc41262b7d4f903b7e21bdf37c1621f9" category="inline-link-macro">Astra Data Store를 설치합니다</block>
   <block id="be85c0739cb66db5730a127fc4eeca0b" category="list-text">Astra Data Store는 라이센스가 부여되고 배포되었습니다. 을 참조하십시오 <block ref="14497a94943dc819ca2bc8999e1f8acf" category="inline-link-macro-rx"></block>.</block>
-  <block id="bcbfdb4e0453703e1cacd04a44fcf331" category="admonition">Astra Data Store Early Access Program(EAP) 릴리스의 경우 Astra Control Center 및 Astra Data Store를 두 개의 서로 다른 Kubernetes 클러스터에 구축해야 합니다.</block>
   <block id="0dfd76a1e74c0c1c369c6c72f51214c5" category="list-text">Astra Control Center 및 Astra Data Store를 구축하는 데 사용된 Kubernetes 클러스터는 Astra Control Center에서 이미 관리해야 합니다.</block>
   <block id="6ce81e904046a779dc90e25023f4c1fb" category="inline-link">소프트웨어 패키지 관리 를 참조하십시오</block>
   <block id="943cdfda279a36415463cde698fbed02" category="list-text">vCenter를 추가하기 전에 Astra Control Center 및 VASA 공급자 패키지를 업로드했습니다.<block ref="72710cc45af0accb224cb54ac4340dda" category="inline-link-rx"></block>.</block>
@@ -781,7 +777,6 @@
   <block id="16f74d858b39be1bcbf559502f3c45cb" category="list-text">선택한 vCenter에 기존 스토리지 백엔드를 추가합니다.</block>
   <block id="bf6158455b90408eeed049516045305c" category="list-text">선택한 vCenter에 VASA 공급자를 등록합니다. VASA Provider는 VMware와 Astra Data Store 간의 통신을 제공합니다.</block>
   <block id="5f217a62c0901005d1459081ec1ec864" category="list-text">스토리지 백엔드에 VASA 공급자 자체 서명 인증서를 추가합니다.</block>
-  <block id="2fcdf56e9820af40c4076985811b5041" category="admonition">추가한 vCenter가 스토리지 백엔드 마법사에 나타나는 데 10분이 걸릴 수 있습니다.</block>
   <block id="7765d8b6344ab1b3c9515185491be6b2" category="admonition">Astra Data Store는 여러 vCenter와 공유해서는 안 됩니다.</block>
   <block id="afb52bd4ad10674bfac7c825c61edd25" category="list-text">VMware vSphere용 NetApp Astra Plugin에 액세스합니다.</block>
   <block id="f1383a5412284a8236d8b2ec9c6c3f68" category="list-text">왼쪽 탐색 창에서 * VMware vSphere * 용 Astra Plugin * 을 선택하거나 바로 가기 페이지에서 * VMware vSphere * 용 Astra Plugin 아이콘을 선택합니다.</block>
@@ -1051,7 +1046,6 @@
   <block id="795aa22c96e8d729c55ba7303fa7e009" category="section-title">kubectl을 사용하여 Astra Data Store를 업그레이드합니다</block>
   <block id="d833fef079ebe2baa7496e1b45577aab" category="paragraph">Astra Data Store의 kubctl을 이용하여 Astra Data Store를 업그레이드할 수 있습니다.</block>
   <block id="cff845c73924c3a40205fc396d36a2fe" category="section-title">Astra Data Store 번들을 다운로드하고 이미지를 추출합니다</block>
-  <block id="f35cbb5775f17e10040fc2b8cbf4f5b4" category="list-text">에 로그인합니다<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> Astra Data Store 번들('Astra_Data_Store_2022.05.tar')을 다운로드하십시오.</block>
   <block id="8c93a35342633c66859b2546d31b54c3" category="list-text">디렉토리 생성:</block>
   <block id="acf4107a11f6cc11e8352b3d6bbcb10d" category="admonition">이미지는 작업 디렉토리 내에 생성된 'Astrads/images' 디렉토리에 압축이 풀립니다.</block>
   <block id="3864427ab96992f87c91866fcf100c4b" category="list-text">쿠버네티스 쿠베틀바이너리가 설치된 표준 경로에 이미지를 추출하는 데 사용한 디렉토리에서 kubbctl-astrs 바이너리를 복사합니다('/usr/bin/'은 아래 예에서 경로로 사용됨). kubbctl-astra 데이터 저장소 클러스터를 설치 및 관리하는 사용자 지정 kubtl 확장입니다.</block>
@@ -1466,9 +1460,18 @@
   <block id="de93102ec4b436fc99e2d5c4f2461e28" category="section-title">Astra Control Center 웹 UI에서 Astra Data Store를 제거할 수 없습니다</block>
   <block id="b7865115c7c6bc24a8349abcbc4bb445" category="paragraph">Astra Control Center 웹 UI에서 프로그램을 시작하면 Astra Data Store 제거 프로세스가 실패할 수 있습니다.</block>
   <block id="ce9e26154d02db4cb2b8782df2d32138" category="paragraph">이 문제가 발생하면 다음 단계를 수행하십시오.</block>
-  <block id="0562e69710e3b4fd2b95653650194299" category="list-text">에 로그인합니다<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> 그리고 Astra Data Store 번들('Astra_Data_Store_2022.05.tar')을 Astra Data Store가 있는 Kubernetes 클러스터에 액세스할 수 있는 머신에 다운로드하십시오.</block>
   <block id="7dc32dcac8a46d2290bd5cd5f198681a" category="list-text">Astra Data Store 번들을 다운로드한 시스템에 로그인합니다.</block>
   <block id="cd111719eb2a51044ba027133eadbca4" category="list-text">번들 내용을 추출합니다.</block>
   <block id="59f54f26ac5b828c04c0feead1cda5dc" category="list-text">제거 스크립트가 저장된 매니페스트 디렉토리로 변경합니다.</block>
   <block id="9a73786dc4f684fddd37eafd0ce31132" category="list-text">Astra Data Store 수동 제거:</block>
+  <block id="c4775cb95f8ef138043d5ef5ce4eab9f" category="list-text">에 로그인합니다<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> Astra Data Store 번들('Astra_Data_Store_2022.05.01.tar')을 다운로드하십시오.</block>
+  <block id="7b452bb6f26fd06e969c64e0ae1fdbf8" category="admonition">추가한 스토리지 백엔드가 스토리지 백엔드 마법사에 나타나는 데 몇 분 정도 걸릴 수 있습니다.</block>
+  <block id="869ded6326067da65c878a02cf007fc4" category="list-text">에 로그인합니다<block ref="597f520ad144b88897e1238f7cbf692c" category="inline-link-rx"></block> 그리고 Astra Data Store 번들('Astra_Data_Store_2022.05.01.tar')을 Astra Data Store가 있는 Kubernetes 클러스터에 액세스할 수 있는 시스템으로 다운로드합니다.</block>
+  <block id="58d68db0455b52c09ddec6316fea59f7" category="paragraph">Astra Data Store의 2022.05.01 조기 액세스 프로그램(EAP) 릴리스를 발표하게 되어 기쁘게 생각합니다.</block>
+  <block id="12a92c198bbb8e43c122c18973cd12f6" category="section-title">2022년 6월 28일(2022.05.01 EAP 릴리스)</block>
+  <block id="201beebdbd13dbefde4ec99e5d894779" category="paragraph">Astra Data Store EAP 릴리스(22.05)에 대한 이 패치 릴리스(2022.05.01)에는 다음과 같은 개선 사항이 포함되어 있습니다.</block>
+  <block id="ae9feba372efc57607e3e9b624b617d3" category="list-text">이제 Astra Data Store와 Astra Control Center를 동일한 클러스터에서 실행할 수 있습니다.</block>
+  <block id="c094c67915de70d3ed1cc9aa8856262b" category="list-text">이제 vSphere에서 VVOL 데이터 저장소 워크플로우를 삭제할 수 있습니다.</block>
+  <block id="d56c12b83d78eba04b61c91ad11d6682" category="admonition">이 릴리스에는 kubeck-Astra 플러그인과 함께 패키지로 제공되는 Astra Control Center의 업데이트 버전이 필요합니다.</block>
+  <block id="7be882efe20b993fddd0b3da5938ae7f" category="section-title">Astra Data Store 2022.05.01 조기 액세스 프로그램(EAP) 릴리스</block>
 </blocks>

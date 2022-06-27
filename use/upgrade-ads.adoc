@@ -24,25 +24,25 @@ Astra Data Store의 kubctl을 이용하여 Astra Data Store를 업그레이드�
 === Astra Data Store 번들을 다운로드하고 이미지를 추출합니다
 
 .단계
-. 에 로그인합니다 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp Support 사이트"^] Astra Data Store 번들('Astra_Data_Store_2022.05.tar')을 다운로드하십시오.
+. 에 로그인합니다 https://mysupport.netapp.com/site/products/all/details/astra-data-store/downloads-tab["NetApp Support 사이트"^] Astra Data Store 번들('Astra_Data_Store_2022.05.01.tar')을 다운로드하십시오.
 . (선택 사항) 다음 명령을 사용하여 번들의 서명을 확인합니다.
 +
 [listing]
 ----
-openssl dgst -sha256 -verify Astra_Data_Store_2022.05.pub -signature Astra_Data_Store_2022.05.sig 2022.12.01_ads.tar
+openssl dgst -sha256 -verify Astra_Data_Store_2022.05.01.pub -signature Astra_Data_Store_2022.05.01.sig 2022.12.01_ads.tar
 ----
 . 디렉토리 생성:
 +
 [listing]
 ----
-mkdir Astra_Data_Store_2022.05
-cd Astra_Data_Store_2022.05
+mkdir Astra_Data_Store_2022.05.01
+cd Astra_Data_Store_2022.05.01
 ----
 . 이미지 추출:
 +
 [listing]
 ----
-tar -vxzf <path to tar file>/Astra_Data_Store_2022.05.tar
+tar -vxzf <path to tar file>/Astra_Data_Store_2022.05.01.tar
 ----
 +
 
